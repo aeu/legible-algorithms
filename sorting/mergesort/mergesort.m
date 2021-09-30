@@ -49,6 +49,10 @@ NSMutableArray *mergeSort(NSMutableArray *array_being_sorted)
         NSMutableArray *merged = merge( sorted_left, sorted_right );
         return merged;
     }
+    //
+    // An array with a length of 1 we can assume is already sorted, so
+    // we don't have do anything.
+    //
     return array_being_sorted;
 }
 
@@ -61,6 +65,9 @@ NSMutableArray *mergeSort(NSMutableArray *array_being_sorted)
  */
 NSMutableArray *merge(NSMutableArray *left, NSMutableArray *right)
 {
+    //
+    // Add sentinels to the arrays to simplify the code.
+    //
     [left addObject:[NSNumber numberWithInt:INT_MAX]];
     [right addObject:[NSNumber numberWithInt:INT_MAX]];
     
@@ -107,5 +114,21 @@ int main(int argc, char **argv)
     NSMutableArray *sorted = mergeSort( to_be_sorted );
     sort_time = fabs([start timeIntervalSinceNow]);
     printf("Merge sort of %d integers took %.3fs\n", number_count, sort_time );
+
+#if 0
+    //
+    // uncomment this to test.  Will sort a small array of itegers.
+    //
+    number_count = 17;
+    to_be_sorted = [[NSMutableArray alloc] init];
+    for(int nindex=0;nindex<number_count;nindex++ )
+    {
+        [to_be_sorted addObject:[NSNumber numberWithInt:arc4random_uniform(20)]];
+    }
+    dumpArray( to_be_sorted );
+    sorted = mergeSort( to_be_sorted );
+    dumpArray( sorted );
+#endif
+
 }
 
