@@ -27,5 +27,5 @@ Explanation: The answer is not 11, because the island must be connected 4-direct
 
 Solution:
 I liked this problem because it allowed me to use my favourite GoF
-pattern, Composite, recursion, which is also cool, and a Depth First
+pattern, Composite.  It's also recursive, which is cool, and has a Depth First
 traversal.
