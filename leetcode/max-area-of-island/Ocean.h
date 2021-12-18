@@ -8,17 +8,21 @@
 #define Ocean_h
 #import <Foundation/Foundation.h>
 
-
 typedef struct _OceanLocation {
     int row;
     int column;
 } OceanLocation;
 
+typedef NS_ENUM(NSInteger, NodeType) {
+    WATER,
+    LAND,
+    UNDEFINED
+};
+
 typedef struct _OceanNode {
-    int land;
+    int type;
     int parentIsland;
 } OceanNode;
-
 
 @interface Ocean : NSObject {
     int current_island_id;
