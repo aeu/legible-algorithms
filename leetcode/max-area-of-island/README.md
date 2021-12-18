@@ -1,4 +1,4 @@
-# Max Area of Island.
+# 695 - Max Area of Island.
 
 Source : leetcode.
 
@@ -25,7 +25,11 @@ Output: 6
 Explanation: The answer is not 11, because the island must be connected 4-directionally.
 
 
-Solution:
+Comments:
+I enjoyed this problem because it allowed me to use my favourite GoF pattern, Composite.  It also includes a recursive Depth First traversal, which is cool.
+
+
+My solution to this a
 I liked this problem because it allowed me to use my favourite GoF
 pattern, Composite.  It's also recursive, which is cool, and has a Depth First
 traversal.
