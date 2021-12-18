@@ -1,6 +1,4 @@
-# 695 - Max Area of Island.
-
-Source : leetcode.
+# Leetcode No.695 - Max Area of Island.
 
 You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.
 
@@ -27,9 +25,3 @@ Explanation: The answer is not 11, because the island must be connected 4-direct
 
 Comments:
 I enjoyed this problem because it allowed me to use my favourite GoF pattern, Composite.  It also includes a recursive Depth First traversal, which is cool.
-
-
-My solution to this a
-I liked this problem because it allowed me to use my favourite GoF
-pattern, Composite.  It's also recursive, which is cool, and has a Depth First
-traversal.
