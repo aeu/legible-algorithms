@@ -37,10 +37,6 @@ void dumpArray(NSMutableArray *data)
  * given a base index and an array, re-arranges the data so that the
  * tree whose root is at the index is max heaped.
  *
- * Note that we are using the 0th element of the array to store the
- * heap size, which we can do because the data structure assumes a
- * root index that starts at 1 and c arrays start at 0.
- *
  * @param data array of integers being sorted
  * @param index of the root of the tree
  *
@@ -102,6 +98,16 @@ void buildMaxHeap( NSMutableArray *data)
     }
 }
 
+
+/**
+ * Does a heapsort on the array of data.
+ * Note that we are using the 0th element of the array to store the
+ * heap size, which we can do because the data structure assumes a
+ * root index that starts at 1 and c arrays start at 0.
+ * 
+ * @param data the data to be sorted
+ *
+ */
 
 void doHeapsort( NSMutableArray *data )
 {
