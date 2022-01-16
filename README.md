@@ -6,4 +6,19 @@ As a result of this, programmers often try to emulate this style, producing code
 
 This is a collection of my implementations that are (hopefully) easier to read, as well as my own test of Cunningham's Law.
 
-aeu.
+
+## Sorting & Searching
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/heapsort">Heapsort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press.</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/mergesort">Mergesort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press.</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/quicksort">Quicksort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press.</a>  
+
+
+## Puzzles & Problems
+
+### Leetcode
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/skyline">Leetcode No. 218 &mdash; The Skyline Problem</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/max-area-of-island">Leetcode No. 695 &mdash; Max Area of Island</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/sum-of-subarray-ranges">Leetcode No. 2104 &mdash; Sum of Subarray Ranges</a>  
+
