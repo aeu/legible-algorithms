@@ -1,4 +1,4 @@
-# Leetcode No.2104 - Sum of Subarray Ranges
+# Leetcode No.2104 - Sum of Subarray Ranges (medium)
 
 You are given an integer array nums. The range of a subarray of nums is the difference between the largest and smallest element in the subarray.
 
