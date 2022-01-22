@@ -9,19 +9,19 @@
 #include <stdio.h>
 #include <string.h>
 
-int reverse(int x)
+int reverse(int candidate)
 {
     int retval;
 
-    // we know that the limit is 2^32, which is a 10 character long
-    // string, so 16 is enough space
+    // we know that the limit is 2^32-1, which is a 10 character long
+    // string (4294967295), so 16 is enough space.
     
     char in[16];
     char out[16];
     memset( &in[0], 0, 16 );
     memset( &out[0], 0, 16 );
     
-    sprintf( in, "%d", x );
+    sprintf( in, "%d", candidate );
     int out_index = 0;
     
     // loop through the string backwards, and copy it character by
@@ -47,7 +47,7 @@ int reverse(int x)
 
     // if the input was negative, make the output negative as well.
     
-    if( x < 0 )
+    if( candidate < 0 )
         retval *= -1;
     
     return retval;
