@@ -18,6 +18,7 @@ This is a collection of my implementations that are (hopefully) easier to read, 
 
 ### Leetcode
 
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/reverse-integer">Leetcode No. 7 &mdash; Reverse Integer</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/skyline">Leetcode No. 218 &mdash; The Skyline Problem</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/max-area-of-island">Leetcode No. 695 &mdash; Max Area of Island</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/sum-of-subarray-ranges">Leetcode No. 2104 &mdash; Sum of Subarray Ranges</a>  
