@@ -28,6 +28,8 @@ Step 3: "42" ("42" is read in)
            ^
 The parsed integer is 42.
 Since 42 is in the range [-231, 231 - 1], the final result is 42.
+
+
 Example 2:
 
 Input: s = "   -42"
@@ -41,16 +43,18 @@ Step 3: "   -42" ("42" is read in)
                ^
 The parsed integer is -42.
 Since -42 is in the range [-231, 231 - 1], the final result is -42.
+
+
 Example 3:
 
 Input: s = "4193 with words"
 Output: 4193
 Explanation:
-Step 1: "4193 with words" (no characters read because there is no leading whitespace)
+Step 1: "4193 with words" (no characters read because there is no leading whitespace)  
          ^
-Step 2: "4193 with words" (no characters read because there is neither a '-' nor '+')
+Step 2: "4193 with words" (no characters read because there is neither a '-' nor '+')  
          ^
-Step 3: "4193 with words" ("4193" is read in; reading stops because the next character is a non-digit)
+Step 3: "4193 with words" ("4193" is read in; reading stops because the next character is a non-digit)  
              ^
 The parsed integer is 4193.
 Since 4193 is in the range [-231, 231 - 1], the final result is 4193.
@@ -58,5 +62,5 @@ Since 4193 is in the range [-231, 231 - 1], the final result is 4193.
 
 Constraints:
 
-0 <= s.length <= 200
+0 <= s.length <= 200  
 s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
