@@ -28,4 +28,4 @@ A subpath of a path is a contiguous sequence of cities within that path.
 
 
 ## Solution Notes:
-The main assumption to make this run faster is to understand that for any group of paths, the longest possible subpath will always be the shortest of all the paths.  So my approach was to first find the shortest of the input paths, and then use it and its subpaths as the source for all possible candidate solutions.
+The main assumption to make this run faster is to understand that for any group of paths, the longest possible subpath will always be the shortest of all the paths.  So my approach was to first find the shortest of the input paths, and then use it and its subpaths as the source for all possible candidate solutions.  Also since the goal is to find the longest common subpath, when breaking a path into a collection of subpaths, order them from largest to smallest, then you can break on the very first hit, as it will always be the largest.
