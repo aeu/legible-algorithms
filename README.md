@@ -22,6 +22,7 @@ This is a collection of my implementations that are (hopefully) easier to read, 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/string-to-integer-atoi">Leetcode No. 8 &mdash; String to Integer</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/skyline">Leetcode No. 218 &mdash; The Skyline Problem</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/max-area-of-island">Leetcode No. 695 &mdash; Max Area of Island</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/longest-common-subpath">Leetcode No. 1923 &mdash; Longest Common Subpath</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/sum-of-subarray-ranges">Leetcode No. 2104 &mdash; Sum of Subarray Ranges</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/maximum-fruits-harvested-after-at-most-k-steps">Leetcode No. 2106 &mdash; Maximum Fruits Harvested After at Most K Steps</a>  
 
