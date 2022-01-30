@@ -59,13 +59,9 @@
     {
         bool found_in_every_path = true;
         Path *candidate_subpath = (Path *)[all_possible_subpaths objectAtIndex:subpath_index];
-        //        printf("Candidate : ");
-        // [candidate_subpath dumpPath];
         for(int path_index = 0; path_index < [_paths count]; path_index++)
         {
             current = (Path *)[_paths objectAtIndex:path_index];
-            //            printf("Testing against: ");
-            // [current dumpPath];
             if( current == shortest )
             {
                 continue;
