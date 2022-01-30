@@ -9,22 +9,21 @@ Given an integer n and a 2D integer array paths where paths[i] is an integer arr
 A subpath of a path is a contiguous sequence of cities within that path.
 
 ## Example 1
-  Input: n = 5, paths = [[0,1,2,3,4],
-                         [2,3,4],
-                         [4,0,1,2,3]]
-  Output: 2
-  Explanation: The longest common subpath is [2,3].
-
+    Input: n = 5, paths = [[0,1,2,3,4],  
+                           [2,3,4],  
+                           [4,0,1,2,3]]  
+    Output: 2  
+    Explanation: The longest common subpath is [2,3].  
 
 ## Example 2
-  Input: n = 3, paths = [[0],[1],[2]]
-  Output: 0
-  Explanation: There is no common subpath shared by the three paths.
+    Input: n = 3, paths = [[0],[1],[2]]  
+    Output: 0  
+    Explanation: There is no common subpath shared by the three paths.  
 
 ## Example 3
-  Input: n = 5, paths = [[0,1,2,3,4],
-                         [4,3,2,1,0]]
-  Output: 1
-  Explanation: The possible longest common subpaths are [0], [1], [2], [3], and [4]. All have a length of 1.
+    Input: n = 5, paths = [[0,1,2,3,4],  
+                           [4,3,2,1,0]]  
+    Output: 1  
+    Explanation: The possible longest common subpaths are [0], [1], [2], [3], and [4]. All have a length of 1.  
 
 
