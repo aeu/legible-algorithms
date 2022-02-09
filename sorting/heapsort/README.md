@@ -1,5 +1,5 @@
 # Heapsort
-An implementation of mergesort, as described in Intruduction to Algorithms.  Cormen, Leiserson, Rivest and Stein, MIT Press.
+An implementation of heapsort, as described in Intruduction to Algorithms.  Cormen, Leiserson, Rivest and Stein, MIT Press.
 
 # Notes
 Objective-C.
