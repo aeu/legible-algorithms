@@ -17,7 +17,7 @@ This is a collection of my implementations that are (hopefully) easier to read, 
 ## Puzzles & Problems
 
 ### Facebook
-<a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/balanced_split">Balanced Split (Obj-C)</a>
+<a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/balanced_split">Balanced Split (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/reverse-operations">Reverse Operations (Obj-C)</a>
 
 ### Leetcode
