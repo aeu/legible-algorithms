@@ -16,6 +16,9 @@ This is a collection of my implementations that are (hopefully) easier to read, 
 
 ## Puzzles & Problems
 
+### Facebook
+<a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/balanced_split">Balanced Split</a>
+
 ### Leetcode
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/reverse-integer">Leetcode No. 7 &mdash; Reverse Integer</a>  
