@@ -1,6 +1,6 @@
 # Heapsort
-An implementation of mergesort, as described in Intruduction to Algorithms.  Cormen, Leiserson, Rivest and Stein, MIT Press.
+An implementation of heapsort, as described in Intruduction to Algorithms.  Cormen, Leiserson, Rivest and Stein, MIT Press.
 
 # Notes
 Objective-C.
-The building of the heap is based on an index that starts with 1, but of course C arrays start at zero.  This is ok, as reserving the 0 element allows us to use it to store the heap size without needing to create a data structure for it.
+The building of the heap is based on an index that starts with 1, but of course C arrays start at zero.   Reserving the 0th element of the array allowed me to use it to store the heap size, so I was able to represent the heap in an array without creating a dedicated class/structure for it.
