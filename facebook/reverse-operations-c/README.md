@@ -26,4 +26,5 @@ list = [1, 2, 8, 9, 12, 16]
 Output:
 [1, 8, 2, 9, 16, 12]
 
-## Note - this is the same as the other solution, except I didn't use any Obj-C container classes
+## Note 
+This is the same as the other solution, except I didn't use any Obj-C container classes
