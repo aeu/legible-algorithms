@@ -1,8 +1,8 @@
 # legible-algorithms
 
-Many sample implementations of common algorithms available in textbooks or online are formatted with an emphasis on being terse, as they are often included in papers, journals or books where space is at a premium.
+Many sample implementations of common algorithms available in textbooks or online are formatted in pseudocode which by design uses indentation for block definition and additionally is written with an emphasis on being brief, as they are often included in papers, journals or books where space is at a premium.
 
-As a result of this, programmers often try to emulate this style, producing code which is unnecessarily terse and difficult to read and most importantly, difficult to maintain as they often do not follow current best practices.
+As a result of this, programmers often try to emulate this style, producing code which is unnecessarily terse, difficult to read, and most importantly difficult to maintain.
 
 This is a collection of my implementations that are (hopefully) easier to read, as well as my own test of Cunningham's Law.
 
