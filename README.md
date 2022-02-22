@@ -17,7 +17,9 @@ This is a collection of my implementations that are (hopefully) easier to read, 
 ## Puzzles & Problems
 
 ### Facebook
-<a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/balanced_split">Balanced Split (Obj-C)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/balanced-brackets">Balance Brackets (C)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/balanced-split">Balanced Split (Obj-C)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/number-of-visible-nodes">Number of Visible Nodes (C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/reverse-operations">Reverse Operations (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/reverse-operations-c">Reverse Operations C (C)</a>
 
