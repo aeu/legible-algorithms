@@ -23,10 +23,6 @@ void dumpArray(NSArray *data)
 
 bool checkArrays(NSMutableArray *array_a, NSMutableArray *array_b)
 {
-    printf("check arrays\n\t");
-    dumpArray( array_a );
-    printf("\t");
-    dumpArray( array_b );
     int array_a_sum = 0;
     int array_b_sum = 0;
     int smallest_b = INT_MAX;
