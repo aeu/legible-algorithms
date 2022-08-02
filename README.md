@@ -1,8 +1,8 @@
 # legible-algorithms
 
-Many sample implementations of common algorithms available in textbooks or online are formatted in pseudocode which by design uses indentation for block definition and additionally is written with an emphasis on being brief, as they are often included in papers, journals or books where space is at a premium and this makes them difficult to read.
+Many sample implementations of common algorithms available in textbooks or online are formatted in pseudocode, which by design uses indentation for block definition and is written with an emphasis on being brief, as they are often included in papers, journals or books where space is at a premium.  This makes them difficult to read.
 
-On top of that, new programmers often think this is actually good practice, so they try to emulate this style, which resuls in code which is unnecessarily terse, difficult to read, and most importantly, difficult to maintain.
+After seeing this type of code in books, new programmers think this is actually good practice, and they try to emulate this style, which results in code which is unnecessarily terse, difficult to read, and most importantly, difficult to maintain.
 
 This is a collection of my implementations that are (hopefully) easier to read and learn from, as well as my own test of Cunningham's Law.  They are in Obj-C and C++ because I like those languages, but if enough people as I'll post solutions in other languages.
 
