@@ -25,6 +25,7 @@ This is a collection of my implementations that are (hopefully) easier to read, 
 
 ### Leetcode
 
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/median-of-two-sorted-arrays">Leetcode No. 4 &mdash; Median of Two Sorted Arrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/reverse-integer">Leetcode No. 7 &mdash; Reverse Integer</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/string-to-integer-atoi">Leetcode No. 8 &mdash; String to Integer</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/merge-k-sorted-lists">Leetcode No. 23 &mdash; Merge K Sorted Lists</a>  
