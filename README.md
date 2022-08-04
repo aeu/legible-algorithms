@@ -1,10 +1,10 @@
 # legible-algorithms
 
-Many sample implementations of common algorithms available in textbooks or online are formatted in pseudocode which by design uses indentation for block definition and additionally is written with an emphasis on being brief, as they are often included in papers, journals or books where space is at a premium.
+Many sample implementations of common algorithms available in textbooks or online are formatted in pseudocode, which by design uses indentation for block definition and is written with an emphasis on being brief, as they are often included in papers, journals or books where space is at a premium.  This makes them difficult to read.
 
-As a result of this, programmers often try to emulate this style, producing code which is unnecessarily terse, difficult to read, and most importantly difficult to maintain.
+After seeing this type of code in books, new programmers think this is actually good practice, and they try to emulate this style, which results in code which is unnecessarily terse, difficult to read, and most importantly, difficult to maintain.
 
-This is a collection of my implementations that are (hopefully) easier to read, as well as my own test of Cunningham's Law.
+This is a collection of my implementations that are (hopefully) easier to read and learn from, as well as my own test of Cunningham's Law.  They are in Obj-C and C++ because I like those languages, but if enough people as I'll post solutions in other languages.
 
 
 ## Sorting & Searching
@@ -25,6 +25,7 @@ This is a collection of my implementations that are (hopefully) easier to read, 
 
 ### Leetcode
 
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/median-of-two-sorted-arrays">Leetcode No. 4 &mdash; Median of Two Sorted Arrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/reverse-integer">Leetcode No. 7 &mdash; Reverse Integer</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/string-to-integer-atoi">Leetcode No. 8 &mdash; String to Integer</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/merge-k-sorted-lists">Leetcode No. 23 &mdash; Merge K Sorted Lists</a>  
