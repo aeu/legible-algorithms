@@ -6,8 +6,15 @@
 //
 
 #include <stdio.h>
+#import "Graph.h"
+
 
 int main(int argc, char **argv)
 {
-  printf("BFS!\n");
+    printf("BFS!\n");
+    Graph *mygraph = [[Graph alloc] init];
+    [mygraph addConnectionFrom:@"Orlando" to:@"Miami"];
+    [mygraph addConnectionFrom:@"Orlando" to:@"Jacksonville"];
+    [mygraph addConnectionFrom:@"Orlando" to:@"Tampa"];
+    [mygraph addConnectionFrom:@"Miami" to:@"Key West"];
 }
