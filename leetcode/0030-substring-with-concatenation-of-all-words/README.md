@@ -39,8 +39,12 @@ This is two problems in one.  The first part of the problem is finding all the p
 ## Output
 
 $ make &>/dev/null ; ./swcoaw
+
 Leetcode 0030 - Substring with Concatenation of All Words
+
 [9,0]
+
 []
+
 [6,9,12]
 
