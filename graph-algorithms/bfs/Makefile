@@ -10,7 +10,8 @@ LIBRARIES:= -lobjc
 
 SOURCE=bfs.m
 
-OBJECTS = 	Graph.o	\
+OBJECTS = 	Vertex.o	\
+		Graph.o	\
 		bfs.o
 
 CFLAGS=-g -v
@@ -22,6 +23,9 @@ bfs	: $(OBJECTS)
 
 Graph.o	: Graph.m Graph.h
 	$(CC) -c Graph.m
+
+Vertex.o	: Vertex.m Vertex.h
+	$(CC) -c Vertex.m
 
 clean	:
 	rm bfs $(OBJECTS)

@@ -7,13 +7,24 @@
 
 #ifndef Graph_h
 #define Graph_h
+#import <Foundation/Foundation.h>
+#import "Vertex.h"
 
 
 @interface Graph : NSObject
 {
-    
+    NSMutableDictionary *_vertexes;
 }
+@property (nonatomic, retain) NSMutableDictionary *vertexes;
+
+-(Graph *)init;
+-(void)addConnectionFrom:(NSString *)from to:(NSString *)to;
+-(Vertex *)getVertex:(NSString *)vertex_name;
+-(void)unvisit;
+
 
 @end
+
+
 
 #endif
