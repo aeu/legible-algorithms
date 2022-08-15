@@ -31,6 +31,7 @@ This is a collection of my implementations that are (hopefully) easier to read a
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/string-to-integer-atoi">Leetcode No. 8 &mdash; String to Integer</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/merge-k-sorted-lists">Leetcode No. 23 &mdash; Merge K Sorted Lists</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0030-substring-with-concatenation-of-all-words">Leetcode No. 30 &mdash; Substring with concatenation of all words (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/trapping-rain-water">Leetcode No. 42 &mdash; Trapping Rain Water (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/remove-duplicates-from-sorted-array-ii">Leetcode No. 80 &mdash; Remove duplicates from Sorted Array II</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/skyline">Leetcode No. 218 &mdash; The Skyline Problem</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/max-area-of-island">Leetcode No. 695 &mdash; Max Area of Island</a>  
