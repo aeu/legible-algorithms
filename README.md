@@ -2,7 +2,7 @@
 
 Many sample implementations of algorithms in textbooks or online are formatted in pseudocode, which by design uses indentation for block definition.  Additionally, because they are often included in papers, journals and books where space is at a premium, they are written with an emphasis on being brief, with short variable and function names.  This makes them difficult to read.
 
-New programmers see this style of code while learning to program, and paradoxically end up thinking this actually good practice.  In practice they then try to emulate this style, which results in code which is unnecessarily terse, difficult to read, and most importantly, difficult to maintain.
+New programmers see this style of code while learning to program, and paradoxically end up thinking this actually good practice.  They then try to emulate this style, which results in code which is unnecessarily terse, difficult to read, and most importantly, difficult to maintain.
 
 This is a collection of my implementations that are (hopefully) easier to read and learn from, as well as my own test of Cunningham's Law.  They are in C, Obj-C, and C++ because all other languages are garbage.
 
