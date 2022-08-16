@@ -23,6 +23,7 @@ struct ListNode {
 };
 
 
+
 void dumpNode(ListNode *node)
 {
     if( node == nullptr )
@@ -42,15 +43,25 @@ void dumpList(ListNode *head )
     ListNode *current;
     current = head;
     int done = 0;
+    int is_first = 1;
+    printf("[");
     while( ! done  )
     {
+        if( is_first )
+        {
+            is_first = 0;
+        }
+        else
+        {
+            printf(",");
+        }
         printf("%d", current->val );
         if( current->next != nullptr )
             current = current->next;
         else
             done = 1;
     }
-    printf("\n");
+    printf("]\n");
 }
 
 
