@@ -74,15 +74,17 @@ class Solution
         
         ListNode *previous      = nullptr;
 
-        int done = 0;
-        current = head;
 
         printf("first and second\n");
         dumpNode( first_node );
         dumpNode( second_node );
 
         
-        while( ! done )
+        first_nodes_next = first_node->next;
+        second_nodes_next = second_node->next;
+        
+        current = head;
+        while(1)
         {
             if( current == first_node )
                 node_before_first = previous;
@@ -97,30 +99,39 @@ class Solution
             current = current->next;
         }
 
-
-        first_nodes_next = first_node->next;
-        second_nodes_next = second_node->next;
-        
-        printf("dumping befores\n");
-        dumpNode( node_before_first );
-        dumpNode( node_before_second );
+        // first node
+        // second node
+        // node before first
+        // node before second
+        // first nodes next
+        // second nodes next
         
         if( node_before_first != nullptr )
+        {
             node_before_first->next = second_node;
+        }
+        if( first_nodes_next != second_node )
+        {
+            second_node->next = first_nodes_next;
+        }
+        else
+        {
+            second_node->next = first_node;
+        }
+
         if( node_before_second != nullptr )
+        {
             node_before_second->next = first_node;
+        }
 
-        printf("swapped befores\n");
-        dumpNode( node_before_first );
-        dumpNode( node_before_second );
-
-        
-        first_node->next = second_nodes_next;
-        second_node->next = first_nodes_next;
-
-        printf("after\n");
-        dumpNode( first_node );
-        dumpNode( second_node );
+        if( second_nodes_next != first_node )
+        {
+            first_node->next = second_nodes_next;
+        }
+        else
+        {
+            first_node->next = second_node;
+        }
 
         if( first_node == head )
             new_head = second_node;
@@ -166,12 +177,12 @@ class Solution
         int engine_index;
         int caboose_index;
 
-        engine  = getNthNode( new_head, 3 );
-        caboose = getNthNode( new_head, 1 );
+        engine  = getNthNode( new_head, 4 );
+        caboose = getNthNode( new_head, 3 );
 
+        dumpList(new_head);
         ListNode *fred = swapNodes( new_head, engine, caboose );
-        
-        //        dumpList(fred);
+        dumpList(fred);
         
         
 #if 0
