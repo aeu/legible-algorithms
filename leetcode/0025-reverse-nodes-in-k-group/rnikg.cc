@@ -74,12 +74,6 @@ class Solution
         
         ListNode *previous      = nullptr;
 
-
-        printf("first and second\n");
-        dumpNode( first_node );
-        dumpNode( second_node );
-
-        
         first_nodes_next = first_node->next;
         second_nodes_next = second_node->next;
         
@@ -98,7 +92,7 @@ class Solution
             previous = current;
             current = current->next;
         }
-
+        // We now have the following: 
         // first node
         // second node
         // node before first
@@ -110,6 +104,10 @@ class Solution
         {
             node_before_first->next = second_node;
         }
+        //
+        // This check prevents an infinite loop if the nodes are
+        // directly following each other
+        //
         if( first_nodes_next != second_node )
         {
             second_node->next = first_nodes_next;
@@ -124,6 +122,10 @@ class Solution
             node_before_second->next = first_node;
         }
 
+        //
+        // This check prevents an infinite loop if the nodes are
+        // directly following each other
+        //
         if( second_nodes_next != first_node )
         {
             first_node->next = second_nodes_next;
@@ -172,44 +174,21 @@ class Solution
         ListNode *engine   = nullptr;
         ListNode *caboose  = nullptr;
 
-        int basis = 0;
-        int done = 0;
-        int engine_index;
-        int caboose_index;
+        int basis         = 0;
+        int done          = 0;
+        int engine_index  = 0;
+        int caboose_index = 0;
 
-        engine  = getNthNode( new_head, 4 );
-        caboose = getNthNode( new_head, 3 );
-
-        dumpList(new_head);
-        ListNode *fred = swapNodes( new_head, engine, caboose );
-        dumpList(fred);
-        
-        
-#if 0
-
-        
-        engine = getNthNode(new_head, 1 );
-        caboose = getNthNode(new_head, 0 );
-
-        printf("engine->val = %d\n",  engine->val );
-        printf("caboose->val = %d\n", caboose->val );
-        
-        new_head = swapNodes(new_head, engine, caboose );
-        //        dumpList(new_head );
-        
-        return new_head;
-        
-        
         while( ! done )
         {
-            printf("asdf\n");
-            engine_index = ( basis * k ) + k - 1;
+            engine_index  = ( basis * k ) + k - 1;
             caboose_index = basis * k;
+            engine        = getNthNode(new_head, engine_index );
+            caboose       = getNthNode(new_head, caboose_index );
 
             if(( engine != nullptr ) && ( caboose != nullptr ))
             {
                 new_head = swapNodes(new_head, engine, caboose );
-                dumpList( new_head );
             }
             else
             {
@@ -217,8 +196,6 @@ class Solution
             }
             basis++;
         }
-        return new_head;
-#endif    
         return new_head;
     }
 };
@@ -229,47 +206,29 @@ int main(int argc, char **argv)
     printf("Reverse Nodes in k-Group\n");
     Solution *lc_solution = new Solution();
 
-    ListNode five  = ListNode(5, nullptr );
-    ListNode four  = ListNode(4, &five );
-    ListNode three = ListNode(3, &four );
-    ListNode two   = ListNode(2, &three );
-    ListNode one   = ListNode(1, &two);
-
-    ListNode *head = &one;
-    ListNode *new_head = lc_solution->reverseKGroup(head, 3 );
+    {
     
-    return 0;
-    
-#if 0
-
-    ListNode *new_head = lc_solution->reverseKGroup(head, 2 );
-
-    
-
-
-    
-    ListNode *test;
-    
-
-
-    
-    test = lc_solution->getNthNode(&one, 3 );
-    printf("Node 3 = %d\n", test->val );
-    test = lc_solution->getNthNode(&one, 1 );
-    printf("Node 1 = %d\n", test->val );
-    test = lc_solution->getNthNode(&one, 0 );
-    printf("Node 0 = %d\n", test->val );
-
-    test = lc_solution->getNthNode(&one, 6 );
-    if( test == nullptr )
-        printf("6 was a null\n");
-
-    
-    
-
-    //    ListNode new_head = (ListNode)*lc_solution->swapNodes(&one, &three, &five );
-    ListNode new_head = (ListNode)*lc_solution->swapNodes(&one, &one, &five );
-    
-    dumpList(&new_head);
-#endif    
+        ListNode five  = ListNode(5, nullptr );
+        ListNode four  = ListNode(4, &five );
+        ListNode three = ListNode(3, &four );
+        ListNode two   = ListNode(2, &three );
+        ListNode one   = ListNode(1, &two);
+        
+        ListNode *head = &one;
+        dumpList( head );
+        ListNode *new_head = lc_solution->reverseKGroup(head, 2 );
+        dumpList( new_head );
+    }
+    {
+        ListNode five  = ListNode(5, nullptr );
+        ListNode four  = ListNode(4, &five );
+        ListNode three = ListNode(3, &four );
+        ListNode two   = ListNode(2, &three );
+        ListNode one   = ListNode(1, &two);
+        
+        ListNode *head = &one;
+        dumpList( head );
+        ListNode *new_head = lc_solution->reverseKGroup(head, 3 );
+        dumpList( new_head );
+    }
 }
