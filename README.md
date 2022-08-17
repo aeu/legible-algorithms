@@ -4,7 +4,7 @@ Many sample implementations of algorithms in textbooks or online are formatted i
 
 New programmers see this style of code while learning to program, and paradoxically end up thinking this is good practice.  They then try to emulate this style, which results in code which is unnecessarily terse, difficult to read, and most importantly, difficult to maintain.
 
-This is a collection of my implementations that are (hopefully) easier to read and learn from, as well as my own test of Cunningham's Law.  They are in C, Obj-C, and C++ because all other languages are garbage.
+This is a collection of my implementations that are (hopefully) easier to read and learn from, as well as my own test of Cunningham's Law.  They are in C, Obj-C, and C++ because everything important is written in C or C++.
 
 
 ## Sorting & Searching
