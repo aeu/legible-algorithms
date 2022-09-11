@@ -38,14 +38,29 @@ Explanation: The smallest positive integer 1 is missing.
 
 -231 <= nums[i] <= 231 - 1
 
+## Solution
+
+The requirement that this needs to be solved in 0(n) time and uses constant extra space pretty much gives away the solution, which is that you must track your data in a pre-allocated chunk of memory.  Anything else would break those requirements.
+
+So, allocate an array, initialize it, and then start storing values.
+
+
 ## Output
 
 %  make &>/dev/null ; ./fmp
+
 Leetcode 0041 - First Missing Positive
+
 [1,2,0]
+
 First missing 3
+
 [3,4,-1,1]
+
 First missing 2
+
 [7,8,9,11,12]
+
 First missing 1
+
 
