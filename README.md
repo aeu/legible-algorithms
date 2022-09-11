@@ -1,10 +1,10 @@
 # legible-algorithms
 
-Many sample implementations of common algorithms available in textbooks or online are formatted in pseudocode, which by design uses indentation for block definition and is written with an emphasis on being brief, as they are often included in papers, journals or books where space is at a premium.  This makes them difficult to read.
+Many sample implementations of algorithms in textbooks or online are formatted in pseudocode, which by design uses indentation for block definition.  Additionally, because they are often included in papers, journals and books where space is at a premium, they are written with an emphasis on being brief, with short variable and function names.  This makes them difficult to read.
 
-After seeing this type of code in books, new programmers think this is actually good practice, and they try to emulate this style, which results in code which is unnecessarily terse, difficult to read, and most importantly, difficult to maintain.
+New programmers see this style of code while learning to program, and paradoxically end up thinking this is good practice.  They then try to emulate this style, which results in code which is unnecessarily terse, difficult to read, and most importantly, difficult to maintain.
 
-This is a collection of my implementations that are (hopefully) easier to read and learn from, as well as my own test of Cunningham's Law.  They are in Obj-C and C++ because I like those languages, but if enough people as I'll post solutions in other languages.
+This is a collection of my implementations that are (hopefully) easier to read and learn from, as well as my own test of Cunningham's Law.  They are in C, Obj-C, and C++ because everything important is written in C or C++.
 
 
 ## Sorting & Searching
@@ -25,11 +25,14 @@ This is a collection of my implementations that are (hopefully) easier to read a
 
 ### Leetcode
 
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode No. 2 &mdash; Add two Numbers(C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/median-of-two-sorted-arrays">Leetcode No. 4 &mdash; Median of Two Sorted Arrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/reverse-integer">Leetcode No. 7 &mdash; Reverse Integer</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/string-to-integer-atoi">Leetcode No. 8 &mdash; String to Integer</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/merge-k-sorted-lists">Leetcode No. 23 &mdash; Merge K Sorted Lists</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0030-substring-with-concatenation-of-all-words">Leetcode No. 30 &mdash; Substring with concatenation of all words</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0025-reverse-nodes-in-k-group">Leetcode No. 25 &mdash; Reverse Nodes in k-Group</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0030-substring-with-concatenation-of-all-words">Leetcode No. 30 &mdash; Substring with concatenation of all words (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/trapping-rain-water">Leetcode No. 42 &mdash; Trapping Rain Water (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/remove-duplicates-from-sorted-array-ii">Leetcode No. 80 &mdash; Remove duplicates from Sorted Array II</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/skyline">Leetcode No. 218 &mdash; The Skyline Problem</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/max-area-of-island">Leetcode No. 695 &mdash; Max Area of Island</a>  
