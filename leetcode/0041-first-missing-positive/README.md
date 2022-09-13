@@ -38,7 +38,7 @@ Explanation: The smallest positive integer 1 is missing.
 
 -231 <= nums[i] <= 231 - 1
 
-## Solution
+## Notes
 
 The requirement that this needs to be solved in 0(n) time and uses constant extra space pretty much gives away the solution, which is that you must track your data in a pre-allocated chunk of memory.  Anything else would break those requirements.
 
