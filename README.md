@@ -9,9 +9,9 @@ This is a collection of my implementations that are (hopefully) easier to read a
 
 ## Sorting & Searching
 
-<a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/heapsort">Heapsort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press.</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/mergesort">Mergesort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press.</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/quicksort">Quicksort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press.</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/heapsort">Heapsort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (Obj-C)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/mergesort">Mergesort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (Obj-C)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/quicksort">Quicksort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (Obj-C)</a>  
 
 
 ## Puzzles & Problems
