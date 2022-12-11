@@ -6,13 +6,17 @@
 //  without the express written permission of red82
 
 
+#include <string>
+
+
 class Board {
  public:
   Board(int board_size);
+  Board(std::string board_description);
   void dumpBoard();
  protected:
  private:
 
   int board_size;
-  
+  std::string definition;
 };
