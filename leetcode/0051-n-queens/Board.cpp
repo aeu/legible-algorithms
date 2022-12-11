@@ -14,6 +14,11 @@ Board::Board (int board_size)
   this->board_size = board_size;
 }
 
+Board::Board(std::string board_description)
+{
+}
+
+
 void Board::dumpBoard()
 {
   printf("%d\n", board_size );
