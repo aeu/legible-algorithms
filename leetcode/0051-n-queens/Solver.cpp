@@ -78,28 +78,30 @@ void buildPermutations(std::vector<std::string> &permutations,
     }
 }
 
-std::vector<std::string> buildAllPossibleBoards(std::vector<std::string> &rows )
+std::vector<Board> buildAllPossibleBoards(int board_size)
 {
-    std::vector<std::string> boards;
+    std::vector<Board> boards;
     std::vector<std::string> permutations;
     std::vector<std::string> intermediates;
+    
+    std::vector<std::string> rows = buildAllPossibleRows(board_size);
     buildPermutations( permutations, intermediates, rows );
     for( std::string current_board : permutations )
-    { 
-        boards.push_back( current_board );
+    {
+        boards.push_back( Board(board_size, current_board ) );
     }
     return boards;
 }
 
 int main(int argc, char **argv)
 {
-    auto fred = new Board(3);
-    fred->dumpBoard();
-    auto rows = buildAllPossibleRows(4);
-    auto boards = buildAllPossibleBoards(rows);
-    for( std::string current_board : boards )
+    auto boards = buildAllPossibleBoards(1);
+    for( Board current_board : boards )
     {
-        Board fred(4, current_board);
-        fred.dumpBoard();
+        if( current_board.isNQueensSolution())
+        {
+            current_board.dumpBoard();
+            printf("is N queens solution\n");
+        }
     }
 }

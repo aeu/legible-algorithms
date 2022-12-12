@@ -15,6 +15,14 @@ public:
     Board(const int board_size);
     Board(const int board_size, const::std::string board_description);
     void dumpBoard();
+    const bool coordinatesAreValid(const int row, const int column);
+    const bool isNQueensSolution();
+    const char getPieceAtPosition(const int row, const int column);
+    
+    const int countQueensNorthEast(int row, int column);
+    const int countQueensNorthWest(int row, int column);
+    const int countQueensSouthWest(int row, int column);
+    const int countQueensSouthEast(int row, int column);
     
 protected:
 private:
