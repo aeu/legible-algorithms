@@ -32,14 +32,74 @@ std::vector<std::string> buildAllPossibleRows(int board_size)
     return rows;
 }
 
+void buildPermutations(std::vector<std::string> &permutations,
+                       std::vector<std::string> &intermediates,
+                       std::vector<std::string> &rows)
+{
+    if( ! rows.empty() )
+    {
+        std::string current_row = rows.back();
+        rows.pop_back();
+        if( intermediates.empty() )
+        {
+            intermediates.push_back( current_row );
+            buildPermutations( permutations, intermediates, rows );
+        }
+        else
+        {
+            std::string current_intermediate;
+            std::vector<std::string> next_intermediates;
+            std::vector<std::string>::iterator inter_iter;
+            for(inter_iter = intermediates.begin();
+                inter_iter != intermediates.end();
+                inter_iter++)
+            {
+                current_intermediate = (std::string)*inter_iter;
+                std::string::size_type siter = 0;
+                bool done = false;
+                while( ! done )
+                {
+                    std::string next_intermediate = current_intermediate.insert( siter, current_row );
+                    next_intermediates.push_back( next_intermediate );
+                    siter += current_row.length();
+                    current_intermediate = (std::string)*inter_iter;
+                    if( siter > current_intermediate.size() )
+                    {
+                        done = true;
+                    }
+                }
+            }
+            buildPermutations( permutations, next_intermediates, rows );
+        }
+    }
+    else
+    {
+        permutations = intermediates;
+    }
+}
+
+std::vector<std::string> buildAllPossibleBoards(std::vector<std::string> &rows )
+{
+    std::vector<std::string> boards;
+    std::vector<std::string> permutations;
+    std::vector<std::string> intermediates;
+    buildPermutations( permutations, intermediates, rows );
+    for( std::string current_board : permutations )
+    { 
+        boards.push_back( current_board );
+    }
+    return boards;
+}
 
 int main(int argc, char **argv)
 {
-  auto fred = new Board(3);
-  fred->dumpBoard();
-  auto rows = buildAllPossibleRows(3);
-  for( std::string current_row : rows )
-  {
-      printf("%s\n", current_row.c_str() );
-  }
+    auto fred = new Board(3);
+    fred->dumpBoard();
+    auto rows = buildAllPossibleRows(4);
+    auto boards = buildAllPossibleBoards(rows);
+    for( std::string current_board : boards )
+    {
+        Board fred(4, current_board);
+        fred.dumpBoard();
+    }
 }

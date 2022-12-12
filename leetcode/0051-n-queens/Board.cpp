@@ -9,18 +9,33 @@
 #include <stdio.h>
 #include "Board.hpp"
 
-Board::Board (int board_size)
+Board::Board (const int board_size)
 {
   this->board_size = board_size;
 }
 
-Board::Board(std::string board_description)
+Board::Board(const int board_size, const::std::string board_description)
+    : Board(board_size)
 {
+    definition = { board_description };
 }
 
 
 void Board::dumpBoard()
 {
-  printf("%d\n", board_size );
+    char current;
+    std::string::iterator siter;
+    int count = 0;
+    for( siter=definition.begin(); siter != definition.end(); siter++)
+    {
+        if((( count % board_size ) == 0 ) && ( count > 0 ))
+        {
+            printf("\n" );
+        }
+        current = *siter;
+        printf("%c", current );
+        count++;
+    }
+    printf("\n\n" );
 }
 
