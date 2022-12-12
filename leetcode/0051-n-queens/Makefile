@@ -8,7 +8,7 @@ CC=g++
 OBJECTS = 	Board.o	\
 		Solver.o
 
-CFLAGS=-g -v -Wall -Wc++11-extensions
+CFLAGS=-g -v -Wall -Wc++11-extensions -std=c++11
 
 solver	: $(OBJECTS)
 	$(CC) $(CFLAGS) -o solver $(OBJECTS)

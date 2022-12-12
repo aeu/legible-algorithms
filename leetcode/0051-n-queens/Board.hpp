@@ -10,13 +10,15 @@
 
 
 class Board {
- public:
-  Board(int board_size);
-  Board(std::string board_description);
-  void dumpBoard();
- protected:
- private:
-
-  int board_size;
-  std::string definition;
+    
+public:
+    Board(const int board_size);
+    Board(const int board_size, const::std::string board_description);
+    void dumpBoard();
+    
+protected:
+private:
+    
+    int board_size;
+    std::string definition;
 };
