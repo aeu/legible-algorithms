@@ -95,7 +95,8 @@ std::vector<Board> buildAllPossibleBoards(int board_size)
 
 int main(int argc, char **argv)
 {
-    auto boards = buildAllPossibleBoards(1);
+    printf("Leetcode 0051 - N-Queens\n");
+    auto boards = buildAllPossibleBoards(4);
     for( Board current_board : boards )
     {
         if( current_board.isNQueensSolution())
