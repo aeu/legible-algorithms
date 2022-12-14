@@ -25,18 +25,15 @@ const int Board::countQueensWithDirection(int row, int column, std::function<Boa
     int retval = 0;
     bool square_is_valid = true;
 
-    int local_row = row;
-    int local_column = column;
-    
     while( square_is_valid )
     {
-        auto new_coords = direction(local_row, local_column );
-        local_row    = new_coords.row;
-        local_column = new_coords.column;
-        square_is_valid = coordinatesAreValid(local_row,local_column);
+        auto new_coords = direction(row, column );
+        row    = new_coords.row;
+        column = new_coords.column;
+        square_is_valid = coordinatesAreValid(row,column);
         if( square_is_valid )
         {
-            char piece = getPieceAtPosition(local_row,local_column);
+            char piece = getPieceAtPosition(row,column);
             if( piece == 'Q' )
                 retval++;
         }
