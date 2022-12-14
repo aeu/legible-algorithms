@@ -8,6 +8,10 @@
 
 #include <string>
 
+typedef struct BoardPosition {
+    int row;
+    int column;
+} BoardPosition;
 
 class Board {
     
@@ -19,10 +23,7 @@ public:
     const bool isNQueensSolution();
     const char getPieceAtPosition(const int row, const int column);
     
-    const int countQueensNorthEast(int row, int column);
-    const int countQueensNorthWest(int row, int column);
-    const int countQueensSouthWest(int row, int column);
-    const int countQueensSouthEast(int row, int column);
+    const int countQueensWithDirection(int row, int column, std::function<BoardPosition(int, int)> direction);
     
 protected:
 private:
