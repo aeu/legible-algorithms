@@ -20,6 +20,30 @@ Board::Board(const int board_size, const::std::string board_description)
     definition = { board_description };
 }
 
+const int Board::countQueensWithDirection(int row, int column, std::function<BoardPosition(int, int)> direction)
+{
+    int retval = 0;
+    bool square_is_valid = true;
+
+    int local_row = row;
+    int local_column = column;
+    
+    while( square_is_valid )
+    {
+        auto new_coords = direction(local_row, local_column );
+        local_row    = new_coords.row;
+        local_column = new_coords.column;
+        square_is_valid = coordinatesAreValid(local_row,local_column);
+        if( square_is_valid )
+        {
+            char piece = getPieceAtPosition(local_row,local_column);
+            if( piece == 'Q' )
+                retval++;
+        }
+    }
+    return retval;
+}
+
 const bool Board::coordinatesAreValid(const int row, const int column)
 {
     if(( row < 0 ) || ( row >= board_size ))
@@ -42,80 +66,6 @@ const char Board::getPieceAtPosition(int row, int column)
     return retval;
 }
 
-
-const int Board::countQueensNorthEast(int row, int column)
-{
-    int retval = 0;
-    bool square_is_valid = true;
-    while( square_is_valid )
-    {
-        row = row - 1;
-        column = column + 1;
-        square_is_valid = coordinatesAreValid(row,column);
-        if( square_is_valid )
-        {
-            char piece = getPieceAtPosition(row,column);
-            if( piece == 'Q' )
-                retval++;
-        }
-    }
-    return retval;
-}
-const int Board::countQueensNorthWest(int row, int column)
-{
-    int retval = 0;
-    bool square_is_valid = true;
-    while( square_is_valid )
-    {
-        row = row - 1;
-        column = column - 1;
-        square_is_valid = coordinatesAreValid(row,column);
-        if( square_is_valid )
-        {
-            char piece = getPieceAtPosition(row,column);
-            if( piece == 'Q' )
-                retval++;
-        }
-    }
-    return retval;
-}
-const int Board::countQueensSouthWest(int row, int column)
-{
-    int retval = 0;
-    bool square_is_valid = true;
-    while( square_is_valid )
-    {
-        row = row + 1;
-        column = column - 1;
-        square_is_valid = coordinatesAreValid(row,column);
-        if( square_is_valid )
-        {
-            char piece = getPieceAtPosition(row,column);
-            if( piece == 'Q' )
-                retval++;
-        }
-    }
-    return retval;
-}
-const int Board::countQueensSouthEast(int row, int column)
-{
-    int retval = 0;
-    bool square_is_valid = true;
-    while( square_is_valid )
-    {
-        row = row + 1;
-        column = column + 1;
-        square_is_valid = coordinatesAreValid(row,column);
-        if( square_is_valid )
-        {
-            char piece = getPieceAtPosition(row,column);
-            if( piece == 'Q' )
-                retval++;
-        }
-    }
-    return retval;
-}
-
 const bool Board::isNQueensSolution()
 {
     bool retval = true;
@@ -128,19 +78,23 @@ const bool Board::isNQueensSolution()
             char piece = definition[ index ];
             if( piece == 'Q' )
             {
-                queen_count = countQueensNorthEast(row,column);
+                auto north_east = [](int row, int column) { return BoardPosition{ row-1, column+1 }; };
+                queen_count = countQueensWithDirection(row,column,north_east );
                 if( queen_count > 0 )
                     return false;
-                
-                queen_count = countQueensNorthWest(row,column);
+
+                auto south_east = [](int row, int column) { return BoardPosition{ row+1, column+1 }; };
+                queen_count = countQueensWithDirection(row,column,south_east );
                 if( queen_count > 0 )
                     return false;
-                
-                queen_count = countQueensSouthEast(row,column);
+
+                auto south_west = [](int row, int column) { return BoardPosition{ row+1, column-1 }; };
+                queen_count = countQueensWithDirection(row,column,south_west );
                 if( queen_count > 0 )
                     return false;
-                
-                queen_count = countQueensSouthWest(row,column);
+
+                auto north_west = [](int row, int column) { return BoardPosition{ row-1, column-1 }; };
+                queen_count = countQueensWithDirection(row,column,north_west );
                 if( queen_count > 0 )
                     return false;
             }
