@@ -100,6 +100,30 @@ const bool Board::isNQueensSolution()
     return retval;
 }
 
+
+
+const int Board::countQueensWithDirection(int row, int column, std::function<BoardPosition(int, int)> direction)
+{
+    int retval = 0;
+    bool square_is_valid = true;
+
+    while( square_is_valid )
+    {
+        auto new_coords = direction(row, column );
+        row    = new_coords.row;
+        column = new_coords.column;
+        square_is_valid = coordinatesAreValid(row,column);
+        if( square_is_valid )
+        {
+            char piece = getPieceAtPosition(row,column);
+            if( piece == 'Q' )
+                retval++;
+        }
+    }
+    return retval;
+}
+
+
 void Board::dumpBoard()
 {
     char current;
