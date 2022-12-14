@@ -28,7 +28,8 @@ This puzzle was fairly straightforward, fundamentally it's a permutations proble
 
 Once those are created, then we can check to see if they are solutions by walking through the board, and for each queen found, checking to see if there are any other queens in any of the diagonals (NE, NW, SE, SW).  If there's no more queens, then it's a solution.
 
-C++11 features used were range based for loops, the auto keyword, delegating constructors and most importantly lambda functions.  Commit <a target="_blank" href="https://github.com/aeu/legible-algorithms/commit/0ac49bcc4529d33812913ee8d45f98bd0a08ca7f">0ac49bcc</a> shows how lambda functions allows removal of huge chunks of duplicated code by allowing us to pass in only the part of the function that actually changes.
+### C++11
+Features used were range based for loops, the auto keyword, delegating constructors and most importantly lambda functions.  In particular, commit <a target="_blank" href="https://github.com/aeu/legible-algorithms/commit/cdffc8c4440b9c44b306a1f3b0787e38f5858ff8">cdffc8c4</a> shows how the use of lambda functions allowed removal of huge chunks of duplicated code by allowing us to replace four functions with one, into which we pass in only the part of the function that actually changes.
 
 ## Output
 
