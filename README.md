@@ -35,6 +35,7 @@ This is a collection of my implementations that are (hopefully) easier to read a
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0041-first-missing-positive">Leetcode No. 41 (Hard) &mdash; First Missing Positive (C++)</a>.   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/trapping-rain-water">Leetcode No. 42 (Hard) &mdash; Trapping Rain Water (C++)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0051-n-queens">Leetcode No. 51 (Hard) &mdash; N-Queens (C++11)</a>.  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0052-n-queens-ii">Leetcode No. 52 (Hard) &mdash; N-Queens II (C++11)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/remove-duplicates-from-sorted-array-ii">Leetcode No. 80 (Medium) &mdash; Remove duplicates from Sorted Array II</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/skyline">Leetcode No. 218 (Hard) &mdash; The Skyline Problem</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/max-area-of-island">Leetcode No. 695 (Medium) &mdash; Max Area of Island</a>  
