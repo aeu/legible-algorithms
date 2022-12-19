@@ -33,19 +33,19 @@ Output: "123"
 
 Half of this problem is building the permutations, which we've seen a couple of times already on Leetcode.  The way you build these is with a recursive function and you keep adding new components to existing intermediates at every possible insertion point until there's no components anymore left to add.  Like so:  
 
-components: a b c d
+components: a b c d  
 results:
 
-components: a b c
+components: a b c  
 results: d
 
-components: a b 
+components: a b   
 results: cd dc
 
-components: a 
+components: a   
 results: bcd cbd cdb bdc dbc dcb
 
-components: 
+components:   
 results: abcd bacd bcad bcda acbd cabd cbad cbda acdb cadb cdab cdba abdc badc bdac bdca adbc dabc dbac dbca adcb dacb dcab dcba
 
 When there's no more components left to be added, the results are complete.
@@ -57,11 +57,11 @@ C++11 features used were range based for loops, the auto keyword, std::advance, 
 ## Output
 
 $ ./solver 
-LeetCode #60 - Permutation Sequence
-Input: n = 3, k = 3
-213
-Input: n = 4, k = 9
-2314
-Input: n = 3, k = 1
-123
+LeetCode #60 - Permutation Sequence  
+Input: n = 3, k = 3  
+213  
+Input: n = 4, k = 9  
+2314  
+Input: n = 3, k = 1  
+123  
 
