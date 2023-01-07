@@ -21,6 +21,7 @@ Output: 4
 
 
 ## Notes
+This one is very similar to Leetcode 42, Trapping Rain water.  The solution is to walk through the array of heights.  At each step count the number of heights to the left which are as high or higher than the current height, and count the number of heights to the right which are as high or higher than the current height.  With that, we can calculate the area of the rectangle bounded by those columns.   Keep track of the biggest one and we are done.  
 
 ## Output
 
