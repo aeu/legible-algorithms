@@ -38,6 +38,7 @@ This is a collection of my implementations that are (hopefully) easier to read a
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0052-n-queens-ii">Leetcode No. 52 (Hard) &mdash; N-Queens II (C++11)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0060-permutation-sequence">Leetcode No. 60 (Hard) &mdash; Permutation Sequence (C++11,C++17)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/remove-duplicates-from-sorted-array-ii">Leetcode No. 80 (Medium) &mdash; Remove duplicates from Sorted Array II</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0084-largest-rectangle-in-histogram">Leetcode No. 84 (Hard) &mdash; Largest Rectangle in Histogram (C++11)   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/skyline">Leetcode No. 218 (Hard) &mdash; The Skyline Problem</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/max-area-of-island">Leetcode No. 695 (Medium) &mdash; Max Area of Island</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/longest-common-subpath">Leetcode No. 1923 (Hard) &mdash; Longest Common Subpath</a>  
