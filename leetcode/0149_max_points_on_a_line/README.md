@@ -4,14 +4,18 @@ Given an array of points where points[i] = [xi, yi] represents a point on the X-
 
 ## Example 1:
 
-Input: points = [[1,1],[2,2],[3,3]]
-Output: 3
+![example1](https://user-images.githubusercontent.com/2225377/213257494-c2610aa4-4a09-4e55-9b00-a03ee623cd81.jpg)
+
+Input: points = [[1,1],[2,2],[3,3]]. 
+Output: 3. 
 
 
 ## Example 2
 
-Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]
-Output: 4
+![example2](https://user-images.githubusercontent.com/2225377/213257529-708f21f0-6654-4275-bf6b-c90bc7d90995.jpg)
+
+Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]. 
+Output: 4. 
 
 
 ## Notes
