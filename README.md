@@ -1,6 +1,6 @@
 # legible-algorithms
 
-Many sample implementations of algorithms in textbooks or online are formatted in pseudocode, which by design uses indentation for block definition.  Additionally, because they are often included in papers, journals and books where space is at a premium, they are written with an emphasis on being brief, with short variable and function names.  This makes them difficult to read.
+Many sample implementations of algorithms in textbooks or online are formatted in pseudocode, which by design uses indentation for block definition to conserve vertical space.  Additionally, because they are often included in papers, journals and books where space is at a premium, they are written with an emphasis on being brief, with short variable and function names.  This makes them difficult to read.
 
 New programmers see this style of code while learning to program, and paradoxically end up thinking this is good practice.  They then try to emulate this style, which results in code which is unnecessarily terse, difficult to read, and most importantly, difficult to maintain.
 
