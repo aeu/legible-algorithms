@@ -25,7 +25,7 @@ This is a collection of my implementations that are (hopefully) easier to read a
 
 ### Leetcode
 
-Leetcode has a funny subculture.  If you look at the solutions, you will see very often things like "solution in 4 lines of C" or "solution in two lines of python" and so on.  Very reminiscent of the "Obfuscated C Code" contests from back in the day.  I get that this is fun to do (and also this is a skill that I simply don't have) but these solutions are completely useless to learn how to code.
+Leetcode has a funny subculture.  If you look at the solutions, you will see very often things like "solution in 4 lines of C" or "solution in two lines of python" and so on.  Very reminiscent of the "Obfuscated C Code" contests from back in the day.  I get that this is fun to do (and I'm also envious that this is a skill that I simply don't have) but these solutions are completely useless to learn how to code.
 
 I've been going through the problems marked "Hard" and solving them, my solutions are in a mix of Objective-C and C++ depending on what I was doing at the time.  These are hopefully easy to understand.
 
