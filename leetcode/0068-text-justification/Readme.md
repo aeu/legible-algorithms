@@ -31,7 +31,6 @@ Input: words = ["What","must","be","acknowledgment","shall","be"], maxWidth = 16
     [
     
     "What   must   be",
-    
     "acknowledgment  ",
     
     "shall be        "
@@ -44,25 +43,16 @@ Example 3:
 
 Input: words = ["Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"], maxWidth = 20
 
-  Output:
 
-
-  [
-  
-    "Science  is  what we",
-
-    "understand      well",
-
-    "enough to explain to",
-
-    "a  computer.  Art is",
-
-    "everything  else  we",
-
-    "do                  "
-
-  ]
- 
+    Output:
+    [
+      "Science  is  what we",
+      "understand      well",
+      "enough to explain to",
+      "a  computer.  Art is",
+      "everything  else  we",
+      "do                  "
+    ]
 
 Constraints:
 
