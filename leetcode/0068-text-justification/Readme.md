@@ -25,12 +25,19 @@ Output:
 Example 2:
 
 Input: words = ["What","must","be","acknowledgment","shall","be"], maxWidth = 16
-Output:
-[
-  "What   must   be",
-  "acknowledgment  ",
-  "shall be        "
-]
+
+    Output:
+    
+    [
+    
+    "What   must   be",
+    
+    "acknowledgment  ",
+    
+    "shall be        "
+    
+    ]
+
 Explanation: Note that the last line is "shall be    " instead of "shall     be", because the last line must be left-justified instead of fully-justified.
 Note that the second line is also left-justified because it contains only one word.
 Example 3:
