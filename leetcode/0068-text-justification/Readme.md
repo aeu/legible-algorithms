@@ -16,25 +16,24 @@ The input array words contains at least one word.
 Example 1:
 
 Input: words = ["This", "is", "an", "example", "of", "text", "justification."], maxWidth = 16
-Output:
-[
-   "This    is    an",
-   "example  of text",
-   "justification.  "
-]
+
+    Output:
+    [
+       "This    is    an",
+       "example  of text",
+       "justification.  "
+    ]
+    
+
 Example 2:
 
 Input: words = ["What","must","be","acknowledgment","shall","be"], maxWidth = 16
 
     Output:
-    
     [
-    
-    "What   must   be",
-    "acknowledgment  ",
-    
-    "shall be        "
-    
+      "What   must   be",
+      "acknowledgment  ",
+      "shall be        "
     ]
 
 Explanation: Note that the last line is "shall be    " instead of "shall     be", because the last line must be left-justified instead of fully-justified.
