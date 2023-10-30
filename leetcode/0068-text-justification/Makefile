@@ -5,12 +5,13 @@
 #
 CC=g++
 
-OBJECTS = 	TextJustification.o
+OBJECTS = 	Justifier.o \
+		main.o
 
 CFLAGS=-g -v -Wall -std=c++11
 
 text_justification : $(OBJECTS)
-	$(CC) $(CFLAGS) -o TestJustification $(OBJECTS)
+	$(CC) $(CFLAGS) -o text_justification $(OBJECTS)
 
 clean	:
 	rm text_justification $(OBJECTS)
