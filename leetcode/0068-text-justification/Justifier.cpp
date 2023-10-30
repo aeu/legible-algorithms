@@ -40,7 +40,6 @@ int Justifier::wordLengthOnlyForRange(int start_position, int end_position)
 
 int Justifier::minimumLengthForRange(int start_position, int end_position)
 {
-    //    printf("Justifier::minimumLengthForRange(%d,%d)\n", start_position, end_position );
     if( end_position < start_position )
     {
         printf("\tInvalid range\n");
@@ -48,6 +47,7 @@ int Justifier::minimumLengthForRange(int start_position, int end_position)
     }
     int total_length = 0;
     int current_word_index = start_position;
+
     std::string current_word;
     while(( current_word_index <= end_position )
           && ( current_word_index < words.size()))
@@ -59,7 +59,6 @@ int Justifier::minimumLengthForRange(int start_position, int end_position)
         total_length += current_word.size();
         current_word_index++;
     }
-    //    printf("\tMin length of span between '%s' and '%s' : %d\n", words[start_position].c_str(), words[end_position].c_str(), total_length );
     return total_length;
 }
 
@@ -70,8 +69,6 @@ int Justifier::dumpJustifiedLine(int start_position, int end_position, int justi
     if( gap_count == 0 )
         gap_count = 1;
     int length_of_words_only = wordLengthOnlyForRange(start_position, end_position);
-    
-    
     int space_to_be_filled   = justification_width - length_of_words_only;
     int average_space        = space_to_be_filled / gap_count ;
     int first_space          = average_space + ( space_to_be_filled % gap_count );
@@ -83,17 +80,10 @@ int Justifier::dumpJustifiedLine(int start_position, int end_position, int justi
         first_space = average_space;
     }
 
-    //    dumpWords(start_position, end_position );
-    //printf("gap count           : %d\n", gap_count         );
-    // printf("justification_width : %d\n", justification_width );
-    // printf("space to be filled  : %d\n", space_to_be_filled );
-    // printf("average_space       : %d\n", average_space      );
-    // printf("first_space         : %d\n", first_space        );
-    
     int current_word_index = start_position;
     std::string current_word;
     bool first_time = true;
-    // printf("%s\n", std::string(justification_width,'+').c_str());
+
     printf("\"", current_word.c_str());
     while( current_word_index <= end_position )
     {
