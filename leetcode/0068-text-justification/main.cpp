@@ -8,6 +8,7 @@ int main(int argc, char **argv)
 {
     char splitter[2] = " ";
     char *token;
+    printf("\n\n\n");
     {
         std::vector<std::string> words;
         char input[]  = "This is an example of text justifcation.";
@@ -55,8 +56,4 @@ int main(int argc, char **argv)
         Justifier one = Justifier( words );
         one.justify( 20 );
     }
-
-    
-
-
 }

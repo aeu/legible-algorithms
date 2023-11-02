@@ -60,3 +60,34 @@ Constraints:
 words[i] consists of only English letters and symbols.
 1 <= maxWidth <= 100
 words[i].length <= maxWidth
+
+
+
+Solution:
+There were a lot of comments on the original question complaining about how this problem shouldn't be in the Hard category.  I thought it was hard, as you have to do a decent amount of bookkeeping to solve the problem.  Also this isn't really a problem you can start banging out right away, you have think about your solution a little bit before you start typing.
+
+
+Outpout:
+$ make
+$ ./text_justification
+
+
+
+"This    is    an"
+"example  of text"
+"justifcation.   "
+
+
+
+"What   must   be"
+"acknowledgment  "
+"shall be        "
+
+
+
+"Science   is what we"
+"understand      well"
+"enough to explain to"
+"a   computer. Art is"
+"everything  else  we"
+"do                  "
