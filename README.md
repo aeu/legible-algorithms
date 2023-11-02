@@ -30,7 +30,7 @@ Leetcode has a funny subculture.  If you look at the solutions, you will see ver
 I've been going through the problems marked "Hard" and solving them, my solutions are in a mix of Objective-C and C++ depending on what I was doing at the time.  These are hopefully easy to understand.
 
 
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode No. 2 (Medium)&mdash; Add two Numbers(C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode No. 2 (Medium) &mdash; Add two Numbers(C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0004-median-of-two-sorted-arrays">Leetcode No. 4 (Hard) &mdash; Median of Two Sorted Arrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0007-reverse-integer">Leetcode No. 7 (Medium) &mdash; Reverse Integer</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0008-string-to-integer-atoi">Leetcode No. 8 (Medium) &mdash; String to Integer</a>  
