@@ -7,6 +7,10 @@ New programmers see this style of code while learning to program, and paradoxica
 This is a collection of my implementations that are (hopefully) easier to read and learn from, as well as my own test of Cunningham's Law.  They are in C, Obj-C, and C++ because everything important is written in C or C++.
 
 
+
+## Data Structures
+<a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/binary_search_tree">Binary Search Tree (Partial) &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
+
 ## Sorting & Searching
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/heapsort">Heapsort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (Obj-C)</a>  
