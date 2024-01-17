@@ -7,11 +7,13 @@ class BinarySearchTree {
 
  public:
     BinarySearchTree();
+
     void addValue(int new_value);
-    void insertNode(TreeNode *candidate);
     static void inOrderTreeWalk(TreeNode *origin);
+    void insertNode(TreeNode *candidate);
+    static TreeNode *iterativeTreeSearch(TreeNode *origin, int value);
     static TreeNode *treeSearch(TreeNode *origin, int value);
-    
+
     TreeNode *root;
 
  protected:
