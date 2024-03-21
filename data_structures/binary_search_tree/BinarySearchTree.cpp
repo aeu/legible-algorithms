@@ -74,6 +74,28 @@ TreeNode *BinarySearchTree::iterativeTreeSearch(TreeNode *origin, int value)
 }
 
 
+TreeNode *BinarySearchTree::treeMinimum(TreeNode *origin)
+{
+    TreeNode *current_node = origin;
+    while ( current_node->left != nullptr )
+    {
+        current_node = current_node->left;
+    }
+    return current_node;
+}
+
+
+TreeNode *BinarySearchTree::treeMaximum(TreeNode *origin)
+{
+    TreeNode *current_node = origin;
+    while ( current_node->right != nullptr )
+    {
+        current_node = current_node->right;
+    }
+    return current_node;
+}
+
+
 TreeNode *BinarySearchTree::treeSearch(TreeNode *origin, int value)
 {
     if( origin == nullptr )

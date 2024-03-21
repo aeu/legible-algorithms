@@ -142,4 +142,14 @@ int main(int argc, char **argv)
     target_value = 122;
     target_node = BinarySearchTree::iterativeTreeSearch( main_tree.root, target_value );
     printf("treeSearch for %d result %p\n", target_value, target_node );
+
+
+    printf("--- treeMinimum ---\n");
+    TreeNode *minimum_node = BinarySearchTree::treeMinimum( main_tree.root );
+    printf("minimum node %p, value %d \n", minimum_node, minimum_node->value );
+
+    printf("--- treeMaximum ---\n");
+    TreeNode *maximum_node = BinarySearchTree::treeMaximum( main_tree.root );
+    printf("maximum node %p, value %d \n", maximum_node, maximum_node->value );
+
 }
