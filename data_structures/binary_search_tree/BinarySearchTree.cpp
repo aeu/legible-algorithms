@@ -22,12 +22,12 @@ void BinarySearchTree::inOrderTreeWalk(TreeNode *origin)
 void BinarySearchTree::insertNode(TreeNode *candidate)
 {
     TreeNode *insertion_point         = nullptr;
-    TreeNode *base_of_insertion_point = nullptr;
+    TreeNode *insertion_points_parent = nullptr;
 
     insertion_point = root;
     while( insertion_point != nullptr )
     {
-	base_of_insertion_point = insertion_point;
+	insertion_points_parent = insertion_point;
 	if( candidate->value < insertion_point->value )
 	{
 	    insertion_point = insertion_point->left;
@@ -38,20 +38,21 @@ void BinarySearchTree::insertNode(TreeNode *candidate)
 	}
     }
 
-    if( base_of_insertion_point == nullptr )
+    if( insertion_points_parent == nullptr )
     {
 	root = candidate;
     }
     else
     {
-	if( candidate->value < base_of_insertion_point->value )
+	if( candidate->value < insertion_points_parent->value )
 	{
-	    base_of_insertion_point->left = candidate;
+	    insertion_points_parent->left = candidate;
 	}
 	else
 	{
-	    base_of_insertion_point->right = candidate;
+	    insertion_points_parent->right = candidate;
 	}
+        candidate->parent = insertion_points_parent;
     }
 }
 
