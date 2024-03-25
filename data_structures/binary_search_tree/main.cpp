@@ -147,4 +147,33 @@ int main(int argc, char **argv)
     printf("\n--- treeMaximum ---\n");
     TreeNode *maximum_node = BinarySearchTree::treeMaximum( main_tree.root );
     printf("\tmaximum node %p, value %d \n", maximum_node, maximum_node->value );
+
+    printf("\n--- treeSucessor tests ---\n");
+    TreeNode *root = main_tree.root;
+    TreeNode *candidate = BinarySearchTree::treeSearch(root, 17 );
+    TreeNode *successor = BinarySearchTree::treeSuccessor( candidate );
+    printf("\tsuccessor node to %d is %p, value %d \n", candidate->value, successor, successor->value );
+
+    candidate = BinarySearchTree::treeSearch(root, 67 );
+    successor = BinarySearchTree::treeSuccessor( candidate );
+    if( successor != nullptr )
+        printf("\tsuccessor node to %d is %p, value %d \n", candidate->value, successor, successor->value );
+    else
+        printf("\tno successor node to %d\n", candidate->value );
+
+
+    candidate = BinarySearchTree::treeSearch(root, 2 );
+    successor = BinarySearchTree::treeSuccessor( candidate );
+    if( successor != nullptr )
+        printf("\tsuccessor node to %d is %p, value %d \n", candidate->value, successor, successor->value );
+    else
+        printf("\tno successor node to %d\n", candidate->value );
+
+    candidate = BinarySearchTree::treeSearch(root, 120 );
+    successor = BinarySearchTree::treeSuccessor( candidate );
+    if( successor != nullptr )
+        printf("\tsuccessor node to %d is %p, value %d \n", candidate->value, successor, successor->value );
+    else
+        printf("\tno successor node to %d\n", candidate->value );
+
 }
