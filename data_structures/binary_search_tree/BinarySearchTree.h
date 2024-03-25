@@ -8,7 +8,7 @@ class BinarySearchTree {
  public:
     BinarySearchTree();
 
-    void addValue(int new_value);
+    TreeNode *addValue(int new_value);
     static void inOrderTreeWalk(TreeNode *origin);
     void insertNode(TreeNode *candidate);
     static TreeNode *iterativeTreeSearch(TreeNode *origin, int value);

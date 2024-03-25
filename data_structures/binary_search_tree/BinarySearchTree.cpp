@@ -2,11 +2,12 @@
 #include "BinarySearchTree.h"
 
 
-void BinarySearchTree::addValue(int new_value)
+TreeNode *BinarySearchTree::addValue(int new_value)
 {
     TreeNode *new_node = new TreeNode();
     new_node->value = new_value;
     this->insertNode( new_node );
+    return new_node;
 }
 
 void BinarySearchTree::inOrderTreeWalk(TreeNode *origin)
