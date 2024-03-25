@@ -3,7 +3,6 @@
 
 int main(int argc, char **argv)
 {
-    printf("main\n");
     BinarySearchTree main_tree;
     int new_value;
 
@@ -88,7 +87,7 @@ int main(int argc, char **argv)
     printf("\tadding value %d\n", new_value);
     main_tree.addValue( new_value );
 
-    printf("\n--- inOrderTreeWalk ---\n");
+    printf("\n--- inOrderTreeWalk ---\n\t");
     BinarySearchTree::inOrderTreeWalk( main_tree.root );
     printf("\n");
 
