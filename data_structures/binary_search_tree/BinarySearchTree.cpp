@@ -113,6 +113,21 @@ TreeNode *BinarySearchTree::treeSearch(TreeNode *origin, int value)
     return nullptr;
 }
 
+TreeNode *BinarySearchTree::treeSuccessor(TreeNode *current_node)
+{
+    if( current_node->right != nullptr )
+        return BinarySearchTree::treeMinimum( current_node->right );
+
+    TreeNode *x  = current_node;
+    TreeNode *y  = x->parent;
+    while(( y != nullptr ) && ( x == y->right ))
+    {
+        x = y;
+        y = x->parent;
+    }
+    return y;
+}
+
 BinarySearchTree::BinarySearchTree()
 {
     root = nullptr;
