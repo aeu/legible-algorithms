@@ -148,10 +148,20 @@ int main(int argc, char **argv)
     TreeNode *maximum_node = BinarySearchTree::treeMaximum( main_tree.root );
     printf("\tmaximum node %p, value %d \n", maximum_node, maximum_node->value );
 
-    printf("\n--- treeSucessor tests ---\n");
+    TreeNode *candidate;
+    TreeNode *successor;
+    TreeNode *predecessor;
     TreeNode *root = main_tree.root;
-    TreeNode *candidate = BinarySearchTree::treeSearch(root, 17 );
-    TreeNode *successor = BinarySearchTree::treeSuccessor( candidate );
+
+
+    printf("\n--- treePredecessor tests ---\n");
+    candidate = BinarySearchTree::treeSearch(root, 17 );
+    predecessor = BinarySearchTree::treePredecessor( candidate );
+    printf("\tpredecessor node to %d is %p, value %d \n", candidate->value, predecessor, predecessor->value );
+
+    printf("\n--- treeSucessor tests ---\n");
+    candidate = BinarySearchTree::treeSearch(root, 17 );
+    successor = BinarySearchTree::treeSuccessor( candidate );
     printf("\tsuccessor node to %d is %p, value %d \n", candidate->value, successor, successor->value );
 
     candidate = BinarySearchTree::treeSearch(root, 67 );

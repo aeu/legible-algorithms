@@ -113,6 +113,21 @@ TreeNode *BinarySearchTree::treeSearch(TreeNode *origin, int value)
     return nullptr;
 }
 
+TreeNode *BinarySearchTree::treePredecessor(TreeNode *current_node)
+{
+    if( current_node->left != nullptr )
+        return BinarySearchTree::treeMaximum( current_node->left );
+
+    TreeNode *x  = current_node;
+    TreeNode *y  = x->parent;
+    while(( y != nullptr ) && ( x == y->left ))
+    {
+        x = y;
+        y = x->parent;
+    }
+    return y;
+}
+
 TreeNode *BinarySearchTree::treeSuccessor(TreeNode *current_node)
 {
     if( current_node->right != nullptr )
