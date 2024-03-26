@@ -1,91 +1,52 @@
 #include <stdio.h>
 #include "BinarySearchTree.h"
 
+
+void testAddValue(BinarySearchTree *main_tree, int new_value)
+{
+    printf("\tadding value %d\n", new_value);
+    main_tree->addValue( new_value );
+}
+
+void testTreeSearch(BinarySearchTree *main_tree, int target_value)
+{
+    TreeNode *target_node = BinarySearchTree::treeSearch( main_tree->root, target_value );
+    printf("\ttreeSearch for %d result %p\n", target_value, target_node );
+}
+
+void testIterativeTreeSearch(BinarySearchTree *main_tree, int target_value)
+{
+    TreeNode *target_node = BinarySearchTree::iterativeTreeSearch( main_tree->root, target_value );
+    printf("\titerativeTreeSearch for %d result %p\n", target_value, target_node );
+}
+
+
 int main(int argc, char **argv)
 {
     BinarySearchTree main_tree;
     int new_value;
 
     printf("\n--- populating tree ---\n");
-    new_value = 15;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 22;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 17;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 2;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 5;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 45;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 12;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 6;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 4;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 100;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 120;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 88;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 67;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 54;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 32;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 29;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 33;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 97;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 44;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
-
-    new_value = 86;
-    printf("\tadding value %d\n", new_value);
-    main_tree.addValue( new_value );
+    testAddValue(&main_tree, 15 );
+    testAddValue(&main_tree, 22 );
+    testAddValue(&main_tree, 17 );
+    testAddValue(&main_tree, 2 );
+    testAddValue(&main_tree, 5 );
+    testAddValue(&main_tree, 45 );
+    testAddValue(&main_tree, 12 );
+    testAddValue(&main_tree, 6 );
+    testAddValue(&main_tree, 4 );
+    testAddValue(&main_tree, 100 );
+    testAddValue(&main_tree, 120 );
+    testAddValue(&main_tree, 88 );
+    testAddValue(&main_tree, 67 );
+    testAddValue(&main_tree, 54 );
+    testAddValue(&main_tree, 32 );
+    testAddValue(&main_tree, 29 );
+    testAddValue(&main_tree, 33 );
+    testAddValue(&main_tree, 97 );
+    testAddValue(&main_tree, 44 );
+    testAddValue(&main_tree, 86 );
 
     printf("\n--- inOrderTreeWalk ---\n\t");
     BinarySearchTree::inOrderTreeWalk( main_tree.root );
@@ -95,50 +56,21 @@ int main(int argc, char **argv)
     TreeNode *target_node;
 
     printf("\n--- treeSearch ---\n");
-
-    target_value = 17;
-    target_node = BinarySearchTree::treeSearch( main_tree.root, target_value );
-    printf("\ttreeSearch for %d result %p\n", target_value, target_node );
-
-    target_value = 13;
-    target_node = BinarySearchTree::treeSearch( main_tree.root, target_value );
-    printf("\ttreeSearch for %d result %p\n", target_value, target_node );
-
-    target_value = 15;
-    target_node = BinarySearchTree::treeSearch( main_tree.root, target_value );
-    printf("\ttreeSearch for %d result %p\n", target_value, target_node );
-
-    target_value = 120;
-    target_node = BinarySearchTree::treeSearch( main_tree.root, target_value );
-    printf("\ttreeSearch for %d result %p\n", target_value, target_node );
-
-    target_value = 122;
-    target_node = BinarySearchTree::treeSearch( main_tree.root, target_value );
-    printf("\ttreeSearch for %d result %p\n", target_value, target_node );
-
+    testTreeSearch(&main_tree, 17);
+    testTreeSearch(&main_tree, 13);
+    testTreeSearch(&main_tree, 15);
+    testTreeSearch(&main_tree, 120);
+    testTreeSearch(&main_tree, 122);
+    testTreeSearch(&main_tree, 43);
 
     printf("\n--- iterativeTreeSearch ---\n");
 
-    target_value = 17;
-    target_node = BinarySearchTree::iterativeTreeSearch( main_tree.root, target_value );
-    printf("\ttreeSearch for %d result %p\n", target_value, target_node );
-
-    target_value = 13;
-    target_node = BinarySearchTree::iterativeTreeSearch( main_tree.root, target_value );
-    printf("\ttreeSearch for %d result %p\n", target_value, target_node );
-
-    target_value = 15;
-    target_node = BinarySearchTree::iterativeTreeSearch( main_tree.root, target_value );
-    printf("\ttreeSearch for %d result %p\n", target_value, target_node );
-
-    target_value = 120;
-    target_node = BinarySearchTree::iterativeTreeSearch( main_tree.root, target_value );
-    printf("\ttreeSearch for %d result %p\n", target_value, target_node );
-
-    target_value = 122;
-    target_node = BinarySearchTree::iterativeTreeSearch( main_tree.root, target_value );
-    printf("\ttreeSearch for %d result %p\n", target_value, target_node );
-
+    testIterativeTreeSearch(&main_tree, 23);
+    testIterativeTreeSearch(&main_tree, 17);
+    testIterativeTreeSearch(&main_tree, 13);
+    testIterativeTreeSearch(&main_tree, 15);
+    testIterativeTreeSearch(&main_tree, 120);
+    testIterativeTreeSearch(&main_tree, 122);
 
     printf("\n--- treeMinimum ---\n");
     TreeNode *minimum_node = BinarySearchTree::treeMinimum( main_tree.root );
