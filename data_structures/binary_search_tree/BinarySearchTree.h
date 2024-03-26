@@ -15,6 +15,7 @@ class BinarySearchTree {
     static TreeNode *treeMinimum(TreeNode *origin);
     static TreeNode *treeMaximum(TreeNode *origin);
     static TreeNode *treeSearch(TreeNode *origin, int value);
+    static TreeNode *treePredecessor(TreeNode *current);
     static TreeNode *treeSuccessor(TreeNode *current);
     TreeNode *root;
 
