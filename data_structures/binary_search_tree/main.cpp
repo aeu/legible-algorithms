@@ -20,6 +20,46 @@ void testIterativeTreeSearch(BinarySearchTree *main_tree, int target_value)
     printf("\titerativeTreeSearch for %d result %p\n", target_value, target_node );
 }
 
+void testTreePredecessor(BinarySearchTree *main_tree, int target_value)
+{
+    TreeNode *candidate;
+    TreeNode *successor;
+    TreeNode *predecessor;
+    TreeNode *root = main_tree->root;
+    candidate = BinarySearchTree::treeSearch(root, target_value );
+
+    if( candidate == nullptr )
+    {
+        printf("\t candidate %d not found in tree, no predecessor node can be found\n", target_value);
+        return;
+    }
+    predecessor = BinarySearchTree::treePredecessor( candidate );
+    if( predecessor != nullptr )
+        printf("\tpredecessor node to %d is %p, value %d \n", candidate->value, predecessor, predecessor->value );
+    else
+        printf("\tno predecessor found for %d \n", target_value );
+}
+
+void testTreeSuccessor(BinarySearchTree *main_tree, int target_value)
+{
+    TreeNode *candidate;
+    TreeNode *successor;
+    TreeNode *predecessor;
+    TreeNode *root = main_tree->root;
+    candidate = BinarySearchTree::treeSearch(root, target_value );
+
+    if( candidate == nullptr )
+    {
+        printf("\t candidate %d not found in tree, no successor node can be found\n", target_value);
+        return;
+    }
+    successor = BinarySearchTree::treeSuccessor( candidate );
+    if( successor != nullptr )
+        printf("\tsuccessor node to %d is %p, value %d \n", candidate->value, successor, successor->value );
+    else
+        printf("\tno successor found for %d \n", target_value );
+}
+
 
 int main(int argc, char **argv)
 {
@@ -80,42 +120,14 @@ int main(int argc, char **argv)
     TreeNode *maximum_node = BinarySearchTree::treeMaximum( main_tree.root );
     printf("\tmaximum node %p, value %d \n", maximum_node, maximum_node->value );
 
-    TreeNode *candidate;
-    TreeNode *successor;
-    TreeNode *predecessor;
-    TreeNode *root = main_tree.root;
-
-
     printf("\n--- treePredecessor tests ---\n");
-    candidate = BinarySearchTree::treeSearch(root, 17 );
-    predecessor = BinarySearchTree::treePredecessor( candidate );
-    printf("\tpredecessor node to %d is %p, value %d \n", candidate->value, predecessor, predecessor->value );
+    testTreePredecessor(&main_tree, 17);
+    testTreePredecessor(&main_tree, 15);
+    testTreePredecessor(&main_tree, 120);
 
     printf("\n--- treeSucessor tests ---\n");
-    candidate = BinarySearchTree::treeSearch(root, 17 );
-    successor = BinarySearchTree::treeSuccessor( candidate );
-    printf("\tsuccessor node to %d is %p, value %d \n", candidate->value, successor, successor->value );
-
-    candidate = BinarySearchTree::treeSearch(root, 67 );
-    successor = BinarySearchTree::treeSuccessor( candidate );
-    if( successor != nullptr )
-        printf("\tsuccessor node to %d is %p, value %d \n", candidate->value, successor, successor->value );
-    else
-        printf("\tno successor node to %d\n", candidate->value );
-
-
-    candidate = BinarySearchTree::treeSearch(root, 2 );
-    successor = BinarySearchTree::treeSuccessor( candidate );
-    if( successor != nullptr )
-        printf("\tsuccessor node to %d is %p, value %d \n", candidate->value, successor, successor->value );
-    else
-        printf("\tno successor node to %d\n", candidate->value );
-
-    candidate = BinarySearchTree::treeSearch(root, 120 );
-    successor = BinarySearchTree::treeSuccessor( candidate );
-    if( successor != nullptr )
-        printf("\tsuccessor node to %d is %p, value %d \n", candidate->value, successor, successor->value );
-    else
-        printf("\tno successor node to %d\n", candidate->value );
+    testTreeSuccessor(&main_tree, 17);
+    testTreeSuccessor(&main_tree, 15);
+    testTreeSuccessor(&main_tree, 120);
 
 }
