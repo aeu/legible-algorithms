@@ -20,6 +20,56 @@ void BinarySearchTree::inOrderTreeWalk(TreeNode *origin)
     }
 }
 
+TreeNode *BinarySearchTree::removeNode(TreeNode *z)
+{
+    if( z == nullptr )
+        return nullptr;
+
+    TreeNode *y;
+    TreeNode *x;
+    if(( z->left == nullptr ) || ( z->right == nullptr ))
+    {
+        y = z;
+    }
+    else
+        y = treeSuccessor( z );
+
+    if( y->left != nullptr )
+    {
+        x = y->left;
+    }
+    else
+    {
+        x = y->right;
+    }
+
+    if( x != nullptr )
+    {
+        x->parent = y->parent;
+    }
+    if( y->parent == nullptr )
+    {
+        root = x;
+    }
+    else
+    {
+        if( y == y->parent->left )
+        {
+            y->parent->left = x;
+        }
+        else
+        {
+            y->parent->right = x;
+        }
+    }
+    if( y != z )
+    {
+        z->value = y->value;
+    }
+    return y;
+}
+
+
 void BinarySearchTree::insertNode(TreeNode *candidate)
 {
     TreeNode *insertion_point         = nullptr;

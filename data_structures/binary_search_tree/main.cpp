@@ -8,6 +8,20 @@ void testAddValue(BinarySearchTree *main_tree, int new_value)
     main_tree->addValue( new_value );
 }
 
+
+
+void testRemoveValue(BinarySearchTree *main_tree, int new_value)
+{
+    printf("\n\nRemove Test, removing : %d\n", new_value);
+    BinarySearchTree::inOrderTreeWalk( main_tree->root );
+    TreeNode *remove = BinarySearchTree::treeSearch( main_tree->root, new_value );
+    main_tree->removeNode( remove );
+    printf("\n");
+    BinarySearchTree::inOrderTreeWalk( main_tree->root );
+}
+
+
+
 void testTreeSearch(BinarySearchTree *main_tree, int target_value)
 {
     TreeNode *target_node = BinarySearchTree::treeSearch( main_tree->root, target_value );
@@ -130,4 +144,27 @@ int main(int argc, char **argv)
     testTreeSuccessor(&main_tree, 15);
     testTreeSuccessor(&main_tree, 120);
 
+
+
+    testRemoveValue(&main_tree, 15 );
+    testRemoveValue(&main_tree, 22 );
+    testRemoveValue(&main_tree, 17 );
+    testRemoveValue(&main_tree, 500 );
+    testRemoveValue(&main_tree, 2 );
+    testRemoveValue(&main_tree, 5 );
+    testRemoveValue(&main_tree, 45 );
+    testRemoveValue(&main_tree, 12 );
+    testRemoveValue(&main_tree, 6 );
+    testRemoveValue(&main_tree, 4 );
+    testRemoveValue(&main_tree, 100 );
+    testRemoveValue(&main_tree, 120 );
+    testRemoveValue(&main_tree, 88 );
+    testRemoveValue(&main_tree, 67 );
+    testRemoveValue(&main_tree, 54 );
+    testRemoveValue(&main_tree, 32 );
+    testRemoveValue(&main_tree, 29 );
+    testRemoveValue(&main_tree, 33 );
+    testRemoveValue(&main_tree, 97 );
+    testRemoveValue(&main_tree, 44 );
+    testRemoveValue(&main_tree, 86 );
 }

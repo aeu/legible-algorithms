@@ -11,6 +11,7 @@ class BinarySearchTree {
     TreeNode *addValue(int new_value);
     static void inOrderTreeWalk(TreeNode *origin);
     void insertNode(TreeNode *candidate);
+    TreeNode *removeNode(TreeNode *candidate);
     static TreeNode *iterativeTreeSearch(TreeNode *origin, int value);
     static TreeNode *treeMinimum(TreeNode *origin);
     static TreeNode *treeMaximum(TreeNode *origin);
