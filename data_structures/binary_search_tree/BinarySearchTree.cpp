@@ -32,7 +32,9 @@ TreeNode *BinarySearchTree::removeNode(TreeNode *z)
         y = z;
     }
     else
+    {
         y = treeSuccessor( z );
+    }
 
     if( y->left != nullptr )
     {
