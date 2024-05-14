@@ -1,16 +1,17 @@
+#include <memory>
 #include "stdio.h"
 #include "BinarySearchTree.h"
 
 
-TreeNode *BinarySearchTree::addValue(int new_value)
+std::shared_ptr<TreeNode> BinarySearchTree::addValue(int new_value)
 {
-    TreeNode *new_node = new TreeNode();
-    new_node->value = new_value;
+    std::shared_ptr<TreeNode> new_node = std::make_shared<TreeNode>();
+    new_node.get()->value = new_value;
     this->insertNode( new_node );
     return new_node;
 }
 
-void BinarySearchTree::inOrderTreeWalk(TreeNode *origin)
+void BinarySearchTree::inOrderTreeWalk(std::shared_ptr<TreeNode> origin)
 {
     if( origin != nullptr )
     {
@@ -20,13 +21,13 @@ void BinarySearchTree::inOrderTreeWalk(TreeNode *origin)
     }
 }
 
-TreeNode *BinarySearchTree::removeNode(TreeNode *z)
+std::shared_ptr<TreeNode> BinarySearchTree::removeNode(std::shared_ptr<TreeNode> z)
 {
     if( z == nullptr )
         return nullptr;
 
-    TreeNode *y;
-    TreeNode *x;
+    std::shared_ptr<TreeNode> y;
+    std::shared_ptr<TreeNode> x;
     if(( z->left == nullptr ) || ( z->right == nullptr ))
     {
         y = z;
@@ -72,10 +73,10 @@ TreeNode *BinarySearchTree::removeNode(TreeNode *z)
 }
 
 
-void BinarySearchTree::insertNode(TreeNode *candidate)
+void BinarySearchTree::insertNode(std::shared_ptr<TreeNode> candidate)
 {
-    TreeNode *insertion_point         = nullptr;
-    TreeNode *insertion_points_parent = nullptr;
+    std::shared_ptr<TreeNode> insertion_point = nullptr;
+    std::shared_ptr<TreeNode> insertion_points_parent = nullptr;
 
     insertion_point = root;
     while( insertion_point != nullptr )
@@ -109,9 +110,9 @@ void BinarySearchTree::insertNode(TreeNode *candidate)
     }
 }
 
-TreeNode *BinarySearchTree::iterativeTreeSearch(TreeNode *origin, int value)
+std::shared_ptr<TreeNode> BinarySearchTree::iterativeTreeSearch(std::shared_ptr<TreeNode> origin, int value)
 {
-    TreeNode *current = origin;
+    std::shared_ptr<TreeNode> current = origin;
     while(( current != nullptr ) && ( current->value != value ))
     {
         if( value < current->value )
@@ -127,9 +128,9 @@ TreeNode *BinarySearchTree::iterativeTreeSearch(TreeNode *origin, int value)
 }
 
 
-TreeNode *BinarySearchTree::treeMinimum(TreeNode *origin)
+std::shared_ptr<TreeNode> BinarySearchTree::treeMinimum(std::shared_ptr<TreeNode> origin)
 {
-    TreeNode *current_node = origin;
+    std::shared_ptr<TreeNode> current_node = origin;
     while ( current_node->left != nullptr )
     {
         current_node = current_node->left;
@@ -138,9 +139,9 @@ TreeNode *BinarySearchTree::treeMinimum(TreeNode *origin)
 }
 
 
-TreeNode *BinarySearchTree::treeMaximum(TreeNode *origin)
+std::shared_ptr<TreeNode> BinarySearchTree::treeMaximum(std::shared_ptr<TreeNode> origin)
 {
-    TreeNode *current_node = origin;
+    std::shared_ptr<TreeNode> current_node = origin;
     while ( current_node->right != nullptr )
     {
         current_node = current_node->right;
@@ -149,7 +150,7 @@ TreeNode *BinarySearchTree::treeMaximum(TreeNode *origin)
 }
 
 
-TreeNode *BinarySearchTree::treeSearch(TreeNode *origin, int value)
+std::shared_ptr<TreeNode> BinarySearchTree::treeSearch(std::shared_ptr<TreeNode> origin, int value)
 {
     if( origin == nullptr )
 	return nullptr;
@@ -165,13 +166,13 @@ TreeNode *BinarySearchTree::treeSearch(TreeNode *origin, int value)
     return nullptr;
 }
 
-TreeNode *BinarySearchTree::treePredecessor(TreeNode *current_node)
+std::shared_ptr<TreeNode> BinarySearchTree::treePredecessor(std::shared_ptr<TreeNode> current_node)
 {
     if( current_node->left != nullptr )
         return BinarySearchTree::treeMaximum( current_node->left );
 
-    TreeNode *x  = current_node;
-    TreeNode *y  = x->parent;
+    std::shared_ptr<TreeNode> x  = current_node;
+    std::shared_ptr<TreeNode> y  = x->parent;
     while(( y != nullptr ) && ( x == y->left ))
     {
         x = y;
@@ -180,13 +181,13 @@ TreeNode *BinarySearchTree::treePredecessor(TreeNode *current_node)
     return y;
 }
 
-TreeNode *BinarySearchTree::treeSuccessor(TreeNode *current_node)
+std::shared_ptr<TreeNode> BinarySearchTree::treeSuccessor(std::shared_ptr<TreeNode> current_node)
 {
     if( current_node->right != nullptr )
         return BinarySearchTree::treeMinimum( current_node->right );
 
-    TreeNode *x  = current_node;
-    TreeNode *y  = x->parent;
+    std::shared_ptr<TreeNode> x  = current_node;
+    std::shared_ptr<TreeNode> y  = x->parent;
     while(( y != nullptr ) && ( x == y->right ))
     {
         x = y;
