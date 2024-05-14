@@ -4,8 +4,8 @@
 
 void testAddValue(BinarySearchTree *main_tree, int new_value)
 {
-    printf("\tadding value %d\n", new_value);
-    main_tree->addValue( new_value );
+    std::shared_ptr<TreeNode> new_node = main_tree->addValue( new_value );
+    printf("\tadding value %3d \t(%p)\n", new_value, new_node.get());
 }
 
 
@@ -14,7 +14,7 @@ void testRemoveValue(BinarySearchTree *main_tree, int new_value)
 {
     printf("\n\nRemove Test, removing : %d\n", new_value);
     BinarySearchTree::inOrderTreeWalk( main_tree->root );
-    TreeNode *remove = BinarySearchTree::treeSearch( main_tree->root, new_value );
+    std::shared_ptr<TreeNode> remove = BinarySearchTree::treeSearch( main_tree->root, new_value );
     main_tree->removeNode( remove );
     printf("\n");
     BinarySearchTree::inOrderTreeWalk( main_tree->root );
@@ -24,22 +24,23 @@ void testRemoveValue(BinarySearchTree *main_tree, int new_value)
 
 void testTreeSearch(BinarySearchTree *main_tree, int target_value)
 {
-    TreeNode *target_node = BinarySearchTree::treeSearch( main_tree->root, target_value );
-    printf("\ttreeSearch for %d result %p\n", target_value, target_node );
+    std::shared_ptr<TreeNode> target_node = BinarySearchTree::treeSearch( main_tree->root, target_value );
+    printf("\ttreeSearch for %3d result \t%p\n", target_value, target_node.get() );
 }
 
 void testIterativeTreeSearch(BinarySearchTree *main_tree, int target_value)
 {
-    TreeNode *target_node = BinarySearchTree::iterativeTreeSearch( main_tree->root, target_value );
-    printf("\titerativeTreeSearch for %d result %p\n", target_value, target_node );
+    std::shared_ptr<TreeNode> target_node = BinarySearchTree::iterativeTreeSearch( main_tree->root, target_value );
+    printf("\titerativeTreeSearch for %3d result \t%p\n", target_value, target_node.get() );
 }
+
 
 void testTreePredecessor(BinarySearchTree *main_tree, int target_value)
 {
-    TreeNode *candidate;
-    TreeNode *successor;
-    TreeNode *predecessor;
-    TreeNode *root = main_tree->root;
+    std::shared_ptr<TreeNode> candidate;
+    std::shared_ptr<TreeNode> successor;
+    std::shared_ptr<TreeNode> predecessor;
+    std::shared_ptr<TreeNode> root = main_tree->root;
     candidate = BinarySearchTree::treeSearch(root, target_value );
 
     if( candidate == nullptr )
@@ -49,17 +50,17 @@ void testTreePredecessor(BinarySearchTree *main_tree, int target_value)
     }
     predecessor = BinarySearchTree::treePredecessor( candidate );
     if( predecessor != nullptr )
-        printf("\tpredecessor node to %d is %p, value %d \n", candidate->value, predecessor, predecessor->value );
+        printf("\tpredecessor node to %d is %p, value %d \n", candidate->value, predecessor.get(), predecessor->value );
     else
         printf("\tno predecessor found for %d \n", target_value );
 }
 
 void testTreeSuccessor(BinarySearchTree *main_tree, int target_value)
 {
-    TreeNode *candidate;
-    TreeNode *successor;
-    TreeNode *predecessor;
-    TreeNode *root = main_tree->root;
+    std::shared_ptr<TreeNode> candidate;
+    std::shared_ptr<TreeNode> successor;
+    std::shared_ptr<TreeNode> predecessor;
+    std::shared_ptr<TreeNode> root = main_tree->root;
     candidate = BinarySearchTree::treeSearch(root, target_value );
 
     if( candidate == nullptr )
@@ -69,7 +70,7 @@ void testTreeSuccessor(BinarySearchTree *main_tree, int target_value)
     }
     successor = BinarySearchTree::treeSuccessor( candidate );
     if( successor != nullptr )
-        printf("\tsuccessor node to %d is %p, value %d \n", candidate->value, successor, successor->value );
+        printf("\tsuccessor node to %d is %p, value %d \n", candidate->value, successor.get(), successor->value );
     else
         printf("\tno successor found for %d \n", target_value );
 }
@@ -107,7 +108,7 @@ int main(int argc, char **argv)
     printf("\n");
 
     int target_value;
-    TreeNode *target_node;
+    std::shared_ptr<TreeNode> target_node;
 
     printf("\n--- treeSearch ---\n");
     testTreeSearch(&main_tree, 17);
@@ -127,12 +128,13 @@ int main(int argc, char **argv)
     testIterativeTreeSearch(&main_tree, 122);
 
     printf("\n--- treeMinimum ---\n");
-    TreeNode *minimum_node = BinarySearchTree::treeMinimum( main_tree.root );
-    printf("\tminimum node %p, value %d \n", minimum_node, minimum_node->value );
+    std::shared_ptr<TreeNode> minimum_node = BinarySearchTree::treeMinimum( main_tree.root );
+    printf("\tminimum node %p, value %d \n", minimum_node.get(), minimum_node->value );
 
     printf("\n--- treeMaximum ---\n");
-    TreeNode *maximum_node = BinarySearchTree::treeMaximum( main_tree.root );
-    printf("\tmaximum node %p, value %d \n", maximum_node, maximum_node->value );
+    std::shared_ptr<TreeNode> maximum_node = BinarySearchTree::treeMaximum( main_tree.root );
+    printf("\tmaximum node %p, value %d \n", maximum_node.get(), maximum_node->value );
+
 
     printf("\n--- treePredecessor tests ---\n");
     testTreePredecessor(&main_tree, 17);

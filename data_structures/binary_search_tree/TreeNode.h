@@ -1,13 +1,14 @@
 #ifndef TREE_NODE
 #define TREE_NODE
 
+#include <memory>
 class TreeNode {
  public:
     TreeNode();
     int value;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode *parent;
+    std::shared_ptr<TreeNode> left;
+    std::shared_ptr<TreeNode> right;
+    std::shared_ptr<TreeNode> parent;
  protected:
  private:
 };
