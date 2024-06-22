@@ -46,8 +46,8 @@ I've been going through the problems marked "Hard" and solving them, my solution
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0051-n-queens">Leetcode No. 51 (Hard) &mdash; N-Queens (C++11)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0052-n-queens-ii">Leetcode No. 52 (Hard) &mdash; N-Queens II (C++11)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0060-permutation-sequence">Leetcode No. 60 (Hard) &mdash; Permutation Sequence (C++11,C++17)</a>.  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0068-text-justification">Leetcode No. 68 (Hard) &mdash; Text Justification (C++11,C++17)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0076-minimum-window-substring">Leetcode No. 76 (Hard) &mdash; Minimum Window Substring(C++11,C++17)</a>
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0068-text-justification">Leetcode No. 68 (Hard) &mdash; Text Justification (C++11,C++17)</a>.  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0076-minimum-window-substring">Leetcode No. 76 (Hard) &mdash; Minimum Window Substring(C++11,C++17)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0080-remove-duplicates-from-sorted-array-ii">Leetcode No. 80 (Medium) &mdash; Remove duplicates from Sorted Array II</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0084-largest-rectangle-in-histogram">Leetcode No. 84 (Hard) &mdash; Largest Rectangle in Histogram (C++11)   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0149_max_points_on_a_line">Leetcode No. 149 (Hard) &mdash; Max Points on a Line (C++)</a>  
