@@ -11,11 +11,16 @@ The testcases will be generated such that the answer is unique.
 ## Output
 
 Searching for ABC in ADOBECODEBANC
-	ABC was found in BANC
+
+	  ABC was found in BANC
+
 Searching for a in a
-	a was found in a
+
+	  a was found in a
+
 Searching for aa in a
-	Candidate aa is too long to fit in a
+
+	  Candidate aa is too long to fit in a
 
 
 ## Solution
