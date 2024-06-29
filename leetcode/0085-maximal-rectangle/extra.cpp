@@ -6,16 +6,10 @@
 //  without the express written permission of red82
 
 #include <stdio.h>
-#include <vector>
 #include "extra.h"
 
-void doWork(std::vector<std::vector<char> > &data)
-{
-}
 
-int main(int argc, char **argv)
+void extra()
 {
-    printf("starting\n");
-    std::vector<std::vector<int> > ints = {{10, 20, 30}, {12, 25, 36}};;
-    extra();
+    printf("extra\n");
 }
