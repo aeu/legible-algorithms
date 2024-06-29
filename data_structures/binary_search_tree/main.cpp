@@ -12,12 +12,13 @@ void testAddValue(BinarySearchTree *main_tree, int new_value)
 
 void testRemoveValue(BinarySearchTree *main_tree, int new_value)
 {
-    printf("\n\nRemove Test, removing : %d\n", new_value);
+    printf("Remove Test, removing : %d\nBefore: ", new_value);
     BinarySearchTree::inOrderTreeWalk( main_tree->root );
     std::shared_ptr<TreeNode> remove = BinarySearchTree::treeSearch( main_tree->root, new_value );
     main_tree->removeNode( remove );
-    printf("\n");
+    printf("\nAfter: ");
     BinarySearchTree::inOrderTreeWalk( main_tree->root );
+    printf("\n\n");
 }
 
 
@@ -148,6 +149,7 @@ int main(int argc, char **argv)
 
 
 
+    printf("\n--- remove tests ---\n");
     testRemoveValue(&main_tree, 15 );
     testRemoveValue(&main_tree, 22 );
     testRemoveValue(&main_tree, 17 );

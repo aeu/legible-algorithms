@@ -21,55 +21,56 @@ void BinarySearchTree::inOrderTreeWalk(std::shared_ptr<TreeNode> origin)
     }
 }
 
-std::shared_ptr<TreeNode> BinarySearchTree::removeNode(std::shared_ptr<TreeNode> z)
+std::shared_ptr<TreeNode> BinarySearchTree::removeNode(std::shared_ptr<TreeNode> removal_candidate)
 {
-    if( z == nullptr )
+    std::shared_ptr<TreeNode> deleted_node;
+    std::shared_ptr<TreeNode> temporary_node;
+
+    if( removal_candidate == nullptr )
         return nullptr;
 
-    std::shared_ptr<TreeNode> y;
-    std::shared_ptr<TreeNode> x;
-    if(( z->left == nullptr ) || ( z->right == nullptr ))
+    if(( removal_candidate->left == nullptr ) || ( removal_candidate->right == nullptr ))
     {
-        y = z;
+        deleted_node = removal_candidate;
     }
     else
     {
-        y = treeSuccessor( z );
+        deleted_node = treeSuccessor( removal_candidate );
     }
 
-    if( y->left != nullptr )
+    if( deleted_node->left != nullptr )
     {
-        x = y->left;
+        temporary_node = deleted_node->left;
     }
     else
     {
-        x = y->right;
+        temporary_node = deleted_node->right;
     }
 
-    if( x != nullptr )
+    if( temporary_node != nullptr )
     {
-        x->parent = y->parent;
+        temporary_node->parent = deleted_node->parent;
     }
-    if( y->parent == nullptr )
+    if( deleted_node->parent == nullptr )
     {
-        root = x;
+        root = temporary_node;
     }
     else
     {
-        if( y == y->parent->left )
+        if( deleted_node == deleted_node->parent->left )
         {
-            y->parent->left = x;
+            deleted_node->parent->left = temporary_node;
         }
         else
         {
-            y->parent->right = x;
+            deleted_node->parent->right = temporary_node;
         }
     }
-    if( y != z )
+    if( deleted_node != removal_candidate )
     {
-        z->value = y->value;
+        removal_candidate->value = deleted_node->value;
     }
-    return y;
+    return deleted_node;
 }
 
 
