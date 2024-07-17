@@ -7,7 +7,6 @@
 
 #include <stdio.h>
 #include <vector>
-#include "extra.h"
 
 int getHeightFromPosition(std::vector<std::vector<char> > &data, int row, int col)
 {
