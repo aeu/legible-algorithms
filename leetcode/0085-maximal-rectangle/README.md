@@ -35,3 +35,25 @@ rows == matrix.length
 cols == matrix[i].length  
 1 <= row, cols <= 200   
 matrix[i][j] is '0' or '1'.  
+
+
+## Output
+```
+alfonso@maraval 0085-maximal-rectangle % ./mxr
+Legible Algorithms - Leetcode 0085 Maximal Rectangle
+10100
+10111
+11111
+10010
+
+Largest area was 6
+
+
+10100
+10111
+11111
+11111
+10010
+
+Largest area was 10
+```
