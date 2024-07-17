@@ -12,9 +12,9 @@
 int getHeightFromPosition(std::vector<std::vector<char> > &data, int row, int col)
 {
     int height_at_position = 0;
-    auto num_rows = data.size();
+    unsigned int num_rows = data.size();
     std::vector<char> current_row;
-    for(auto row_index = row; row_index < num_rows; row_index++ )
+    for(unsigned int row_index = row; row_index < num_rows; row_index++ )
     {
         current_row = data[row_index];
         if( current_row[ col ] == '1' )
@@ -27,13 +27,13 @@ int getHeightFromPosition(std::vector<std::vector<char> > &data, int row, int co
 
 void doWork(std::vector<std::vector<char> > &data)
 {
-    auto num_rows = data.size();
-    auto num_columns = data[0].size();
-    auto row_index = 0;
-    auto col_index = 0;
-    auto max_area = 0;
-    printf("in do work, got data with %lu rows of %lu columns\n", num_rows, num_columns);
+    unsigned int num_rows = data.size();
+    unsigned int num_columns = data[0].size();
+    unsigned int row_index = 0;
+    unsigned int col_index = 0;
+    unsigned int max_area = 0;
     std::vector<char> current_row;
+    
     for(row_index=0; row_index< num_rows; row_index++)
     {
         current_row = data[row_index];
@@ -42,11 +42,10 @@ void doWork(std::vector<std::vector<char> > &data)
             char current_cell = current_row[col_index];
             if( current_cell == '1' )
             {
-                auto rectangle_col_index = col_index;
-                auto rectangle_width = 1;
-                auto rectangle_area = 0;
-                auto rectangle_height = getHeightFromPosition( data, row_index, rectangle_col_index);
-                printf("rect found at (%d,%d) \n", row_index,rectangle_col_index);
+                unsigned int rectangle_col_index = col_index;
+                unsigned int rectangle_width = 1;
+                unsigned int rectangle_area = 0;
+                unsigned int rectangle_height = getHeightFromPosition( data, row_index, rectangle_col_index);
                 rectangle_col_index++;
                 if( rectangle_col_index < num_columns )
                 {
@@ -54,7 +53,7 @@ void doWork(std::vector<std::vector<char> > &data)
                     while(next_over == '1' )
                     {
                         rectangle_width++;
-                        auto next_height = getHeightFromPosition( data, row_index, rectangle_col_index);
+                        unsigned int next_height = getHeightFromPosition( data, row_index, rectangle_col_index);
                         if( next_height < rectangle_height )
                             rectangle_height = next_height;
                         rectangle_col_index++;
@@ -67,23 +66,18 @@ void doWork(std::vector<std::vector<char> > &data)
                 rectangle_area = rectangle_width * rectangle_height;
                 if( rectangle_area > max_area )
                     max_area = rectangle_area;
-                printf("\twidth: %d, height: %d, area: %d\n",
-                       rectangle_width,
-                       rectangle_height,
-                       rectangle_area);
             }
         }
-        printf("\n");
     }
-    printf("largest area was %d\n", max_area );
+    printf("\nLargest area was %d\n\n\n", max_area );
 }
 
 void dumpMatrix(std::vector<std::vector<char> > &data)
 {
-    auto num_rows = data.size();
-    auto num_columns = data[0].size();
-    auto row_index = 0;
-    auto col_index = 0;
+    unsigned int num_rows = data.size();
+    unsigned int num_columns = data[0].size();
+    unsigned int row_index = 0;
+    unsigned int col_index = 0;
     
     std::vector<char> current_row;
     for(row_index=0; row_index< num_rows; row_index++)
@@ -91,7 +85,7 @@ void dumpMatrix(std::vector<std::vector<char> > &data)
         current_row = data[row_index];
         for(col_index = 0; col_index < num_columns; col_index++ )
         {
-            printf("%c ", current_row[col_index]);
+            printf("%c", current_row[col_index]);
         }
         printf("\n");
     }
@@ -101,7 +95,7 @@ void dumpMatrix(std::vector<std::vector<char> > &data)
 
 int main(int argc, char **argv)
 {
-    printf("starting\n");
+    printf("Legible Algorithms - Leetcode 0085 Maximal Rectangle\n");
     {
         std::vector<std::vector<char> > data =
             {{'1','0','1','0','0'},
