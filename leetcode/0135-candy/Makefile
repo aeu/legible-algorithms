@@ -8,4 +8,4 @@ clean:
 	rm -f *.o
 	rm -f *~
 	rm -f *.*~
-	rm -f mxr
+	rm -f candy
