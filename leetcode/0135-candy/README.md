@@ -35,3 +35,17 @@ n == ratings.length
 
 ## Solution
 I'm not sure if I misunderstood this one, but it's pretty straightfoward.  For all children in the array, confirm that at least one neighbour is lower, and if so, increment the candy count.
+
+## Output
+ 
+  
+    alfonso@maraval 0135-candy % make  
+    g++ -g -Wall -std=c++17  -o candy main.cpp  
+    alfonso@maraval 0135-candy % ./candy  
+    Leetcode #0135 - Candy  
+   
+    ratings: [1 0 2 ]  
+    candies needed: 5  
+  
+    ratings: [1 2 2 ]  
+    candies needed: 4  
