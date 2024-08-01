@@ -12,15 +12,16 @@
 void distributeCandy(std::vector<int> ratings)
 {
     int total_candies = ratings.size();
-    std::vector<int>::iterator rating_iterator;
-    
+
+    printf("ratings: [");
     for(size_t index=0;index<ratings.size();index++)
     {
-        printf("current rating %d\n", ratings.at(index));
         int current = ratings.at(index);
         int left_neighbour = current;
         int right_neighbour = current;
 
+        printf("%d ", current );
+        
         if( index > 0 )
             left_neighbour = ratings.at(index-1);
         if( index < ratings.size() -1 )
@@ -31,11 +32,13 @@ void distributeCandy(std::vector<int> ratings)
             total_candies++;
         }
     }
-        printf("candies: %d\n", total_candies );
+    printf("]\n");
+    printf("candies needed: %d\n\n", total_candies );
 }
 
 int main(int argc, char **argv)
 {
+    printf("Leetcode #0135 - Candy\n\n");
     {
         std::vector<int> ratings = { 1, 0, 2 };
         distributeCandy(ratings);
