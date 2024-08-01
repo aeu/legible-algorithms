@@ -51,6 +51,7 @@ I've been going through the problems marked "Hard" and solving them, my solution
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0080-remove-duplicates-from-sorted-array-ii">Leetcode No. 80 (Medium) &mdash; Remove duplicates from Sorted Array II</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0084-largest-rectangle-in-histogram">Leetcode No. 84 (Hard) &mdash; Largest Rectangle in Histogram (C++11)   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0085-maximal-rectangle">Leetcode No. 85 (Hard) &mdash; Maximal Rectangle (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0135_candy">Leetcode No. 135 (Hard) &mdash; Candy (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0149_max_points_on_a_line">Leetcode No. 149 (Hard) &mdash; Max Points on a Line (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0218-the-skyline-problem">Leetcode No. 218 (Hard) &mdash; The Skyline Problem</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0695-max-area-of-island">Leetcode No. 695 (Medium) &mdash; Max Area of Island</a>  
