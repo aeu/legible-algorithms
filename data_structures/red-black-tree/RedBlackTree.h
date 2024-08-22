@@ -1,3 +1,10 @@
+// -*- Mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; -*-
+//
+//  red82 // software
+//
+//  This software may not be used or reproduced, in whole or in part,
+//  without the express written permission of red82
+
 #ifndef RedBlackTree_h
 #define RedBlackTree_h
 
@@ -8,17 +15,18 @@
 
 class RedBlackTree {
     
- public:
+public:
 
     RedBlackTree();
     
     std::shared_ptr<TreeNode> addValue(int new_value);
+    std::shared_ptr<TreeNode> find(int value);
     std::shared_ptr<TreeNode> maximum(std::shared_ptr<TreeNode> start_node);
     std::shared_ptr<TreeNode> minimum(std::shared_ptr<TreeNode> start_node);
-    std::shared_ptr<TreeNode> successor(std::shared_ptr<TreeNode> start_node);
     std::shared_ptr<TreeNode> predecessor(std::shared_ptr<TreeNode> start_node);
-    
- protected:
+    std::shared_ptr<TreeNode> successor(std::shared_ptr<TreeNode> start_node);
+
+protected:
 
     std::shared_ptr<TreeNode> insert(std::shared_ptr<TreeNode> new_node);
 
