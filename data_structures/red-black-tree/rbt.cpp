@@ -38,7 +38,6 @@ int main(int argc, char **argv)
     // temp2.addValue(18);
     // temp2.addValue(23);
 
-
     // {
     //     std::shared_ptr<TreeNode> maximum = temp2.maximum(nullptr);
     //     printf("the max node was : %d \n", maximum->getValue());
@@ -59,34 +58,24 @@ int main(int argc, char **argv)
     //     printf("the min node under 7 was : %d \n", minimum->getValue());
     // }
 
-
     {
         std::shared_ptr<TreeNode> successor = temp2.successor(fifty_four);
-        printf("the successor of 54 was : %d \n", successor->getValue());
+        printf("The successor of 54 was : %d \n", successor->getValue());
     }
-
 
     {
         std::shared_ptr<TreeNode> predecessor = temp2.predecessor(fifty_four);
-        printf("the predecessor of 54 was : %d \n", predecessor->getValue());
+        printf("The predecessor of 54 was : %d \n", predecessor->getValue());
     }
-
-
 
     {
         std::shared_ptr<TreeNode> successor = temp2.successor(seventeen);
-        printf("the successor of 17 was : %d \n", successor->getValue());
+        printf("The successor of 17 was : %d \n", successor->getValue());
     }
-
 
     {
         std::shared_ptr<TreeNode> predecessor = temp2.predecessor(seventeen);
-        printf("the predecessor of 17 was : %d \n", predecessor->getValue());
+        printf("The predecessor of 17 was : %d \n", predecessor->getValue());
     }
 
-
-
-
-
-    
 }

@@ -1,10 +1,19 @@
+// -*- Mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; -*-
+//
+//  red82 // software
+//
+//  This software may not be used or reproduced, in whole or in part,
+//  without the express written permission of red82
+
 #include "RedBlackTree.h"
+#include "TreeNode.h"
 #include <stdio.h>
 #include <memory>
 
 RedBlackTree::RedBlackTree()
 {
-    this->nilnode = std::make_shared<TreeNode>(-1);
+    int nil_value = -1;
+    this->nilnode = std::make_shared<TreeNode>(nil_value);
     this->root_node = nullptr;
     printf("Created an empty red black tree\n");
 }
