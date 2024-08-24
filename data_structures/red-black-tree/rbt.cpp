@@ -27,6 +27,8 @@ int main(int argc, char **argv)
     temp2.addValue( 97 );
     temp2.addValue( 44 );
     temp2.addValue( 86 );
+
+    RedBlackTree::inOrderTreeWalk(temp2.root_node);
     
     // std::shared_ptr<TreeNode> seven = temp2.addValue(7);
     // temp2.addValue(10);

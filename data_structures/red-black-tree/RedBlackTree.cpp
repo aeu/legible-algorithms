@@ -31,6 +31,16 @@ std::shared_ptr<TreeNode> RedBlackTree::find(int value)
     return found;
 }
 
+void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
+{
+    if( start_node != nullptr )
+    {
+        inOrderTreeWalk( start_node->getLeft() );
+        printf("current : %d\n", start_node->getValue());
+        inOrderTreeWalk( start_node->getRight());
+    }
+}
+
 std::shared_ptr<TreeNode> RedBlackTree::maximum(std::shared_ptr<TreeNode> start_node)
 {
     std::shared_ptr<TreeNode> maximum = start_node;
