@@ -27,16 +27,36 @@ std::shared_ptr<TreeNode> RedBlackTree::addValue(int new_value)
 
 std::shared_ptr<TreeNode> RedBlackTree::find(int value)
 {
-    std::shared_ptr<TreeNode> found = this->root_node;;
-    return found;
+    printf("looking for %d\n", value );
+    return find(this->root_node, value );
 }
+
+std::shared_ptr<TreeNode> RedBlackTree::find(std::shared_ptr<TreeNode> start_node,
+                                             int value)
+{
+    if( start_node == nullptr )
+        return nullptr;
+
+    if( start_node->getValue() == value )
+    {
+        return start_node;
+    }
+
+    if( value < start_node->getValue() )
+        return find ( start_node->getLeft(), value );
+    else
+        return find ( start_node->getRight(), value );
+
+    return nullptr;
+}
+
 
 void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
 {
     if( start_node != nullptr )
     {
         inOrderTreeWalk( start_node->getLeft() );
-        printf("current : %d\n", start_node->getValue());
+        printf("%d, ", start_node->getValue());
         inOrderTreeWalk( start_node->getRight());
     }
 }

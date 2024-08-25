@@ -21,6 +21,7 @@ public:
     
     std::shared_ptr<TreeNode> addValue(int new_value);
     std::shared_ptr<TreeNode> find(int value);
+    std::shared_ptr<TreeNode> find(std::shared_ptr<TreeNode> start_node, int value);
     static void inOrderTreeWalk(std::shared_ptr<TreeNode> start_node);
     std::shared_ptr<TreeNode> maximum(std::shared_ptr<TreeNode> start_node);
     std::shared_ptr<TreeNode> minimum(std::shared_ptr<TreeNode> start_node);
