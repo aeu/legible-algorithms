@@ -1,3 +1,10 @@
+// -*- Mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; -*-
+//
+//  red82 // software
+//
+//  This software may not be used or reproduced, in whole or in part,
+//  without the express written permission of red82
+
 #include <stdio.h>
 #include "TreeNode.h"
 #include "RedBlackTree.h"
@@ -28,8 +35,6 @@ int main(int argc, char **argv)
     temp2.addValue( 44 );
     temp2.addValue( 86 );
 
-    RedBlackTree::inOrderTreeWalk(temp2.root_node);
-    
     // std::shared_ptr<TreeNode> seven = temp2.addValue(7);
     // temp2.addValue(10);
     // temp2.addValue(12);
@@ -80,4 +85,10 @@ int main(int argc, char **argv)
         printf("The predecessor of 17 was : %d \n", predecessor->getValue());
     }
 
+    RedBlackTree::inOrderTreeWalk(temp2.root_node);
+    printf("\n");
+
+    std::shared_ptr<TreeNode> found = temp2.find(44);
+    if( found != nullptr )
+        printf("found, value was %d\n", found->getValue());
 }
