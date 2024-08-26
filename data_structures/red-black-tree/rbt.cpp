@@ -12,28 +12,30 @@
 
 int main(int argc, char **argv)
 {
+    if( ( 1 ) || ( 1 ) )
+        printf("asdf\n");
     RedBlackTree temp2;
     std::shared_ptr<TreeNode> fifteen = temp2.addValue(15);
 
-    temp2.addValue( 22 );
+    temp2.addValue( 22  );
     std::shared_ptr<TreeNode> seventeen = temp2.addValue( 17 );
-    temp2.addValue( 2 );
-    temp2.addValue( 5 );
-    temp2.addValue( 45 );
-    temp2.addValue( 12 );
-    temp2.addValue( 6 );
-    temp2.addValue( 4 );
+    temp2.addValue( 2   );
+    temp2.addValue( 5   );
+    temp2.addValue( 45  );
+    temp2.addValue( 12  );
+    temp2.addValue( 6   );
+    temp2.addValue( 4   );
     temp2.addValue( 100 );
     temp2.addValue( 120 );
-    temp2.addValue( 88 );
-    temp2.addValue( 67 );
+    temp2.addValue( 88  );
+    temp2.addValue( 67  );
     std::shared_ptr<TreeNode> fifty_four = temp2.addValue( 54 );
-    temp2.addValue( 32 );
-    temp2.addValue( 29 );
-    temp2.addValue( 33 );
-    temp2.addValue( 97 );
-    temp2.addValue( 44 );
-    temp2.addValue( 86 );
+    temp2.addValue( 32  );
+    temp2.addValue( 29  );
+    temp2.addValue( 33  );
+    temp2.addValue( 97  );
+    temp2.addValue( 44  );
+    temp2.addValue( 86  );
 
     // std::shared_ptr<TreeNode> seven = temp2.addValue(7);
     // temp2.addValue(10);
@@ -88,7 +90,14 @@ int main(int argc, char **argv)
     RedBlackTree::inOrderTreeWalk(temp2.root_node);
     printf("\n");
 
-    std::shared_ptr<TreeNode> found = temp2.find(44);
+    std::shared_ptr<TreeNode> found = temp2.find(4);
     if( found != nullptr )
+    {
         printf("found, value was %d\n", found->getValue());
+    }
+
+    temp2.remove(4);
+    RedBlackTree::inOrderTreeWalk(temp2.root_node);
+    printf("\n");
+
 }
