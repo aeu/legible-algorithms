@@ -1,3 +1,10 @@
+// -*- Mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; -*-
+//
+//  red82 // software
+//
+//  This software may not be used or reproduced, in whole or in part,
+//  without the express written permission of red82
+
 #include <stdio.h>
 #include <memory>
 #include "TreeNode.h"
@@ -36,14 +43,21 @@ std::shared_ptr<TreeNode> TreeNode::getParent()
 
 std::shared_ptr<TreeNode> TreeNode::setLeft(std::shared_ptr<TreeNode> new_left)
 {
-    printf("Setting the left of %d to %d\n", value, new_left->getValue() );
+    if( new_left != nullptr )
+        printf("Setting the left of %d to %d\n", value, new_left->getValue() );
+    else
+        printf("nulling left\n");
     left = new_left;
     return left;
 }
 
 std::shared_ptr<TreeNode> TreeNode::setRight(std::shared_ptr<TreeNode> new_right)
 {
-    printf("Setting the right of %d to %d\n", value, new_right->getValue() );
+    if( new_right != nullptr )
+        printf("Setting the right of %d to %d\n", value, new_right->getValue() );
+    else
+        printf("nulling right\n");
+
     right = new_right;
     return right;
 }

@@ -26,6 +26,7 @@ public:
     std::shared_ptr<TreeNode> maximum(std::shared_ptr<TreeNode> start_node);
     std::shared_ptr<TreeNode> minimum(std::shared_ptr<TreeNode> start_node);
     std::shared_ptr<TreeNode> predecessor(std::shared_ptr<TreeNode> start_node);
+    std::shared_ptr<TreeNode> remove(int value);
     std::shared_ptr<TreeNode> successor(std::shared_ptr<TreeNode> start_node);
     std::shared_ptr<TreeNode> root_node;
     

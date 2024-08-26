@@ -101,6 +101,32 @@ std::shared_ptr<TreeNode> RedBlackTree::predecessor(std::shared_ptr<TreeNode> st
     return predecessor;
 }
 
+std::shared_ptr<TreeNode> RedBlackTree::remove(int value)
+{
+    std::shared_ptr<TreeNode> removed = find(value);
+    if( removed == nullptr )
+        return nullptr;
+
+    std::shared_ptr<TreeNode> parent = removed->getParent();
+    if( parent == nullptr )
+        printf("for some reason the parent was null \n");
+    if(( removed->getLeft() == nullptr ) && ( removed->getRight() == nullptr ))
+    {
+        printf("node being removed has no kids\n");
+        if(( parent->getLeft() != nullptr ) && ( parent->getLeft() == removed ))
+        {
+            printf("it was the left of the parent\n");
+            parent->setLeft(nullptr);
+        }
+        else
+        {
+            printf("it was the right of the parent\n");
+            parent->setRight(nullptr);
+        }
+    }
+    return nullptr;
+}
+
 std::shared_ptr<TreeNode> RedBlackTree::successor(std::shared_ptr<TreeNode> start_node)
 {
     if( start_node->getRight() != nullptr )
