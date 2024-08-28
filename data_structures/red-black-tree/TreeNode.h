@@ -1,3 +1,10 @@
+// -*- Mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; -*-
+//
+//  red82 // software
+//
+//  This software may not be used or reproduced, in whole or in part,
+//  without the express written permission of red82
+
 #ifndef TreeNode_h
 #define TreeNode_h
 
@@ -6,11 +13,11 @@
 
 class TreeNode
 {
- public:
+public:
 
     typedef enum {
-        RED,
-        BLACK,
+                  RED,
+                  BLACK,
     } NodeColour;
     
     TreeNode(int new_value);
@@ -23,9 +30,10 @@ class TreeNode
     std::shared_ptr<TreeNode> setLeft(std::shared_ptr<TreeNode> new_left);
     std::shared_ptr<TreeNode> setRight(std::shared_ptr<TreeNode> new_right);
     std::shared_ptr<TreeNode> setParent(std::shared_ptr<TreeNode> new_parent);
+    int setValue(int new_value);
 
- protected:
- private:
+protected:
+private:
 
     NodeColour colour;
     int value;

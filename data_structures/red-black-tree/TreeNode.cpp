@@ -43,21 +43,12 @@ std::shared_ptr<TreeNode> TreeNode::getParent()
 
 std::shared_ptr<TreeNode> TreeNode::setLeft(std::shared_ptr<TreeNode> new_left)
 {
-    if( new_left != nullptr )
-        printf("Setting the left of %d to %d\n", value, new_left->getValue() );
-    else
-        printf("nulling left\n");
     left = new_left;
     return left;
 }
 
 std::shared_ptr<TreeNode> TreeNode::setRight(std::shared_ptr<TreeNode> new_right)
 {
-    if( new_right != nullptr )
-        printf("Setting the right of %d to %d\n", value, new_right->getValue() );
-    else
-        printf("nulling right\n");
-
     right = new_right;
     return right;
 }
@@ -67,6 +58,13 @@ std::shared_ptr<TreeNode> TreeNode::setParent(std::shared_ptr<TreeNode> new_pare
     parent = new_parent;
     return parent;
 }
+
+int TreeNode::setValue(int new_value)
+{
+    value = new_value;
+    return value;
+}
+
 
 TreeNode::TreeNode(int new_value)
 {

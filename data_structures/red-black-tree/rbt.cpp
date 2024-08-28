@@ -12,8 +12,6 @@
 
 int main(int argc, char **argv)
 {
-    if( ( 1 ) || ( 1 ) )
-        printf("asdf\n");
     RedBlackTree temp2;
     std::shared_ptr<TreeNode> fifteen = temp2.addValue(15);
 
@@ -87,17 +85,29 @@ int main(int argc, char **argv)
         printf("The predecessor of 17 was : %d \n", predecessor->getValue());
     }
 
-    RedBlackTree::inOrderTreeWalk(temp2.root_node);
     printf("\n");
 
-    std::shared_ptr<TreeNode> found = temp2.find(4);
-    if( found != nullptr )
     {
-        printf("found, value was %d\n", found->getValue());
+        RedBlackTree::inOrderTreeWalk(temp2.root_node);
+        std::shared_ptr<TreeNode> removed_node = temp2.remove(4);
+        RedBlackTree::inOrderTreeWalk(temp2.root_node);
     }
-
-    temp2.remove(4);
-    RedBlackTree::inOrderTreeWalk(temp2.root_node);
+    {
+        std::shared_ptr<TreeNode> removed_node = temp2.remove(2);
+        RedBlackTree::inOrderTreeWalk(temp2.root_node);
+    }
+    {
+        std::shared_ptr<TreeNode> removed_node = temp2.remove(32);
+        RedBlackTree::inOrderTreeWalk(temp2.root_node);
+    }
+    {
+        std::shared_ptr<TreeNode> removed_node = temp2.remove(100);
+        RedBlackTree::inOrderTreeWalk(temp2.root_node);
+    }
+    {
+        std::shared_ptr<TreeNode> removed_node = temp2.remove(17);
+        RedBlackTree::inOrderTreeWalk(temp2.root_node);
+    }
     printf("\n");
 
 }
