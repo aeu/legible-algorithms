@@ -27,7 +27,6 @@ std::shared_ptr<TreeNode> RedBlackTree::addValue(int new_value)
 
 std::shared_ptr<TreeNode> RedBlackTree::find(int value)
 {
-    printf("looking for %d\n", value );
     return find(this->root_node, value );
 }
 
@@ -103,25 +102,57 @@ std::shared_ptr<TreeNode> RedBlackTree::predecessor(std::shared_ptr<TreeNode> st
 
 std::shared_ptr<TreeNode> RedBlackTree::remove(int value)
 {
+    printf("\ntrying to remove %d\n", value );
     std::shared_ptr<TreeNode> removed = find(value);
     if( removed == nullptr )
         return nullptr;
 
-    std::shared_ptr<TreeNode> parent = removed->getParent();
-    if( parent == nullptr )
-        printf("for some reason the parent was null \n");
+    // case 1, node being removed has no children
+
     if(( removed->getLeft() == nullptr ) && ( removed->getRight() == nullptr ))
     {
-        printf("node being removed has no kids\n");
-        if(( parent->getLeft() != nullptr ) && ( parent->getLeft() == removed ))
+        if( removed->getParent()->getLeft() == removed )
+            removed->getParent()->setLeft(nullptr);
+        else
+            removed->getParent()->setRight(nullptr);
+        return removed;
+    }
+
+    // case 2, node being remove has one child
+
+    if(( removed->getLeft() == nullptr ) || ( removed->getRight() == nullptr ))
+    {
+        std::shared_ptr<TreeNode> child = removed->getLeft();
+        if( child != nullptr )
         {
-            printf("it was the left of the parent\n");
-            parent->setLeft(nullptr);
+            child->setParent( removed->getParent () );
         }
         else
         {
-            printf("it was the right of the parent\n");
-            parent->setRight(nullptr);
+            child = removed->getRight();
+            child->setParent( removed->getParent() );
+        }
+        if( removed->getParent()->getLeft() == removed )
+            removed->getParent()->setLeft(child);
+        else
+            removed->getParent()->setRight(child);
+        return removed;
+    }
+
+    // case 3, node being removed has two children
+    std::shared_ptr<TreeNode> left_child = removed->getLeft();
+    std::shared_ptr<TreeNode> right_child = removed->getRight();
+    if(( left_child != nullptr ) && ( right_child != nullptr ))
+    {
+        std::shared_ptr<TreeNode> successor_node = this->successor(removed);
+        if( successor_node != nullptr )
+        {
+            removed->setValue( successor_node->getValue());
+            if( successor_node->getParent()->getLeft() == successor_node )
+                successor_node->getParent()->setLeft(nullptr);
+            else
+                successor_node->getParent()->setRight(nullptr);
+            return successor_node;
         }
     }
     return nullptr;
