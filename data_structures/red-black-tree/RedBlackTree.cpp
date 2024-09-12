@@ -14,7 +14,7 @@ RedBlackTree::RedBlackTree()
 {
     int nil_value = -1;
     this->nilnode = std::make_shared<TreeNode>(nil_value);
-    this->root_node = nullptr;
+    this->root_node = nilNode();
     printf("Created an empty red black tree\n");
 }
 
@@ -34,7 +34,7 @@ std::shared_ptr<TreeNode> RedBlackTree::find(std::shared_ptr<TreeNode> start_nod
                                              int value)
 {
     if( start_node == nullptr )
-        return nullptr;
+        return nilNode();
 
     if( start_node->getValue() == value )
     {
@@ -46,7 +46,7 @@ std::shared_ptr<TreeNode> RedBlackTree::find(std::shared_ptr<TreeNode> start_nod
     else
         return find ( start_node->getRight(), value );
 
-    return nullptr;
+    return nilNode();
 }
 
 
@@ -59,6 +59,15 @@ void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
         inOrderTreeWalk( start_node->getRight());
     }
 }
+
+void RedBlackTree::leftRotate(std::shared_ptr<TreeNode> start_node)
+{
+}
+
+void RedBlackTree::rightRotate(std::shared_ptr<TreeNode> start_node)
+{
+}
+
 
 std::shared_ptr<TreeNode> RedBlackTree::maximum(std::shared_ptr<TreeNode> start_node)
 {
@@ -83,6 +92,12 @@ std::shared_ptr<TreeNode> RedBlackTree::minimum(std::shared_ptr<TreeNode> start_
     }
     return minimum;
 }
+
+std::shared_ptr<TreeNode> RedBlackTree::nilNode()
+{
+    return nilnode;
+}
+
 
 std::shared_ptr<TreeNode> RedBlackTree::predecessor(std::shared_ptr<TreeNode> start_node)
 {
@@ -177,8 +192,11 @@ std::shared_ptr<TreeNode> RedBlackTree::successor(std::shared_ptr<TreeNode> star
 
 std::shared_ptr<TreeNode> RedBlackTree::insert(std::shared_ptr<TreeNode> new_node)
 {
-    std::shared_ptr<TreeNode> temp_node = nullptr;
+    std::shared_ptr<TreeNode> temp_node = nilNode();
     std::shared_ptr<TreeNode> insertion_parent = this->root_node;
+    new_node->setLeft(nilNode());
+    new_node->setRight(nilNode());
+    new_node->setParent(nilNode());
     while( insertion_parent != nullptr )
     {
         temp_node = insertion_parent;
@@ -188,7 +206,7 @@ std::shared_ptr<TreeNode> RedBlackTree::insert(std::shared_ptr<TreeNode> new_nod
             insertion_parent = insertion_parent->getRight();
     }
     new_node->setParent(temp_node);
-    if( temp_node == nullptr )
+    if( temp_node == nilNode() )
     {
         printf("Tree was empty, setting the root to %d\n", new_node->getValue());
         root_node = new_node;
