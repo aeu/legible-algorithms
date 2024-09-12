@@ -1,18 +1,16 @@
 CC=g++
-CFLAGS=-g -Wall -std=c++17 -I.
+CPPFLAGS=-g -Wall -std=c++17 -I.
 
-DEPS = TreeNode.h \
-	RedBlackTree.h
-
-OBJ = rbt.o \
+OBJS = rbt.o \
 	TreeNode.o \
 	RedBlackTree.o
 
-%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+%.o: %.c
+	$(CC) -o $@
 
-rbt: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
+rbt: $(OBJS)
+	$(CC) $(CPPFLAGS) -o $@ $^
+
 
 clean:
 	rm -f *.o
