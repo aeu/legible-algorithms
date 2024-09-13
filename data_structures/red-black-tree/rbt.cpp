@@ -88,25 +88,25 @@ int main(int argc, char **argv)
     printf("\n");
 
     {
-        RedBlackTree::inOrderTreeWalk(temp2.root_node);
+        temp2.inOrderTreeWalk(temp2.root_node);
         std::shared_ptr<TreeNode> removed_node = temp2.remove(4);
-        RedBlackTree::inOrderTreeWalk(temp2.root_node);
+        temp2.inOrderTreeWalk(temp2.root_node);
     }
     {
         std::shared_ptr<TreeNode> removed_node = temp2.remove(2);
-        RedBlackTree::inOrderTreeWalk(temp2.root_node);
+        temp2.inOrderTreeWalk(temp2.root_node);
     }
     {
         std::shared_ptr<TreeNode> removed_node = temp2.remove(32);
-        RedBlackTree::inOrderTreeWalk(temp2.root_node);
+        temp2.inOrderTreeWalk(temp2.root_node);
     }
     {
         std::shared_ptr<TreeNode> removed_node = temp2.remove(100);
-        RedBlackTree::inOrderTreeWalk(temp2.root_node);
+        temp2.inOrderTreeWalk(temp2.root_node);
     }
     {
         std::shared_ptr<TreeNode> removed_node = temp2.remove(17);
-        RedBlackTree::inOrderTreeWalk(temp2.root_node);
+        temp2.inOrderTreeWalk(temp2.root_node);
     }
     printf("\n");
 

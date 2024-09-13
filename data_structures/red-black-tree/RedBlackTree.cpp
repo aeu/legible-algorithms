@@ -12,7 +12,7 @@
 
 RedBlackTree::RedBlackTree()
 {
-    int nil_value = -1;
+    int nil_value = -1337;
     this->nilnode = std::make_shared<TreeNode>(nil_value);
     this->root_node = nilNode();
     printf("Created an empty red black tree\n");
@@ -33,7 +33,7 @@ std::shared_ptr<TreeNode> RedBlackTree::find(int value)
 std::shared_ptr<TreeNode> RedBlackTree::find(std::shared_ptr<TreeNode> start_node,
                                              int value)
 {
-    if( start_node == nullptr )
+    if( start_node == nilNode() )
         return nilNode();
 
     if( start_node->getValue() == value )
@@ -52,7 +52,7 @@ std::shared_ptr<TreeNode> RedBlackTree::find(std::shared_ptr<TreeNode> start_nod
 
 void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
 {
-    if( start_node != nullptr )
+    if( start_node != nilNode() )
     {
         inOrderTreeWalk( start_node->getLeft() );
         printf("%d, ", start_node->getValue());
@@ -72,9 +72,9 @@ void RedBlackTree::rightRotate(std::shared_ptr<TreeNode> start_node)
 std::shared_ptr<TreeNode> RedBlackTree::maximum(std::shared_ptr<TreeNode> start_node)
 {
     std::shared_ptr<TreeNode> maximum = start_node;
-    if( maximum == nullptr )
+    if( maximum == nilNode() )
         maximum = root_node;
-    while( maximum != nullptr && maximum->getRight() != nullptr )
+    while( maximum != nilNode() && maximum->getRight() != nilNode() )
     {
         maximum = maximum->getRight();
     }
@@ -84,9 +84,9 @@ std::shared_ptr<TreeNode> RedBlackTree::maximum(std::shared_ptr<TreeNode> start_
 std::shared_ptr<TreeNode> RedBlackTree::minimum(std::shared_ptr<TreeNode> start_node)
 {
     std::shared_ptr<TreeNode> minimum = start_node;
-    if( minimum == nullptr )
+    if( minimum == nilNode() )
         minimum = root_node;
-    while( minimum != nullptr && minimum->getLeft() != nullptr )
+    while( minimum != nilNode() && minimum->getLeft() != nilNode() )
     {
         minimum = minimum->getLeft();
     }
@@ -101,13 +101,13 @@ std::shared_ptr<TreeNode> RedBlackTree::nilNode()
 
 std::shared_ptr<TreeNode> RedBlackTree::predecessor(std::shared_ptr<TreeNode> start_node)
 {
-    if( start_node->getLeft() != nullptr )
+    if( start_node->getLeft() != nilNode() )
         return maximum(start_node->getLeft());
 
     std::shared_ptr<TreeNode> predecessor = start_node->getParent();
     std::shared_ptr<TreeNode> temp_node = start_node;
 
-    while( predecessor != nullptr && temp_node == predecessor->getLeft() )
+    while( predecessor != nilNode() && temp_node == predecessor->getLeft() )
     {
         temp_node = predecessor;
         predecessor = predecessor->getParent();
@@ -119,26 +119,26 @@ std::shared_ptr<TreeNode> RedBlackTree::remove(int value)
 {
     printf("\ntrying to remove %d\n", value );
     std::shared_ptr<TreeNode> removed = find(value);
-    if( removed == nullptr )
-        return nullptr;
+    if( removed == nilNode() )
+        return nilNode();
 
     // case 1, node being removed has no children
 
-    if(( removed->getLeft() == nullptr ) && ( removed->getRight() == nullptr ))
+    if(( removed->getLeft() == nilNode() ) && ( removed->getRight() == nilNode() ))
     {
         if( removed->getParent()->getLeft() == removed )
-            removed->getParent()->setLeft(nullptr);
+            removed->getParent()->setLeft(nilNode());
         else
-            removed->getParent()->setRight(nullptr);
+            removed->getParent()->setRight(nilNode());
         return removed;
     }
 
     // case 2, node being remove has one child
 
-    if(( removed->getLeft() == nullptr ) || ( removed->getRight() == nullptr ))
+    if(( removed->getLeft() == nilNode() ) || ( removed->getRight() == nilNode() ))
     {
         std::shared_ptr<TreeNode> child = removed->getLeft();
-        if( child != nullptr )
+        if( child != nilNode() )
         {
             child->setParent( removed->getParent () );
         }
@@ -157,31 +157,31 @@ std::shared_ptr<TreeNode> RedBlackTree::remove(int value)
     // case 3, node being removed has two children
     std::shared_ptr<TreeNode> left_child = removed->getLeft();
     std::shared_ptr<TreeNode> right_child = removed->getRight();
-    if(( left_child != nullptr ) && ( right_child != nullptr ))
+    if(( left_child != nilNode() ) && ( right_child != nilNode() ))
     {
         std::shared_ptr<TreeNode> successor_node = this->successor(removed);
-        if( successor_node != nullptr )
+        if( successor_node != nilNode() )
         {
             removed->setValue( successor_node->getValue());
             if( successor_node->getParent()->getLeft() == successor_node )
-                successor_node->getParent()->setLeft(nullptr);
+                successor_node->getParent()->setLeft(nilNode());
             else
-                successor_node->getParent()->setRight(nullptr);
+                successor_node->getParent()->setRight(nilNode());
             return successor_node;
         }
     }
-    return nullptr;
+    return nilNode();
 }
 
 std::shared_ptr<TreeNode> RedBlackTree::successor(std::shared_ptr<TreeNode> start_node)
 {
-    if( start_node->getRight() != nullptr )
+    if( start_node->getRight() != nilNode() )
         return minimum(start_node->getRight());
 
     std::shared_ptr<TreeNode> temp_node = start_node;
     std::shared_ptr<TreeNode> successor = start_node->getParent();
 
-    while( successor != nullptr && temp_node == successor->getRight() )
+    while( successor != nilNode() && temp_node == successor->getRight() )
     {
         temp_node = successor;
         successor = successor->getParent();
@@ -197,7 +197,7 @@ std::shared_ptr<TreeNode> RedBlackTree::insert(std::shared_ptr<TreeNode> new_nod
     new_node->setLeft(nilNode());
     new_node->setRight(nilNode());
     new_node->setParent(nilNode());
-    while( insertion_parent != nullptr )
+    while( insertion_parent != nilNode() )
     {
         temp_node = insertion_parent;
         if( new_node->getValue() < insertion_parent->getValue() )
