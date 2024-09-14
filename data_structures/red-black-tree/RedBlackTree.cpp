@@ -60,8 +60,30 @@ void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
     }
 }
 
-void RedBlackTree::leftRotate(std::shared_ptr<TreeNode> start_node)
+std::shared_ptr<TreeNode> RedBlackTree::leftRotate(std::shared_ptr<TreeNode> left)
 {
+    std::shared_ptr<TreeNode> right = left->getRight();
+    left->setRight( right->getLeft() );
+    if( right->getLeft() != nilNode() )
+    {
+        right->getLeft()->setParent( left );
+    }
+    right->setParent( left->getParent() );
+    if( left->getParent() == nilNode() )
+    {
+        root_node = right;
+    }
+    else if ( left == left->getParent()->getLeft() )
+    {
+        left->getParent()->setLeft( right );
+    }
+    else
+    {
+        left->getParent()->setRight( right );
+    }
+    right->setLeft( left );
+    left->setParent( right );
+    return right;
 }
 
 void RedBlackTree::rightRotate(std::shared_ptr<TreeNode> start_node)
@@ -214,9 +236,16 @@ std::shared_ptr<TreeNode> RedBlackTree::insert(std::shared_ptr<TreeNode> new_nod
     else
     {
         if( new_node->getValue() < temp_node->getValue() )
+        {
             temp_node->setLeft( new_node );
+            printf("setting the left of %d to be %d\n", temp_node->getValue(), new_node->getValue() );
+        }
         else
+        {
             temp_node->setRight( new_node );
+            printf("setting the right of %d to be %d\n", temp_node->getValue(), new_node->getValue() );
+
+        }
     }
     return new_node;
 }

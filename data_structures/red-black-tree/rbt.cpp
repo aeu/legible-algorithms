@@ -34,36 +34,34 @@ int main(int argc, char **argv)
     temp2.addValue( 97  );
     temp2.addValue( 44  );
     temp2.addValue( 86  );
+    std::shared_ptr<TreeNode> seven = temp2.addValue(7);
+    temp2.addValue(10);
+    temp2.addValue(13);
+    temp2.addValue(47);
+    std::shared_ptr<TreeNode> sixteen = temp2.addValue(16);
+    temp2.addValue(20);
+    temp2.addValue(18);
+    temp2.addValue(23);
 
-    // std::shared_ptr<TreeNode> seven = temp2.addValue(7);
-    // temp2.addValue(10);
-    // temp2.addValue(12);
-    // temp2.addValue(13);
-    // temp2.addValue(47);
-    // std::shared_ptr<TreeNode> sixteen = temp2.addValue(16);
-    // temp2.addValue(20);
-    // temp2.addValue(18);
-    // temp2.addValue(23);
+    {
+        std::shared_ptr<TreeNode> maximum = temp2.maximum( temp2.nilNode());
+        printf("the max node of the whole tree was : %d \n", maximum->getValue());
+    }
 
-    // {
-    //     std::shared_ptr<TreeNode> maximum = temp2.maximum(nullptr);
-    //     printf("the max node was : %d \n", maximum->getValue());
-    // }
+    {
+        std::shared_ptr<TreeNode> minimum = temp2.minimum(temp2.nilNode());
+        printf("the min node of the whole tree was : %d \n", minimum->getValue());
+    }
 
-    // {
-    //     std::shared_ptr<TreeNode> minimum = temp2.minimum(nullptr);
-    //     printf("the min node was : %d \n", minimum->getValue());
-    // }
+    {
+        std::shared_ptr<TreeNode> maximum = temp2.maximum(fifty_four);
+        printf("the max node under 54 was : %d \n", maximum->getValue());
+    }
 
-    // {
-    //     std::shared_ptr<TreeNode> maximum = temp2.maximum(sixteen);
-    //     printf("the max node under 16 was : %d \n", maximum->getValue());
-    // }
-
-    // {
-    //     std::shared_ptr<TreeNode> minimum = temp2.minimum(seven);
-    //     printf("the min node under 7 was : %d \n", minimum->getValue());
-    // }
+    {
+        std::shared_ptr<TreeNode> minimum = temp2.minimum(seventeen);
+        printf("the min node under 17 was : %d \n", minimum->getValue());
+    }
 
     {
         std::shared_ptr<TreeNode> successor = temp2.successor(fifty_four);
