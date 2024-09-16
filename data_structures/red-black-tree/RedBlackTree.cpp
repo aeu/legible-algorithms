@@ -15,6 +15,7 @@ RedBlackTree::RedBlackTree()
     int nil_value = -1337;
     this->nilnode = std::make_shared<TreeNode>(nil_value);
     this->root_node = nilNode();
+    debug_out = true;
     printf("Created an empty red black tree\n");
 }
 
@@ -59,35 +60,70 @@ void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
         inOrderTreeWalk( start_node->getRight());
     }
 }
-
-std::shared_ptr<TreeNode> RedBlackTree::leftRotate(std::shared_ptr<TreeNode> left)
+/*
+ * Rotations:
+ *
+ *               |                                      |
+ *               y                                      x
+ *              / \        <--- Left Rotate T,x        / \
+ *             /   \       T,y  Right Rotate --->     /   \
+ *            x     γ                                α     y
+ *           / \                                          / \
+ *          /   \                                        /   \
+ *         α     β                                      β     γ
+ *
+ *
+ */
+std::shared_ptr<TreeNode> RedBlackTree::leftRotate(std::shared_ptr<TreeNode> x)
 {
-    std::shared_ptr<TreeNode> right = left->getRight();
-    left->setRight( right->getLeft() );
-    if( right->getLeft() != nilNode() )
+    std::shared_ptr<TreeNode> y = x->getRight();
+    x->setRight( y->getLeft() );
+    if( y->getLeft() != nilNode() )
     {
-        right->getLeft()->setParent( left );
+        y->getLeft()->setParent( x );
     }
-    right->setParent( left->getParent() );
-    if( left->getParent() == nilNode() )
+    y->setParent( x->getParent() );
+    if( x->getParent() == nilNode() )
     {
-        root_node = right;
+        root_node = y;
     }
-    else if ( left == left->getParent()->getLeft() )
+    else if ( x == x->getParent()->getLeft() )
     {
-        left->getParent()->setLeft( right );
+        x->getParent()->setLeft( y );
     }
     else
     {
-        left->getParent()->setRight( right );
+        x->getParent()->setRight( y );
     }
-    right->setLeft( left );
-    left->setParent( right );
-    return right;
+    y->setLeft( x );
+    x->setParent( y );
+    return y;
 }
 
-void RedBlackTree::rightRotate(std::shared_ptr<TreeNode> start_node)
+std::shared_ptr<TreeNode> RedBlackTree::rightRotate(std::shared_ptr<TreeNode> y)
 {
+    std::shared_ptr<TreeNode> x = y->getLeft();
+    y->setLeft( x->getRight() );
+    if( x->getRight() != nilNode() )
+    {
+        x->getRight()->setParent( y );
+    }
+    x->setParent( y->getParent() );
+    if( y->getParent() == nilNode() )
+    {
+        root_node = x;
+    }
+    else if ( y == y->getParent()->getLeft() )
+    {
+        y->getParent()->setLeft( x );
+    }
+    else
+    {
+        y->getParent()->setRight( x );
+    }
+    x->setRight( y );
+    y->setParent( x );
+    return x;
 }
 
 
@@ -230,21 +266,23 @@ std::shared_ptr<TreeNode> RedBlackTree::insert(std::shared_ptr<TreeNode> new_nod
     new_node->setParent(temp_node);
     if( temp_node == nilNode() )
     {
-        printf("Tree was empty, setting the root to %d\n", new_node->getValue());
         root_node = new_node;
+        if( debug_out )
+            printf("Tree was empty, setting the root to %d\n", new_node->getValue());
     }
     else
     {
         if( new_node->getValue() < temp_node->getValue() )
         {
             temp_node->setLeft( new_node );
-            printf("setting the left of %d to be %d\n", temp_node->getValue(), new_node->getValue() );
+            if( debug_out )
+                printf("Setting the left of %d to be %d\n", temp_node->getValue(), new_node->getValue() );
         }
         else
         {
             temp_node->setRight( new_node );
-            printf("setting the right of %d to be %d\n", temp_node->getValue(), new_node->getValue() );
-
+            if( debug_out )
+                printf("Setting the right of %d to be %d\n", temp_node->getValue(), new_node->getValue() );
         }
     }
     return new_node;

@@ -14,20 +14,19 @@ int main(int argc, char **argv)
 {
     RedBlackTree temp2;
     std::shared_ptr<TreeNode> fifteen = temp2.addValue(15);
-
     temp2.addValue( 22  );
-    std::shared_ptr<TreeNode> seventeen = temp2.addValue( 17 );
+    std::shared_ptr<TreeNode> seventeen = temp2.addValue(17);
     temp2.addValue( 2   );
-    temp2.addValue( 5   );
+    std::shared_ptr<TreeNode> five = temp2.addValue(5);
     temp2.addValue( 45  );
     temp2.addValue( 12  );
     temp2.addValue( 6   );
     temp2.addValue( 4   );
     temp2.addValue( 100 );
     temp2.addValue( 120 );
-    temp2.addValue( 88  );
+    std::shared_ptr<TreeNode> eighty_eight = temp2.addValue(88);
     temp2.addValue( 67  );
-    std::shared_ptr<TreeNode> fifty_four = temp2.addValue( 54 );
+    std::shared_ptr<TreeNode> fifty_four = temp2.addValue(54);
     temp2.addValue( 32  );
     temp2.addValue( 29  );
     temp2.addValue( 33  );
@@ -63,6 +62,7 @@ int main(int argc, char **argv)
         printf("the min node under 17 was : %d \n", minimum->getValue());
     }
 
+    printf("\n\nPredecessor / Successor Tests\n");
     {
         std::shared_ptr<TreeNode> successor = temp2.successor(fifty_four);
         printf("The successor of 54 was : %d \n", successor->getValue());
@@ -84,6 +84,39 @@ int main(int argc, char **argv)
     }
 
     printf("\n");
+
+    printf("TreeRotate Tests\n");
+    printf(" Rotations:                                                    \n");
+    printf("                                                               \n");
+    printf("               |                                      |        \n");
+    printf("               y                                      x        \n");
+    printf("              / \\        <--- Left Rotate T,x        / \\       \n");
+    printf("             /   \\       T,y  Right Rotate --->     /   \\      \n");
+    printf("            x     γ                                α     y     \n");
+    printf("           / \\                                          / \\    \n");
+    printf("          /   \\                                        /   \\   \n");
+    printf("         α     β                                      β     γ  \n");
+    printf("                                                               \n");
+
+
+    {
+        printf("Left Rotate\n");
+        printf("Starting with node  x(%d)\n", five->getValue());
+        printf("\t(x) Left: %d   (x) Right: %d\n", five->getLeft()->getValue(), five->getRight()->getValue());
+        std::shared_ptr<TreeNode> new_right = temp2.leftRotate( five );
+        printf("\tAfter rotation (x) Left: %d, (x) Right %d\n", five->getLeft()->getValue(), five->getRight()->getValue());
+        printf("\ty(%d),  (y) Left %d :   (y) Right : %d\n", new_right->getValue(), new_right->getLeft()->getValue(), new_right->getRight()->getValue());
+    }
+
+    {
+        printf("Right Rotate\n");
+        printf("Starting with node y(%d)\n", eighty_eight->getValue());
+        printf("\t(y) Left: %d   (y) Right: %d\n", eighty_eight->getLeft()->getValue(), eighty_eight->getRight()->getValue());
+        std::shared_ptr<TreeNode> new_left = temp2.rightRotate( eighty_eight );
+        printf("\tAfter rotation Left: %d, Right %d\n", eighty_eight->getLeft()->getValue(), eighty_eight->getRight()->getValue());
+        printf("\tNew Left : %d,  its left %d :   its right : %d\n", new_left->getValue(), new_left->getLeft()->getValue(), new_left->getRight()->getValue());
+    }
+
 
     {
         temp2.inOrderTreeWalk(temp2.root_node);
