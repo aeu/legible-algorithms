@@ -255,6 +255,8 @@ std::shared_ptr<TreeNode> RedBlackTree::insert(std::shared_ptr<TreeNode> new_nod
     new_node->setLeft(nilNode());
     new_node->setRight(nilNode());
     new_node->setParent(nilNode());
+    new_node->setColour(TreeNode::NodeColour::RED);
+
     while( insertion_parent != nilNode() )
     {
         temp_node = insertion_parent;
