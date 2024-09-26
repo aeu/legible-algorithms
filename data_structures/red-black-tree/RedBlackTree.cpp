@@ -51,6 +51,38 @@ std::shared_ptr<TreeNode> RedBlackTree::find(std::shared_ptr<TreeNode> start_nod
 }
 
 
+void RedBlackTree::dumpDotLine(FILE *fp, std::shared_ptr<TreeNode> start_node)
+{
+    if( start_node != nilNode() )
+    {
+        dumpDotLine(fp, start_node->getLeft() );
+        if( start_node->getLeft() != nilNode() )
+        {
+            fprintf(fp, "\t%d -> %d;\n", start_node->getValue(), start_node->getLeft()->getValue());
+        }
+        if( start_node->getRight() != nilNode() )
+        {
+            fprintf(fp, "\t%d -> %d;\n", start_node->getValue(), start_node->getRight()->getValue());
+        }
+        dumpDotLine(fp, start_node->getRight() );
+    }
+}
+
+void RedBlackTree::toDotFile(const char *filename, std::shared_ptr<TreeNode> start_node)
+{
+    FILE *fp = fopen(filename, "wt");
+    if( fp )
+    {
+        fprintf(fp, "digraph G {\n");
+        if( start_node == nilNode() )
+            dumpDotLine(fp, root_node );
+        else
+            dumpDotLine(fp, start_node );
+        fprintf(fp, "}\n");
+    }
+    printf("graphviz dotfile created, create a png with dot %s -Tpng > %s.png\n", filename, filename );
+}
+
 void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
 {
     if( start_node != nilNode() )

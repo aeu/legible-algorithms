@@ -141,4 +141,5 @@ int main(int argc, char **argv)
     }
     printf("\n");
 
+    temp2.toDotFile("temp2.dot", temp2.nilNode());
 }

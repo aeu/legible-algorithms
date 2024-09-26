@@ -34,6 +34,9 @@ public:
     std::shared_ptr<TreeNode> successor(std::shared_ptr<TreeNode> start_node);
     std::shared_ptr<TreeNode> root_node;
     
+    void dumpDotLine(FILE *fp, std::shared_ptr<TreeNode> start_node);
+    void toDotFile(const char *filename, std::shared_ptr<TreeNode> start_node);
+
 protected:
 
     std::shared_ptr<TreeNode> insert(std::shared_ptr<TreeNode> new_node);
