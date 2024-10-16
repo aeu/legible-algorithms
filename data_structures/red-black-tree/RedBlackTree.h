@@ -23,6 +23,7 @@ public:
     std::shared_ptr<TreeNode> find(int value);
     std::shared_ptr<TreeNode> find(std::shared_ptr<TreeNode> start_node, int value);
     void inOrderTreeWalk(std::shared_ptr<TreeNode> start_node);
+    void insertFixup(std::shared_ptr<TreeNode> z );
     std::shared_ptr<TreeNode> leftRotate(std::shared_ptr<TreeNode> start_node);
     std::shared_ptr<TreeNode> rightRotate(std::shared_ptr<TreeNode> start_node);
     
