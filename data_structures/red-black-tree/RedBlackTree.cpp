@@ -14,6 +14,7 @@ RedBlackTree::RedBlackTree()
 {
     int nil_value = -1337;
     this->nilnode = std::make_shared<TreeNode>(nil_value);
+    this->nilnode->setColour(TreeNode::NodeColour::BLACK);
     this->root_node = nilNode();
     debug_out = true;
     printf("Created an empty red black tree\n");
@@ -92,6 +93,32 @@ void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
         inOrderTreeWalk( start_node->getRight());
     }
 }
+
+
+void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
+{
+    std::shared_ptr<TreeNode> y;
+
+    while( z->getParent()->getColour() == TreeNode::NodeColour::RED )
+    {
+        if( z->getParent() == z->getParent()->getParent()->getLeft() )
+        {
+            y = z->getParent()->getParent()->getRight();
+        }
+        if( y->getColour() == TreeNode::NodeColour::RED )
+        {
+            z->getParent()->setColour( TreeNode::NodeColour::BLACK );
+            y->setColour( TreeNode::NodeColour::BLACK );
+            z->getParent()->getParent()->setColour( TreeNode::NodeColour::RED );
+            z = z->getParent()->getParent();
+        }
+        else if( z == z->getParent()->getRight() )
+        {
+        }
+    }
+}
+
+
 /*
  * Rotations:
  *
