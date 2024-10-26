@@ -65,6 +65,10 @@ void RedBlackTree::dumpDotLine(FILE *fp, std::shared_ptr<TreeNode> start_node)
         {
             fprintf(fp, "\t%d -> %d;\n", start_node->getValue(), start_node->getRight()->getValue());
         }
+        if( start_node->getColour() == TreeNode::NodeColour::RED )
+        {
+             fprintf(fp, "\t%d [fillcolor=red];\n", start_node->getValue());
+        }
         dumpDotLine(fp, start_node->getRight() );
     }
 }
@@ -75,6 +79,7 @@ void RedBlackTree::toDotFile(const char *filename, std::shared_ptr<TreeNode> sta
     if( fp )
     {
         fprintf(fp, "digraph G {\n");
+        fprintf(fp, "\tnode [style=filled];\n");
         if( start_node == nilNode() )
             dumpDotLine(fp, root_node );
         else
@@ -97,24 +102,31 @@ void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
 
 void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
 {
-    std::shared_ptr<TreeNode> y;
-
-    while( z->getParent()->getColour() == TreeNode::NodeColour::RED )
+    std::shared_ptr<TreeNode> y = nilnode;
+    std::shared_ptr<TreeNode> grandparent = nilnode;
+    int max = 0;
+    while( ( z->getParent() != nilnode ) && ( z->getParent()->getColour() == TreeNode::NodeColour::RED ))
     {
-        if( z->getParent() == z->getParent()->getParent()->getLeft() )
+        max++;
+        grandparent = getGrandparent( z );
+        if((grandparent != nilnode) && ( z->getParent() == grandparent->getLeft() ))
         {
-            y = z->getParent()->getParent()->getRight();
+            y = grandparent->getRight();
         }
-        if( y->getColour() == TreeNode::NodeColour::RED )
+        if(( y != nilnode ) && ( y->getColour() == TreeNode::NodeColour::RED ))
         {
             z->getParent()->setColour( TreeNode::NodeColour::BLACK );
             y->setColour( TreeNode::NodeColour::BLACK );
-            z->getParent()->getParent()->setColour( TreeNode::NodeColour::RED );
-            z = z->getParent()->getParent();
+            grandparent = getGrandparent(z);
+            if( grandparent != nilnode )
+                grandparent->setColour( TreeNode::NodeColour::RED );
+            z = grandparent;
         }
-        else if( z == z->getParent()->getRight() )
-        {
-        }
+        // else if( z == z->getParent()->getRight() )
+        // {
+        // }
+        if ( max > 20 )
+            break;
     }
 }
 
@@ -232,6 +244,22 @@ std::shared_ptr<TreeNode> RedBlackTree::predecessor(std::shared_ptr<TreeNode> st
     return predecessor;
 }
 
+std::shared_ptr<TreeNode> RedBlackTree::getGrandparent(std::shared_ptr<TreeNode> node)
+{
+    std::shared_ptr<TreeNode> parent = node->getParent();
+    if( parent == nilnode )
+        return nilnode;
+    std::shared_ptr<TreeNode> grandparent = parent->getParent();
+    return grandparent;
+}
+
+std::shared_ptr<TreeNode> RedBlackTree::getParent(std::shared_ptr<TreeNode> node)
+{
+    return node->getParent();
+}
+
+
+
 std::shared_ptr<TreeNode> RedBlackTree::remove(int value)
 {
     printf("\ntrying to remove %d\n", value );
@@ -346,5 +374,6 @@ std::shared_ptr<TreeNode> RedBlackTree::insert(std::shared_ptr<TreeNode> new_nod
                 printf("Setting the right of %d to be %d\n", temp_node->getValue(), new_node->getValue() );
         }
     }
+    insertFixup(new_node);
     return new_node;
 }

@@ -21,6 +21,7 @@ int main(int argc, char **argv)
     temp2.addValue( 45  );
     temp2.addValue( 12  );
     temp2.addValue( 6   );
+#if 0    
     temp2.addValue( 4   );
     temp2.addValue( 100 );
     temp2.addValue( 120 );
@@ -139,7 +140,7 @@ int main(int argc, char **argv)
         std::shared_ptr<TreeNode> removed_node = temp2.remove(17);
         temp2.inOrderTreeWalk(temp2.root_node);
     }
+#endif    
     printf("\n");
-
-    temp2.toDotFile("temp2.dot", temp2.nilNode());
+    temp2.toDotFile("rbt.dot", temp2.nilNode());
 }
