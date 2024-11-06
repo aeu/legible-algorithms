@@ -104,29 +104,38 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
 {
     std::shared_ptr<TreeNode> y = nilnode;
     std::shared_ptr<TreeNode> grandparent = nilnode;
+    std::shared_ptr<TreeNode> parent = nilnode;
     int max = 0;
-    while( ( z->getParent() != nilnode ) && ( z->getParent()->getColour() == TreeNode::NodeColour::RED ))
+    while( getParent(z)->getColour() == TreeNode::NodeColour::RED )
     {
         max++;
         grandparent = getGrandparent( z );
-        if((grandparent != nilnode) && ( z->getParent() == grandparent->getLeft() ))
+        if((grandparent != nilnode) && ( getParent(z) == grandparent->getLeft() ))
         {
             y = grandparent->getRight();
-        }
-        if(( y != nilnode ) && ( y->getColour() == TreeNode::NodeColour::RED ))
-        {
-            z->getParent()->setColour( TreeNode::NodeColour::BLACK );
-            y->setColour( TreeNode::NodeColour::BLACK );
+            if(( y != nilnode ) && ( y->getColour() == TreeNode::NodeColour::RED ))
+            {
+                getParent(z)->setColour( TreeNode::NodeColour::BLACK );
+                y->setColour( TreeNode::NodeColour::BLACK );
+                grandparent = getGrandparent(z);
+                if( grandparent != nilnode )
+                    grandparent->setColour( TreeNode::NodeColour::RED );
+                z = grandparent;
+            }
+            else if( z == getParent(z)->getRight())
+            {
+                z = getParent(z);
+                leftRotate(z);
+            }
+            getParent(z)->setColour( TreeNode::NodeColour::BLACK );
             grandparent = getGrandparent(z);
             if( grandparent != nilnode )
-                grandparent->setColour( TreeNode::NodeColour::RED );
-            z = grandparent;
+            {
+                grandparent->setColour(  TreeNode::NodeColour:: RED );
+                rightRotate(grandparent);
+            }
+
         }
-        // else if( z == z->getParent()->getRight() )
-        // {
-        // }
-        if ( max > 20 )
-            break;
     }
 }
 
