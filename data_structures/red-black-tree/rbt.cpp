@@ -12,8 +12,14 @@
 
 int main(int argc, char **argv)
 {
+    char filename[255];
+    int file_index = 1;
     RedBlackTree temp2;
     std::shared_ptr<TreeNode> fifteen = temp2.addValue(15);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+#if 0    
+    
     temp2.addValue( 22  );
     std::shared_ptr<TreeNode> seventeen = temp2.addValue(17);
     temp2.addValue( 2   );
@@ -21,7 +27,6 @@ int main(int argc, char **argv)
     temp2.addValue( 45  );
     temp2.addValue( 12  );
     temp2.addValue( 6   );
-#if 0    
     temp2.addValue( 4   );
     temp2.addValue( 100 );
     temp2.addValue( 120 );
