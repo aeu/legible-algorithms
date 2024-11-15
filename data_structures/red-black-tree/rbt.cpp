@@ -19,7 +19,34 @@ int main(int argc, char **argv)
     std::shared_ptr<TreeNode> fifteen = temp2.addValue(11);
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(2);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
 #if 0    
+
+    temp2.addValue(14);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(1);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+
+    temp2.addValue(7);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(5);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(8);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
     
     temp2.addValue( 22  );
     std::shared_ptr<TreeNode> seventeen = temp2.addValue(17);
