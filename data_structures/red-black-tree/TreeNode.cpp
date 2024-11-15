@@ -12,7 +12,7 @@
 
 TreeNode::NodeColour TreeNode::getColour()
 {
-    return NodeColour::RED;
+    return colour;
 }
 
 TreeNode::NodeColour TreeNode::setColour(TreeNode::NodeColour new_colour)

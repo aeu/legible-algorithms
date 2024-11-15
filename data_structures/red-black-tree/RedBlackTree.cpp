@@ -69,6 +69,10 @@ void RedBlackTree::dumpDotLine(FILE *fp, std::shared_ptr<TreeNode> start_node)
         {
              fprintf(fp, "\t%d [fillcolor=red];\n", start_node->getValue());
         }
+        if( start_node->getColour() == TreeNode::NodeColour::BLACK )
+        {
+             fprintf(fp, "\t%d [fillcolor=grey43];\n", start_node->getValue());
+        }
         dumpDotLine(fp, start_node->getRight() );
     }
 }
@@ -86,7 +90,7 @@ void RedBlackTree::toDotFile(const char *filename, std::shared_ptr<TreeNode> sta
             dumpDotLine(fp, start_node );
         fprintf(fp, "}\n");
     }
-    printf("graphviz dotfile created, create a png with dot %s -Tps > %s.ps; open %s.ps\n", filename, filename,filename );
+    printf("dot %s -Tpng > %s.png; open %s.png\n", filename, filename,filename );
 }
 
 void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
@@ -110,12 +114,18 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
     while(( getParent(z) != nilnode ) &&
           ( getParent(z)->getColour() == TreeNode::NodeColour::RED ))
     {
+        printf("1\n");
         grandparent = getGrandparent( z );
-        if((grandparent != nilnode) && ( getParent(z) == grandparent->getLeft() ))
+        if( grandparent == nilnode )
+            break;
+
+        if( getParent(z) == grandparent->getLeft() )
         {
+            printf("2\n");
             y = grandparent->getRight();
             if(( y != nilnode ) && ( y->getColour() == TreeNode::NodeColour::RED ))
             {
+                printf("3\n");
                 getParent(z)->setColour( TreeNode::NodeColour::BLACK );
                 y->setColour( TreeNode::NodeColour::BLACK );
                 grandparent = getGrandparent(z);
@@ -125,19 +135,25 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
             }
             else if( z == getParent(z)->getRight())
             {
+                printf("4\n");
                 z = getParent(z);
                 leftRotate(z);
             }
+            printf("5\n");
             getParent(z)->setColour( TreeNode::NodeColour::BLACK );
             grandparent = getGrandparent(z);
             if( grandparent != nilnode )
             {
+                printf("6\n");
                 grandparent->setColour(  TreeNode::NodeColour:: RED );
                 rightRotate(grandparent);
             }
-
+        }
+        else if( getParent(z) == grandparent->getRight() )
+        {
         }
     }
+    this->root_node->setColour( TreeNode::NodeColour::BLACK );
 }
 
 
