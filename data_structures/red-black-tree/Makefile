@@ -17,3 +17,8 @@ clean:
 	rm -f *~
 	rm -f *.*~
 	rm -f rbt
+
+dotclean:
+	rm -f *.dot
+	rm -f *.png
+	rm -f *.ps

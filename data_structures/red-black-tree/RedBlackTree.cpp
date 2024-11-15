@@ -86,7 +86,7 @@ void RedBlackTree::toDotFile(const char *filename, std::shared_ptr<TreeNode> sta
             dumpDotLine(fp, start_node );
         fprintf(fp, "}\n");
     }
-    printf("graphviz dotfile created, create a png with dot %s -Tpng > %s.png\n", filename, filename );
+    printf("graphviz dotfile created, create a png with dot %s -Tps > %s.ps; open %s.ps\n", filename, filename,filename );
 }
 
 void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
@@ -105,10 +105,11 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
     std::shared_ptr<TreeNode> y = nilnode;
     std::shared_ptr<TreeNode> grandparent = nilnode;
     std::shared_ptr<TreeNode> parent = nilnode;
+    std::shared_ptr<TreeNode> temp;
     int max = 0;
-    while( getParent(z)->getColour() == TreeNode::NodeColour::RED )
+    while(( getParent(z) != nilnode ) &&
+          ( getParent(z)->getColour() == TreeNode::NodeColour::RED ))
     {
-        max++;
         grandparent = getGrandparent( z );
         if((grandparent != nilnode) && ( getParent(z) == grandparent->getLeft() ))
         {
@@ -258,6 +259,7 @@ std::shared_ptr<TreeNode> RedBlackTree::getGrandparent(std::shared_ptr<TreeNode>
     std::shared_ptr<TreeNode> parent = node->getParent();
     if( parent == nilnode )
         return nilnode;
+
     std::shared_ptr<TreeNode> grandparent = parent->getParent();
     return grandparent;
 }
