@@ -15,7 +15,8 @@ int main(int argc, char **argv)
     char filename[255];
     int file_index = 1;
     RedBlackTree temp2;
-    std::shared_ptr<TreeNode> fifteen = temp2.addValue(15);
+
+    std::shared_ptr<TreeNode> fifteen = temp2.addValue(11);
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
 #if 0    
@@ -145,7 +146,7 @@ int main(int argc, char **argv)
         std::shared_ptr<TreeNode> removed_node = temp2.remove(17);
         temp2.inOrderTreeWalk(temp2.root_node);
     }
-#endif    
     printf("\n");
     temp2.toDotFile("rbt.dot", temp2.nilNode());
+#endif    
 }
