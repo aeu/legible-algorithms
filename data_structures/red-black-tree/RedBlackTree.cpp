@@ -111,111 +111,67 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
     std::shared_ptr<TreeNode> parent = nilnode;
     std::shared_ptr<TreeNode> temp;
     int max = 0;
-    printf("about to insertFixup of z(%d)\n", z->getValue());
     while(( getParent(z) != nilnode ) && ( getParent(z)->getColour() == TreeNode::NodeColour::RED ))
     {
         grandparent = getGrandparent( z );
         if( grandparent == nilnode )
             continue;
 
-        printf("\tz(%d) has a grandparent, %d\n", z->getValue(), grandparent->getValue());
-        if( grandparent->getLeft() != nilnode )
-            printf("\tz(%d)'s grandparent has a left child of %d\n", z->getValue(), grandparent->getLeft()->getValue());
-
-        if( grandparent->getRight() != nilnode )
-            printf("\tz(%d)'s grandparent has a right child of %d\n", z->getValue(), grandparent->getRight()->getValue());
-
         if( getParent(z) == grandparent->getLeft() )
         {
-            printf("\tz(%d)'s parent %d is on grandparent %d's left\n", z->getValue(), getParent(z)->getValue(), grandparent->getValue());
             y = grandparent->getRight();
-            printf("\tSetting y to %d\n",y->getValue());
 
             if(( y != nilnode ) && ( y->getColour() == TreeNode::NodeColour::RED ))
             {
-                printf("\tz(%d)'s uncle %d is red\n", z->getValue(), y->getValue());
-
-                printf("\tSetting z's parent (%d) to Black\n", getParent(z)->getValue());
                 getParent(z)->setColour( TreeNode::NodeColour::BLACK );
-
-                printf("\tSetting y(%d) to black\n", y->getValue());
                 y->setColour( TreeNode::NodeColour::BLACK );
-
-                printf("\tSetting z's grandparent (%d) to Red\n", grandparent->getValue());
                 grandparent->setColour( TreeNode::NodeColour::RED );
-                printf("\tAssinging z to it's grandparent (%d)\n", grandparent->getValue());
                 z = grandparent;
             }
             else
             {
                 if( z == getParent(z)->getRight())
                 {
-                    printf("\tz(%d) is it's parent %d's right child\n", z->getValue(), getParent(z)->getValue());
-                    printf("\tSetting z to it's parent (%d)\n", getParent(z)->getValue());
                     z = getParent(z);
-                    printf("\tperforming leftRotate on z(%d)\n", z->getValue());
                     leftRotate(z);
                 }
             }
-            printf("\tSetting z's parent (%d) to Black\n", getParent(z)->getValue());
             getParent(z)->setColour( TreeNode::NodeColour::BLACK );
             grandparent = getGrandparent(z);
             if( grandparent != nilnode )
             {
-                printf("\tSetting z's grandparent (%d) to Red\n", grandparent->getValue());
                 grandparent->setColour(  TreeNode::NodeColour:: RED );
-                printf("\tperforming rightRotate on grandparent(%d)\n", grandparent->getValue());
                 rightRotate(grandparent);
             }
-
-
         }
         else
         {
-            printf("\tz(%d)'s parent %d is on grandparent %d's right\n", z->getValue(), getParent(z)->getValue(), grandparent->getValue());
-            printf("\tSetting y to %d\n", grandparent->getLeft()->getValue());
             y = grandparent->getLeft();
             if(( y != nilnode ) && ( y->getColour() == TreeNode::NodeColour::RED ))
             {
-                printf("\tz(%d)'s uncle %d is red\n", z->getValue(), y->getValue());
-
-                printf("\tSetting z's parent (%d) to Black\n", getParent(z)->getValue());
                 getParent(z)->setColour( TreeNode::NodeColour::BLACK );
-
-                printf("\tSetting y(%d) to black\n", y->getValue());
                 y->setColour( TreeNode::NodeColour::BLACK );
-
-                printf("\tSetting z's grandparent (%d) to Red\n", grandparent->getValue());
                 grandparent->setColour( TreeNode::NodeColour::RED );
-                printf("\tAssinging z to it's grandparent (%d)\n", grandparent->getValue());
                 z = grandparent;
             }
             else
             {
                 if( z == getParent(z)->getLeft())
                 {
-                    printf("\tz(%d) is it's parent %d's left child\n", z->getValue(), getParent(z)->getValue());
-                    printf("\tSetting z to it's parent (%d)\n", getParent(z)->getValue());
                     z = getParent(z);
-                    printf("\tperforming leftRotate on z(%d)\n", z->getValue());
                     rightRotate(z);
                 }
             }
-            printf("\tSetting z's parent (%d) to Black\n", getParent(z)->getValue());
             getParent(z)->setColour( TreeNode::NodeColour::BLACK );
             grandparent = getGrandparent(z);
             if( grandparent != nilnode )
             {
-                printf("\tSetting z's grandparent (%d) to Red\n", grandparent->getValue());
                 grandparent->setColour(  TreeNode::NodeColour:: RED );
-                printf("\tperforming rightRotate on grandparent(%d)\n", grandparent->getValue());
                 leftRotate(grandparent);
             }
 
         }
-        printf("end of loop, z(%d) and y(%d)\n", z->getValue(), y->getValue());
     }
-    printf("\tsetting %d to black\n", this->root_node->getValue());
     this->root_node->setColour( TreeNode::NodeColour::BLACK );
 }
 
@@ -446,22 +402,16 @@ std::shared_ptr<TreeNode> RedBlackTree::insert(std::shared_ptr<TreeNode> new_nod
     if( temp_node == nilNode() )
     {
         root_node = new_node;
-        if( debug_out )
-            printf("Tree was empty, setting the root to %d\n", new_node->getValue());
     }
     else
     {
         if( new_node->getValue() < temp_node->getValue() )
         {
             temp_node->setLeft( new_node );
-            if( debug_out )
-                printf("Setting the left of %d to be %d\n", temp_node->getValue(), new_node->getValue() );
         }
         else
         {
             temp_node->setRight( new_node );
-            if( debug_out )
-                printf("Setting the right of %d to be %d\n", temp_node->getValue(), new_node->getValue() );
         }
     }
     insertFixup(new_node);

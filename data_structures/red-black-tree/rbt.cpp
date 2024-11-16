@@ -56,6 +56,10 @@ int main(int argc, char **argv)
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
 
+    temp2.addValue(22);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
 #if 0
     
     temp2.addValue( 22  );
