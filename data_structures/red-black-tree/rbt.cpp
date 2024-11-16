@@ -24,7 +24,6 @@ int main(int argc, char **argv)
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
 
-#if 0    
 
     temp2.addValue(14);
     sprintf(filename,"%03d.dot",file_index++);
@@ -39,6 +38,11 @@ int main(int argc, char **argv)
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
 
+    temp2.addValue(15);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+
     temp2.addValue(5);
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
@@ -47,6 +51,12 @@ int main(int argc, char **argv)
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
 
+
+    temp2.addValue(4);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+#if 0
     
     temp2.addValue( 22  );
     std::shared_ptr<TreeNode> seventeen = temp2.addValue(17);
