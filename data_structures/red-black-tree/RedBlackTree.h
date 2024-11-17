@@ -33,8 +33,10 @@ public:
     std::shared_ptr<TreeNode> predecessor(std::shared_ptr<TreeNode> start_node);
     std::shared_ptr<TreeNode> getGrandparent(std::shared_ptr<TreeNode> node);
     std::shared_ptr<TreeNode> getParent(std::shared_ptr<TreeNode> node);
-    std::shared_ptr<TreeNode> remove(int value);
+    std::shared_ptr<TreeNode> removeValue(int value);
+    std::shared_ptr<TreeNode> deleteNode(std::shared_ptr<TreeNode> node);
     std::shared_ptr<TreeNode> successor(std::shared_ptr<TreeNode> start_node);
+    void transplant(std::shared_ptr<TreeNode> original, std::shared_ptr<TreeNode> replacement);
     std::shared_ptr<TreeNode> root_node;
     
     void dumpDotLine(FILE *fp, std::shared_ptr<TreeNode> start_node);

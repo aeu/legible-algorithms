@@ -304,64 +304,66 @@ std::shared_ptr<TreeNode> RedBlackTree::getParent(std::shared_ptr<TreeNode> node
     return node->getParent();
 }
 
+std::shared_ptr<TreeNode> RedBlackTree::deleteNode(std::shared_ptr<TreeNode> z)
+{
+    printf("trying to delete %d\n", z->getValue());
+    std::shared_ptr<TreeNode> x;
+    std::shared_ptr<TreeNode> y;
+    y = z;
+    printf("\tsetting y to be %d\n", z->getValue());
+    auto y_original_colour = y->getColour();
+    if( z->getLeft() == nilNode() )
+    {
+        printf("\t%d had a left child of nilnode\n", z->getValue());
+        x = z->getRight();
+        transplant( z, z->getRight() );
+    }
+    else if ( z->getRight() == nilNode() )
+    {
+        printf("\t%d had a right child of nilnode\n", z->getValue());
+        x = z->getLeft();
+        transplant( z, z->getLeft() );
+    }
+    else
+    {
+        printf("\t%d didn't have any nilnode children, it's children were L:%d and R:%d\n", z->getValue(), z->getLeft()->getValue(), z->getRight()->getValue());
+        y = minimum( z->getRight() );
+        y_original_colour = y->getColour();
+        x = y->getRight();
+        if( y->getParent() == z )
+        {
+            printf("\t%d's parent was %d\n", y->getParent()->getValue(), z->getValue());
+            x->setParent( y );
+        }
+        else
+        {
+            printf("\t%d's parent was NOT %d\n", y->getParent()->getValue(), z->getValue());
+            transplant(y, y->getRight() );
+            y->setRight(z->getRight() );
+            y->getRight()->setParent( y );
+        }
+        transplant(z,y);
+        y->setLeft(z->getLeft() );
+        y->getLeft()->setParent( y );
+        y->setColour( z->getColour() );
+    }
+    if( y_original_colour == TreeNode::NodeColour::BLACK )
+        printf("here I should call fixup\n");
 
+    return z;
+}
 
-std::shared_ptr<TreeNode> RedBlackTree::remove(int value)
+std::shared_ptr<TreeNode> RedBlackTree::removeValue(int value)
 {
     printf("\ntrying to remove %d\n", value );
     std::shared_ptr<TreeNode> removed = find(value);
     if( removed == nilNode() )
+    {
+        printf("did not find the node\n");
         return nilNode();
-
-    // case 1, node being removed has no children
-
-    if(( removed->getLeft() == nilNode() ) && ( removed->getRight() == nilNode() ))
-    {
-        if( removed->getParent()->getLeft() == removed )
-            removed->getParent()->setLeft(nilNode());
-        else
-            removed->getParent()->setRight(nilNode());
-        return removed;
     }
 
-    // case 2, node being remove has one child
-
-    if(( removed->getLeft() == nilNode() ) || ( removed->getRight() == nilNode() ))
-    {
-        std::shared_ptr<TreeNode> child = removed->getLeft();
-        if( child != nilNode() )
-        {
-            child->setParent( removed->getParent () );
-        }
-        else
-        {
-            child = removed->getRight();
-            child->setParent( removed->getParent() );
-        }
-        if( removed->getParent()->getLeft() == removed )
-            removed->getParent()->setLeft(child);
-        else
-            removed->getParent()->setRight(child);
-        return removed;
-    }
-
-    // case 3, node being removed has two children
-    std::shared_ptr<TreeNode> left_child = removed->getLeft();
-    std::shared_ptr<TreeNode> right_child = removed->getRight();
-    if(( left_child != nilNode() ) && ( right_child != nilNode() ))
-    {
-        std::shared_ptr<TreeNode> successor_node = this->successor(removed);
-        if( successor_node != nilNode() )
-        {
-            removed->setValue( successor_node->getValue());
-            if( successor_node->getParent()->getLeft() == successor_node )
-                successor_node->getParent()->setLeft(nilNode());
-            else
-                successor_node->getParent()->setRight(nilNode());
-            return successor_node;
-        }
-    }
-    return nilNode();
+    return deleteNode( removed );
 }
 
 std::shared_ptr<TreeNode> RedBlackTree::successor(std::shared_ptr<TreeNode> start_node)
@@ -378,6 +380,30 @@ std::shared_ptr<TreeNode> RedBlackTree::successor(std::shared_ptr<TreeNode> star
         successor = successor->getParent();
     }
     return successor;
+}
+
+
+void RedBlackTree::transplant(std::shared_ptr<TreeNode> original,
+                              std::shared_ptr<TreeNode> replacement)
+{
+    printf("transplanting %d with %d\n", original->getValue(), replacement->getValue());
+    if( original->getParent() == nilNode() )
+    {
+        printf("\t%d's parent was nilnode", original->getValue());
+        root_node = replacement;
+    }
+    else if ( original == original->getParent()->getLeft() )
+    {
+        printf("\t%d was %d's left child\n", original->getValue(), original->getParent()->getValue());
+        original->getParent()->setLeft( replacement );
+    }
+    else
+    {
+        printf("\t%d was %d's right child\n", original->getValue(), original->getParent()->getValue());
+        original->getParent()->setRight( replacement );
+    }
+    printf("\tsetting %d's parent to be %d\n", replacement->getValue(), original->getParent()->getValue());
+    replacement->setParent( original->getParent() );
 }
 
 
