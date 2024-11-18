@@ -106,7 +106,7 @@ void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
 void RedBlackTree::deleteFixup(std::shared_ptr<TreeNode> x )
 {
     std::shared_ptr<TreeNode> w;
-    while(( x != nilNode()) && (x->getColour() != TreeNode::NodeColour::BLACK ))
+    while(x->getColour() != TreeNode::NodeColour::BLACK )
     {
         if( x == x->getParent()->getLeft() )
         {
@@ -456,24 +456,20 @@ std::shared_ptr<TreeNode> RedBlackTree::successor(std::shared_ptr<TreeNode> star
 void RedBlackTree::transplant(std::shared_ptr<TreeNode> original,
                               std::shared_ptr<TreeNode> replacement)
 {
-    printf("transplanting %d with %d\n", original->getValue(), replacement->getValue());
-    if( original->getParent() == nilNode() )
+    std::shared_ptr<TreeNode> oparent = getParent(original);
+    if( oparent == nilNode() )
     {
-        printf("\t%d's parent was nilnode", original->getValue());
         root_node = replacement;
     }
-    else if ( original == original->getParent()->getLeft() )
+    else if ( original == oparent->getLeft() )
     {
-        printf("\t%d was %d's left child\n", original->getValue(), original->getParent()->getValue());
-        original->getParent()->setLeft( replacement );
+        oparent->setLeft( replacement );
     }
     else
     {
-        printf("\t%d was %d's right child\n", original->getValue(), original->getParent()->getValue());
-        original->getParent()->setRight( replacement );
+        oparent->setRight( replacement );
     }
-    printf("\tsetting %d's parent to be %d\n", replacement->getValue(), original->getParent()->getValue());
-    replacement->setParent( original->getParent() );
+    replacement->setParent( oparent );
 }
 
 
