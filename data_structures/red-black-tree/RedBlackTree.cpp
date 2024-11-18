@@ -180,22 +180,16 @@ void RedBlackTree::deleteFixup(std::shared_ptr<TreeNode> x )
 
 void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
 {
-    std::shared_ptr<TreeNode> y = nilnode;
-    std::shared_ptr<TreeNode> grandparent = nilnode;
-    std::shared_ptr<TreeNode> parent = nilnode;
-    std::shared_ptr<TreeNode> temp;
-    int max = 0;
-    while(( getParent(z) != nilnode ) && ( getParent(z)->getColour() == TreeNode::NodeColour::RED ))
+    std::shared_ptr<TreeNode> y;
+    std::shared_ptr<TreeNode> grandparent;
+    while( getParent(z)->getColour() == TreeNode::NodeColour::RED )
     {
         grandparent = getGrandparent( z );
-        if( grandparent == nilnode )
-            continue;
-
         if( getParent(z) == grandparent->getLeft() )
         {
             y = grandparent->getRight();
 
-            if(( y != nilnode ) && ( y->getColour() == TreeNode::NodeColour::RED ))
+            if(y->getColour() == TreeNode::NodeColour::RED )
             {
                 getParent(z)->setColour( TreeNode::NodeColour::BLACK );
                 y->setColour( TreeNode::NodeColour::BLACK );
@@ -221,7 +215,7 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
         else
         {
             y = grandparent->getLeft();
-            if(( y != nilnode ) && ( y->getColour() == TreeNode::NodeColour::RED ))
+            if( y->getColour() == TreeNode::NodeColour::RED )
             {
                 getParent(z)->setColour( TreeNode::NodeColour::BLACK );
                 y->setColour( TreeNode::NodeColour::BLACK );
@@ -238,12 +232,11 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
             }
             getParent(z)->setColour( TreeNode::NodeColour::BLACK );
             grandparent = getGrandparent(z);
-            if( grandparent != nilnode )
+            if( grandparent != nilNode() )
             {
                 grandparent->setColour(  TreeNode::NodeColour:: RED );
                 leftRotate(grandparent);
             }
-
         }
     }
     this->root_node->setColour( TreeNode::NodeColour::BLACK );
@@ -266,24 +259,26 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
  */
 std::shared_ptr<TreeNode> RedBlackTree::leftRotate(std::shared_ptr<TreeNode> x)
 {
-    std::shared_ptr<TreeNode> y = x->getRight();
+    std::shared_ptr<TreeNode> y;
+
+    y = x->getRight();
     x->setRight( y->getLeft() );
     if( y->getLeft() != nilNode() )
     {
         y->getLeft()->setParent( x );
     }
-    y->setParent( x->getParent() );
-    if( x->getParent() == nilNode() )
+    y->setParent( getParent(x));
+    if( getParent(x) == nilNode() )
     {
         root_node = y;
     }
-    else if ( x == x->getParent()->getLeft() )
+    else if ( x == getParent(x)->getLeft() )
     {
-        x->getParent()->setLeft( y );
+        getParent(x)->setLeft( y );
     }
     else
     {
-        x->getParent()->setRight( y );
+        getParent(x)->setRight( y );
     }
     y->setLeft( x );
     x->setParent( y );
@@ -292,24 +287,26 @@ std::shared_ptr<TreeNode> RedBlackTree::leftRotate(std::shared_ptr<TreeNode> x)
 
 std::shared_ptr<TreeNode> RedBlackTree::rightRotate(std::shared_ptr<TreeNode> y)
 {
-    std::shared_ptr<TreeNode> x = y->getLeft();
+    std::shared_ptr<TreeNode> x;
+
+    x = y->getLeft();
     y->setLeft( x->getRight() );
     if( x->getRight() != nilNode() )
     {
         x->getRight()->setParent( y );
     }
-    x->setParent( y->getParent() );
-    if( y->getParent() == nilNode() )
+    x->setParent( getParent(y) );
+    if( getParent(y) == nilNode() )
     {
         root_node = x;
     }
-    else if ( y == y->getParent()->getLeft() )
+    else if ( y == getParent(y)->getLeft() )
     {
-        y->getParent()->setLeft( x );
+        getParent(y)->setLeft( x );
     }
     else
     {
-        y->getParent()->setRight( x );
+        getParent(y)->setRight( x );
     }
     x->setRight( y );
     y->setParent( x );
@@ -366,11 +363,10 @@ std::shared_ptr<TreeNode> RedBlackTree::predecessor(std::shared_ptr<TreeNode> st
 std::shared_ptr<TreeNode> RedBlackTree::getGrandparent(std::shared_ptr<TreeNode> node)
 {
     std::shared_ptr<TreeNode> parent = node->getParent();
-    if( parent == nilnode )
-        return nilnode;
+    if( parent == nilNode() )
+        return nilNode();
 
-    std::shared_ptr<TreeNode> grandparent = parent->getParent();
-    return grandparent;
+    return parent->getParent();
 }
 
 std::shared_ptr<TreeNode> RedBlackTree::getParent(std::shared_ptr<TreeNode> node)
