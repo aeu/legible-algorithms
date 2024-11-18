@@ -90,7 +90,7 @@ void RedBlackTree::toDotFile(const char *filename, std::shared_ptr<TreeNode> sta
             dumpDotLine(fp, start_node );
         fprintf(fp, "}\n");
     }
-    printf("dot %s -Tpng > %s.png; open %s.png\n", filename, filename,filename );
+    printf(" dot %s -Tpng > %s.png; open %s.png\n", filename, filename,filename );
 }
 
 void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
@@ -102,6 +102,80 @@ void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
         inOrderTreeWalk( start_node->getRight());
     }
 }
+
+void RedBlackTree::deleteFixup(std::shared_ptr<TreeNode> x )
+{
+    std::shared_ptr<TreeNode> w;
+    while(( x != nilNode()) && (x->getColour() != TreeNode::NodeColour::BLACK ))
+    {
+        if( x == x->getParent()->getLeft() )
+        {
+            w = x->getParent()->getRight();
+            if( w->getColour() == TreeNode::NodeColour::RED )
+            {
+                w->setColour(TreeNode::NodeColour::BLACK);
+                x->getParent()->setColour(TreeNode::NodeColour::RED);
+                leftRotate(x->getParent());
+                w = x->getParent()->getRight();
+            }
+            if(( w->getLeft()->getColour() == TreeNode::NodeColour::BLACK )
+               && ( w->getRight()->getColour() == TreeNode::NodeColour::BLACK ))
+            {
+                w->setColour(TreeNode::NodeColour::RED);
+                x = x->getParent();
+            }
+            else
+            {
+                if( w->getRight()->getColour() == TreeNode::NodeColour::BLACK )
+                {
+                    w->getLeft()->setColour( TreeNode::NodeColour::BLACK );
+                    w->setColour( TreeNode::NodeColour::RED );
+                    rightRotate(w);
+                    w = x->getParent()->getRight();
+                }
+                w->setColour( x->getParent()->getColour());
+                x->getParent()->setColour(TreeNode::NodeColour::BLACK );
+                w->getRight()->setColour(TreeNode::NodeColour::BLACK);
+                leftRotate(x->getParent());
+                x = root_node;
+            }
+        }
+        else
+        {
+            w = x->getParent()->getLeft();
+            if( w->getColour() == TreeNode::NodeColour::RED )
+            {
+                w->setColour(TreeNode::NodeColour::BLACK);
+                x->getParent()->setColour(TreeNode::NodeColour::RED);
+                rightRotate(x->getParent());
+                w = x->getParent()->getLeft();
+            }
+            if(( w->getRight()->getColour() == TreeNode::NodeColour::BLACK )
+               && ( w->getLeft()->getColour() == TreeNode::NodeColour::BLACK ))
+            {
+                w->setColour(TreeNode::NodeColour::RED);
+                x = x->getParent();
+            }
+            else
+            {
+                if( w->getLeft()->getColour() == TreeNode::NodeColour::BLACK )
+                {
+                    w->getRight()->setColour( TreeNode::NodeColour::BLACK );
+                    w->setColour( TreeNode::NodeColour::RED );
+                    leftRotate(w);
+                    w = x->getParent()->getLeft();
+                }
+                w->setColour( x->getParent()->getColour());
+                x->getParent()->setColour(TreeNode::NodeColour::BLACK );
+                w->getLeft()->setColour(TreeNode::NodeColour::BLACK);
+                rightRotate(x->getParent());
+                x = root_node;
+            }
+        }
+    }
+    x->setColour(TreeNode::NodeColour::BLACK);
+}
+
 
 
 void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )

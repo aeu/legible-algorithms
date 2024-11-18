@@ -56,16 +56,80 @@ int main(int argc, char **argv)
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
 
+    temp2.addValue(33);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(19);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+
+    temp2.addValue(3);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(27);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(24);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(45);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(31);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(54);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(28);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
     temp2.addValue(22);
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
 
-    temp2.removeValue(11);
+    temp2.addValue(46);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(36);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+
+    temp2.addValue(44);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(23);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(41);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.addValue(17);
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
 
 
 #if 0
+    temp2.removeValue(15);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+
+
     
     temp2.addValue( 22  );
     std::shared_ptr<TreeNode> seventeen = temp2.addValue(17);
