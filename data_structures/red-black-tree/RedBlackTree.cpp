@@ -182,24 +182,36 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
 {
     std::shared_ptr<TreeNode> y;
     std::shared_ptr<TreeNode> grandparent;
+    printf("Entering insertFixup\n");
     while( getParent(z)->getColour() == TreeNode::NodeColour::RED )
     {
+        printf("\t(%d)'s parent (%d) was red\n", z->getValue(), getParent(z)->getValue());
         grandparent = getGrandparent( z );
+        printf("\t(%d)'s grandparent was (%d) \n", z->getValue(), grandparent->getValue());
         if( getParent(z) == grandparent->getLeft() )
         {
+            printf("\t(%d)'s parent was the grandparent (%d)'s left child\n",getParent(z)->getValue(),grandparent->getValue());
             y = grandparent->getRight();
+            printf("\tsetting Y (%d) to be (%d)'s right child\n", y->getValue(),grandparent->getValue());
 
             if(y->getColour() == TreeNode::NodeColour::RED )
             {
+                printf("\tY (%d) was red\n", y->getValue());
                 getParent(z)->setColour( TreeNode::NodeColour::BLACK );
+                printf("\tSetting Z(%d)'s parent (%d) to black\n", z->getValue(), getParent(z)->getValue());
                 y->setColour( TreeNode::NodeColour::BLACK );
+                printf("\tSetting Z(%d)'s grandparent (%d) to black\n", z->getValue(), grandparent->getValue());
                 grandparent->setColour( TreeNode::NodeColour::RED );
+                printf("\tSetting Z to be it's former grandparent (%d)\n", grandparent->getValue());
                 z = grandparent;
             }
             else
             {
+                printf("\tY (%d) was black\n", y->getValue());
                 if( z == getParent(z)->getRight())
                 {
+                    printf("\tZ (%d) was it's parent (%d)'s right child\n", z->getValue(), getParent(z)->getValue());
+                    printf("\tsetting Z (%d) to it's parent (%d)\n", z->getValue(), getParent(z)->getValue());
                     z = getParent(z);
                     leftRotate(z);
                 }
@@ -475,6 +487,8 @@ void RedBlackTree::transplant(std::shared_ptr<TreeNode> original,
 
 std::shared_ptr<TreeNode> RedBlackTree::insert(std::shared_ptr<TreeNode> new_node)
 {
+    printf("\t\n");
+    printf("Inserting (%d) into the tree\n", new_node->getValue());
     std::shared_ptr<TreeNode> temp_node = nilNode();
     std::shared_ptr<TreeNode> insertion_parent = this->root_node;
     new_node->setLeft(nilNode());
