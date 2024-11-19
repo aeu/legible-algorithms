@@ -64,18 +64,19 @@ int main(int argc, char **argv)
     // sprintf(filename,"%03d.dot",file_index++);
     // temp2.toDotFile( filename, temp2.nilNode());
 
-
     temp2.addValue(3);
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
 
-    temp2.addValue(27);
-    sprintf(filename,"%03d.dot",file_index++);
-    temp2.toDotFile( filename, temp2.nilNode());
+    // temp2.addValue(27);
+    // sprintf(filename,"%03d.dot",file_index++);
+    // temp2.toDotFile( filename, temp2.nilNode());
 
     temp2.addValue(24);
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
+
+#if 0
 
     temp2.addValue(45);
     sprintf(filename,"%03d.dot",file_index++);
@@ -122,11 +123,12 @@ int main(int argc, char **argv)
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
 
-
-#if 0
-    temp2.removeValue(15);
+    temp2.removeValue(33);
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.inOrderTreeWalk(temp2.root_node);
+
 
 
 
@@ -207,11 +209,11 @@ int main(int argc, char **argv)
     printf("                                                               \n");
     printf("               |                                      |        \n");
     printf("               y                                      x        \n");
-    printf("              / \\        <--- Left Rotate T,x        / \\       \n");
-    printf("             /   \\       T,y  Right Rotate --->     /   \\      \n");
+    printf("              / \\        <--- Left Rotate T,x        / \\     \n");
+    printf("             /   \\       T,y  Right Rotate --->     /   \\    \n");
     printf("            x     γ                                α     y     \n");
-    printf("           / \\                                          / \\    \n");
-    printf("          /   \\                                        /   \\   \n");
+    printf("           / \\                                          / \\  \n");
+    printf("          /   \\                                        /   \\ \n");
     printf("         α     β                                      β     γ  \n");
     printf("                                                               \n");
 
