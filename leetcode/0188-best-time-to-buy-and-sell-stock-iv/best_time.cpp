@@ -59,9 +59,8 @@ void buildAllTradePermutations(const int max_trades,
                                std::vector<std::vector<std::shared_ptr<Trade> > > &all_sequences)
 {
     all_sequences.push_back( current_sequence );
-    for(int index=0;index<possible_trades.size();index++)
+    for(auto current_trade : possible_trades )
     {
-        std::shared_ptr<Trade> current_trade = possible_trades[index];
         if( current_sequence.size() < max_trades )
         {
             if( find ( current_sequence.begin(), current_sequence.end(), current_trade ) == current_sequence.end())
@@ -81,9 +80,8 @@ void dumpSequence(std::vector<std::shared_ptr<Trade> > &current_sequence)
 {
     printf("Sequence length: %lu\n", current_sequence.size());
     std::shared_ptr<Trade> current_trade;
-    for(int index = 0; index<current_sequence.size();index++)
+    for(auto current_trade : current_sequence )
     {
-        current_trade = current_sequence[index];
         printf("\t");
         current_trade->dumpTrade();
     }
@@ -126,9 +124,8 @@ int maxProfit(const int max_trades, std::vector<int> &prices )
     int current_profit;
     std::vector<std::shared_ptr<Trade> > best_sequence;
     
-    for(int sindex=0;sindex<all_possible_sequences.size();sindex++)
+    for(auto current_sequence : all_possible_sequences )
     {
-        current_sequence = all_possible_sequences[sindex];
         current_profit = profitForSequence( current_sequence );
         if( current_profit > best_profit )
         {
