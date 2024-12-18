@@ -33,3 +33,4 @@ Explanation: Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-
 
 This problem is a decorated version of the find permutations problem.   To solve you have to build a list of all profitable trades, then build a list of all valid sequences of trades.  A sequence is valid if there's k or non-intersecting trades in it.  While building the sequence you make sure you don't hit k and that the trades don't intersect.
 
+To make things easy I created a Trade object with some utility functions in it.
