@@ -90,7 +90,7 @@ void dumpSequence(std::vector<std::shared_ptr<Trade> > &current_sequence)
 
 void dumpPrices( std::vector<int> &prices )
 {
-    printf("[");
+    printf("Prices: [");
     bool first = true;
     for(auto current_price : prices )
     {
@@ -109,7 +109,7 @@ int maxProfit(const int max_trades, std::vector<int> &prices )
 {
     dumpPrices(prices);
     std::vector<std::shared_ptr<Trade> > possible_trades;
-    int num_trades = buildPossibleTrades( possible_trades, prices );
+    buildPossibleTrades( possible_trades, prices );
     printf("There are %lu profitable trades\n", possible_trades.size());
 
 
@@ -141,7 +141,7 @@ int maxProfit(const int max_trades, std::vector<int> &prices )
 
 int main(int argc, char **argv)
 {
-    printf("Leetcode 0188 - Best Time to Buy and Sell Stock IV\n");
+    printf("\n\nLeetcode 0188 - Best Time to Buy and Sell Stock IV\n\n");
 
     {
         int max_trades = 2;
