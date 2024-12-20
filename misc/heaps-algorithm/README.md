@@ -5,7 +5,7 @@ Implementation of Heap's algorithm, which (according to Sedgewick) is the most e
 
 ### Output:
       alfonso@maraval heaps-algorithm % ./heaps          
-      Heap's algorithm for gnerating permutations
+      Heap's algorithm for generating permutations
       Generating all permutations for: abcd
       abcd
       bacd
