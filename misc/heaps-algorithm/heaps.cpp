@@ -45,7 +45,7 @@ void generatePermutations( std::vector<char> &values, int size )
 
 int main(int argc, char **argv)
 {
-    printf("Heap's algorithm for gnerating permutations\n");
+    printf("Heap's algorithm for generating permutations\n");
 
     std::vector<char> values = { 'a', 'b', 'c', 'd' };
 
