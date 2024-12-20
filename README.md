@@ -19,7 +19,7 @@ This is a collection of my implementations that are (hopefully) easier to read a
 
 ## Misc
 
-<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/heaps-algorithm">Heap's Algorithm for generating Permutations</a>    
+<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/heaps-algorithm">Heap's Algorithm for generating permutations (C++)</a>    
 
 
 ## Puzzles & Problems
