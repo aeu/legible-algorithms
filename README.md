@@ -58,6 +58,7 @@ I've been going through the problems marked "Hard" and solving them, my solution
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0123-best-time-to-buy-and-sell-stock-iii">Leetcode &numero; 123 (Hard) &mdash; Best time to Buy and Sell Stock III (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0135-candy">Leetcode &numero; 135 (Hard) &mdash; Candy (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0149_max_points_on_a_line">Leetcode &numero; 149 (Hard) &mdash; Max Points on a Line (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0174-dungeon-game">Leetcode &numero; 174 (Hard) &mdash; Dungeon Game (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0188-best-time-to-buy-and-sell-stock-iv">Leetcode &numero; 188 (Hard) &mdash; Best time to Buy and Sell Stock IV(C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0218-the-skyline-problem">Leetcode &numero; 218 (Hard) &mdash; The Skyline Problem (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0233-number-of-digit-one">Leetcode &numero; 233 (Hard) &mdash; Number of Digit One (C++/Hard)</a>   
