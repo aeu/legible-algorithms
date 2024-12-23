@@ -40,7 +40,9 @@ Note that any room can contain threats or power-ups, even the first room the kni
 
 ### Solution
 
-So this problem can be solved in two ways, either as a tree search problem or a permutations problem.  I went with permutations because it's easier.  For a nxn dungeon, the path to the exit is n-1 right and n-1 down.  So for a 3x3 dungeon it would be (for example) RRRDDD.   If you generate all the permutations of those movements (RDRRDD, DDDRRR,...) then you have all possible paths, then you can calculate the health and solve the problem. 
+So this problem can be solved in two ways, either as a tree search problem or a permutations problem.  I went with permutations because it's easier.  For a nxn dungeon, the path to the exit is n-1 right and n-1 down.  So for a 3x3 dungeon it would be (for example) RRRDDD.   If you generate all the permutations of those movements (RDRRDD, DDDRRR,...) then you have all possible paths, then you can calculate the health and solve the problem.
+
+There is one thing I ran into which was that I had extra permutations for sequential moves.  For example if I had RRDD, I would get RDRD and RDRD which would look the same except they are actually different as in each case the Rs would be positions.  (As in R0D0R1D1, R1D1R0D0, R1D0R2D1,... )  I considered using a set (or similar) data structure to store the paths which would remove those duplicates, except then it would OLogn for the insert vs. the traversal which would linear.  A future optimization would be to use that data structure if the traversal was very slow. 
 
 ### Output
 
