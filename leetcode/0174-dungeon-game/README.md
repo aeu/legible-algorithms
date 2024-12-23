@@ -40,8 +40,19 @@ Note that any room can contain threats or power-ups, even the first room the kni
 
 ### Solution
 
-So this problem can be solved in two ways, either as a tree search problem or a permutations problem.  I went with permutations because it's easier.  For a nxn dungeon, the path to the exit is n-1 right and n-1 down.  So for a 3x3 dungeon it would be (for example) RRRDDD.   If you generate all the permutations of those movements (RDRRDD, DDDRRR,...) then you have all possible paths, then you can calculate the health and solve the problem.
+So this problem can be solved in two ways, either as a tree search problem or a permutations problem.  I went with permutations because it's easier.  For a nxn dungeon, the path to the exit is n-1 right and n-1 down.  So for a 3x3 dungeon it would be (for example) RRRDDD.   If you generate all the permutations of those movements (RDRRDD, DDDRRR,...) then you have all possible paths, then you can calculate the health and solve the problem. 
 
 ### Output
+
+      alfonso@maraval 0174-dungeon-game % ./dungeon_game 
+      Given the following dungeon:
+      [-2, -3, 3]
+      [-5, -10, 1]
+      [10, 30, -5]
+      Minimum initial health to traverse the dungeon is 7
+      Given the following dungeon:
+      [0]
+      Minimum initial health to traverse the dungeon is 1
+
 
 
