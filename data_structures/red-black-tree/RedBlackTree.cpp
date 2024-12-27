@@ -89,8 +89,9 @@ void RedBlackTree::toDotFile(const char *filename, std::shared_ptr<TreeNode> sta
         else
             dumpDotLine(fp, start_node );
         fprintf(fp, "}\n");
+        fclose(fp);
     }
-    printf(" dot %s -Tpng > %s.png; open %s.png\n", filename, filename,filename );
+    printf(" dot %s -Tps > %s.ps; open %s.ps\n", filename, filename,filename );
 }
 
 void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
@@ -235,7 +236,7 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
                 printf("\tsettings Z (%d)'s grandparent (%d) to be RED\n", z->getValue(), grandparent->getValue());
                 grandparent->setColour(  TreeNode::NodeColour:: RED );
 
-                printf("\tcalling rightRotatew about the grandparent (%d)\n", grandparent->getValue());
+                printf("\tcalling rightRotate about the grandparent (%d)\n", grandparent->getValue());
                 rightRotate(grandparent);
             }
             else
@@ -317,6 +318,11 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
  */
 std::shared_ptr<TreeNode> RedBlackTree::leftRotate(std::shared_ptr<TreeNode> x)
 {
+    printf("\tabout to leftRotate about x(%d) who has P(%d) L(%d) and R(%d)\n",
+           x->getValue(),
+           getParent(x)->getValue(),
+           x->getLeft()->getValue(),
+           x->getRight()->getValue());
     std::shared_ptr<TreeNode> y;
 
     y = x->getRight();
@@ -345,8 +351,13 @@ std::shared_ptr<TreeNode> RedBlackTree::leftRotate(std::shared_ptr<TreeNode> x)
 
 std::shared_ptr<TreeNode> RedBlackTree::rightRotate(std::shared_ptr<TreeNode> y)
 {
-    std::shared_ptr<TreeNode> x;
+    printf("\tabout to rightRotate about y(%d) who has P(%d) L(%d) and R(%d)\n",
+           y->getValue(),
+           getParent(y)->getValue(),
+           y->getLeft()->getValue(),
+           y->getRight()->getValue());
 
+    std::shared_ptr<TreeNode> x;
     x = y->getLeft();
     y->setLeft( x->getRight() );
     if( x->getRight() != nilNode() )

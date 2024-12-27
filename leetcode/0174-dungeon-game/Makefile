@@ -11,8 +11,8 @@ dungeon_game: $(OBJS)
 	$(CC) $(CPPFLAGS) -o $@ $^
 
 clean:
-	rm -f *.o
-	rm -f *~
-	rm -f *.*~
+	find . -type f -name '*.o' -delete
+	find . -type f -name "*~" -delete
+	find . -type f -name "*.*~" -delete
 	rm -f dungeon_game
 
