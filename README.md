@@ -22,6 +22,9 @@ This is a collection of my implementations that are (hopefully) easier to read a
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/heaps-algorithm">Heap's Algorithm for generating permutations (C++)</a>    
 
+## Random Snippets
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/fibonacci">Fibonacci number generator (C++)</a>  
 
 ## Puzzles & Problems
 
