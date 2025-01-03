@@ -110,13 +110,7 @@ int largestRectangleInHistogram(std::vector<int> &heights)
 
 
 #if 0
- while (!s.empty()) {
-        int top_of_stack = s.top();
-        s.pop();
-        int area = heights[top_of_stack] * (s.empty() ? index : index - s.top() - 1);
-        max_area = std::max(max_area, area);
-    }
-
+// original that I found online
 int getMaxArea(std::vector<int>& arr) {
     int n = arr.size();
     std::stack<int> s;
@@ -155,6 +149,9 @@ int getMaxArea(std::vector<int>& arr) {
 
 #endif
 
+//  I made a more verbose version with longer varable names and so on
+//  so I could read and understand it better.
+
 int getMaxArea(std::vector<int>& heights)
 {
     int num_heights = heights.size();
@@ -162,6 +159,7 @@ int getMaxArea(std::vector<int>& heights)
     int max_area = 0;
     int tp;
     int current_area;
+    // traversal loop
     for (int index = 0; index < num_heights; index++)
     {      
         while( !s.empty() && ( heights[s.top()] >= heights[index] ))
@@ -181,11 +179,13 @@ int getMaxArea(std::vector<int>& heights)
     // For the remaining items in the stack, next smaller does
     // not exist. Previous smaller is the item just below in
     // stack.
+    
     while (!s.empty())
     {
         tp = s.top();
         s.pop();
-        current_area = heights[tp] * (s.empty() ? num_heights : num_heights - s.top() - 1);
+        int width = (s.empty() ? num_heights : num_heights - s.top() - 1)
+        current_area = heights[tp] * width;
         max_area = std::max(max_area, current_area);
     }
 
