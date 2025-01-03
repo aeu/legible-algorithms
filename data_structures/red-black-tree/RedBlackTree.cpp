@@ -321,8 +321,8 @@ std::shared_ptr<TreeNode> RedBlackTree::leftRotate(std::shared_ptr<TreeNode> x)
     printf("\tabout to leftRotate about x(%d) who has P(%d) L(%d) and R(%d)\n",
            x->getValue(),
            getParent(x)->getValue(),
-           x->getLeft()->getValue(),
-           x->getRight()->getValue());
+           x->getLeft() ? x->getLeft()->getValue() : -1,
+           x->getRight() ? x->getRight()->getValue() : -1);
     std::shared_ptr<TreeNode> y;
 
     y = x->getRight();
@@ -354,8 +354,8 @@ std::shared_ptr<TreeNode> RedBlackTree::rightRotate(std::shared_ptr<TreeNode> y)
     printf("\tabout to rightRotate about y(%d) who has P(%d) L(%d) and R(%d)\n",
            y->getValue(),
            getParent(y)->getValue(),
-           y->getLeft()->getValue(),
-           y->getRight()->getValue());
+           y->getLeft() ? y->getLeft()->getValue() : -1,
+           y->getRight() ? y->getRight()->getValue() : -1);
 
     std::shared_ptr<TreeNode> x;
     x = y->getLeft();
