@@ -126,7 +126,28 @@ int main(int argc, char **argv)
     sprintf(filename,"%03d.dot",file_index++);
     temp2.toDotFile( filename, temp2.nilNode());
 
+    temp2.removeValue(17);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.removeValue(41);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.removeValue(54);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.removeValue(22);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
+    temp2.removeValue(28);
+    sprintf(filename,"%03d.dot",file_index++);
+    temp2.toDotFile( filename, temp2.nilNode());
+
     temp2.inOrderTreeWalk(temp2.root_node);
+    printf("\n");
 
 #if 0
 
