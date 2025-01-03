@@ -107,7 +107,7 @@ void RedBlackTree::inOrderTreeWalk(std::shared_ptr<TreeNode> start_node)
 void RedBlackTree::deleteFixup(std::shared_ptr<TreeNode> x )
 {
     std::shared_ptr<TreeNode> w;
-    while(x->getColour() != TreeNode::NodeColour::BLACK )
+    while((x != root_node) && (x->getColour() != TreeNode::NodeColour::BLACK ))
     {
         if( x == x->getParent()->getLeft() )
         {
@@ -183,121 +183,65 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
 {
     std::shared_ptr<TreeNode> y;
     std::shared_ptr<TreeNode> grandparent;
-    printf("Entering insertFixup\n");
     while( getParent(z)->getColour() == TreeNode::NodeColour::RED )
     {
-        printf("\t(%d)'s parent (%d) was red\n", z->getValue(), getParent(z)->getValue());
         grandparent = getGrandparent( z );
-        printf("\t(%d)'s grandparent was (%d) \n", z->getValue(), grandparent->getValue());
         if( getParent(z) == grandparent->getLeft() )
         {
-            printf("\t(%d)'s parent was the grandparent (%d)'s left child\n",getParent(z)->getValue(),grandparent->getValue());
-
             y = grandparent->getRight();
-            printf("\tset Y (%d) to be (%d)'s right child\n", y->getValue(),grandparent->getValue());
-
             if(y->getColour() == TreeNode::NodeColour::RED )
             {
-                printf("\tY (%d) was red\n", y->getValue());
-                
-                printf("\tSetting Z(%d)'s parent (%d) to black\n", z->getValue(), getParent(z)->getValue());
                 getParent(z)->setColour( TreeNode::NodeColour::BLACK );
-
-                printf("\tSetting Y(%d) to black\n", y->getValue());
                 y->setColour( TreeNode::NodeColour::BLACK );
-
-                printf("\tSetting Z(%d)'s grandparent (%d) to black\n", z->getValue(), grandparent->getValue());
                 grandparent->setColour( TreeNode::NodeColour::RED );
-
-                printf("\tSetting Z to be it's former grandparent (%d)\n", grandparent->getValue());
                 z = grandparent;
             }
             else
             {
-                printf("\tY (%d) was black\n", y->getValue());
                 if( z == getParent(z)->getRight())
                 {
-                    printf("\tZ (%d) was it's parent (%d)'s right child\n", z->getValue(), getParent(z)->getValue());
-
-                    printf("\tsetting Z (%d) to it's parent (%d)\n", z->getValue(), getParent(z)->getValue());
                     z = getParent(z);
-
-                    printf("\tcalling leftRotate about (%d)\n", z->getValue());
                     leftRotate(z);
                 }
             }
-            printf("\tsettings Z (%d)'s parent (%d) to be BLACK\n", z->getValue(), getParent(z)->getValue());
             getParent(z)->setColour( TreeNode::NodeColour::BLACK );
             grandparent = getGrandparent(z);
             if( grandparent != nilnode )
             {
-                printf("\tZ (%d)'s grandparent (%d) was not nilnode\n",  z->getValue(), grandparent->getValue());
-
-                printf("\tsettings Z (%d)'s grandparent (%d) to be RED\n", z->getValue(), grandparent->getValue());
                 grandparent->setColour(  TreeNode::NodeColour:: RED );
-
-                printf("\tcalling rightRotate about the grandparent (%d)\n", grandparent->getValue());
                 rightRotate(grandparent);
-            }
-            else
-            {
-                printf("\tZ (%d) did not have a grandparent\n", z->getValue());
             }
                     
         }
         else
         {
-            printf("\t(%d)'s parent was the grandparent (%d)'s right child\n",getParent(z)->getValue(),grandparent->getValue());
             y = grandparent->getLeft();
-            printf("\tset Y (%d) to be (%d)'s left child\n", y->getValue(), grandparent->getValue());
             if( y->getColour() == TreeNode::NodeColour::RED )
             {
-                printf("\tY (%d) was red\n", y->getValue());
-
                 getParent(z)->setColour( TreeNode::NodeColour::BLACK );
-
-                printf("\tSetting Y(%d) to black\n", y->getValue());
                 y->setColour( TreeNode::NodeColour::BLACK );
-                
-                printf("\tSetting grandparent (%d) to RED\n", grandparent->getValue());
                 grandparent->setColour( TreeNode::NodeColour::RED );
-
-                printf("\tSetting Z to be it's former grandparent (%d)\n", grandparent->getValue());
                 z = grandparent;
             }
             else
             {
-                printf("\tY (%d) was black\n", y->getValue());
                 if( z == getParent(z)->getLeft())
                 {
-                    printf("\tZ (%d) was it's parent (%d)'s left child\n", z->getValue(), getParent(z)->getValue());
-
-
-                    printf("\tsetting Z (%d) to it's parent (%d)\n", z->getValue(), getParent(z)->getValue());
                     z = getParent(z);
-                    
-                    printf("\tcalling rightRotate about (%d)\n", z->getValue());
                     rightRotate(z);
                 }
             }
 
-            printf("\tsettings Z (%d)'s parent (%d) to be BLACK\n", z->getValue(), getParent(z)->getValue());
             getParent(z)->setColour( TreeNode::NodeColour::BLACK );
 
             grandparent = getGrandparent(z);
             if( grandparent != nilNode() )
             {
-                printf("\tZ (%d)'s grandparent (%d) was not nilnode\n",  z->getValue(), grandparent->getValue());
-
-                printf("\tsettings Z (%d)'s grandparent (%d) to be RED\n", z->getValue(), grandparent->getValue());
                 grandparent->setColour(  TreeNode::NodeColour:: RED );
-                
-                printf("\tcalling leftRotate about the grandparent (%d)\n", grandparent->getValue());
                 leftRotate(grandparent);
             }
         }
     }
-    printf("\tsetting the root node (%d) to be black\n", root_node->getValue());
     this->root_node->setColour( TreeNode::NodeColour::BLACK );
 }
 
@@ -318,14 +262,12 @@ void RedBlackTree::insertFixup(std::shared_ptr<TreeNode> z )
  */
 std::shared_ptr<TreeNode> RedBlackTree::leftRotate(std::shared_ptr<TreeNode> x)
 {
-    printf("\tabout to leftRotate about x(%d) who has P(%d) L(%d) and R(%d)\n",
-           x->getValue(),
-           getParent(x)->getValue(),
-           x->getLeft() ? x->getLeft()->getValue() : -1,
-           x->getRight() ? x->getRight()->getValue() : -1);
     std::shared_ptr<TreeNode> y;
-
     y = x->getRight();
+
+    if( y == nilNode())
+        return x;
+    
     x->setRight( y->getLeft() );
     if( y->getLeft() != nilNode() )
     {
@@ -351,14 +293,11 @@ std::shared_ptr<TreeNode> RedBlackTree::leftRotate(std::shared_ptr<TreeNode> x)
 
 std::shared_ptr<TreeNode> RedBlackTree::rightRotate(std::shared_ptr<TreeNode> y)
 {
-    printf("\tabout to rightRotate about y(%d) who has P(%d) L(%d) and R(%d)\n",
-           y->getValue(),
-           getParent(y)->getValue(),
-           y->getLeft() ? y->getLeft()->getValue() : -1,
-           y->getRight() ? y->getRight()->getValue() : -1);
-
     std::shared_ptr<TreeNode> x;
     x = y->getLeft();
+    if( x == nilNode())
+        return y;
+    
     y->setLeft( x->getRight() );
     if( x->getRight() != nilNode() )
     {
@@ -487,7 +426,9 @@ std::shared_ptr<TreeNode> RedBlackTree::deleteNode(std::shared_ptr<TreeNode> z)
         y->setColour( z->getColour() );
     }
     if( y_original_colour == TreeNode::NodeColour::BLACK )
-        printf("here I should call fixup\n");
+    {
+        deleteFixup(x);
+    }
 
     return z;
 }
