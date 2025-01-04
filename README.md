@@ -1,12 +1,6 @@
 # legible-algorithms
 
-Many sample implementations of algorithms found in textbooks or online are formatted in pseudocode, which by design uses indentation for block definition to conserve vertical space.  Additionally, because they are often included in papers, journals and books where space is at a premium, they are written with an emphasis on being brief, with short variable and function names.  This makes them difficult to read.
-
-New programmers see this style of code while learning to program, and paradoxically end up thinking this is good practice.  They then try to emulate this style, which results in code which is unnecessarily terse, difficult to read, and most importantly, difficult to maintain.
-
-This is a collection of my implementations that are (hopefully) easier to read and learn from, as well as my own test of Cunningham's Law.  They are in C, Obj-C, and C++ because everything important is written in C or C++.
-
-
+When I get stuck on something, I like to solve puzzles and implement algorithms as a form of focused distraction.  This is a collection of my implementations of various things that I wrote to pass the time.  They are in C++ and Obj-C because I enjoy working on those languages. Maybe I'll add some Rust soon.
 
 ## Data Structures
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/binary_search_tree">Binary Search Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
