@@ -33,7 +33,7 @@ When I get stuck on something, I like to solve puzzles and implement algorithms 
 
 ### Leetcode
 
-Leetcode has a funny subculture.  If you look at the solutions, you will see very often things like "solution in 4 lines of C" or "solution in two lines of python" and so on.  Very reminiscent of the "Obfuscated C Code" contests from back in the day.  I get that this is fun to do (and I'm also envious that this is a skill that I simply don't have) but these solutions are completely useless to learn how to code.
+Leetcode has a funny subculture.  If you look at the solutions, you will see very often things like "solution in 4 lines of C" or "solution in two lines of python" and so on.  Very reminiscent of the "Obfuscated C Code" contests from back in the day.  I get that this is fun to do (and I'm also envious as this is a skill that I don't have).  My implementations are a little more verbose and sometimes inconsistent, as my style has evolved over the years.
 
 I've been going through the problems marked "Hard" and solving them, my solutions are in a mix of Objective-C and C++ depending on what I was doing at the time.  Recently I've started re-visiting my old solutions to see how they held up to the test of time and improving their implementations as I've become a better programmer.
 
