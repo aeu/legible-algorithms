@@ -1,16 +1,19 @@
-#
-# red82 // software
-# Alfonso E. Urdaneta
-# alfonso@red82.com
-#
 CC=g++
+CPPFLAGS=-g -Wall -std=c++17 -I.
 
-OBJECTS = 	Solver.o
+OBJS = solver.o
+#	other.o
 
-CFLAGS=-g -v -Wall -std=c++11
+%.o: %.c
+	$(CC) -o $@
 
-solver	: $(OBJECTS)
-	$(CC) $(CFLAGS) -o solver $(OBJECTS)
+solver: $(OBJS)
+	$(CC) $(CPPFLAGS) -o $@ $^
 
-clean	:
-	rm solver $(OBJECTS)
+
+clean:
+	rm -f *.o
+	rm -f *~
+	rm -f *.*~
+	rm -f solver
+
