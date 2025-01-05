@@ -1,7 +1,11 @@
 ## Heap's Algorithm for generating Permutations
 
 ### About:
-Implementation of Heap's algorithm, which (according to Sedgewick) is the most efficient algoritm for generating permutations.
+So while working on another puzzle, it contained a "find all the combinations" phase.  As I was typing this up I did some digging and it turns out that I've been generating permutations subobtimally the whole time.  There's an algorithm called "Heap's Algorithm" which is (according to Sedgewick) is the most efficient algorithm for generating permutations.
+
+So here it is.
+
+One other thing that is neat about Heaps is that you can use it for N of K permutations (find all possible 5 letter strings from these 20 characters) which is really cool.
 
 ### Output:
       alfonso@maraval heaps-algorithm % ./heaps          
