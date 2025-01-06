@@ -1,7 +1,7 @@
 CC=g++
 CPPFLAGS=-g -Wall -std=c++17 -I.
 
-OBJS = solver.o
+OBJS = Solver.o
 #	other.o
 
 %.o: %.c
