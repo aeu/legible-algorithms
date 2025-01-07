@@ -74,7 +74,7 @@ int main(int argc, char **argv)
 {
     printf("Leetcode #4: Median of two sorted arrays\n");
 
-    Solution *solver = new Solution();
+    Solution solver; //  = new Solution();
     
     {
         std::vector<int> array_one = {1,3,5};
@@ -82,7 +82,7 @@ int main(int argc, char **argv)
         
         float median;
         printf("[1,3,5], [2,4]\n");
-        median = solver->findMedianSortedArraysBruteForce( array_one, array_two );
+        median = solver.findMedianSortedArraysBruteForce( array_one, array_two );
         printf("median is %.2f\n", median );
     }
     
@@ -91,7 +91,7 @@ int main(int argc, char **argv)
         std::vector<int> array_two = { 3,4 };
         float median;
         printf("[1,2], [3,4]\n");
-        median = solver->findMedianSortedArraysBruteForce( array_one, array_two );
+        median = solver.findMedianSortedArraysBruteForce( array_one, array_two );
         printf("median is %.2f\n", median );
     }
     
