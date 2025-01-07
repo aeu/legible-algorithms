@@ -15,7 +15,7 @@ class Solution
 {
 public:
     
-    double findMedianSortedArrays(std::vector<int>& nums_one, std::vector<int>& nums_two)
+    double findMedianSortedArraysBruteForce(std::vector<int>& nums_one, std::vector<int>& nums_two)
     {
         std::vector<int>::iterator iter_one;
         std::vector<int>::iterator iter_two;
@@ -26,66 +26,47 @@ public:
         int current = 0;
         int previous = 0;
         
-        int current_num_one;
-        int current_num_two;
-
         int total_numbers  = nums_one.size() + nums_two.size();
-        int stopping_point = ceil((float)total_numbers / 2 );
-
-
-        int stopper = 0;
-        int done = 0;
-        while( ! done )
+        int stopping_point  = total_numbers / 2;
+        
+        while(stopping_point >= 0 )
         {
-            stopper++;
-            if( iter_one == nums_one.end() )
-                current_num_one = INT_MIN;
-            else
-                current_num_one = (int)*iter_one;
-
-
-            if( iter_two == nums_two.end() )
-                current_num_two = INT_MIN;
-            else
-                current_num_two = (int)*iter_two;
-
-            if(( current_num_one == INT_MIN ) && ( current_num_two != INT_MIN ))
+            stopping_point--;
+            previous = current;
+            if( iter_one != nums_one.end() && iter_two != nums_two.end())
             {
-                previous = current;
-                current = current_num_two;
+                if( *iter_one <= *iter_two )
+                {
+                    current = *iter_one;
+                    iter_one++;
+                }
+                else
+                {
+                    current = *iter_two;
+                    iter_two++;
+                }
+            }
+            else if( iter_one == nums_one.end() )
+            {
+                current = *iter_two;
                 iter_two++;
             }
-            else if(( current_num_one != INT_MIN ) && ( current_num_two == INT_MIN ))
+            else if( iter_two == nums_two.end() )
             {
-                previous = current;
-                current = current_num_one;
+                current = *iter_one;
                 iter_one++;
             }
-            else if( current_num_one <= current_num_two )
-            {
-                previous = current;
-                current = current_num_one;
-                iter_one++;
-            }
-            else if ( current_num_one > current_num_two )
-            {
-                previous = current;
-                current = current_num_two;
-                iter_two++;
-            }
-
-            if ( stopper > stopping_point )
-                done = 1;
         }
-
         float retval;
         if( total_numbers & 1 )
-            retval = previous;
+        {
+            retval = current;
+        }
         else
+        {
             retval = ( (float)current + (float)previous ) / 2.0;
-
+        }
         return retval;
-        
     }
 };
 
@@ -96,31 +77,21 @@ int main(int argc, char **argv)
     Solution *solver = new Solution();
     
     {
-        std::vector<int> array_one;
-        std::vector<int> array_two;
-        array_one.push_back(1);
-        array_one.push_back(3);
-        
-        array_two.push_back(2);
+        std::vector<int> array_one = {1,3,5};
+        std::vector<int> array_two = {2,4};
         
         float median;
-        printf("[1,3], [2]\n");
-        median = solver->findMedianSortedArrays( array_one, array_two );
+        printf("[1,3,5], [2,4]\n");
+        median = solver->findMedianSortedArraysBruteForce( array_one, array_two );
         printf("median is %.2f\n", median );
     }
     
     {
-        std::vector<int> array_one;
-        std::vector<int> array_two;
-        array_one.push_back(1);
-        array_one.push_back(2);
-        
-        array_two.push_back(3);
-        array_two.push_back(4);
-        
+        std::vector<int> array_one = { 1,2 };
+        std::vector<int> array_two = { 3,4 };
         float median;
         printf("[1,2], [3,4]\n");
-        median = solver->findMedianSortedArrays( array_one, array_two );
+        median = solver->findMedianSortedArraysBruteForce( array_one, array_two );
         printf("median is %.2f\n", median );
     }
     
