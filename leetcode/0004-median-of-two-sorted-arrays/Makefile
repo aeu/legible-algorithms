@@ -4,19 +4,21 @@
 # alfonso@red82.com
 #
 CC=g++
+CPPFLAGS=-g -Wall -std=c++17 -I.
 
+OBJS = median_arrays.o
+#	other.o
 
-SOURCE=median_arrays.cc
+%.o: %.c
+	$(CC) -o $@
 
-CFLAGS=-g -v $(SOURCE)
-LDFLAGS=$(LIBRARIES) $(FRAMEWORKS)
-OUT=-o median_arrays
+median_arrays: $(OBJS)
+	$(CC) $(CPPFLAGS) -o $@ $^
 
-all:
-	$(CC)		\
-	$(CFLAGS)	\
-	$(LDFLAGS)	\
-	$(OUT)
 
 clean:
-	rm -rf	*.dSYM	median_arrays
+	rm -f *.o
+	rm -f *~
+	rm -f *.*~
+	rm -f median_arrays
+	rm -rf	*.dSYM
