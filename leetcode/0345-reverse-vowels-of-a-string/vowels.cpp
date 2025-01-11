@@ -34,25 +34,14 @@ std::string reverseVowels(std::string input_string)
     std::string output_string = input_string;
     std::string::iterator head = output_string.begin();
     std::string::iterator tail = output_string.end() - 1;
-    char test;
-    bool should_exit = false;
     while( head < tail )
     {
-        test = *head;
-        while(head < tail )
+        while(( ! isVowel(*head)) && (head < tail))
         {
-            if( isVowel( *head ))
-            {
-                break;
-            }
             head++;
         }
-        while( tail > head )
+        while( !isVowel(*tail) && ( tail > head ))
         {
-            if( isVowel( *tail ))
-            {
-                break;
-            }
             tail--;
         }
         if( head < tail )
@@ -68,7 +57,7 @@ std::string reverseVowels(std::string input_string)
 
 int main(int argc, char **argv)
 {
-    printf("Leetcode #345 - Reverse Vowels of a String\n");
+    std::cout << "Leetcode #345 - Reverse Vowels of a String" << std::endl;
     {
         std::string input_string = "IceCreAm"; 
         std::cout << "Input : " << input_string << std::endl;
