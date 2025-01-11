@@ -8,10 +8,13 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <sstream>
 
 std::string reverseWords(std::string &input)
 {
     std::string retval;
+    bool first_word = true;
+    std::ostringstream output;
     std::string::iterator word_start = input.end() - 1;
     std::string::iterator word_end   = input.end();
     while( word_start >= input.begin() )
@@ -25,10 +28,12 @@ std::string reverseWords(std::string &input)
             std::string found = std::string( (word_start+1), word_end );
             if( found.length() )
             {
-                if( retval.length() > 0 )
-                    retval = retval + " " + found; 
-                else
-                    retval = found;
+                if( ! first_word )
+                {
+                    output << " ";
+                }
+                output << found;
+                first_word = false;
             }
             word_end = word_start;
             word_start--;
@@ -37,12 +42,13 @@ std::string reverseWords(std::string &input)
     std::string found = std::string( (word_start+1), word_end );
     if( found.length() )
     {
-        if( retval.length() > 0 )
-            retval = retval + " " + found; 
-        else
-            retval = found;
+        if( ! first_word )
+        {
+            output << " ";
+        }
+        output << found;
     }
-    return retval;
+    return output.str();
 }
 
 
