@@ -70,8 +70,6 @@ I've been going through the problems and solving them.  My solutions are in a mi
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0008-string-to-integer-atoi">Leetcode &numero; 8 (Medium) &mdash; String to Integer (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0080-remove-duplicates-from-sorted-array-ii">Leetcode &numero; 80 (Medium) &mdash; Remove duplicates from Sorted Array II (C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0151-reverse-words-in-a-string">Leetcode &numero; 151 (Medium) &mdash; Reverse Words in a String (C++)</a>  
-
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0695-max-area-of-island">Leetcode &numero; 695 (Medium) &mdash; Max Area of Island (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2104-sum-of-subarray-ranges">Leetcode &numero; 2104 (Medium) &mdash; Sum of Subarray Ranges (Obj-C)</a>  
 
