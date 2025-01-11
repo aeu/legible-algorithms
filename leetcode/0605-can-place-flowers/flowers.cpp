@@ -46,6 +46,8 @@ bool canPlantFlowers(std::vector<int> &flowerbed,
                 flowerbed[index] = 1;
             }
         }
+        if( flowers_planted >= goal_flowers )
+            return true;
     }
     return flowers_planted >= goal_flowers;
 }
