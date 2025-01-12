@@ -28,6 +28,33 @@ void dumpNumbers(std::vector<int> numbers)
 
 void moveZeroes(std::vector<int> &numbers)
 {
+    int seek = 0;
+    int insert = 0;
+    int num_zeroes = 0;
+    while(seek<numbers.size())
+    {
+        if( numbers[seek] == 0 )
+        {
+            seek++;
+            num_zeroes++;
+            continue;
+        }   
+        if( insert != seek )
+        {
+            numbers[insert] = numbers[seek];
+            insert++;
+        }
+        if( seek > ( numbers.size() - num_zeroes - 1 ))
+        {
+            numbers[seek] = 0;
+        }
+        seek++;
+    }
+}
+
+#if 0
+void moveZeroes(std::vector<int> &numbers)
+{
     int last = numbers.size() - 1;
     for(int index=0;index<last;index++)
     {
@@ -42,7 +69,7 @@ void moveZeroes(std::vector<int> &numbers)
         }
     }
 }
-
+#endif
 
 int main(int argc, char **argv)
 {
