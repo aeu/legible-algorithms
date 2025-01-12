@@ -26,6 +26,9 @@ void dumpHeights(const std::vector<int> &heights)
 
 int calculateMostWater(const std::vector<int> &heights)
 {
+    if( heights.size() < 2 )
+        return 0;
+
     int max_volume = 0;
     int left = 0;
     int right = heights.size() - 1;
