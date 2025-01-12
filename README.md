@@ -74,5 +74,6 @@ I've been going through the problems and solving them.  My solutions are in a mi
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2104-sum-of-subarray-ranges">Leetcode &numero; 2104 (Medium) &mdash; Sum of Subarray Ranges (Obj-C)</a>  
 
 # Easy
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0283-move-zeroes">Leetcode &numero; 283 (Easy) &mdash; Move Zeroes (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0345-reverse-vowels-of-a-string">Leetcode &numero; 345 (Easy) &mdash; Reverse Vowels of a String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0605-can-place-flowers">Leetcode &numero; 605 (Easy) &mdash; Can Place Flowers(C++)</a>  
