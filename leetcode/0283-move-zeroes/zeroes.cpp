@@ -28,19 +28,13 @@ void dumpNumbers(std::vector<int> numbers)
 
 void moveZeroes(std::vector<int> &numbers)
 {
-    int seek = 0;
     int insert = 0;
-    while(seek<numbers.size())
+    for(int seek=0;seek<numbers.size();seek++)
     {
-        if( numbers[seek] == 0 )
+        if( numbers[seek] != 0 )
         {
-            seek++;
-            continue;
+            numbers[insert++] = numbers[seek];
         }   
-        if( insert != seek )
-        {
-            numbers[insert++] = numbers[seek++];
-        }
     }
     while(insert<numbers.size())
     {
