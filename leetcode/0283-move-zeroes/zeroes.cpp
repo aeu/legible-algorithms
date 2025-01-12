@@ -11,7 +11,7 @@
 #include <sstream>
 
 
-void dumpNumbers(std::vector<int> numbers)
+void dumpNumbers(const std::vector<int> &numbers)
 {
     bool first = true;
     for(int current : numbers )
