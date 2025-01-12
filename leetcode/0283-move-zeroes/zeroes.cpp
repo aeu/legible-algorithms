@@ -30,25 +30,21 @@ void moveZeroes(std::vector<int> &numbers)
 {
     int seek = 0;
     int insert = 0;
-    int num_zeroes = 0;
     while(seek<numbers.size())
     {
         if( numbers[seek] == 0 )
         {
             seek++;
-            num_zeroes++;
             continue;
         }   
         if( insert != seek )
         {
-            numbers[insert] = numbers[seek];
-            insert++;
+            numbers[insert++] = numbers[seek++];
         }
-        if( seek > ( numbers.size() - num_zeroes - 1 ))
-        {
-            numbers[seek] = 0;
-        }
-        seek++;
+    }
+    while(insert<numbers.size())
+    {
+        numbers[insert++] = 0;
     }
 }
 
