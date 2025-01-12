@@ -52,25 +52,6 @@ void moveZeroes(std::vector<int> &numbers)
     }
 }
 
-#if 0
-void moveZeroes(std::vector<int> &numbers)
-{
-    int last = numbers.size() - 1;
-    for(int index=0;index<last;index++)
-    {
-        if( numbers[index] == 0 )
-        {
-            for(int current=index;current<last;current++)
-            {
-                numbers[current] = numbers[current+1];
-            }
-            numbers[last] = 0;
-            last--;
-        }
-    }
-}
-#endif
-
 int main(int argc, char **argv)
 {
     std::cout << "Leetcode #283 - Move Zeroes" << std::endl << std::endl;
