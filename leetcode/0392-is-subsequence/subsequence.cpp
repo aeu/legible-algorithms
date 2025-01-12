@@ -13,20 +13,18 @@
 bool isSubsequence(const std::string &candidate,
                    const std::string &superstring)
 {
-    bool is_subsequence = false;
-    int find = 0;
-    for(int seeker=0;seeker<(int)superstring.length();seeker++)
+    int candidate_index = 0;
+    for(size_t superstring_index=0;superstring_index<superstring.length();superstring_index++)
     {
-        if( superstring[seeker] == candidate[find] )
-            find++;
+        if( superstring[superstring_index] == candidate[candidate_index] )
+            candidate_index++;
 
-        if( find == candidate.length() )
+        if( candidate_index == candidate.length() )
         {
-            is_subsequence = true;
-            break;
+            return true;
         }
     }
-    return is_subsequence;
+    return false;
 }
 
 
