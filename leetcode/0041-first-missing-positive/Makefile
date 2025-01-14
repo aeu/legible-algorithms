@@ -1,22 +1,19 @@
-#
-# red82 // software
-# Alfonso E. Urdaneta
-# alfonso@red82.com
-#
 CC=g++
+CPPFLAGS=-g -Wall -std=c++17 -I.
 
+OBJS = fmp.o
+#	other.o
 
-SOURCE=fmp.cc
+%.o: %.c
+	$(CC) -o $@
 
-CFLAGS=-g -v $(SOURCE)
-LDFLAGS=$(LIBRARIES) $(FRAMEWORKS)
-OUT=-o fmp
+fmp: $(OBJS)
+	$(CC) $(CPPFLAGS) -o $@ $^
 
-all:
-	$(CC)		\
-	$(CFLAGS)	\
-	$(LDFLAGS)	\
-	$(OUT)
 
 clean:
-	rm -rf	*.dSYM	fmp
+	rm -f *.o
+	rm -f *~
+	rm -f *.*~
+	rm -f fmp
+
