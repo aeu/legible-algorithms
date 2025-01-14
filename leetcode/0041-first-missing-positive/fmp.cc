@@ -12,38 +12,30 @@
 #include <vector>
 #include <algorithm>
 
-void dumpIndexes(std::vector<int> indexes )
+void dumpNumbers(const std::vector<int> &numbers )
 {
-    std::vector<int>::iterator indices_iterator;
     printf("[");
-    int first = 1;
-    for(  indices_iterator = indexes.begin();
-          indices_iterator != indexes.end();
-          indices_iterator++ )
+    bool first_time = true;
+    for(size_t index = 0; index<numbers.size();index++)
     {
-        if( ! first )
+        if( ! first_time )
             printf(",");
-        int current_index = (int)*indices_iterator;
-        printf("%d",current_index );
-        first = 0;
+        printf("%d", numbers[index] );
+        first_time = false;
     }
     printf("]\n");
 }
 
 
-int firstMissingPositive(std::vector<int>& nums )
+int firstMissingPositive(const std::vector<int> &numbers )
 {
-    int *temp_data = (int *)malloc( 100001 * sizeof(int));
-    memset( temp_data, 0 , 100001 * sizeof(int));
+    std::vector<int> temp_data(100001,0);
     int retval = 0;
 
-    std::vector<int>::iterator numiter;
-    for(numiter = nums.begin();
-        numiter != nums.end();
-        numiter++)
+    for(int current : numbers )
     {
-        int current = *numiter;
-        temp_data[current] = 1;
+        if ( current > 0 )
+            temp_data[current] = 1;
     }
     for(int index=1;index<100001;index++)
     {
@@ -53,7 +45,6 @@ int firstMissingPositive(std::vector<int>& nums )
             break;
         }
     }
-    free( temp_data );
     return retval;
 }
 
@@ -63,35 +54,23 @@ int main(int argc, char **argv)
 
     printf("Leetcode 0041 - First Missing Positive\n");
     {
-        std::vector<int> numbers;
-        numbers.push_back( 1 );
-        numbers.push_back( 2 );
-        numbers.push_back( 0 );
-        dumpIndexes( numbers );
+        std::vector<int> numbers = { 1,2, 0 };
+        dumpNumbers( numbers );
         first_missing = firstMissingPositive( numbers );
         printf("First missing %d\n", first_missing);
     }
 
     {
-        std::vector<int> numbers;
-        numbers.push_back( 3 );
-        numbers.push_back( 4 );
-        numbers.push_back( -1 );
-        numbers.push_back( 1 );
-        dumpIndexes( numbers );
+        std::vector<int> numbers = { 3, 4, -1, 1 };
+        dumpNumbers( numbers );
         first_missing = firstMissingPositive( numbers );
         printf("First missing %d\n", first_missing);
     }
 
     {
-        std::vector<int> numbers;
-        numbers.push_back( 7 );
-        numbers.push_back( 8 );
-        numbers.push_back( 9 );
-        numbers.push_back( 11 );
-        numbers.push_back( 12 );
+        std::vector<int> numbers = { 7,8,9,11,12};
         first_missing = firstMissingPositive( numbers );
-        dumpIndexes( numbers );
+        dumpNumbers( numbers );
         printf("First missing %d\n", first_missing);
     }
 }
