@@ -27,28 +27,28 @@ void dumpNumbers(const std::vector<int> &numbers)
 int maxNumberOfKSumPairs(std::vector<int> &numbers,
                          const int k_value)
 {
+    if( numbers.size() < 2 )
+        return 0;
+    
     std::sort(numbers.begin(), numbers.end());
-    std::vector<int>::iterator low_side = numbers.begin();
-    std::vector<int>::iterator high_side = numbers.end() - 1;
+    int left  = 0;
+    int right = numbers.size() - 1;
     int max_pairs = 0;
-    while( low_side < high_side )
+    while( left < right )
     {
-        if(( *low_side + *high_side == k_value ))
+        if(( numbers[left] + numbers[right] == k_value ))
         {
             max_pairs++;
-            low_side++;
-            high_side--;
-            continue;
+            left++;
+            right--;
         }
-        else if(( *low_side + *high_side < k_value ))
+        else if(( numbers[left] + numbers[right] ) < k_value )
         {
-            low_side++;
-            continue;
+            left++;
         }
         else
         {
-            high_side--;
-            continue;
+            right--;
         }
     }
     return max_pairs;
