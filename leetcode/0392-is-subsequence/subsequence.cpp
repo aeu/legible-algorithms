@@ -13,6 +13,12 @@
 bool isSubsequence(const std::string &candidate,
                    const std::string &superstring)
 {
+    if( candidate.length() > superstring.length() )
+        return false;
+
+    if(( candidate.lengt() == 0 ) || ( superstring.length() == 0 ))
+        return false;
+
     int candidate_index = 0;
     for(size_t superstring_index=0;superstring_index<superstring.length();superstring_index++)
     {
