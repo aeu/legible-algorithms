@@ -28,27 +28,34 @@ void dumpNumbers(const std::vector<int> &numbers )
 
 
 float maximumAverageSubarray(const std::vector<int> &numbers,
-                           const int array_length)
+                             const int array_length)
 {
     if( numbers.size() < array_length )
-        return 0;
+        return -1;
+
+    if( array_length < 1 )
+        return -1;
+    
     int start = 0;
-    int end = array_length;
+    int end = array_length-1;
     float current_sum;
     float max_avs = 0;
-    while( end <= numbers.size() )
+
+    current_sum = 0;
+    for(int index=0;index<=end;index++)
     {
-        current_sum = 0;
-        for(int index=start;index<end;index++)
-        {
-            current_sum += numbers[index];
-        }
-        start++;
+        current_sum += numbers[index];
+    }
+    max_avs = current_sum;
+    while( end < numbers.size() - 1 )
+    {
         end++;
-        current_sum = current_sum / array_length;
+        current_sum = current_sum + numbers[end];
+        current_sum = current_sum - numbers[start];
+        start++;
         max_avs = std::max( max_avs, current_sum );
     }
-    return max_avs;
+    return max_avs / array_length;;
 }
 
 int main(int argc, char **argv)
