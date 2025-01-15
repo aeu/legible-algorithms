@@ -19,7 +19,7 @@ void dumpNumbers(const std::vector<int> &numbers )
     for(size_t index = 0; index<numbers.size();index++)
     {
         if( ! first_time )
-            printf(",");
+            std::cout << "," ;
         std::cout << numbers[index];
         first_time = false;
     }
