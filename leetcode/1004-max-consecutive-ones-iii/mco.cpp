@@ -34,7 +34,7 @@ int maxConsecutiveOnes(const std::vector<int> &numbers,
     size_t window_end = 0;
     int consecutive_ones = 0;
     int max_consecutive_ones = 0;
-    int current_flips = allowed_flips;
+    int remaining_flips = allowed_flips;
     
     while( window_end < numbers.size() )
     {
@@ -44,9 +44,9 @@ int maxConsecutiveOnes(const std::vector<int> &numbers,
         }
         else
         {
-            if( current_flips > 0 )
+            if( remaining_flips > 0 )
             {
-                current_flips--;
+                remaining_flips--;
                 consecutive_ones++;
             }
             else
@@ -61,7 +61,7 @@ int maxConsecutiveOnes(const std::vector<int> &numbers,
                     window_start++;
                 }
                 // we found a zero, so now we have one to spare and keep going forward.
-                current_flips--;
+                remaining_flips--;
             }
         }
         window_end++;
