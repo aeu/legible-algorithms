@@ -16,23 +16,8 @@
 
 bool isVowel(const char candidate)
 {
-    switch( candidate )
-    {
-    case 'a' :
-    case 'e' :
-    case 'i' :
-    case 'o' :
-    case 'u' :
-    case 'A' :
-    case 'E' :
-    case 'I' :
-    case 'O' :
-    case 'U' :
-        return true;
-    default:
-        return false;
-    }
-    return false;
+    const std::string vowels = "aeiouAEIOU";
+    return vowels.find(candidate) != std::string::npos;
 }
             
 
@@ -55,6 +40,9 @@ int maximumNumberOfVowels(const std::string &data,
             vowel_count++;
     }
     max_vowels = vowel_count;
+    //
+    // if we already have as many vowels as k, no need to keep going
+    //
     if ( max_vowels == length )
         return max_vowels;
     end++;
@@ -71,6 +59,10 @@ int maximumNumberOfVowels(const std::string &data,
         start++;
         end++;
         max_vowels = std::max( max_vowels, vowel_count );
+        //
+        // if we already have as many vowels as k, no need to keep
+        // going
+        //
         if ( max_vowels == length )
             return max_vowels;
     }
@@ -87,21 +79,21 @@ int main(int argc, char **argv)
     {
         std::string data = "abciiidef";
         int k = 3;
-        std::cout << "Counting: " << data << "with k: " << k << std::endl;
+        std::cout << "Counting: " << data << ", with k: " << k << std::endl;
         max_vowels = maximumNumberOfVowels(data, k );
         std::cout << "Maximum Number of Vowels : " << max_vowels << std::endl;
     }
     {
         std::string data = "aeiou"; 
         int k = 2;
-        std::cout << "Counting: " << data << "with k: " << k << std::endl;
+        std::cout << "Counting: " << data << ", with k: " << k << std::endl;
         max_vowels = maximumNumberOfVowels(data, k );
         std::cout << "Maximum Number of Vowels : " << max_vowels << std::endl;
     }
     {
         std::string data = "leetcode";
         int k = 3;
-        std::cout << "Counting: " << data << "with k: " << k << std::endl;
+        std::cout << "Counting: " << data << ", with k: " << k << std::endl;
         max_vowels = maximumNumberOfVowels(data, k );
         std::cout << "Maximum Number of Vowels : " << max_vowels << std::endl;
     }
