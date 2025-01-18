@@ -29,6 +29,8 @@ void dumpNumbers(const std::vector<int> &numbers )
 
 int findPivotIndex(const std::vector<int> &numbers)
 {
+    if( numbers.size() == 0 )
+        return -1;
     int total = 0;
     for( int current : numbers )
     {
@@ -36,18 +38,16 @@ int findPivotIndex(const std::vector<int> &numbers)
     }
     int left_side = 0;
     int right_side = total;
-    int pivot = -1;
     for(size_t index=0;index<numbers.size();index++)
     {
         right_side -= numbers[index];
         if( left_side == right_side )
         {
-            pivot = index;
-            break;
+            return index;
         }
         left_side+=numbers[index];
     }
-    return pivot;
+    return -1;
 }
 
 
