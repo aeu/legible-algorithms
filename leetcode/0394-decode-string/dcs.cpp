@@ -18,13 +18,11 @@
 std::string processSegment(std::string candidate,
                            int start_point)
 {
-    //    std::cout << "Process segment called, with start point : " << start_point << " : " << candidate.substr(start_point) << std::endl;
     std::string retval;
     char current;
     for(int index=start_point;index<candidate.length();index++)
     {
         current = candidate[index];
-        //  std::cout << "current: " << current << std::endl;
         if( ( current != '[' ) && ( current != ']' ))
         {
             retval += current;
@@ -43,7 +41,6 @@ std::string processSegment(std::string candidate,
                     retval.pop_back();
                     std::string last_str(1,last_char);
                     multiplier.insert(0,last_str);
-                    // std::string(last_char));
                 }
                 else
                 {
@@ -53,7 +50,6 @@ std::string processSegment(std::string candidate,
             if( ! multiplier.empty() )
             {
                 int multiplier_as_int = atoi( multiplier.c_str());
-                //                std::cout << "multiplier : " << multiplier << " as int: " << multiplier_as_int << std::endl;
                 while( multiplier_as_int > 0 )
                 {
                     retval += subsegment;
@@ -65,7 +61,6 @@ std::string processSegment(std::string candidate,
         else if( current == ']' )
             break;
     }
-    //    std::cout << "Returning: " << retval << std::endl;
     return retval;
 }
 
