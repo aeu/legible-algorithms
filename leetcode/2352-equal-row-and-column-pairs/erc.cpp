@@ -53,17 +53,6 @@ bool uniqueOccurrences(std::vector<int>& arr)
     return true;
 }
 
-std::vector<int> getColumn(std::vector<std::vector<int>>& grid,
-                           int column_number)
-{
-    std::vector<int> column;
-    for(auto current_row : grid )
-    {
-        column.push_back( current_row[column_number] );
-    }
-    return column;
-}    
-
 bool compareRowAndColumn(std::vector<std::vector<int>>& grid,
                          const int row_number,
                          const int column_number)
