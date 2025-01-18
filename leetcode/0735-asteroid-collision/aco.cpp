@@ -47,13 +47,9 @@ std::vector<int> asteroidCollision(std::vector<int>& asteroids)
         }
         else
         {
-            bool should_push_current = false;
-            int safety = 0;
             done = false;
-            while( ( ! done )  && ( safety < 100 ) )
+            while( ! done )
             {
-                safety++;
-                should_push_current = false;
                 if( previous < 0 )
                 {
                     retval.push_back(current);
@@ -79,7 +75,6 @@ std::vector<int> asteroidCollision(std::vector<int>& asteroids)
                     else
                     {
                         previous = retval.back();
-                        should_push_current = true;
                     }
                 }
             }
