@@ -12,7 +12,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <set>
+#include <unordered_set>
 
 void dumpNumbers(const std::vector<int> &numbers )
 { 
@@ -32,8 +32,8 @@ std::vector<std::vector<int>> findDifference(std::vector<int>& nums1,
                                              std::vector<int>& nums2) 
 {
     std::vector<std::vector<int>> retval;
-    std::set<int> num1_set;
-    std::set<int> num2_set;
+    std::unordered_set<int> num1_set;
+    std::unordered_set<int> num2_set;
     for(int current : nums1 )
     {
         num1_set.insert(current);
