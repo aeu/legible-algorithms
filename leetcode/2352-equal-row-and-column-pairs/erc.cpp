@@ -29,30 +29,6 @@ void dumpNumbers(const std::vector<int> &numbers )
     std::cout << "]" << std::endl;
 }   
 
-bool uniqueOccurrences(std::vector<int>& arr)
-{
-    if( arr.size() == 0 )
-        return false;
-    std::map<int,int>counts;
-    for(int current : arr )
-    {
-        counts[current]++;
-    }
-
-    // handle the edge case of all uniques
-    if( arr.size() == counts.size() )
-        return true;
-    
-    std::unordered_set<int> unique_check;
-    for(auto pair : counts )
-    {
-        auto result = unique_check.insert( pair.second );
-        if( ! result.second )
-            return false;
-    }
-    return true;
-}
-
 bool compareRowAndColumn(std::vector<std::vector<int>>& grid,
                          const int row_number,
                          const int column_number)
