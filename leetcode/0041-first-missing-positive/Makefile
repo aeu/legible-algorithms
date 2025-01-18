@@ -16,4 +16,5 @@ clean:
 	rm -f *~
 	rm -f *.*~
 	rm -f fmp
+	rm -rf *.dSYM
 
