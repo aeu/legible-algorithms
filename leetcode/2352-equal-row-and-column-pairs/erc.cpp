@@ -64,19 +64,27 @@ std::vector<int> getColumn(std::vector<std::vector<int>>& grid,
     return column;
 }    
 
+bool compareRowAndColumn(std::vector<std::vector<int>>& grid,
+                         const int row_number,
+                         const int column_number)
+{
+    for(size_t row_index=0;row_index<grid.size();row_index++)
+    {
+        if ( grid[row_number][row_index] != grid[row_index][column_number] )
+            return false;
+    }
+    return true;
+}
+
 int equalPairs(std::vector<std::vector<int>>& grid)
 {
     int equal_pairs = 0;
     for(size_t index=0;index<grid.size();index++)
     {
-        std::vector<int> row = grid[index];
         for(size_t column_index=0;column_index<grid.size();column_index++)
         {
-            std::vector<int> column = getColumn(grid,column_index);
-            if( row == column )
-            {
+            if( compareRowAndColumn(grid,index,column_index))
                 equal_pairs++;
-            }
         }
     }
     return equal_pairs;
