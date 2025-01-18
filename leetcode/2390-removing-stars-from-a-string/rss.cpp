@@ -17,21 +17,20 @@
 
 std::string removeStars(std::string &s)
 {
-    std::string retval = s;
-    size_t starpos;
-    starpos = retval.find('*');
-    while( starpos != std::string::npos )
+    std::string retval;
+    for(char current : s )
     {
-        if( starpos != 0 )
+        if( current != '*' )
         {
-            starpos--;
-            retval.erase(starpos,2);
+            retval.push_back(current);
         }
         else
         {
-            retval.erase(starpos);
+            if( retval.length() > 0 )
+            {
+                retval.pop_back();
+            }
         }
-        starpos = retval.find('*');
     }
     return retval;
 }
