@@ -31,21 +31,18 @@ void dumpNumbers(const std::vector<int> &numbers )
 
 bool uniqueOccurrences(std::vector<int>& arr)
 {
+    if( arr.size() == 0 )
+        return false;
     std::map<int,int>counts;
     for(int current : arr )
     {
-        if( counts.find(current) == counts.end() )
-        {
-            counts[current] = 1;
-        }
-        else
-        {
-            int existing = counts[current];
-            existing++;
-            counts[current] = existing;
-        }
+        counts[current]++;
     }
 
+    // handle the edge case of all uniques
+    if( arr.size() == counts.size() )
+        return true;
+    
     std::unordered_set<int> unique_check;
     for(auto pair : counts )
     {
