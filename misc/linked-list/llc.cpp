@@ -21,5 +21,7 @@ int main(int argc, char **argv)
     std::shared_ptr<ListNode> new_root = std::make_shared<ListNode>(12,root_node);
     std::cout << "New root has value of : " << new_root->getValue() << std::endl;
     std::cout << "New root has next with value of : " << new_root->getNext()->getValue() << std::endl;
+
+    new_root->dumpNodes();
     
 }
