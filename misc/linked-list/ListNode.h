@@ -6,6 +6,7 @@
 //  without the express written permission of red82
 
 #include <memory>
+#include <iostream>
 
 class ListNode
 {
@@ -14,6 +15,7 @@ public:
     ListNode();
     ListNode(const int node_value);
     ListNode(const int node_value, std::shared_ptr<ListNode> next_value);
+    void dumpNodes();
     std::shared_ptr<ListNode> getNext();
     std::shared_ptr<ListNode> setNext(std::shared_ptr<ListNode> next_value);
     
