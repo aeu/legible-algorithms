@@ -8,7 +8,7 @@
 #include <memory>
 #include <iostream>
 
-class ListNode
+class ListNode : public std::enable_shared_from_this<ListNode>
 {
 public:
 
