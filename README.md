@@ -21,6 +21,7 @@ When I get stuck on something, I like to solve puzzles and implement algorithms 
 ## Random Snippets
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/fibonacci">Fibonacci number generator (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/linked-list">Drop in, int holding, memory safe linked list (C++)</a>  
 
 ## Puzzles & Problems
 
