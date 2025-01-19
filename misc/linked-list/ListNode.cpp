@@ -46,27 +46,21 @@ int ListNode::setValue(const int new_value)
     return value;
 }
 
+
 void ListNode::dumpNodes()
 {
     bool first_time = true;
     std::cout << "[";
-    std::shared_ptr<ListNode> next_node;
-
-    next_node = next;
-    while( next_node != nullptr )
+    std::shared_ptr<ListNode> next_node = shared_from_this();
+    
+    while (next_node != nullptr)
     {
-        if( ! first_time )
-            std::cout << ", " ;
+        if (!first_time)
+            std::cout << ", ";
 
-        if( first_time )
-            std::cout << getValue();
-        else
-        {
-            std::cout << next_node->getValue();
-            next_node = next_node->getNext();
-        }
+        std::cout << next_node->getValue();
+        next_node = next_node->getNext();
         first_time = false;
     }
     std::cout << "]" << std::endl;
 }
-
