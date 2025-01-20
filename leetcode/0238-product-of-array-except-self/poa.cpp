@@ -25,29 +25,20 @@ void dumpNumbers(const std::vector<int> &numbers)
     
 std::vector<int> productOfArrayExceptSelf(const std::vector<int> &numbers)
 {
-    std::vector<int> products ( numbers.size(),1);
-    std::vector<int> left_products ( numbers.size(),1);
-    std::vector<int> right_products ( numbers.size(),0);
-    right_products[numbers.size()-1] = 1;
-    for(int index=numbers.size()-2;index>=0;index--)
-    {
-        right_products[index] = right_products[index+1] * numbers[index+1] ;
-    }
-    left_products[0] = 1;
+    std::vector<int> results ( numbers.size(),1);
+
     for(int index=1;index<numbers.size();index++)
     {
-        left_products[index] = numbers[index-1] * left_products[index-1];
+        results[index] = numbers[index-1] * results[index-1];
     }
-    for(int index=0;index<numbers.size();index++)
-    {
-        products[index] = left_products[index] * right_products[index];
-    }
-    dumpNumbers(left_products);
-    dumpNumbers(right_products);
-    dumpNumbers(products);
 
-    
-    return products;
+    int right_product = 1;
+    for(int index=numbers.size()-2;index>=0;index--)
+    {
+        right_product *= numbers[index+1];
+        results[index] *= right_product;
+    }
+    return results;
 }
 
 int main(int argc, char **argv)
@@ -55,8 +46,19 @@ int main(int argc, char **argv)
     std::cout << "Leetcode #238 - Product of Array Except Self" << std::endl;
     {
         std::vector<int> numbers = { 5,2,3,4};
+        std::cout << "Input  : ";
         dumpNumbers( numbers );
-        productOfArrayExceptSelf(numbers);
+        std::vector<int> results = productOfArrayExceptSelf(numbers);
+        std::cout << "Results: ";
+        dumpNumbers(results);
+    }
+    {
+        std::vector<int> numbers = { -1,1,0,-3,3};
+        std::cout << "Input  : ";
+        dumpNumbers( numbers );
+        std::vector<int> results = productOfArrayExceptSelf(numbers);
+        std::cout << "Results: ";
+        dumpNumbers(results);
     }
     return 1;
 }
