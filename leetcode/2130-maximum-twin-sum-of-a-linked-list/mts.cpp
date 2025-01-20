@@ -43,7 +43,7 @@ int main(int argc, char **argv)
         std::shared_ptr<ListNode> root_node = buildList(values);
         root_node->dumpNodes();
         std::shared_ptr<ListNode> lead_node = root_node;
-        std::shared_ptr<ListNode> lead_node_parent = root_node;
+        std::shared_ptr<ListNode> lead_node_previous = root_node;
         std::shared_ptr<ListNode> trailing_node = root_node;
         std::shared_ptr<ListNode> trailing_node_parent = root_node;
         bool should_advance_trailing_node = false;
@@ -55,8 +55,8 @@ int main(int argc, char **argv)
                 trailing_node = trailing_node_parent->getNext();
             }
             should_advance_trailing_node = ! should_advance_trailing_node;
-            lead_node_parent = lead_node;
-            lead_node = lead_node_parent->getNext();
+            lead_node_previous = lead_node;
+            lead_node = lead_node_previous->getNext();
         }
 
         trailing_node_parent->setNext(nullptr);
@@ -95,7 +95,7 @@ int main(int argc, char **argv)
         std::shared_ptr<ListNode> root_node = buildList(values);
         root_node->dumpNodes();
         std::shared_ptr<ListNode> lead_node = root_node;
-        std::shared_ptr<ListNode> lead_node_parent = root_node;
+        std::shared_ptr<ListNode> lead_node_previous = root_node;
         std::shared_ptr<ListNode> trailing_node = root_node;
         std::shared_ptr<ListNode> trailing_node_parent = root_node;
         bool should_advance_trailing_node = false;
@@ -107,8 +107,8 @@ int main(int argc, char **argv)
                 trailing_node = trailing_node_parent->getNext();
             }
             should_advance_trailing_node = ! should_advance_trailing_node;
-            lead_node_parent = lead_node;
-            lead_node = lead_node_parent->getNext();
+            lead_node_previous = lead_node;
+            lead_node = lead_node_previous->getNext();
         }
 
         trailing_node_parent->setNext(nullptr);
@@ -147,7 +147,7 @@ int main(int argc, char **argv)
         std::shared_ptr<ListNode> root_node = buildList(values);
         root_node->dumpNodes();
         std::shared_ptr<ListNode> lead_node = root_node;
-        std::shared_ptr<ListNode> lead_node_parent = root_node;
+        std::shared_ptr<ListNode> lead_node_previous = root_node;
         std::shared_ptr<ListNode> trailing_node = root_node;
         std::shared_ptr<ListNode> trailing_node_parent = root_node;
         bool should_advance_trailing_node = false;
@@ -159,8 +159,8 @@ int main(int argc, char **argv)
                 trailing_node = trailing_node_parent->getNext();
             }
             should_advance_trailing_node = ! should_advance_trailing_node;
-            lead_node_parent = lead_node;
-            lead_node = lead_node_parent->getNext();
+            lead_node_previous = lead_node;
+            lead_node = lead_node_previous->getNext();
         }
 
         trailing_node_parent->setNext(nullptr);
