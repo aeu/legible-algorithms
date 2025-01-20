@@ -48,7 +48,6 @@ int compress(std::vector<char>& chars)
             }
             else
             {
-                std::cout << "changed, we prev had " << previous << " as input with count : " << running_count << std::endl;
                 std::string temp;
                 temp += previous;
                 if( running_count > 1 )
@@ -82,7 +81,7 @@ int main(int argc, char **argv)
 {
     std::cout << "Leetcode #443 - String Compression" << std::endl;
     {
-        std::vector<char> chars = {'a','b','b','b','b','b','b'};
+        std::vector<char> chars = {'a','a','b','b','c','c','c'};
         std::cout << "Input  : ";
         dumpChars(chars);
         int size = compress(chars);
@@ -90,6 +89,20 @@ int main(int argc, char **argv)
         dumpChars(chars,size);
     }
     {
+        std::vector<char> chars = {'a'};
+        std::cout << "Input  : ";
+        dumpChars(chars);
+        int size = compress(chars);
+        std::cout << "Output n=" << size << " : ";
+        dumpChars(chars,size);
+    }
+    {
+        std::vector<char> chars = {'a','b','b','b','b','b','b','b','b','b','b','b','b'};
+        std::cout << "Input  : ";
+        dumpChars(chars);
+        int size = compress(chars);
+        std::cout << "Output n=" << size << " : ";
+        dumpChars(chars,size);
     }
     return 1;
 }
