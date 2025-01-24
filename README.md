@@ -4,6 +4,7 @@ When I get stuck on something, I like to solve puzzles and implement algorithms 
 
 ## Data Structures
 The data structures we take for granted.  These were a lot more typing than I expected.  The Red-Black tree especially.
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/binary_search_tree">Binary Search Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/red-black-tree">Red Black Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
 
