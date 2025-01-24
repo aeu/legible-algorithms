@@ -46,11 +46,13 @@ sometimes inconsistent, as my style has evolved over the years.
 
 I've been going through the problems and solving them.  My solutions
 are in a mix of Objective-C and C++ depending on what I was doing at
-the time.  Recently I've started re-visiting my old solutions to see
-how they held up to the test of time and improving their
-implementations as I've learned more.  Some of my earlier
-implementations were really bad, and this is a positive.  If you don't
-think your old code is bad, then you haven't improved.
+the time.
+
+Recently I've started re-visiting my old solutions to see how they
+held up to the test of time and improving their implementations as
+I've learned more.  Some of my earlier implementations were really
+bad, and I see this is a positive.  If I didn't think my old code was
+bad, then that means I haven't been improving over time.
 
 
 #### Hard
