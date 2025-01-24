@@ -48,9 +48,10 @@ I've been going through the problems and solving them.  My solutions
 are in a mix of Objective-C and C++ depending on what I was doing at
 the time.  Recently I've started re-visiting my old solutions to see
 how they held up to the test of time and improving their
-implementations as I've learned more.  Some of my earlier 
-mistakes that I've found are pretty stellar, this is something that I
-need to do more if I want to become a better programmer.
+implementations as I've learned more.  Some of my earlier
+implementations were really bad, and this is a positive.  If you don't
+think your old code is bad, then you haven't improved.
+
 
 #### Hard
 
