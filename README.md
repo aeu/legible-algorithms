@@ -3,6 +3,7 @@
 When I get stuck on something, I like to solve puzzles and implement algorithms as a form of focused distraction.  This is a collection of my implementations of various things that I wrote to pass the time.  They are in C++ and Obj-C because I enjoy working on those languages. Maybe I'll add some Rust soon.
 
 ## Data Structures
+The data structures we take for granted.  These were a lot more typing than I expected.  The Red-Black tree especially.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/binary_search_tree">Binary Search Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/red-black-tree">Red Black Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
 
@@ -14,14 +15,13 @@ When I get stuck on something, I like to solve puzzles and implement algorithms 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/improved-mergesort">Improved Mergesort (C++)</a>  
 
 
-## Permutations
+## Misc Snippets / Drop Ins
+Code snippets that can be dropped in to other projects so you don't have to re-type the wheel every time.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/heaps-algorithm">Heap's Algorithm for generating permutations (C++)</a>    
-
-## Random Snippets
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/fibonacci">Fibonacci number generator (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/linked-list">Drop in, int holding, memory safe linked list (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/linked-list">Drop in, int holding, memory safe binary tree (C++)</a>  
 
 ## Puzzles & Problems
 
