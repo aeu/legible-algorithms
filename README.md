@@ -21,7 +21,7 @@ Code snippets that can be dropped in to other projects so you don't have to re-t
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/heaps-algorithm">Heap's Algorithm for generating permutations (C++)</a>    
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/fibonacci">Fibonacci number generator (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/linked-list">Drop in, int holding, memory safe linked list (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/linked-list">Drop in, int holding, memory safe binary tree (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/binary-tree">Drop in, int holding, memory safe binary tree (C++)</a>  
 
 ## Puzzles & Problems
 
