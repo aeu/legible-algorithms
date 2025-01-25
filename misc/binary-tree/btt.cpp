@@ -9,5 +9,11 @@
 
 int main(int argc, char **argv)
 {
+  {
+    std::vector<std::optional<int>> values = { 3,9,20,std::nullopt,std::nullopt,15,7 };
+    dumpValues( values );
+    std::shared_ptr<TreeNode> root = buildTree(values);
+    dumpTree( root );
+  }
   return -1;
 }
