@@ -87,7 +87,6 @@ std::shared_ptr<TreeNode> TreeNode::buildTree(const std::vector<std::optional<in
     if( values.empty() )
         return nullptr;
 
-    std::cout << "Building tree" << std::endl;
     std::shared_ptr<TreeNode> root_node;
     std::queue<std::shared_ptr<TreeNode>> node_queue;
     if( values[0].has_value() )
