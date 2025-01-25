@@ -6,6 +6,10 @@
 //  without the express written permission of red82
 
 #include <memory>
+#include <optional>
+#include <queue>
+#include <iostream>
+
 /**struct TreeNode {
  *     int val;
  *     TreeNode *left;
@@ -27,6 +31,10 @@ public:
              std::shared_ptr<TreeNode> new_left,
              std::shared_ptr<TreeNode> new_right);
 
+    void dumpNode(std::shared_ptr<TreeNode> current_node );
+    static void dumpTree(std::shared_ptr<TreeNode> current_node );
+    static std::shared_ptr<TreeNode> buildTree(const std::vector<std::optional<int>> &values);
+    
     TreeNode();
     
 protected:
