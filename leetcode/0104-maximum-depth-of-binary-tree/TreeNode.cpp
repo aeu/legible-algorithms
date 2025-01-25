@@ -57,7 +57,64 @@ void TreeNode::setValue(const int new_value)
 {
     value = new_value;
 }
+
 int TreeNode::getValue()
 {
     return value;
+}
+
+
+void TreeNode::dumpNode(std::shared_ptr<TreeNode> current_node )
+{
+    if( current_node != nullptr )
+    {
+        std::cout << current_node->getValue() << " " ;
+        dumpNode( current_node->getLeft());
+        dumpNode( current_node->getRight());
+    }
+}
+
+void TreeNode::dumpTree(std::shared_ptr<TreeNode> current_node )
+{
+    std::cout << "[";
+    dumpNode(current_node);
+    std::cout << "]" << std::endl;
+}
+
+
+std::shared_ptr<TreeNode> TreeNode::buildTree(const std::vector<std::optional<int>> &values)
+{
+    if( values.empty() )
+        return nullptr;
+
+    std::shared_ptr<TreeNode> root_node;
+    std::queue<std::shared_ptr<TreeNode>> node_queue;
+    if( values[0].has_value() )
+    {
+        root_node = std::make_shared<TreeNode>(values[0].value());
+        node_queue.push( root_node );
+    }
+
+    int index = 1;
+    while( index < values.size () )
+    {
+        std::shared_ptr<TreeNode> current = node_queue.front();
+        node_queue.pop();
+
+        if( values[index].has_value() )
+        {
+            std::shared_ptr<TreeNode> left_node = std::make_shared<TreeNode>(values[index].value());
+            current->setLeft(left_node);
+            node_queue.push(left_node);
+        }
+        index++;
+        if((index < values.size()) && ( values[index].has_value() ))
+        {
+            std::shared_ptr<TreeNode> right_node = std::make_shared<TreeNode>(values[index].value());
+            current->setRight(right_node);
+            node_queue.push(right_node);
+        }
+        index++;
+    }
+    return root_node;
 }
