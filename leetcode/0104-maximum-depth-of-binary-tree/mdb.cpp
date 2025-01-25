@@ -104,19 +104,20 @@ int maxDepth(std::shared_ptr<TreeNode> current)
 
 int main(int argc, char **argv)
 {
+    std::cout << "Leetcode #104 - Maximum Depth of Binary Tree" << std::endl;
     {
         std::vector<std::optional<int>> values = { 3,9,20,std::nullopt,std::nullopt,15,7 };
+        std::cout << "Input : " ;
         dumpValues( values );
         std::shared_ptr<TreeNode> root = buildTree(values);
-        dumpTree( root );
         int max_depth = maxDepth( root );
         std::cout << "Max depth : " << max_depth << std::endl;
     }
     {
         std::vector<std::optional<int>> values = { 1,std::nullopt,2 };
+        std::cout << "Input : " ;
         dumpValues( values );
         std::shared_ptr<TreeNode> root = buildTree(values);
-        dumpTree( root );
         int max_depth = maxDepth( root );
         std::cout << "Max depth : " << max_depth << std::endl;
     }
