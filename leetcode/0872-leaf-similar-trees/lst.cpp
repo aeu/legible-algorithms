@@ -13,23 +13,6 @@
 #include <queue>
 #include "TreeNode.h"
 
-#if 0
-void dumpValues(const std::vector<int> values)
-{
-    bool first_time = true;
-    std::cout << "[" ;
-    for(int current : values )
-    {
-        if( ! first_time )
-            std::cout << ", ";
-        std::cout << current;
-        first_time = false;
-    }
-    std::cout << "]" << std::endl;
-}
-#endif    
-
-
 void dumpValues(const std::vector<std::optional<int>> &values)
 {
     bool first_time = true;
