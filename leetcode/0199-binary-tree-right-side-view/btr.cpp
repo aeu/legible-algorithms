@@ -35,7 +35,7 @@ std::shared_ptr<TreeNode> buildTree(std::vector<std::optional<int>> values)
 {
     if( values.empty() )
         return nullptr;
-    int index = 0;
+    size_t index = 0;
     std::queue<std::shared_ptr<TreeNode>> nodes;
     std::shared_ptr<TreeNode> root = std::make_shared<TreeNode>( values[index].value() );
     nodes.push(root);
@@ -70,35 +70,32 @@ struct NodeAndLevel {
     int level;
 };
 
-void bfs(std::queue<NodeAndLevel> node_list,
-         std::vector<NodeAndLevel> &processed,
-         int level )
+
+void breadthFirstSearch(std::queue<NodeAndLevel> node_list,
+                  std::vector<NodeAndLevel> &processed,
+                  int level )
 {
-    if( node_list.empty() )
-        return;
-
-    level++;
-    NodeAndLevel current = node_list.front();
-    node_list.pop();
-
-    processed.push_back( current );
-    
-    if( current.node->getLeft() != nullptr )
+    NodeAndLevel current;
+    while( ! node_list.empty() )
     {
-        NodeAndLevel left;
-        left.node = current.node->getLeft();
-        left.level = current.level+1;
-        node_list.push(left);
+        current = node_list.front();
+        node_list.pop();
+        processed.push_back(current);
+        if( current.node->getLeft() != nullptr )
+        {
+            NodeAndLevel left;
+            left.node = current.node->getLeft();
+            left.level = current.level+1;
+            node_list.push(left);
+        }
+        if( current.node->getRight() != nullptr )
+        {
+            NodeAndLevel right;
+            right.node = current.node->getRight();
+            right.level = current.level+1;
+            node_list.push(right);
+        }
     }
-    
-    if( current.node->getRight() != nullptr )
-    {
-        NodeAndLevel right;
-        right.node = current.node->getRight();
-        right.level = current.level+1;
-        node_list.push(right);
-    }
-    bfs( node_list, processed, level );
 }
 
 
@@ -113,10 +110,10 @@ std::vector<std::optional<int>> breadthFirstTraversal(std::shared_ptr<TreeNode> 
         current.node = root;
         current.level = 0;
         node_list.push(current);
-        bfs(node_list,processed,0);
+        breadthFirstSearch(node_list,processed,0);
         int last_level = 0;
         NodeAndLevel previous;
-        for(int index=0;index<processed.size();index++)
+        for(size_t index=0;index<processed.size();index++)
         {
             current = processed[index];
             if( current.level != last_level )
