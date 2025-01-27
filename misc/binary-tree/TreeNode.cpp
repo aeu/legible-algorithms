@@ -69,15 +69,15 @@ void TreeNode::dumpNode(std::shared_ptr<TreeNode> current_node )
     if( current_node != nullptr )
     {
         std::cout << current_node->getValue() << " " ;
-        dumpNode( current_node->getLeft());
-        dumpNode( current_node->getRight());
+        TreeNode::dumpNode( current_node->getLeft());
+        TreeNode::dumpNode( current_node->getRight());
     }
 }
 
 void TreeNode::dumpTree(std::shared_ptr<TreeNode> current_node )
 {
     std::cout << "[";
-    dumpNode(current_node);
+    TreeNode::dumpNode(current_node);
     std::cout << "]" << std::endl;
 }
 
