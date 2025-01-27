@@ -6,14 +6,35 @@
 //  without the express written permission of red82
 
 #include <iostream>
+#include <optional>
+#include <vector>
+#include "TreeNode.h"
+
+void dumpValues(const std::vector<std::optional<int>> &values)
+{
+    bool first_time = true;
+    std::cout << "[" ;
+    for( auto current : values )
+    {
+        if( ! first_time )
+            std::cout << ", " ;
+        if( current.has_value() )
+            std::cout << current.value();
+        else
+            std::cout << "null";
+        first_time = false;
+    }
+    std::cout << "]" << std::endl;
+}
+
 
 int main(int argc, char **argv)
 {
-  {
-    std::vector<std::optional<int>> values = { 3,9,20,std::nullopt,std::nullopt,15,7 };
-    dumpValues( values );
-    std::shared_ptr<TreeNode> root = buildTree(values);
-    dumpTree( root );
-  }
-  return -1;
+    {
+        std::vector<std::optional<int>> values = { 3,9,20,std::nullopt,std::nullopt,15,7 };
+        dumpValues( values );
+        std::shared_ptr<TreeNode> root = TreeNode::buildTree(values);
+        TreeNode::dumpTree( root );
+    }
+    return -1;
 }
