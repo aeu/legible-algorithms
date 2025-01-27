@@ -26,6 +26,9 @@ Code snippets that can be dropped in to other projects so you don't have to re-t
 Binary tree is sort of optimized for leetcode, which uses an array in the style of [1,2,null,4,6,7,null,8...] to represent the tree. I can't use a vector of ints because of the nulls, and I don't want to use a sentinel value which may occur in real data.  This implementation uses std::optional, so you can put in std::nullopt in the data array.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/binary-tree">Drop in, int holding, memory safe binary tree (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/depth-first-search">Depth first search (C++)</a>  
+
+
 
 ## Puzzles & Problems
 
