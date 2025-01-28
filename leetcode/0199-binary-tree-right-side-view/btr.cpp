@@ -102,39 +102,35 @@ void bfs(std::queue<NodeAndLevel> node_list,
 }
 
 
-void breadthFirstTraversal(std::shared_ptr<TreeNode> root )
+std::vector<std::optional<int>> breadthFirstTraversal(std::shared_ptr<TreeNode> root )
 {
     std::vector<std::optional<int>> values;
-    if( root == nullptr )
+    if( root != nullptr )
     {
-        std::cout << "nullroot" << std::endl;
-        dumpValues( values );
-    }
-    std::queue<NodeAndLevel> node_list;
-    std::vector<NodeAndLevel> processed;
-    NodeAndLevel current;
-    current.node = root;
-    current.level = 0;
-    node_list.push(current);
-    bfs(node_list,processed,0);
-    int last_level = 0;
-    NodeAndLevel previous;
-    for(int index=0;index<processed.size();index++)
-    {
-        // if( index == 0 )
-        // {
-        //     values.push_back( current.node->getValue());
-        // }
-        current = processed[index];
-        if( current.level != last_level )
+        std::queue<NodeAndLevel> node_list;
+        std::vector<NodeAndLevel> processed;
+        NodeAndLevel current;
+        current.node = root;
+        current.level = 0;
+        node_list.push(current);
+        bfs(node_list,processed,0);
+        int last_level = 0;
+        NodeAndLevel previous;
+        for(int index=0;index<processed.size();index++)
         {
-            previous = processed[index-1];
-            values.push_back( previous.node->getValue());
-            last_level = current.level;
+            current = processed[index];
+            if( current.level != last_level )
+            {
+                previous = processed[index-1];
+                values.push_back( previous.node->getValue());
+                last_level = current.level;
+            }
         }
+        // the last node is always going to linger because there is no
+        // next level
+        values.push_back((processed.back().node->getValue()));
     }
-    values.push_back( ( processed.back().node->getValue()));
-    dumpValues( values );
+    return values;   
 }
 
 
@@ -144,31 +140,39 @@ int main(int argc, char **argv)
     std::cout << "Leetcode #199 - Binary Tree Right Side View" << std::endl;
     {
         std::vector<std::optional<int>> values = { 1,2,3,std::nullopt,5,std::nullopt,4 };
+        std::cout << "Input : ";
         dumpValues( values );
         std::shared_ptr<TreeNode> root = buildTree(values);
-        TreeNode::dumpTree( root );
-        breadthFirstTraversal(root);
+        std::vector<std::optional<int>> right_sides = breadthFirstTraversal(root);
+        std::cout << "Right Side View : ";
+        dumpValues( right_sides );
     }
     {
         std::vector<std::optional<int>> values = { 1,2,3,4,std::nullopt,std::nullopt,std::nullopt,5 };
+        std::cout << "Input : ";
         dumpValues( values );
         std::shared_ptr<TreeNode> root = buildTree(values);
-        TreeNode::dumpTree( root );
-        breadthFirstTraversal(root);
+        std::vector<std::optional<int>> right_sides = breadthFirstTraversal(root);
+        std::cout << "Right Side View : ";
+        dumpValues( right_sides );
     }
     {
         std::vector<std::optional<int>> values = { 1,std::nullopt,3};
+        std::cout << "Input : ";
         dumpValues( values );
         std::shared_ptr<TreeNode> root = buildTree(values);
-        TreeNode::dumpTree( root );
-        breadthFirstTraversal(root);
+        std::vector<std::optional<int>> right_sides = breadthFirstTraversal(root);
+        std::cout << "Right Side View : ";
+        dumpValues( right_sides );
     }
     {
         std::vector<std::optional<int>> values = {};
+        std::cout << "Input : ";
         dumpValues( values );
         std::shared_ptr<TreeNode> root = buildTree(values);
-        TreeNode::dumpTree( root );
-        breadthFirstTraversal(root);
+        std::vector<std::optional<int>> right_sides = breadthFirstTraversal(root);
+        std::cout << "Right Side View : ";
+        dumpValues( right_sides );
     }
 
     return -1;
