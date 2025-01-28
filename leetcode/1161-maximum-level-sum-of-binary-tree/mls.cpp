@@ -1,0 +1,81 @@
+// -*- Mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; -*-
+//
+//  red82 // software
+//
+//  This software may not be used or reproduced, in whole or in part,
+//  without the express written permission of red82
+
+#include <iostream>
+#include <optional>
+#include <vector>
+#include <queue>
+
+#include "TreeNode.h"
+
+
+void dumpValues(const std::vector<std::optional<int>> &values )
+{
+    bool first_time = true;
+    std::cout << "[";
+    for( auto current : values )
+    {
+        if( ! first_time )
+            std::cout << ", ";
+        if( current.has_value() )
+            std::cout << current.value();
+        else
+            std::cout << "null";
+        first_time = false;
+    }
+    std::cout << "]" << std::endl;
+}
+
+
+std::shared_ptr<TreeNode> buildTree(std::vector<std::optional<int>> values)
+{
+    if( values.empty() )
+        return nullptr;
+    std::queue<std::shared_ptr<TreeNode>> node_queue;
+    std::shared_ptr<TreeNode> root = std::make_shared<TreeNode>( values[0].value() );
+    node_queue.push(root);
+    size_t index=1;
+    while(index < values.size())
+    {
+        std::shared_ptr<TreeNode> current = node_queue.front();
+        node_queue.pop();
+        if( values[index].has_value() )
+        {
+            std::shared_ptr<TreeNode> left = std::make_shared<TreeNode>( values[index].value() );
+            current->setLeft(left);
+            node_queue.push(left);
+        }
+        index++;
+        if( ( index < values.size() ) && ( values[index].has_value() ) )
+        {
+            std::shared_ptr<TreeNode> right = std::make_shared<TreeNode>( values[index].value() );
+            current->setRight(right);
+            node_queue.push(right);
+        }
+        index++;
+    }
+    return root;    
+}
+
+int main(int argc, char **argv)
+{
+    std::cout << "Leetcode #1161 - Maximum Level Sum of a Binary Tree" << std::endl;
+    {
+        std::vector<std::optional<int>> values = { 1,7,0,7,-8,std::nullopt,std::nullopt };
+        std::cout << "Input : ";
+        dumpValues( values );
+        std::shared_ptr<TreeNode> root = buildTree(values);
+    }
+    {
+        std::vector<std::optional<int>> values = { 989,std::nullopt,10250,98693,-89388,std::nullopt,std::nullopt,std::nullopt,-32127};
+        std::cout << "Input : ";
+        dumpValues( values );
+        std::shared_ptr<TreeNode> root = buildTree(values);
+    }
+
+    return -1;
+}
