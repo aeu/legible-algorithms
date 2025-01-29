@@ -25,8 +25,9 @@ Find the node in the BST that the node's value equals val and return the subtree
      1 <= val <= 107
 
 # Output
+
      Leetcode #700 - Search in a Binary Search Tree
      Searching for : 2 in : [4, 2, 7, 1, 3]
      Found Tree : [2 1 3 ]
-     Searching for : 5 in : [2, 1, 3]
+     Searching for : 5 in : [4, 2, 7, 1, 3]
      Found Tree : []

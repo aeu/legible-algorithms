@@ -92,7 +92,7 @@ int main(int argc, char **argv)
     }
     {
         int seek_value = 5;
-        std::vector<std::optional<int>> values = { 2,1,3};
+        std::vector<std::optional<int>> values = { 4,2,7,1,3};
         std::cout << "Searching for : " << seek_value << " in : ";
         dumpValues( values );
         std::shared_ptr<TreeNode> root = TreeNode::buildTree(values);
