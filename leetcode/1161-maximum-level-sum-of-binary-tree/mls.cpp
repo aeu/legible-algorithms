@@ -9,7 +9,7 @@
 #include <optional>
 #include <vector>
 #include <queue>
-
+#include <map>
 #include "TreeNode.h"
 
 
@@ -61,26 +61,51 @@ std::shared_ptr<TreeNode> buildTree(std::vector<std::optional<int>> values)
     return root;    
 }
 
+struct NodeAndLevel
+{
+    std::shared_ptr<TreeNode> node;
+    int level;
+};
+
 int maxLevelSum(std::shared_ptr<TreeNode> root)
 {
-    std::queue<std::shared_ptr<TreeNode>> node_queue;
-    node_queue.push(root);
-    int level = 1;
+    std::map<int,int> sums_for_levels;
+    std::queue<NodeAndLevel> node_queue;
+    NodeAndLevel current;
+    current.node = root;
+    current.level = 1;
+    node_queue.push(current);
     while( ! node_queue.empty() )
     {
-        std::shared_ptr<TreeNode> current = node_queue.front();
+        current = node_queue.front();
         node_queue.pop();
-        std::cout << "Processing : " << current->getValue() << " at level : " << level << std::endl;
-        level++;
-        if( current->getLeft() != nullptr )
+        sums_for_levels[current.level] += current.node->getValue();
+        if( current.node->getLeft() != nullptr )
         {
-            node_queue.push( current->getLeft());
+            NodeAndLevel left;
+            left.node = current.node->getLeft();
+            left.level = current.level + 1;
+            node_queue.push( left );
         }
-        if( current->getRight() != nullptr )
+        if( current.node->getRight() != nullptr )
         {
-            node_queue.push( current->getRight());
+            NodeAndLevel right;
+            right.node = current.node->getRight();
+            right.level = current.level + 1;
+            node_queue.push( right );
         }
     }
+    int max_level = 0;
+    int max_value = 0;
+    for(auto current : sums_for_levels )
+    {
+        if( current.second > max_value )
+        {
+            max_value = current.second;
+            max_level = current.first;
+        }
+    }
+    std::cout << "max level : " << max_level << std::endl;
     return 0;
 }
 
@@ -99,6 +124,7 @@ int main(int argc, char **argv)
         std::cout << "Input : ";
         dumpValues( values );
         std::shared_ptr<TreeNode> root = buildTree(values);
+        maxLevelSum( root );
     }
 
     return -1;
