@@ -61,6 +61,29 @@ std::shared_ptr<TreeNode> buildTree(std::vector<std::optional<int>> values)
     return root;    
 }
 
+int maxLevelSum(std::shared_ptr<TreeNode> root)
+{
+    std::queue<std::shared_ptr<TreeNode>> node_queue;
+    node_queue.push(root);
+    int level = 1;
+    while( ! node_queue.empty() )
+    {
+        std::shared_ptr<TreeNode> current = node_queue.front();
+        node_queue.pop();
+        std::cout << "Processing : " << current->getValue() << " at level : " << level << std::endl;
+        level++;
+        if( current->getLeft() != nullptr )
+        {
+            node_queue.push( current->getLeft());
+        }
+        if( current->getRight() != nullptr )
+        {
+            node_queue.push( current->getRight());
+        }
+    }
+    return 0;
+}
+
 int main(int argc, char **argv)
 {
     std::cout << "Leetcode #1161 - Maximum Level Sum of a Binary Tree" << std::endl;
@@ -69,6 +92,7 @@ int main(int argc, char **argv)
         std::cout << "Input : ";
         dumpValues( values );
         std::shared_ptr<TreeNode> root = buildTree(values);
+        maxLevelSum( root );
     }
     {
         std::vector<std::optional<int>> values = { 989,std::nullopt,10250,98693,-89388,std::nullopt,std::nullopt,std::nullopt,-32127};
