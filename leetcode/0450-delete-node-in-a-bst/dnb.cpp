@@ -62,16 +62,6 @@ std::shared_ptr<TreeNode> buildTree(const std::vector<std::optional<int>> &value
 }
 
 
-void replaceChild(std::shared_ptr<TreeNode> parent,
-                  std::shared_ptr<TreeNode> old_child,
-                  std::shared_ptr<TreeNode> new_child)
-{
-    if( parent->getLeft() == old_child )
-        parent->setLeft( new_child );
-    else
-        parent->setRight( new_child );
-}
-
 std::shared_ptr<TreeNode> getMinimumNode(std::shared_ptr<TreeNode> root)
 {
     std::shared_ptr<TreeNode> min_node = root;
