@@ -23,7 +23,7 @@ void dumpValues(std::vector<int> values )
         std::cout << current;
         first_time = false;
     }
-    std::cout << "[" << std::endl;
+    std::cout << "]" << std::endl;
 }
 
 
@@ -31,13 +31,13 @@ bool canVisitAllRooms(std::vector<std::vector<int>>& rooms)
 {
     int rooms_opened = 0;
     std::queue<int> keys;
-    std::map<int,int> cleared_rooms;
+    std::vector<bool> cleared_rooms( rooms.size(), false);
     keys.push(0);
     while( ! keys.empty() )
     {
         int current_key = keys.front();
         keys.pop();
-        if( cleared_rooms[current_key] == 0 )
+        if( cleared_rooms[current_key] == false )
         {
             std::vector<int> current_room = rooms[current_key];
             rooms_opened++;
@@ -45,10 +45,10 @@ bool canVisitAllRooms(std::vector<std::vector<int>>& rooms)
             {
                 keys.push(found_key);
             }
-            cleared_rooms[current_key] = 1;
+            cleared_rooms[current_key] = true;
         }
     }
-    if( cleared_rooms.size() == rooms.size() )
+    if( rooms_opened == rooms.size() )
         return true;
     return false;
 }
