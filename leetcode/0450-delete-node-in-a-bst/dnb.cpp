@@ -72,31 +72,14 @@ void replaceChild(std::shared_ptr<TreeNode> parent,
         parent->setRight( new_child );
 }
 
-void findAndDelete(std::shared_ptr<TreeNode> parent,
-                   std::shared_ptr<TreeNode> candidate,
-                   const int key)
+std::shared_ptr<TreeNode> getMinimumNode(std::shared_ptr<TreeNode> root)
 {
-    if( candidate == nullptr )
-        return;
-    if( candidate->getValue() == key )
+    std::shared_ptr<TreeNode> min_node = root;
+    while( min_node->getLeft() != nullptr )
     {
-        if(( candidate->getLeft() == nullptr ) && ( candidate->getRight() == nullptr ))
-        {
-            replaceChild(parent,candidate,nullptr);
-        }
-        else if( candidate->getLeft() == nullptr )
-        {
-            replaceChild(parent,candidate,candidate->getRight());
-        }
-        else
-        {
-            replaceChild(parent,candidate,candidate->getLeft());
-        }
+        min_node = min_node->getLeft();
     }
-    else if( candidate->getValue() < key )
-        findAndDelete( candidate, candidate->getRight(), key );
-    else
-        findAndDelete( candidate, candidate->getLeft(), key );
+    return min_node;
 }
 
 std::shared_ptr<TreeNode> deleteNode(std::shared_ptr<TreeNode> root,
@@ -111,12 +94,21 @@ std::shared_ptr<TreeNode> deleteNode(std::shared_ptr<TreeNode> root,
             return root->getRight();
         if( root->getRight() == nullptr )
             return root->getLeft();
+
+        std::shared_ptr<TreeNode> min_node = getMinimumNode( root->getRight() );
+        root->setRight( deleteNode( root->getRight(), min_node->getValue()));
+        min_node->setLeft( root->getLeft() );
+        min_node->setRight( root->getRight() );
+        return min_node;
     }
     else if( root->getValue() < key )
-        findAndDelete(root,root->getRight(),key);
+    {
+        root->setRight(deleteNode( root->getRight(), key ));
+    }
     else
-        findAndDelete(root,root->getLeft(),key);
-
+    {
+        root->setLeft(deleteNode( root->getLeft(),key ));
+    }
     return root;
 }
 
@@ -126,22 +118,34 @@ int main(int argc, char **argv)
     {
         int deletion = 3;
         std::vector<std::optional<int>> values = {5,3,6,2,4,std::nullopt,7};
-        dumpValues( values );
         std::shared_ptr<TreeNode> root = buildTree(values);
+        std::cout << "Before : " ;
         TreeNode::dumpTree( root );
         std::cout << "About to try to delete : " << deletion << std::endl;
         deleteNode(root, deletion);
+        std::cout << "After : " ;
         TreeNode::dumpTree( root );
     }
-    return 0;
     {
         int deletion = 0;
         std::vector<std::optional<int>> values = {5,3,6,2,4,std::nullopt,7};
-        dumpValues( values );
         std::shared_ptr<TreeNode> root = buildTree(values);
+        std::cout << "Before : " ;
         TreeNode::dumpTree( root );
         std::cout << "About to try to delete : " << deletion << std::endl;
         deleteNode(root, deletion);
+        std::cout << "After : " ;
+        TreeNode::dumpTree( root );
+    }
+    {
+        int deletion = 0;
+        std::vector<std::optional<int>> values = {};
+        std::shared_ptr<TreeNode> root = buildTree(values);
+        std::cout << "Before : " ;
+        TreeNode::dumpTree( root );
+        std::cout << "About to try to delete : " << deletion << std::endl;
+        deleteNode(root, deletion);
+        std::cout << "After : " ;
         TreeNode::dumpTree( root );
     }
     return -1;
