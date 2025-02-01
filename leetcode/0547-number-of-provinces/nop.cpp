@@ -43,7 +43,7 @@ void dumpAdjacencyList(std::map<int, std::vector<int>> adjacency_list)
 
 void dfs(int node,
          std::unordered_set<int> &visited,
-         std::map<int, std::vector<int>> adjacency_list)
+         std::map<int, std::vector<int>> &adjacency_list)
 {
     visited.insert(node);
     std::vector<int> connections = adjacency_list.at(node);
