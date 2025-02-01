@@ -122,7 +122,7 @@ int main(int argc, char **argv)
         std::cout << "Before : " ;
         TreeNode::dumpTree( root );
         std::cout << "About to try to delete : " << deletion << std::endl;
-        deleteNode(root, deletion);
+        root = deleteNode(root, deletion);
         std::cout << "After : " ;
         TreeNode::dumpTree( root );
     }
@@ -133,7 +133,7 @@ int main(int argc, char **argv)
         std::cout << "Before : " ;
         TreeNode::dumpTree( root );
         std::cout << "About to try to delete : " << deletion << std::endl;
-        deleteNode(root, deletion);
+        root = deleteNode(root, deletion);
         std::cout << "After : " ;
         TreeNode::dumpTree( root );
     }
@@ -144,7 +144,7 @@ int main(int argc, char **argv)
         std::cout << "Before : " ;
         TreeNode::dumpTree( root );
         std::cout << "About to try to delete : " << deletion << std::endl;
-        deleteNode(root, deletion);
+        root = deleteNode(root, deletion);
         std::cout << "After : " ;
         TreeNode::dumpTree( root );
     }
