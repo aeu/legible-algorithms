@@ -30,21 +30,21 @@ void dumpValues(std::vector<int> values )
 int findPeakElement(std::vector<int>& nums)
 {
     size_t mid;
-    size_t left = 0;
-    size_t right = nums.size() - 1 ;
-    while( left < right )
+    size_t low = 0;
+    size_t hight = nums.size() - 1 ;
+    while( low < hight )
     {
-        mid = left + ( ( right - left ) / 2 );
+        mid = low + ( ( hight - low ) / 2 );
         if( nums[mid] > nums[mid+1] )
         {
-            right = mid;
+            hight = mid;
         }
         else
         {
-            left = mid+1;
+            low = mid+1;
         }
     }
-    return left;
+    return low;
 }
 
 int main(int argc, char **argv)
@@ -58,7 +58,7 @@ int main(int argc, char **argv)
         std::cout << "Peak Element : " << peak << std::endl;
     }
     {
-        std::cout << "Example 1" << std::endl;
+        std::cout << "Example 2" << std::endl;
         std::vector<int> values = {1,2,1,3,5,6,4};
         dumpValues(values);
         int peak = findPeakElement( values );
