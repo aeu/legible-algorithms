@@ -1,6 +1,6 @@
-## Leetcode 162. Find Peak Element
+# Leetcode 162. Find Peak Element
 
-# Problem Statement
+## Problem Statement
 
 A peak element is an element that is strictly greater than its neighbors.
 
@@ -10,7 +10,7 @@ You may imagine that nums[-1] = nums[n] = -∞. In other words, an element is al
 
 You must write an algorithm that runs in O(log n) time.
 
-# Examples 
+## Examples 
 
      Example 1:
      Input: nums = [1,2,3,1]
@@ -24,13 +24,13 @@ You must write an algorithm that runs in O(log n) time.
      Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.
  
 
-# Constraints:
+## Constraints:
 
      1 <= nums.length <= 1000
      -231 <= nums[i] <= 231 - 1
      nums[i] != nums[i + 1] for all valid i.
 
-# Output
+## Output
 
      Leetcode #162 - Find Peak Element
      
