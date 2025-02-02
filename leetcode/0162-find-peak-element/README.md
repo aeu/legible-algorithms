@@ -40,3 +40,4 @@ You must write an algorithm that runs in O(log n) time.
      Example 2
      [1, 2, 1, 3, 5, 6, 4]
      Peak Element : 5
+     
