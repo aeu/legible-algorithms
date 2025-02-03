@@ -118,7 +118,7 @@ class Solution
                 digit = sum;
             }
 
-            temp_node  = (ListNode *)malloc(sizeof(ListNode));
+            temp_node  = new ListNode;
             temp_node->next = nullptr;
             temp_node->val = digit;
 
@@ -139,7 +139,7 @@ class Solution
         }
         if( carry )
         {
-            temp_node  = (ListNode *)malloc(sizeof(ListNode));
+            temp_node  = new ListNode;
             temp_node->next = nullptr;
             temp_node->val = carry;
             tail_node->next = temp_node;
