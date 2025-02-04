@@ -4,19 +4,22 @@
 # alfonso@red82.com
 #
 CC=g++
+CPPFLAGS=-g -Wall -std=c++17 -I.
 
+OBJS = trw.o
+#	other.o
 
-SOURCE=trapping.cc
+%.o: %.c
+	$(CC) -o $@
 
-CFLAGS=-g -v $(SOURCE)
-LDFLAGS=$(LIBRARIES) $(FRAMEWORKS)
-OUT=-o trapping
+trw: $(OBJS)
+	$(CC) $(CPPFLAGS) -o $@ $^
 
-all:
-	$(CC)		\
-	$(CFLAGS)	\
-	$(LDFLAGS)	\
-	$(OUT)
 
 clean:
-	rm -rf	*.dSYM	trapping
+	rm -f *.o
+	rm -f *~
+	rm -f *.*~
+	rm -f trw
+
+
