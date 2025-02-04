@@ -6,13 +6,13 @@
 CC=g++
 CPPFLAGS=-g -Wall -std=c++17 -I.
 
-OBJS = median_arrays.o
+OBJS = mar.o
 #	other.o
 
 %.o: %.c
 	$(CC) -o $@
 
-median_arrays: $(OBJS)
+mar: $(OBJS)
 	$(CC) $(CPPFLAGS) -o $@ $^
 
 
@@ -20,5 +20,5 @@ clean:
 	rm -f *.o
 	rm -f *~
 	rm -f *.*~
-	rm -f median_arrays
+	rm -f mar
 	rm -rf	*.dSYM
