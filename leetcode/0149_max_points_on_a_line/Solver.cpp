@@ -73,6 +73,9 @@ int maxPoints(std::vector<std::vector<int> >& points)
 
     int max_intercept_count = 0;
     int current_intercept_count = 0;
+
+    if( points.size() == 1 )
+        return 1;
     
     
     for( outer_points_iterator = points.begin();
