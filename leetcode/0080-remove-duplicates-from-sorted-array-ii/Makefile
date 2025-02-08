@@ -1,22 +1,20 @@
-#
-# red82 // software
-# Alfonso E. Urdaneta
-# alfonso@red82.com
-#
-CC=gcc
+CC=g++
+CPPFLAGS=-g -Wall -std=c++17 -I.
 
+OBJS = rdf.o
+#\
+#	TreeNode.o
 
-SOURCE=rdfsaii.c
+%.o: %.c
+	$(CC) -o $@
 
-CFLAGS=-g -v $(SOURCE)
-LDFLAGS=$(LIBRARIES) $(FRAMEWORKS)
-OUT=-o rdfsaii
+rdf: $(OBJS)
+	$(CC) $(CPPFLAGS) -o $@ $^
 
-all:
-	$(CC)		\
-	$(CFLAGS)	\
-	$(LDFLAGS)	\
-	$(OUT)
 
 clean:
-	rm -rf	*.dSYM	rdfsaii
+	rm -f *.o
+	rm -f *~
+	rm -f *.*~
+	rm -f rdf
+
