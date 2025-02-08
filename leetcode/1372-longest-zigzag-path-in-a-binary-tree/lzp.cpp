@@ -90,59 +90,58 @@ int findLongestZigZagSegment(std::vector<std::shared_ptr<TreeNode>> &path)
         return 0;
     int zag_count = 1;
     int max_zags = 0;
-    int last_direction;
+    int last_direction = 0;
     int next_direction;
     
     for(int index=0;index<path.size()-1;index++)
     {
+        std::shared_ptr<TreeNode> previous = ( index > 1 ) ? path[index-1] : nullptr;
         std::shared_ptr<TreeNode> current = path[index];
         std::shared_ptr<TreeNode> next = path[index+1];
+        
         if( next == current->getLeft() )
         {
-            std::cout << "\t " << current->getValue() << " going left " << std::endl;
-            if( index == 0 )
+            next_direction = -1;
+            std::cout << index << " going left, zag count is currently " << zag_count << std::endl;
+            if( last_direction == 0 )
             {
+                std::cout << "\tFirst movement, setting last direction to left " << std::endl;
                 last_direction = -1;
+            }
+            else if( next_direction == last_direction )
+            {
+                std::cout << "\tBroke the zag at count : " << zag_count << std::endl;
+                zag_count = 1;
             }
             else
             {
-                next_direction = -1;
-                if( next_direction == last_direction )
-                {
-                    std::cout << "\tbroke the zag at count : " << zag_count << std::endl;
-                    max_zags = std::max(max_zags,zag_count);
-                    zag_count = 1;
-                }
-                else
-                {
-                    zag_count++;
-                }
-                last_direction = next_direction;
+                std::cout << "\tGood zig/zag, incrementing count " << std::endl;
+                zag_count++;
             }
         }
         else
-        {
-            std::cout << "\t " << current->getValue() << " going right " << std::endl;
-            if( index == 0 )
+        { 
+            next_direction = 1;
+            std::cout << index << " Going right, zag count is currently " << zag_count << std::endl;
+            if( last_direction == 0 )
             {
+                std::cout << "\tFirst movement, setting last direction to right " << std::endl;
                 last_direction = 1;
+            }
+            else if( next_direction == last_direction )
+            {
+                std::cout << "\tBroke the zag at count : " << zag_count << std::endl;
+                zag_count = 1;
             }
             else
             {
-                next_direction = 1;
-                if( next_direction == last_direction )
-                {
-                    std::cout << "\tbroke the zag at count : " << zag_count << std::endl;
-                    max_zags = std::max(max_zags,zag_count);
-                    zag_count = 1;
-                }
-                else
-                {
-                    zag_count++;
-                }
-                last_direction = next_direction;
+                std::cout << "\tGood zig/zag, incrementing count " << std::endl;
+                zag_count++;
             }
         }
+        max_zags = std::max(max_zags,zag_count);
+        std::cout << "\tMax zags is now " << max_zags << std::endl;
+        last_direction = next_direction;
     }
     max_zags = std::max(max_zags,zag_count);
     std::cout << "max zags : " << max_zags << std::endl;
