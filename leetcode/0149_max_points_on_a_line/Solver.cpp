@@ -92,8 +92,7 @@ int maxPoints(std::vector<std::vector<int> >& points)
                 max_intercept_count = current_intercept_count;
         }
     }
-    printf("max points on line %d\n", max_intercept_count );
-    return 0;
+    return max_intercept_count;
 }
 
 
