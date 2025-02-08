@@ -9,35 +9,6 @@
 #include <vector>
 #include <iostream>
 
-int removeDuplicates(int* nums, int numsSize)
-{
-    if( numsSize <=2 )
-        return numsSize;
-    
-    int *minus_one, *minus_two, *read_point, *insertion_point;
-    minus_two       = nums;
-    minus_one       = nums+1;
-    read_point      = nums+2;
-    insertion_point = nums+2;
-    int new_length = 2;
-    while( read_point < nums + numsSize )
-    {
-        if(( *read_point == *minus_one ) && ( *read_point == *minus_two ))
-        {
-            read_point++;
-            continue;
-        }
-        *insertion_point = *read_point;
-        minus_two++;
-        minus_one++;
-        read_point++;
-        insertion_point++;
-        new_length++;
-    }
-    return new_length;
-}  
-
-
 void dumpValues(std::vector<int> &nums)
 {
     bool first_time = true;
