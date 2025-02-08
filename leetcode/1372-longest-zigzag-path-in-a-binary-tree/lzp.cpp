@@ -101,49 +101,28 @@ int findLongestZigZagSegment(std::vector<std::shared_ptr<TreeNode>> &path)
         if( next == current->getLeft() )
         {
             next_direction = -1;
-            //            std::cout << index << " going left, zag count is currently " << zag_count << std::endl;
-            if( last_direction == 0 )
-            {
-                //                std::cout << "\tFirst movement, setting last direction to left " << std::endl;
-                last_direction = -1;
-            }
-            else if( next_direction == last_direction )
-            {
-                //                std::cout << "\tBroke the zag at count : " << zag_count << std::endl;
-                zag_count = 1;
-            }
-            else
-            {
-                //                std::cout << "\tGood zig/zag, incrementing count " << std::endl;
-                zag_count++;
-            }
         }
         else
-        { 
+        {
             next_direction = 1;
-            //            std::cout << index << " Going right, zag count is currently " << zag_count << std::endl;
-            if( last_direction == 0 )
-            {
-                //                std::cout << "\tFirst movement, setting last direction to right " << std::endl;
-                last_direction = 1;
-            }
-            else if( next_direction == last_direction )
-            {
-                //                std::cout << "\tBroke the zag at count : " << zag_count << std::endl;
-                zag_count = 1;
-            }
-            else
-            {
-                //                std::cout << "\tGood zig/zag, incrementing count " << std::endl;
-                zag_count++;
-            }
         }
-        max_zags = std::max(max_zags,zag_count);
-        //        std::cout << "\tMax zags is now " << max_zags << std::endl;
+            
+        if( last_direction == 0 )
+        {
+            last_direction = next_direction;
+        }
+        else if( next_direction == last_direction )
+        {
+            max_zags = std::max(max_zags,zag_count);
+            zag_count = 1;
+        }
+        else
+        {
+            zag_count++;
+        }
         last_direction = next_direction;
     }
     max_zags = std::max(max_zags,zag_count);
-    //    std::cout << "max zags : " << max_zags << std::endl;
     return max_zags;
 }
 
