@@ -57,8 +57,9 @@ the time.
 Recently I've started re-visiting my old solutions to see how they
 held up to the test of time and improving their implementations as
 I've learned more.  Some of my earlier implementations were really
-bad.  This is a positive - if I didn't think my old code was bad, then
-that means I haven't been learning and improving over time.
+bad.  It's important to think of this as a positive -  if I didn't 
+think my old code was bad, then that means I haven't gotten better
+since I wrote it.
 
 
 #### Hard
