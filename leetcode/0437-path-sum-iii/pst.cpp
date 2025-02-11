@@ -45,7 +45,7 @@ void dumpPath(const std::vector<std::shared_ptr<TreeNode>> &values )
     std::cout << "]" << std::endl;
 }
 
-std::shared_ptr<TreeNode> buildTree(std::vector<std::optional<int>> values)
+std::shared_ptr<TreeNode> buildTree(std::vector<std::optional<int>> &values)
 {
     int index = 0;
     std::shared_ptr<TreeNode> root = std::make_shared<TreeNode>(values[index].value());
@@ -119,7 +119,7 @@ int sumFunction(const std::vector<std::shared_ptr<TreeNode>> &path,
 }
 
 void dfs(std::shared_ptr<TreeNode> root,
-         std::vector<std::shared_ptr<TreeNode>> path,
+         std::vector<std::shared_ptr<TreeNode>> &path,
          int target_sum,
          std::map< std::vector<std::shared_ptr<TreeNode>>,int> &valid_paths)
 {
