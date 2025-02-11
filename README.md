@@ -65,32 +65,22 @@ and see that it was bad, then that means that I haven't improved since
 I wrote it.
 
 
-#### Hard
+#### Easy
 
-
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0004-median-of-two-sorted-arrays">Leetcode &numero; 4 (Hard) &mdash; Median of Two Sorted Arrays (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0023-merge-k-sorted-lists">Leetcode &numero; 23 (Hard) &mdash; Merge K Sorted Lists (Obj-C)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0025-reverse-nodes-in-k-group">Leetcode &numero; 25 (Hard) &mdash; Reverse Nodes in k-Group (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0030-substring-with-concatenation-of-all-words">Leetcode &numero; 30 (Hard) &mdash; Substring with concatenation of all words (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0041-first-missing-positive">Leetcode &numero; 41 (Hard) &mdash; First Missing Positive (C++)</a>.   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0042-trapping-rain-water">Leetcode &numero; 42 (Hard) &mdash; Trapping Rain Water (C++)</a>.  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0051-n-queens">Leetcode &numero; 51 (Hard) &mdash; N-Queens (C++11)</a>.  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0052-n-queens-ii">Leetcode &numero; 52 (Hard) &mdash; N-Queens II (C++11)</a>.  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0060-permutation-sequence">Leetcode &numero; 60 (Hard) &mdash; Permutation Sequence (C++11,C++17)</a>.  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0068-text-justification">Leetcode &numero; 68 (Hard) &mdash; Text Justification (C++11,C++17)</a>.  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0076-minimum-window-substring">Leetcode &numero; 76 (Hard) &mdash; Minimum Window Substring(C++11,C++17)</a>.  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0084-largest-rectangle-in-histogram">Leetcode &numero; 84 (Hard) &mdash; Largest Rectangle in Histogram (C++11)   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0085-maximal-rectangle">Leetcode &numero; 85 (Hard) &mdash; Maximal Rectangle (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0123-best-time-to-buy-and-sell-stock-iii">Leetcode &numero; 123 (Hard) &mdash; Best time to Buy and Sell Stock III (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0135-candy">Leetcode &numero; 135 (Hard) &mdash; Candy (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0149_max_points_on_a_line">Leetcode &numero; 149 (Hard) &mdash; Max Points on a Line (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0174-dungeon-game">Leetcode &numero; 174 (Hard) &mdash; Dungeon Game (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0188-best-time-to-buy-and-sell-stock-iv">Leetcode &numero; 188 (Hard) &mdash; Best time to Buy and Sell Stock IV(C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0218-the-skyline-problem">Leetcode &numero; 218 (Hard) &mdash; The Skyline Problem (Obj-C)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0233-number-of-digit-one">Leetcode &numero; 233 (Hard) &mdash; Number of Digit One (C++/Hard)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0239-sliding-window-maximum">Leetcode &numero; 239 (Hard) &mdash; Sliding Window Maximum(C++/Hard)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1923-longest-common-subpath">Leetcode &numero; 1923 (Hard) &mdash; Longest Common Subpath (Obj-C)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2106-maximum-fruits-harvested-after-at-most-k-steps">Leetcode &numero; 2106 (Hard) &mdash; Maximum Fruits Harvested After at Most K Steps (Obj-C)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0104-maximum-depth-of-binary-tree">Leetcode &numero; 104 (Easy) &mdash; Maximum Depth of Binary Tree (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0136-single-number">Leetcode &numero; 136 (Easy) &mdash; Single Number (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0206-reverse-linked-list">Leetcode &numero; 206 (Easy) &mdash; Reverse Linked List (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0283-move-zeroes">Leetcode &numero; 283 (Easy) &mdash; Move Zeroes (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0338-counting-bits">Leetcode &numero; 338 (Easy) &mdash; Counting Bits (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0345-reverse-vowels-of-a-string">Leetcode &numero; 345 (Easy) &mdash; Reverse Vowels of a String (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0605-can-place-flowers">Leetcode &numero; 605 (Easy) &mdash; Can Place Flowers(C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0700-search-in-a-binary-search-tree/">Leetcode &numero; 700 (Easy) &mdash; Sarch in a Binary Search Tree (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0724-find-pivot-index/">Leetcode &numero; 724 (Easy) &mdash; Find Pivot Index (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0872-leaf-similar-trees/">Leetcode &numero; 872 (Easy) &mdash; Leav Similar Trees (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1071-greatest-common-divisor-of-strings/">Leetcode &numero; 1071 (Easy) &mdash; Greatest Common Divisor of Strings (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1207-unique-number-of-occurrences/">Leetcode &numero; 1207 (Easy) &mdash; Unique Number of Occurrences (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1732-find-the-highest-altitude/">Leetcode &numero; 1732 (Easy) &mdash; Find The Highest Altitude(C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2215-find-the-difference-of-two-arrays/">Leetcode &numero; 2215 (Easy) &mdash; Find the Difference of Two Arrays (C++)</a>  
 
 #### Medium
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers(C++)</a>  
@@ -131,20 +121,32 @@ I wrote it.
 
 
 
-#### Easy
+#### Hard
 
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0104-maximum-depth-of-binary-tree">Leetcode &numero; 104 (Easy) &mdash; Maximum Depth of Binary Tree (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0136-single-number">Leetcode &numero; 136 (Easy) &mdash; Single Number (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0206-reverse-linked-list">Leetcode &numero; 206 (Easy) &mdash; Reverse Linked List (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0283-move-zeroes">Leetcode &numero; 283 (Easy) &mdash; Move Zeroes (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0338-counting-bits">Leetcode &numero; 338 (Easy) &mdash; Counting Bits (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0345-reverse-vowels-of-a-string">Leetcode &numero; 345 (Easy) &mdash; Reverse Vowels of a String (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0605-can-place-flowers">Leetcode &numero; 605 (Easy) &mdash; Can Place Flowers(C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0700-search-in-a-binary-search-tree/">Leetcode &numero; 700 (Easy) &mdash; Sarch in a Binary Search Tree (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0724-find-pivot-index/">Leetcode &numero; 724 (Easy) &mdash; Find Pivot Index (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0872-leaf-similar-trees/">Leetcode &numero; 872 (Easy) &mdash; Leav Similar Trees (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1071-greatest-common-divisor-of-strings/">Leetcode &numero; 1071 (Easy) &mdash; Greatest Common Divisor of Strings (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1207-unique-number-of-occurrences/">Leetcode &numero; 1207 (Easy) &mdash; Unique Number of Occurrences (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1732-find-the-highest-altitude/">Leetcode &numero; 1732 (Easy) &mdash; Find The Highest Altitude(C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2215-find-the-difference-of-two-arrays/">Leetcode &numero; 2215 (Easy) &mdash; Find the Difference of Two Arrays (C++)</a>  
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0004-median-of-two-sorted-arrays">Leetcode &numero; 4 (Hard) &mdash; Median of Two Sorted Arrays (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0023-merge-k-sorted-lists">Leetcode &numero; 23 (Hard) &mdash; Merge K Sorted Lists (Obj-C)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0025-reverse-nodes-in-k-group">Leetcode &numero; 25 (Hard) &mdash; Reverse Nodes in k-Group (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0030-substring-with-concatenation-of-all-words">Leetcode &numero; 30 (Hard) &mdash; Substring with concatenation of all words (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0041-first-missing-positive">Leetcode &numero; 41 (Hard) &mdash; First Missing Positive (C++)</a>.   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0042-trapping-rain-water">Leetcode &numero; 42 (Hard) &mdash; Trapping Rain Water (C++)</a>.  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0051-n-queens">Leetcode &numero; 51 (Hard) &mdash; N-Queens (C++11)</a>.  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0052-n-queens-ii">Leetcode &numero; 52 (Hard) &mdash; N-Queens II (C++11)</a>.  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0060-permutation-sequence">Leetcode &numero; 60 (Hard) &mdash; Permutation Sequence (C++11,C++17)</a>.  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0068-text-justification">Leetcode &numero; 68 (Hard) &mdash; Text Justification (C++11,C++17)</a>.  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0076-minimum-window-substring">Leetcode &numero; 76 (Hard) &mdash; Minimum Window Substring(C++11,C++17)</a>.  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0084-largest-rectangle-in-histogram">Leetcode &numero; 84 (Hard) &mdash; Largest Rectangle in Histogram (C++11)   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0085-maximal-rectangle">Leetcode &numero; 85 (Hard) &mdash; Maximal Rectangle (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0123-best-time-to-buy-and-sell-stock-iii">Leetcode &numero; 123 (Hard) &mdash; Best time to Buy and Sell Stock III (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0135-candy">Leetcode &numero; 135 (Hard) &mdash; Candy (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0149_max_points_on_a_line">Leetcode &numero; 149 (Hard) &mdash; Max Points on a Line (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0174-dungeon-game">Leetcode &numero; 174 (Hard) &mdash; Dungeon Game (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0188-best-time-to-buy-and-sell-stock-iv">Leetcode &numero; 188 (Hard) &mdash; Best time to Buy and Sell Stock IV(C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0218-the-skyline-problem">Leetcode &numero; 218 (Hard) &mdash; The Skyline Problem (Obj-C)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0233-number-of-digit-one">Leetcode &numero; 233 (Hard) &mdash; Number of Digit One (C++/Hard)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0239-sliding-window-maximum">Leetcode &numero; 239 (Hard) &mdash; Sliding Window Maximum(C++/Hard)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1923-longest-common-subpath">Leetcode &numero; 1923 (Hard) &mdash; Longest Common Subpath (Obj-C)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2106-maximum-fruits-harvested-after-at-most-k-steps">Leetcode &numero; 2106 (Hard) &mdash; Maximum Fruits Harvested After at Most K Steps (Obj-C)</a>  
+
+
 
