@@ -80,19 +80,21 @@ void dumpPath(std::vector<std::shared_ptr<TreeNode>> &path)
 
 bool dfs(std::shared_ptr<TreeNode> root,
          std::vector<std::shared_ptr<TreeNode>> &path,
-         const int target,
-         std::map<int, std::vector<std::shared_ptr<TreeNode>>> &paths)
+         const int target)
 {
     if( root == nullptr )
         return false;
     path.push_back(root);
     if( root->getValue() == target )
     {
-        paths[target] = path;
         return true;
     }
-    dfs(root->getLeft(),path,target,paths);
-    dfs(root->getRight(),path,target,paths);
+    if( dfs(root->getLeft(),path,target))
+        return true;
+    
+    if(dfs(root->getRight(),path,target))
+        return true;
+
     path.pop_back();
     return false;
 }
@@ -100,9 +102,8 @@ std::shared_ptr<TreeNode> lowestCommonAncestor( std::vector<std::shared_ptr<Tree
                                                 std::vector<std::shared_ptr<TreeNode>> path_to_q )
 {
     std::set<std::shared_ptr<TreeNode>> matching_set;
-    for(int index=path_to_p.size()-1;index>=0;index--)
+    for(auto current : path_to_p )
     {
-        auto current = path_to_p[index];
         matching_set.insert( current );
     }
     for(int index=path_to_q.size()-1;index>=0;index--)
@@ -124,14 +125,11 @@ std::shared_ptr<TreeNode> lowestCommonAncestor(std::shared_ptr<TreeNode> root,
 {
     std::vector<std::shared_ptr<TreeNode>> path_to_p;
     std::vector<std::shared_ptr<TreeNode>> path_to_q;
-    std::map<int, std::vector<std::shared_ptr<TreeNode>>> paths;
-    dfs(root,path_to_p,p,paths);
-    dfs(root,path_to_q,q,paths);
-    if( paths.size() == 2 )
+    bool p_found = dfs(root,path_to_p,p);
+    bool q_found = dfs(root,path_to_q,q);
+    if( p_found && q_found )
     {
-        std::vector<std::shared_ptr<TreeNode>> p_saved = paths[p];
-        std::vector<std::shared_ptr<TreeNode>> q_saved = paths[q];
-        std::shared_ptr<TreeNode> lca = lowestCommonAncestor( p_saved,q_saved );
+        std::shared_ptr<TreeNode> lca = lowestCommonAncestor( path_to_p, path_to_q );
         if( lca != nullptr )
         {
             return lca;
