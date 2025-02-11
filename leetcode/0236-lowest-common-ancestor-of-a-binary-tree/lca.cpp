@@ -98,8 +98,8 @@ bool dfs(std::shared_ptr<TreeNode> root,
     path.pop_back();
     return false;
 }
-std::shared_ptr<TreeNode> lowestCommonAncestor( std::vector<std::shared_ptr<TreeNode>> path_to_p,
-                                                std::vector<std::shared_ptr<TreeNode>> path_to_q )
+std::shared_ptr<TreeNode> lowestCommonNodeInTwoPaths(std::vector<std::shared_ptr<TreeNode>> path_to_p,
+                                               std::vector<std::shared_ptr<TreeNode>> path_to_q )
 {
     std::set<std::shared_ptr<TreeNode>> matching_set;
     for(auto current : path_to_p )
@@ -129,7 +129,7 @@ std::shared_ptr<TreeNode> lowestCommonAncestor(std::shared_ptr<TreeNode> root,
     bool q_found = dfs(root,path_to_q,q);
     if( p_found && q_found )
     {
-        std::shared_ptr<TreeNode> lca = lowestCommonAncestor( path_to_p, path_to_q );
+        std::shared_ptr<TreeNode> lca = lowestCommonNodeInTwoPaths( path_to_p, path_to_q );
         if( lca != nullptr )
         {
             return lca;
