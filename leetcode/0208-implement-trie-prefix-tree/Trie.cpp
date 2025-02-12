@@ -22,15 +22,12 @@ Trie::Trie()
     
 void Trie::insert(std::string word)
 {
+    std::cout << "inserting: " << word << std::endl;
     TrieNode *node = root.get();
     for(char current : word )
     {
-        auto find_result = node->children.find(current);
-        if( find_result == node->children.end() )
-        {
-            node->children[current] = std::make_unique<TrieNode>();
-        }
-        node = node->children[current].get();
+        auto emplace_result = node->children.try_emplace(current,std::make_unique<TrieNode>());
+        node = emplace_result.first->second.get();
     }
     node->is_terminal = true;
 }
@@ -47,9 +44,7 @@ bool Trie::search(std::string word)
         }
         node = node->children[current].get();
     }
-    if( node->is_terminal )
-        return true;
-    return false;
+    return node->is_terminal;
 }
 
 bool Trie::startsWith(std::string prefix)

@@ -13,6 +13,48 @@
 int main(int argc, char **argv)
 {
     Trie trie;
-    trie.insert("nachos");
+
+    std::vector<std::string> words =
+        { 
+            "nachos",
+            "fries",
+            "burgers",
+            "nationwide",
+            "national",
+            "awesome",
+            "waterfall",
+            "wednesday",
+            "thursday",
+            "tomorrow",
+        };
+
+
+    std::cout << "Insertion tests" << std::endl;
+    for(auto current : words )
+    {
+        trie.insert( current );
+    }
+
+    std::vector<std::string> search_words =
+        { 
+            "nachos",
+            "fries",
+            "tacos",
+            "nationwide",
+            "xylophone",
+            "awesome",
+            "orchestra",
+            "monday",
+            "tuesday",
+            "thursday",
+            "tomorrow",
+        };
+    for(auto current : search_words )
+    {
+        bool result = trie.search( current );
+        std::cout << "search results for : " << current << ( result ? " true" : " false" ) << std::endl;  
+    }
+
+
     return 0;
 }
