@@ -30,7 +30,7 @@ Binary tree is sort of optimized for leetcode, which uses an array in the style 
 
 An implementation of trie.  Never did one of these before, and it's been a hole in my knowledge for some time now.  This was really fun to learn how it worked.
 
-<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/trie">Trie</a>
+<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/trie">Trie (C++)</a>
 
 
 ## Puzzles & Problems
