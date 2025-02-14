@@ -20,6 +20,13 @@ int main(int argc, char **argv)
             "fries",
             "burgers",
             "burro",
+            "orange",
+            "orwell",
+            "orwellian",
+            "orangutang",
+            "oratory",
+            "oration",
+            "orchid",
             "burro",
             "burlap",
             "burnish",
@@ -56,6 +63,9 @@ int main(int argc, char **argv)
             "tomahawk",
             "tomorrow",
         };
+
+    std::cout << "Search Tests" << std::endl;
+    
     for(auto current : search_words )
     {
         bool result = trie.search( current );
@@ -69,13 +79,17 @@ int main(int argc, char **argv)
             "mo",
             "tue",
         };
+
+    std::cout << "Prefix searches" << std::endl;
+    
     for(auto current : starts_with_words )
     {
         bool result = trie.startsWith( current );
         std::cout << "Finds with results for " << current << ( result ? " : true" : " : false" ) << std::endl;  
     }
 
-
+    std::cout << "Autocompletes" << std::endl;
+    
     {
         std::string prefix = "we";
             std::vector<std::string> autocomplete = trie.autoComplete(prefix);
@@ -86,12 +100,25 @@ int main(int argc, char **argv)
         }
     }
     {
-        std::string prefix = "bur";
+        std::string prefix = "or";
             std::vector<std::string> autocomplete = trie.autoComplete(prefix);
         std::cout << "Autocomplete with : " << prefix << std::endl;
         for( auto current : autocomplete )
         {
             std::cout << "-> " << current << std::endl;
+        }
+    }
+    std::cout << "Autocompletes with max" << std::endl;
+    
+    {
+        std::string prefix = "or";
+        int max = 4;
+        std::vector<std::string> autocomplete = trie.autoCompleteWithMax(prefix,max);
+        std::cout << "Autocomplete with : " << prefix << " and a max of : " << max << std::endl;
+        int index=0;
+        for( auto current : autocomplete )
+        {
+            std::cout << index++ << "-> " << current << std::endl;
         }
     }
     return 0;
