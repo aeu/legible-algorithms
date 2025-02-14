@@ -72,6 +72,20 @@ void populateAllWords(TrieNode *node,
     }
 }
 
+void populateAllWordsMap(TrieNode *node,
+                         std::string current_word,
+                         std::map<std::string, int> &words)
+{
+    if( node->is_terminal )
+        words[current_word] = 1;
+
+    for(auto &pair : node->children )
+    {
+        TrieNode *child_node = pair.second.get();
+        populateAllWordsMap(child_node, current_word + pair.first, words );
+    }
+}
+
 std::vector<std::string> Trie::autoComplete(std::string prefix)
 {
     std::vector<std::string> completions;
@@ -85,6 +99,42 @@ std::vector<std::string> Trie::autoComplete(std::string prefix)
     }
 
     populateAllWords(node,prefix,completions);
+    
+    return completions;
+}
+
+
+/**
+ * returns autocomplete search results, limited to a max count as well
+ * as sorting the results alphabetically
+ */
+std::vector<std::string> Trie::autoCompleteWithMax(std::string prefix,
+                                                   const int max_results)
+{
+    std::map<std::string,int> word_map;
+    std::vector<std::string> completions;
+    TrieNode *node = root.get();
+    // walk down until we get to the node that represents the end of
+    // the prefix
+    for(char current : prefix )
+    {
+        auto find_result = node->children.find(current);
+        if( find_result == node->children.end() )
+            return completions;
+        node = node->children[current].get();
+    }
+
+    populateAllWordsMap(node,prefix,word_map);
+
+    // we know that maps are ordered by key, so take the first N
+    // of them
+
+    for(auto current_pair : word_map )
+    {
+        completions.push_back( current_pair.first );
+        if( completions.size() >= max_results )
+            break;
+    }
     
     return completions;
 }

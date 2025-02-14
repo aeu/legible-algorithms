@@ -42,6 +42,8 @@ public:
     bool search(std::string word);
     bool startsWith(std::string prefix);
     std::vector<std::string> autoComplete(std::string prefix);
+    std::vector<std::string> autoCompleteWithMax(std::string prefix,
+                                                 const int max_results);
 
 protected:
 private:
