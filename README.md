@@ -28,6 +28,9 @@ Binary tree is sort of optimized for leetcode, which uses an array in the style 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/binary-tree">Drop in, int holding, memory safe binary tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/depth-first-search">Depth first search (C++)</a>  
 
+An implementation of trie.  Never did one of these before, and it's been a hole in my knowledge for some time now.  This was really fun to learn how it worked.
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/trie">Trie</a>
 
 
 ## Puzzles & Problems
