@@ -39,15 +39,52 @@ bool Trie::search(std::string word)
     {
         auto find_result = node->children.find(current);
         if( find_result == node->children.end() )
-        {
             return false;
-        }
-        node = node->children[current].get();
+        node = find_result->second.get();
     }
     return node->is_terminal;
 }
 
 bool Trie::startsWith(std::string prefix)
 {
+    TrieNode *node = root.get();
+    for( char current : prefix )
+    {
+        auto find_result = node->children.find(current);
+        if( find_result == node->children.end() )
+            return false;
+        node = node->children[current].get();
+    }
     return true;
+}
+
+void populateAllWords(TrieNode *node,
+                      std::string current_word,
+                      std::vector<std::string> &words)
+{
+    if( node->is_terminal )
+        words.push_back(current_word);
+
+    for(auto &pair : node->children )
+    {
+        TrieNode *child_node = pair.second.get();
+        populateAllWords(child_node, current_word + pair.first, words );
+    }
+}
+
+std::vector<std::string> Trie::autoComplete(std::string prefix)
+{
+    std::vector<std::string> completions;
+    TrieNode *node = root.get();
+    for(char current : prefix )
+    {
+        auto find_result = node->children.find(current);
+        if( find_result == node->children.end() )
+            return completions;
+        node = node->children[current].get();
+    }
+
+    populateAllWords(node,prefix,completions);
+    
+    return completions;
 }

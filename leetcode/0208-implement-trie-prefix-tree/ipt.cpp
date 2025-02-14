@@ -19,11 +19,17 @@ int main(int argc, char **argv)
             "nachos",
             "fries",
             "burgers",
+            "burro",
+            "burro",
+            "burlap",
+            "burnish",
             "nationwide",
             "national",
             "awesome",
+            "awful",
             "waterfall",
             "wednesday",
+            "wedding",
             "thursday",
             "tomorrow",
         };
@@ -47,14 +53,46 @@ int main(int argc, char **argv)
             "monday",
             "tuesday",
             "thursday",
+            "tomahawk",
             "tomorrow",
         };
     for(auto current : search_words )
     {
         bool result = trie.search( current );
-        std::cout << "search results for : " << current << ( result ? " true" : " false" ) << std::endl;  
+        std::cout << "search results for " << current << ( result ? " : true" : " : false" ) << std::endl;  
+    }
+
+    std::vector<std::string> starts_with_words =
+        { 
+            "nach",
+            "xyz",
+            "mo",
+            "tue",
+        };
+    for(auto current : starts_with_words )
+    {
+        bool result = trie.startsWith( current );
+        std::cout << "Finds with results for " << current << ( result ? " : true" : " : false" ) << std::endl;  
     }
 
 
+    {
+        std::string prefix = "we";
+            std::vector<std::string> autocomplete = trie.autoComplete(prefix);
+        std::cout << "Autocomplete with : " << prefix << std::endl;
+        for( auto current : autocomplete )
+        {
+            std::cout << "-> " << current << std::endl;
+        }
+    }
+    {
+        std::string prefix = "bur";
+            std::vector<std::string> autocomplete = trie.autoComplete(prefix);
+        std::cout << "Autocomplete with : " << prefix << std::endl;
+        for( auto current : autocomplete )
+        {
+            std::cout << "-> " << current << std::endl;
+        }
+    }
     return 0;
 }
