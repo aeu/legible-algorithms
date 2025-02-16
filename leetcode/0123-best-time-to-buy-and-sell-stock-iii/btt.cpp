@@ -35,13 +35,26 @@ int maxProfitInRange(std::vector<int>& prices,
 
 int maxProfit(std::vector<int>& prices)
 {
+    std::vector<int> lhs_maxes(prices.size(),0);
+    std::vector<int> rhs_maxes(prices.size(),0);
+    
     int max_profit = 0;
     for(int index=0;index<prices.size()-1;index++)
     {
         int lhs_profit = maxProfitInRange(prices,0,index);
+        lhs_maxes[index] = lhs_profit;
+    }
+
+    for(int index=0;index<prices.size()-1;index++)
+    {
         int rhs_profit = maxProfitInRange(prices,index,prices.size()-1);
-        int total_profit = lhs_profit + rhs_profit;
-        max_profit = std::max( max_profit, total_profit );
+        rhs_maxes[index] = rhs_profit;
+    }
+
+    for(int index=0;index<prices.size();index++)
+    {
+        int profit = lhs_maxes[index] + rhs_maxes[index];
+        max_profit = std::max(max_profit,profit);
     }
     return max_profit;
 }
