@@ -1,9 +1,18 @@
 # legible-algorithms
 
-When I get stuck on something, I like to solve puzzles and implement algorithms as a form of focused distraction.  This is a collection of my implementations of various things that I wrote to pass the time.  They are in C++ and Obj-C because I enjoy working on those languages. Maybe I'll add some Rust soon.
+When I get stuck on something, I like to solve puzzles and implement
+algorithms as a form of focused distraction.  This is a collection of
+my implementations of various things that I wrote to pass the time.
+They are in C++ and Obj-C because I enjoy working on those
+languages. Maybe I'll add some Rust soon.
 
 ## Data Structures
-The data structures we take for granted.  These were a lot more typing than I expected.  The Red-Black tree especially.
+The data structures we take for granted.  These were a lot more typing
+than I expected.  The Red-Black tree especially was a lot of typing.
+You see typically see it represented in books as about 20-30 lines of
+pseudocode, but the reality is that it's way more than that,
+especially if you are making it robust.
+
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/binary_search_tree">Binary Search Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/red-black-tree">Red Black Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
@@ -34,7 +43,7 @@ std::optional, so you can put in std::nullopt in the data array.
 
 An implementation of trie.  Never did one of these before, and it's
 been a hole in my knowledge for some time now.  This was really fun to
-learn how it worked.
+learn how it worked.  Note that I still don't have delete working.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/trie">Trie (C++)</a>
 
@@ -52,16 +61,12 @@ learn how it worked.
 
 Leetcode has a funny subculture.  If you look at the solutions, you
 will see very often things like "solution in 4 lines of C" or
-"solution in two lines of python" and so on, which reminds me of the 
-"Obfuscated C Code" contests from back in the day.
+"solution in two lines of python" and so on.
 
-I get that this is fun to do (and I'm also envious as this is a skill
-that I don't have).  My implementations are a little more verbose and
-sometimes inconsistent, as my style has evolved over the years.
-
-I've been going through the problems and solving them.  My solutions
-are in a mix of Objective-C and C++ depending on what I was doing at
-the time.
+I don't have that ability so my implementations are a little more
+verbose and sometimes inconsistent, as my style has evolved over the
+years. My solutions are in a mix of Objective-C and C++ depending on
+what I was doing at the time.
 
 Recently I've started re-visiting my old solutions to see how they
 held up to the test of time and improving their implementations as
@@ -112,6 +117,7 @@ I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0199-binary-tree-right-side-view">Leetcode &numero; 199 (Medium) &mdash; Binary Tree Right Side View (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0236-lowest-common-ancestor-of-a-binary-tree">Leetcode &numero; 236 (Medium) &mdash; Lowest Commong Ancestor of a Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0238-product-of-array-except-self">Leetcode &numero; 238 (Medium) &mdash; Product of Array except Self (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0274-h-index">Leetcode &numero; 274 (Medium) &mdash; H-Index (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0328-odd-even-linked-list">Leetcode &numero; 328 (Medium) &mdash; Odd Even Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0394-decode-string">Leetcode &numero; 394 (Medium) &mdash; Decode String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0450-delete-node-in-a-bst">Leetcode &numero; 450 (Medium) &mdash; Delete Node in a BST (C++)</a>  
