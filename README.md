@@ -80,6 +80,7 @@ I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0027-remove-element">Leetcode &numero; 27 (Easy) &mdash; Remove Element (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0088-merge-sorted-array">Leetcode &numero; 88 (Easy) &mdash; Merge Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0104-maximum-depth-of-binary-tree">Leetcode &numero; 104 (Easy) &mdash; Maximum Depth of Binary Tree (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0121-best-time-to-buy-and-sell-stock">Leetcode &numero; 121 (Easy) &mdash; Best Time to Buy and Sell Stock (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0136-single-number">Leetcode &numero; 136 (Easy) &mdash; Single Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0169-majority-element">Leetcode &numero; 169 (Easy) &mdash; Majority Element (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0206-reverse-linked-list">Leetcode &numero; 206 (Easy) &mdash; Reverse Linked List (C++)</a>  
