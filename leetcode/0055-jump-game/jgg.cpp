@@ -31,17 +31,19 @@ int canGetHere(std::vector<int>& nums,
     return -1;
 }
 
-bool canJump(std::vector<int>& nums)
+bool canJump(std::vector<int> &nums)
 {
-    int curpos = nums.size()-1;
-    while( curpos > 0 )
+    int furthest_possible = 0;
+    for(int index=0;index<nums.size();index++)
     {
-        int can_get_here_from = canGetHere(nums,curpos);
-        if( can_get_here_from == -1 )
+        if( index > furthest_possible )
             return false;
-        curpos = can_get_here_from;
+        int destination = index + nums[index];
+        furthest_possible = std::max(furthest_possible, destination );
+        if( furthest_possible >= nums.size() -1 )
+            return true;
     }
-    return true;
+    return false;
 }
 
 int main( int argc, char **argv)
