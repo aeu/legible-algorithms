@@ -114,6 +114,7 @@ I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0055-jump-game">Leetcode &numero; 55 (Medium) &mdash; Jump Game (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0080-remove-duplicates-from-sorted-array-ii">Leetcode &numero; 80 (Medium) &mdash; Remove duplicates from Sorted Array II (C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0122-best-time-to-buy-and-sell-stock-ii">Leetcode &numero; 122 (Medium) &mdash; Best Time to Buy and Sell Stock II (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0138-copy-list-with-random-pointer">Leetcode &numero; 138 (Medium) &mdash; Copy List with Random Pointer (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0151-reverse-words-in-a-string">Leetcode &numero; 151 (Medium) &mdash; Reverse Words in a String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0162-find-peak-element">Leetcode &numero; 162 (Medium) &mdash; Find Peak Element (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0199-binary-tree-right-side-view">Leetcode &numero; 199 (Medium) &mdash; Binary Tree Right Side View (C++)</a>  
@@ -144,6 +145,7 @@ I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2104-sum-of-subarray-ranges">Leetcode &numero; 2104 (Medium) &mdash; Sum of Subarray Ranges (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2130-maximum-twin-sum-of-a-linked-list">Leetcode &numero; 2130 (Medium) &mdash; Maximum Twin Sum of a Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2352-equal-row-and-column-pairs">Leetcode &numero; 2352 (Medium) &mdash; Equal Row and Column Pairs (C++)</a>  
+
 
 
 
