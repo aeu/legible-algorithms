@@ -36,81 +36,34 @@ void dumpNodes(ListNode *head)
     std::cout << std::endl;
 }
 
-ListNode* reverseBetween(ListNode* head, int left, int right)
-{
-     if ( head == nullptr )
-        return nullptr;
-
-    ListNode *left_node  = nullptr;
-    ListNode *right_node = nullptr;
-
-    ListNode *left_head  = nullptr;
-    ListNode *left_tail  = nullptr;
-    
-    ListNode *prior_left = nullptr;
-    ListNode *current = head;
-    while( left_head == nullptr )
-    {
-        if( current->next != nullptr )
-        {
-            if( current->next->val == left )
-            {
-                prior_left = current;
-            }
-        }
-        if( current->val == left )
-        {
-            left_node = current;
-            left_head = current;
-            left_tail = current;
-            break;
-        }
-        current = current->next;
-    }
-
-    std::cout << "last before left " << prior_left->val << std::endl;
-    std::cout << "Left Head " << left_head->val << std::endl;
-    std::cout << "Left Tail " << left_tail->val << std::endl;
-    //   H    PL   L             R  
-    //   1 -> 2 -> 3 ->  4    -> 5 -> 6-> 7 -> 8-> x->
-    ListNode *temp;
-    current = left_node;
-    while( right_node == nullptr )
-    {
-        left_head = current->next;
-        temp = left_head->next;
-        left_head->next = current;
-        current = temp;
-    }
-    prior_left->next = left_head;
-    left_tail->next = right_node;
-    dumpNodes( head );
-
-    return left_head;
-}
-
 ListNode* reverse(ListNode* head)
 {
     if(head == nullptr )
         return nullptr;
 
-    ListNode *temp;
-    ListNode *current;
-    ListNode *new_head;
-    ListNode *previous;
-
     // 1 2 3 4 5 6 7 8 9 10
-    
-    previous = head;
-    current = previous->next;
+
+    ListNode *current;
+    ListNode *old_head;
+    ListNode *new_head;
+    ListNode *after;
+
+    new_head = head;       // 1
+    old_head = head;       // 1
+    current  = head->next; // 2
+    old_head->next = nullptr;
+    std::cout << "before while" << std::endl;
     while( current != nullptr )
     {
-        temp = current->next;
-        new_head = current;
-        new_head->next = previous;
-        previous = current;
-        current = temp;
+        std::cout << "in while" << std::endl;
+        after = current->next; // 3
+        old_head = new_head;
+        new_head = current;    // 2
+        new_head->next = old_head; // 1
+        current = after;        // 3
     }
+    return new_head;
+    
 }
 
 
@@ -140,7 +93,9 @@ int main(int argc, char **argv)
         nine->next = ten;
         
         dumpNodes(head);
-
+        ListNode *new_head = reverse(head);
+        dumpNodes(new_head);
+        
         //        ListNode *new_head = reverseBetween(head,3,5);
     }
 }
