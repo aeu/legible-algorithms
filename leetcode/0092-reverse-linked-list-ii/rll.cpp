@@ -69,6 +69,9 @@ ListNode* reverseBetween(ListNode* head, int left, int right)
     if ( head == nullptr )
         return nullptr;
 
+    if( left == right )
+        return head;
+    
     ListNode *left_head  = nullptr;
     ListNode *left_tail  = nullptr;
     
