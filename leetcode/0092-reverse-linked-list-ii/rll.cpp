@@ -48,19 +48,17 @@ ListNode* reverse(ListNode* head)
     ListNode *new_head;
     ListNode *after;
 
-    new_head = head;       // 1
-    old_head = head;       // 1
-    current  = head->next; // 2
+    new_head = head;
+    old_head = head;
+    current  = head->next;
     old_head->next = nullptr;
-    std::cout << "before while" << std::endl;
     while( current != nullptr )
     {
-        std::cout << "in while" << std::endl;
-        after = current->next; // 3
+        after = current->next;
         old_head = new_head;
-        new_head = current;    // 2
-        new_head->next = old_head; // 1
-        current = after;        // 3
+        new_head = current;
+        new_head->next = old_head;
+        current = after;
     }
     return new_head;
     
