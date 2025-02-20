@@ -80,7 +80,7 @@ ListNode* reverseBetween(ListNode* head, int left, int right)
     
     ListNode *prior_left = nullptr;
     ListNode *current = head;
-    while( left_head == nullptr )
+    while( current != nullptr )
     {
         if( current->next != nullptr )
         {
@@ -97,6 +97,8 @@ ListNode* reverseBetween(ListNode* head, int left, int right)
         }
         current = current->next;
     }
+    if( left_head == nullptr )
+        return dummy->next;
 
     ListNode *after;
     ListNode *old_head;
@@ -123,6 +125,19 @@ ListNode* reverseBetween(ListNode* head, int left, int right)
 int main(int argc, char **argv)
 {
     std::cout << "Leetcode 0092 - Reverse Linked List II" << std::endl;
+    {
+        ListNode *head = new ListNode(3);
+        ListNode *two  = new ListNode(5);
+
+        head->next = two;
+        
+        dumpNodes(head);
+        // ListNode *new_head = reverse(head);
+        // dumpNodes(new_head);
+        
+        ListNode *new_head = reverseBetween(head,1,2);
+        dumpNodes(new_head);
+    }
     {
         ListNode *head = new ListNode(1);
         ListNode *two  = new ListNode(2);
