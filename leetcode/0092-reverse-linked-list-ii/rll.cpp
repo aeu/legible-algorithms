@@ -89,7 +89,7 @@ ListNode* reverseBetween(ListNode* head, int left, int right)
         node_count++;
     }
 
-    if( left_head == nullptr )
+    if( left_tail == nullptr )
         return dummy->next;
 
     ListNode *after;
@@ -192,18 +192,10 @@ int main(int argc, char **argv)
         ListNode *new_head = reverseBetween(head,2,4);
         dumpNodes(new_head);
     }
-    return 0;
     {
-        ListNode *head = new ListNode(3);
-        ListNode *two  = new ListNode(5);
-
-        head->next = two;
-        
+        ListNode *head = new ListNode(5);
         dumpNodes(head);
-        // ListNode *new_head = reverse(head);
-        // dumpNodes(new_head);
-        
-        ListNode *new_head = reverseBetweenByValue(head,1,2);
+        ListNode *new_head = reverseBetweenByValue(head,1,1);
         dumpNodes(new_head);
     }
     {
