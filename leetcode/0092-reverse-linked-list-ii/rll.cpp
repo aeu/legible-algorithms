@@ -69,6 +69,54 @@ ListNode* reverseBetween(ListNode* head, int left, int right)
     if ( head == nullptr )
         return nullptr;
 
+    ListNode *dummy = new ListNode(0);
+    dummy->next = head;
+    ListNode *prior_left = dummy;
+    ListNode *left_head  = head;
+    ListNode *current = head;
+    ListNode *left_tail  = nullptr;
+    int node_count = 1;
+    while( current != nullptr )
+    {
+        prior_left = current;
+        current = current->next;
+        if( node_count == left -1  )
+        {
+            left_head = current;
+            left_tail = current;
+            break;
+        }
+        node_count++;
+    }
+
+    if( left_head == nullptr )
+        return dummy->next;
+
+    ListNode *after;
+    ListNode *old_head;
+    current = left_head->next;  // 4
+
+    while( current != nullptr )
+    {
+        after = current->next;      // 5
+        old_head = left_head;
+        left_head = current;        // 4
+        left_head->next = old_head; // 3
+        current = after;            // 5
+        node_count++;
+        if( node_count == right -1 )
+            break;
+    }
+    prior_left->next = left_head;
+    left_tail->next = current;
+    return dummy->next;
+}
+
+ListNode* reverseBetweenByValue(ListNode* head, int left, int right)
+{
+    if ( head == nullptr )
+        return nullptr;
+
     if( left == right )
         return head;
 
@@ -126,6 +174,26 @@ int main(int argc, char **argv)
 {
     std::cout << "Leetcode 0092 - Reverse Linked List II" << std::endl;
     {
+        ListNode *head = new ListNode(1);
+        ListNode *two  = new ListNode(2);
+        ListNode *three  = new ListNode(3);
+        ListNode *four  = new ListNode(4);
+        ListNode *five  = new ListNode(5);
+
+        head->next = two;
+        two->next  = three;
+        three->next = four;
+        four->next = five;
+        
+        dumpNodes(head);
+        // ListNode *new_head = reverse(head);
+        // dumpNodes(new_head);
+        
+        ListNode *new_head = reverseBetween(head,2,4);
+        dumpNodes(new_head);
+    }
+    return 0;
+    {
         ListNode *head = new ListNode(3);
         ListNode *two  = new ListNode(5);
 
@@ -135,7 +203,7 @@ int main(int argc, char **argv)
         // ListNode *new_head = reverse(head);
         // dumpNodes(new_head);
         
-        ListNode *new_head = reverseBetween(head,1,2);
+        ListNode *new_head = reverseBetweenByValue(head,1,2);
         dumpNodes(new_head);
     }
     {
@@ -164,7 +232,7 @@ int main(int argc, char **argv)
         // ListNode *new_head = reverse(head);
         // dumpNodes(new_head);
         
-        ListNode *new_head = reverseBetween(head,3,7);
+        ListNode *new_head = reverseBetweenByValue(head,3,7);
         dumpNodes(new_head);
     }
 }
