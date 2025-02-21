@@ -103,15 +103,15 @@ ListNode* reverseBetweenByValue(ListNode* head, int left, int right)
 
     ListNode *after;
     ListNode *old_head;
-    current = left_head->next;  // 4
+    current = left_head->next;
 
     while( current != nullptr )
     {
-        after = current->next;      // 5
+        after = current->next;
         old_head = left_head;
-        left_head = current;        // 4
-        left_head->next = old_head; // 3
-        current = after;            // 5
+        left_head = current;
+        left_head->next = old_head;
+        current = after;
         if( left_head->val == right )
             break;
     }
@@ -152,12 +152,12 @@ ListNode* reverseBetween(ListNode* head, int left, int right)
 
     while( current != nullptr )
     {
-        after = current->next;      // 13
-        old_head = left_head;       // 12
-        left_head = current;        // 12
-        left_head->next = old_head; // 12
-        current = after;            // 13
-        node_count++;               //  3
+        after = current->next;
+        old_head = left_head;
+        left_head = current;
+        left_head->next = old_head;
+        current = after;
+        node_count++;
         if( node_count > right )
             break;
     }
@@ -171,11 +171,11 @@ ListNode* reverseBetween(ListNode* head, int left, int right)
 int main(int argc, char **argv)
 {
     {
-        ListNode *head = new ListNode(11);
-        ListNode *two  = new ListNode(12);
-        ListNode *three  = new ListNode(13);
-        ListNode *four  = new ListNode(14);
-        ListNode *five  = new ListNode(15);
+        ListNode *head = new ListNode(1);
+        ListNode *two  = new ListNode(2);
+        ListNode *three  = new ListNode(3);
+        ListNode *four  = new ListNode(4);
+        ListNode *five  = new ListNode(5);
 
         head->next = two;
         two->next  = three;
