@@ -64,53 +64,6 @@ ListNode* reverse(ListNode* head)
     
 }
 
-ListNode* reverseBetween(ListNode* head, int left, int right)
-{
-    if ( head == nullptr )
-        return nullptr;
-
-    ListNode *dummy = new ListNode(0);
-    dummy->next = head;
-    ListNode *prior_left = dummy;
-    ListNode *left_head  = head;
-    ListNode *current = head;
-    ListNode *left_tail  = nullptr;
-    int node_count = 1;
-    while( current != nullptr )
-    {
-        prior_left = current;
-        current = current->next;
-        if( node_count == left -1  )
-        {
-            left_head = current;
-            left_tail = current;
-            break;
-        }
-        node_count++;
-    }
-
-    if( left_tail == nullptr )
-        return dummy->next;
-
-    ListNode *after;
-    ListNode *old_head;
-    current = left_head->next;  // 4
-
-    while( current != nullptr )
-    {
-        after = current->next;      // 5
-        old_head = left_head;
-        left_head = current;        // 4
-        left_head->next = old_head; // 3
-        current = after;            // 5
-        node_count++;
-        if( node_count == right -1 )
-            break;
-    }
-    prior_left->next = left_head;
-    left_tail->next = current;
-    return dummy->next;
-}
 
 ListNode* reverseBetweenByValue(ListNode* head, int left, int right)
 {
@@ -169,16 +122,99 @@ ListNode* reverseBetweenByValue(ListNode* head, int left, int right)
 
 
 
+ListNode* reverseBetween(ListNode* head, int left, int right)
+{
+    if ( head == nullptr )
+        return nullptr;
+
+    ListNode *dummy = new ListNode(0);
+    dummy->next = head;
+    ListNode *prior_left = dummy;
+    ListNode *left_head  = head;
+    ListNode *current = head;
+    ListNode *left_tail  = nullptr;
+    int node_count = 1;
+    while( current != nullptr )
+    {
+        if( node_count == left  )
+        {
+            left_head = current;
+            left_tail = current;
+            break;
+        }
+        prior_left = current;
+        current = current->next;
+        node_count++;
+    }
+    std::cout << "prior left : " << prior_left->val << std::endl;
+    std::cout << "left head  : " << left_head->val << std::endl;
+    std::cout << "left tail  : " << left_tail->val << std::endl;
+    std::cout << "current    : " << current->val << std::endl;
+    std::cout << "node count : " << node_count << std::endl;
+    //   *   *
+    // 1 2 3 4 5
+    ListNode *after;
+    ListNode *old_head;
+
+    while( current != nullptr )
+    {
+        after = current->next;      // 13
+        old_head = left_head;       // 12
+        left_head = current;        // 12
+        left_head->next = old_head; // 12
+        current = after;            // 13
+        node_count++;               //  3
+        if( node_count > right )
+            break;
+    }
+
+#if 0
+    after = current->next;      // 13
+    old_head = left_head;       // 12
+    left_head = current;        // 12
+    left-head->next = old_head; // 12
+    current = after;            // 13
+    node_count++;               //  3
+    if( node_count > right )
+        break;
+
+    after = current->next;     // 14
+    old_head = left_head;      // 12
+    left_head = current;       // 13
+    left_head->next = old_head; // 12
+    current = after;           // 14
+    node_count++;              // 4
+    if( node_count > right )
+        break;
+
+    after = current->next;    // 15
+    old_head = left_head;     // 13
+    left_head = current;      // 14
+    left_head->next = old_head; // 13
+    current = after;          // 15
+    node_count++;             // 5
+    if( node_count > right )
+        break;
+
+#endif    
+    prior_left->next = left_head;
+    left_tail->next = current;
+    
+    // left_head
+    
+    return dummy->next;
+}
+
+
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode 0092 - Reverse Linked List II" << std::endl;
     {
-        ListNode *head = new ListNode(1);
-        ListNode *two  = new ListNode(2);
-        ListNode *three  = new ListNode(3);
-        ListNode *four  = new ListNode(4);
-        ListNode *five  = new ListNode(5);
+        ListNode *head = new ListNode(11);
+        ListNode *two  = new ListNode(12);
+        ListNode *three  = new ListNode(13);
+        ListNode *four  = new ListNode(14);
+        ListNode *five  = new ListNode(15);
 
         head->next = two;
         two->next  = three;
@@ -186,10 +222,25 @@ int main(int argc, char **argv)
         four->next = five;
         
         dumpNodes(head);
+        //    ListNode *new_head = reverse(head);
+        //  dumpNodes(new_head);
+        
+        ListNode *new_head = reverseBetween(head,2,4);
+        dumpNodes(new_head);
+    }
+    return 0;
+    std::cout << "Leetcode 0092 - Reverse Linked List II" << std::endl;
+    {
+        ListNode *head = new ListNode(3);
+        ListNode *two  = new ListNode(5);
+
+        head->next = two;
+        
+        dumpNodes(head);
         // ListNode *new_head = reverse(head);
         // dumpNodes(new_head);
         
-        ListNode *new_head = reverseBetween(head,2,4);
+        ListNode *new_head = reverseBetween(head,1,2);
         dumpNodes(new_head);
     }
     {
