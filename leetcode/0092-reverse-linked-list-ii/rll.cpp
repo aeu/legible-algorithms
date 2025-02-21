@@ -146,13 +146,7 @@ ListNode* reverseBetween(ListNode* head, int left, int right)
         current = current->next;
         node_count++;
     }
-    std::cout << "prior left : " << prior_left->val << std::endl;
-    std::cout << "left head  : " << left_head->val << std::endl;
-    std::cout << "left tail  : " << left_tail->val << std::endl;
-    std::cout << "current    : " << current->val << std::endl;
-    std::cout << "node count : " << node_count << std::endl;
-    //   *   *
-    // 1 2 3 4 5
+
     ListNode *after;
     ListNode *old_head;
 
@@ -167,41 +161,8 @@ ListNode* reverseBetween(ListNode* head, int left, int right)
         if( node_count > right )
             break;
     }
-
-#if 0
-    after = current->next;      // 13
-    old_head = left_head;       // 12
-    left_head = current;        // 12
-    left-head->next = old_head; // 12
-    current = after;            // 13
-    node_count++;               //  3
-    if( node_count > right )
-        break;
-
-    after = current->next;     // 14
-    old_head = left_head;      // 12
-    left_head = current;       // 13
-    left_head->next = old_head; // 12
-    current = after;           // 14
-    node_count++;              // 4
-    if( node_count > right )
-        break;
-
-    after = current->next;    // 15
-    old_head = left_head;     // 13
-    left_head = current;      // 14
-    left_head->next = old_head; // 13
-    current = after;          // 15
-    node_count++;             // 5
-    if( node_count > right )
-        break;
-
-#endif    
     prior_left->next = left_head;
     left_tail->next = current;
-    
-    // left_head
-    
     return dummy->next;
 }
 
@@ -228,7 +189,6 @@ int main(int argc, char **argv)
         ListNode *new_head = reverseBetween(head,2,4);
         dumpNodes(new_head);
     }
-    return 0;
     std::cout << "Leetcode 0092 - Reverse Linked List II" << std::endl;
     {
         ListNode *head = new ListNode(3);
@@ -237,9 +197,6 @@ int main(int argc, char **argv)
         head->next = two;
         
         dumpNodes(head);
-        // ListNode *new_head = reverse(head);
-        // dumpNodes(new_head);
-        
         ListNode *new_head = reverseBetween(head,1,2);
         dumpNodes(new_head);
     }
