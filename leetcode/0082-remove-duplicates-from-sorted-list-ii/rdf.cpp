@@ -41,8 +41,44 @@ void dumpNodes(ListNode *head)
 }
 
 
+ListNode *deleteDuplicates(ListNode *head)
+{
+    if( head == nullptr )
+        return nullptr;
 
-ListNode* deleteDuplicates(ListNode* head)
+    ListNode *dummy = new ListNode(0);
+    dummy->next = head;
+
+    ListNode *curr;
+    ListNode *prev;
+
+    prev = dummy;
+    curr = head;
+
+    while( curr != nullptr )
+    {
+        if(( curr->next != nullptr ) && ( curr->val == curr->next->val ))
+        {
+            while(( curr->next != nullptr ) && ( curr->next->val == curr->val ))
+            {
+                curr = curr->next;
+            }
+            prev->next = curr->next;
+        }
+        else
+        {
+            prev = prev->next;
+        }
+        curr = curr->next;
+    }
+    ListNode *new_head = dummy->next;
+    delete dummy;
+    return new_head;
+}
+
+
+
+ListNode* olddeleteDuplicates(ListNode* head)
 {
     if( head == nullptr )
         return nullptr;
@@ -72,8 +108,6 @@ ListNode* deleteDuplicates(ListNode* head)
         if( lead->val == prev->val )
         {
             skips[ lead->val ] = 1;
-            // std::cout << "adding " << prev->val << std::endl;
-            //            skips.push_back( lead->val );
         }
         if( skips.empty() )
         {
@@ -89,19 +123,14 @@ ListNode* deleteDuplicates(ListNode* head)
             }
             if( prev->val > skips.begin()->first )
             {
-                // std::cout << "removig " << prev->val << std::endl;
                 skips.erase( skips.begin() );
             }
         }
         lead = lead->next;
         prev = prev->next;
     }
-    // std::cout << "end of loop" << std::endl;
-    // std::cout << tail->val << " <-- tail val " << std::endl;
-    // std::cout << prev->val << " <-- prev val " << std::endl;
     if( skips.find( prev->val ) == skips.end() )
     {
-        // std::cout << prev->val << " the final value was not in the skips table" << std::endl;
         tail->next = prev;
         tail = tail->next;
     }
