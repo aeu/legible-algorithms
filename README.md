@@ -50,12 +50,12 @@ learn how it worked.  Note that I still don't have delete working.
 
 ## Puzzles & Problems
 
-### Facebook
-<a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/balanced-brackets">Balance Brackets (C)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/balanced-split">Balanced Split (Obj-C)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/number-of-visible-nodes">Number of Visible Nodes (C)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/reverse-operations">Reverse Operations (Obj-C)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/facebook/reverse-operations-c">Reverse Operations C (C)</a>
+### Meta
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/contiguous-subarrays">Contiguous Subarrays (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/matching-pairs">Matching Pairs (C++)</a>    
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/minimum-length-substrings">Minimum Length Substrings (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/reverse-to-make-equal">Reverse To Make Equal (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/rotational-cipher">Rotational Cipher (C++)</a>   
 
 ### Leetcode
 
