@@ -51,6 +51,9 @@ learn how it worked.  Note that I still don't have delete working.
 ## Puzzles & Problems
 
 ### Meta
+
+Puzzles and problems from the meta careers interview preparation portal.
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/contiguous-subarrays">Contiguous Subarrays (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/matching-pairs">Matching Pairs (C++)</a>    
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/minimum-length-substrings">Minimum Length Substrings (C++)</a>   
