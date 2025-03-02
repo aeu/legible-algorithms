@@ -1,3 +1,6 @@
+// -*- Mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; -*-
+
+
 #include <vector>
 #include <iostream>
 #include <unordered_map>
@@ -19,50 +22,28 @@ void printValues(vector<int> &arr)
 bool balancedSplitExists(vector<int>& arr)
 {
     std::sort(arr.begin(),arr.end());
-    std::vector<int> left_sums;
-    std::vector<int> right_sums;
-    int N = arr.size();
-    std::cout << "arr ";
-    printValues(arr);
+
+
+    int sum_of_all_values = 0;
+    int right_sum = 0;
     int left_sum = 0;
     for(auto current : arr )
     {
-        left_sum += current;
-        left_sums.push_back(left_sum);
+        sum_of_all_values += current ;
     }
-    std::cout << "left_sums ";
-    printValues(left_sums);
-    int right_sum = 0;
-    for(int index=arr.size()-1;index>=0;index--)
-    {
-        int current = arr[index];
-        right_sum += current;
-        right_sums.push_back( right_sum);
-    }
-    //    std::sort(right_sums.begin(),right_sums.end());
-    std::cout << "right_sums as is ";
-    printValues(right_sums);
 
-    for(int index=0;index<arr.size()-1;index++)
+    for(int index=0;index<arr.size();index++)
     {
-        std::cout << "comparing " << left_sums[index] << " and " << right_sums[N-index-1] << std::endl;
-        if( left_sums[index] == right_sums[N-index] )
+        left_sum += arr[index];
+        right_sum = sum_of_all_values - left_sum;
+        if( left_sum == right_sum )
         {
-            cout << "passes the first" << std::endl;
-            if( arr[index] <= arr[index+1] )
-            {
-                std::cout << "compared " << arr[index] << " and " << arr[index+1] << std::endl; 
+            if( arr[index] < arr[index+1] )
                 return true;
-            }
-            else
-            {
-            }
         }
     }
     return false;
 }
-
-
 
 
 
