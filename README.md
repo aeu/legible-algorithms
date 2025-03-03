@@ -57,6 +57,7 @@ Puzzles and problems from the meta careers interview preparation portal.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/balanced-split">Balanced Split (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/contiguous-subarrays">Contiguous Subarrays (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/counting-triangles">Counting Triangles (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/encrypted-words">Encrypted Words (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/matching-pairs">Matching Pairs (C++)</a>    
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/minimum-length-substrings">Minimum Length Substrings (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/one-billion-users">One Billion Users (C++)</a>   
