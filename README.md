@@ -54,6 +54,7 @@ learn how it worked.  Note that I still don't have delete working.
 
 Puzzles and problems from the meta careers interview preparation portal.
 
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/balance-brackets">Balance Brackets (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/balanced-split">Balanced Split (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/change-in-a-foreign-currency">Change in a Foreign Currency (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/contiguous-subarrays">Contiguous Subarrays (C++)</a>   
@@ -66,7 +67,6 @@ Puzzles and problems from the meta careers interview preparation portal.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/revenue-milestones">Revenue Milestones (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/reverse-to-make-equal">Reverse To Make Equal (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/rotational-cipher">Rotational Cipher (C++)</a>   
-
 
 
 ### Leetcode
