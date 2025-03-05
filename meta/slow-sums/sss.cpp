@@ -1,25 +1,34 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
+#include <unordered_map>
+#include <queue>
 // Add any extra import statements you may need here
 
-using namespace std;
+using namespace std; 
 
 // Add any helper functions you may need here
 
 
 int getTotalTime(vector <int> arr) {
   // Write your code here
-  
+    std::priority_queue<int> max_heap;
+    for( auto current : arr )
+    {
+        max_heap.push(current);
+    }
+    int penalty = 0;
+    while( max_heap.size() > 1 )
+    {
+        int biggest = max_heap.top();
+        max_heap.pop();
+        int next_biggest = max_heap.top();
+        max_heap.pop();
+        int sum = biggest + next_biggest;
+        max_heap.push( sum );
+        penalty+=sum;
+    }
+    return penalty;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 // These are the tests we use to determine if the solution is correct.
