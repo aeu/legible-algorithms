@@ -8,46 +8,20 @@ using namespace std;
 
 long long getMaxAdditionalDinersCount(long long N, long long K, int M, vector<long long> S ) {
 
-    std::vector<long long> table (N+1,0);
-    long long diner_count = 0; 
-    for(auto current : S )
+    std::sort(S.begin(),S.end());
+    std::vector<long long> ranges();
+    int start_position 0;
+    for( auto current : S )
     {
-	table[current] = 1;
+	long long range = current - start_position - 1;
+	ranges.push_back(range);
+	start_position = current + 1;
     }
-    long long lead = 0;
-    long long diner = 0;
-    long long trail = 0;
-    int diners_in_window = 0;
-    std::cout << "N:  " << N << std::endl;
-    while( diner < N )
+
+    for( auto current : ranges )
     {
-	if((lead < N ) && ( table[lead] == 1 ))
-	{
-	    diners_in_window++;
-	    std::cout << "found a diner at position : " << lead << " diners in window count is now : " << diners_in_window << std::endl;
-	}
-	if( lead >= K ) 
-	{
-	    if(( diners_in_window == 0 ))
-	    {
-		std::cout << "position : " << diner << " is available, no other diners in range, seating someone" << std::endl;
-		table[diner] = 1;
-		diner_count++;
-		diners_in_window++;
-	    }
-	    diner++;
-	}
-	if( lead >= ( 2 * K ) )
-	{
-	    if(( trail < N ) && ( table[trail] == 1 ))
-	    {
-		diners_in_window--;
-	    }
-	    trail++;
-	}
-	lead++;
+	std::cout << "range : " << std::endl;
     }
-    return diner_count;
 }
 
 
