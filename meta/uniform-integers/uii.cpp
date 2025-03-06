@@ -36,9 +36,7 @@ long long  getUniformIntegerCountInInterval(long long A, long long B)
     {
         count++;
         next = getNextUniformInteger(next);
-        std::cout << "Next " << next << std::endl;
     }
-
     return count;
 }
 
