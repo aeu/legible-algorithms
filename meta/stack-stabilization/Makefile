@@ -1,0 +1,19 @@
+CC=g++
+CPPFLAGS=-g -Wall -std=c++17 -I.
+
+OBJS = sss.o
+#	other.o
+
+%.o: %.c
+	$(CC) -o $@
+
+sss: $(OBJS)
+	$(CC) $(CPPFLAGS) -o $@ $^
+
+
+clean:
+	rm -f *.o
+	rm -f *~
+	rm -f *.*~
+	rm -f sss
+
