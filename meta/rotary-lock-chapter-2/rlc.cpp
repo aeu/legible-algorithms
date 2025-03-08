@@ -14,73 +14,39 @@
 using namespace std;
 // Write any include statements here
 
-struct CombinationStage
-{
-    int step;
-    int left_lock;
-    int right_lock;
 
-    bool operator<(const CombinationStage &rhs) const
-    {
-        if (step != rhs.step)
-            return step < rhs.step;
-        if (left_lock != rhs.left_lock)
-            return left_lock < rhs.left_lock;
-        return right_lock < rhs.right_lock;
-    }
-
-    bool operator==(const CombinationStage &rhs) const
-    {
-        return (( step == rhs.step ) && ( left_lock == rhs.left_lock ) && ( right_lock == rhs.right_lock ));
-    }
-
-    
-};
-
-struct CombinationStageHash
-{
-    size_t operator()(const CombinationStage &s) const
-    {
-        return std::hash<int>()(s.step) ^ (std::hash<int>()(s.left_lock) << 1 ) ^ (std::hash<int>()(s.right_lock) << 2);
+struct PairLLHash {
+    size_t operator()(const std::pair<long long, long long>& p) const {
+        size_t h1 = std::hash<long long>()(p.first);
+        size_t h2 = std::hash<long long>()(p.second);
+        // Combine the two hash values using bitwise operations.
+        return h1 ^ (h2 + 0x9e3779b97f4a7c15ULL + (h1 << 6) + (h1 >> 2));
     }
 };
 
-std::unordered_map<CombinationStage,long long, CombinationStageHash> dpmemo;
+std::unordered_map<std::pair<long long,long long>, long long, PairLLHash> dpmemo;
 
-long distanceTo(int current, int destination, int N)
+int distanceTo(int current, int destination, int N)
 {
-    if( current == destination )
-        return 0;
-
-    int going_right;
-    int going_left;
-        
-    if( current < destination )
-    {
-        going_right = destination - current;
-        going_left = current + N - destination;
-    }
-    else if( current > destination )
-    {
-        going_right = N - current + destination;
-        going_left = current - destination;
-    }
-    return std::min( going_right, going_left );
+    return std::min(abs(destination - current), N - abs(destination - current));
 }
 
+std::pair<long long, long long> encode(int step, int left_lock, int right_lock )
+{
+    long long first = ((long long) left_lock << 30 ) | ((long long ) right_lock );
+    long long second = ( long long ) step;
+    return std::make_pair( first, second );
+}
 
 long long dpSearch(int step, int left_lock, int right_lock, vector<int> &C, int N)
 {
     if( step == C.size() )
         return 0;
+
+    auto key = encode( step, left_lock, right_lock );
     
-    CombinationStage current;
-    current.step = step;
-    current.left_lock = left_lock;
-    current.right_lock = right_lock;
-    
-    if( dpmemo.find( current ) != dpmemo.end() )
-        return dpmemo[current];
+    if( dpmemo.find( key ) != dpmemo.end() )
+        return dpmemo[key];
 
     int target = C[step];
     // distance to get the left lock to target, plus the distance after the lft lock is at target.
@@ -89,7 +55,7 @@ long long dpSearch(int step, int left_lock, int right_lock, vector<int> &C, int 
     // distance to get the right lock to target, plus the distance after the right lock is at target.
     long long right_distance = distanceTo( right_lock, target, N ) + dpSearch( step+1, left_lock, target, C, N );
 
-    return dpmemo[current] = std::min( left_distance, right_distance );
+    return dpmemo[key] = std::min( left_distance, right_distance );
 }
 
 long long getMinCodeEntryTime(int N, int M, vector<int> &C)
