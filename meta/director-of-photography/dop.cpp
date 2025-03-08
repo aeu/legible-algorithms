@@ -14,88 +14,101 @@
 
 using namespace std;
 
-
-// Write any include statements here
-
-int numValidLeftBackdrops(std::vector<int> backdrops, int mypos, int X, int Y )
+std::vector<int> buildValidLeftPhotographers(int N, string C, int X, int Y)
 {
-    int valid_count = 0;
-    for(auto current : backdrops )
+    std::vector<int> photographers(N,0);
+    int num_photographers = 0;
+    for(int window=0;window<N;window++)
     {
-        if ( current > mypos )
-            continue;
-        int range = mypos - current;
-        if( ( range >= X ) && ( range <= Y ))
-            valid_count++;
+        if( window >= X )
+        {
+            if( C[window-X] == 'P' )
+            {
+                num_photographers++;
+            }
+        }
+        if( window >= Y+1 )
+        {
+            if( C[window-Y-1] == 'P' )
+            {
+                num_photographers--;
+            }
+        }
+        photographers[window] = num_photographers;
     }
-    return valid_count;
+    return photographers;
 }
-int numValidRightBackdrops(std::vector<int> backdrops, int mypos, int X, int Y )
+std::vector<int> buildValidLeftBackdrops(int N, string C, int X, int Y)
 {
-    int valid_count = 0;
-    for(auto current : backdrops )
+    std::vector<int> backdrops(N,0);
+    int num_backdrops = 0;
+    for(int window=0;window<N;window++)
     {
-        if ( current < mypos )
-            continue;
-        int range = current - mypos;
-        if( ( range >= X ) && ( range <= Y ))
-            valid_count++;
+        if( window >= X )
+        {
+            if( C[window-X] == 'B' )
+            {
+                num_backdrops++;
+            }
+        }
+        if( window >= Y+1 )
+        {
+            if( C[window-Y-1] == 'B' )
+            {
+                num_backdrops--;
+            }
+        }
+        backdrops[window] = num_backdrops;
     }
-    return valid_count;
-}
-int numValidLeftPhotographers(std::vector<int> photographers, int mypos, int X, int Y )
-{
-    int valid_count = 0;
-    for(auto current : photographers )
-    {
-        if ( current > mypos )
-            continue;
-        int range = mypos - current;
-        if( ( range >= X ) && ( range <= Y ))
-            valid_count++;
-    }
-    return valid_count;
-}
-int numValidRightPhotographers(std::vector<int> photographers, int mypos, int X, int Y )
-{
-    int valid_count = 0;
-    for(auto current : photographers )
-    {
-        if ( current < mypos )
-            continue;
-        int range = current - mypos;
-        if( ( range >= X ) && ( range <= Y ))
-            valid_count++;
-    }
-    return valid_count;
+    return backdrops;
 }
 
+
+std::vector<int> buildValidRightBackdrops(int N, string C, int X, int Y)
+{
+    std::string C_rev = C;
+    std::reverse(C_rev.begin(), C_rev.end());
+    
+    // Compute left counts on the reversed string
+    std::vector<int> leftCounts_rev = buildValidLeftBackdrops(N, C_rev, X, Y);
+    
+    // Reverse the result to get the right counts in original order
+    std::reverse(leftCounts_rev.begin(), leftCounts_rev.end());
+    return leftCounts_rev;
+}
+
+std::vector<int> buildValidRightPhotographers(int N, string C, int X, int Y)
+{
+    std::string C_rev = C;
+    std::reverse(C_rev.begin(), C_rev.end());
+    
+    std::vector<int> leftCounts_rev = buildValidLeftPhotographers(N, C_rev, X, Y);
+    std::reverse(leftCounts_rev.begin(), leftCounts_rev.end());
+    return leftCounts_rev;
+}
 
 int getArtisticPhotographCount(int N, string C, int X, int Y) {
-    std::vector<int> actors;
-    std::vector<int> backdrops;
-    std::vector<int> photographers;
 
-    for(int index=0;index<C.size();index++)
-    {
-        char current = C[index];
-        if( current == 'A' )
-            actors.push_back(index);
-        else if( current == 'B' )
-            backdrops.push_back(index);
-        else if( current == 'P' )
-            photographers.push_back(index);
-    }
+
+    std::vector<int> left_photographers = buildValidLeftPhotographers(N,C,X,Y);
+    std::vector<int> left_backdrops     = buildValidLeftBackdrops(N,C,X,Y);
+    
+    std::vector<int> right_photographers = buildValidRightPhotographers(N,C,X,Y);
+    std::vector<int> right_backdrops     = buildValidRightBackdrops(N,C,X,Y);
+
     int artistic_photographs = 0;
-    for(auto current : actors )
+    for(int current =0;current<N;current++)
     {
-        int left_photogs = numValidLeftPhotographers(photographers, current, X, Y);
-        int right_backdrops = numValidRightPhotographers(backdrops, current, X, Y);
-        artistic_photographs += ( left_photogs * right_backdrops );
-
-        int right_photogs = numValidRightPhotographers(photographers, current, X, Y);
-        int left_backdrops = numValidLeftPhotographers(backdrops, current, X, Y);
-        artistic_photographs += ( right_photogs * left_backdrops );
+        if( C[current] == 'A' )
+        {
+            int left_photogs = left_photographers[current];
+            int right_drops = right_backdrops[current];
+            artistic_photographs += ( left_photogs * right_drops );
+            
+            int right_photogs = right_photographers[current];
+            int left_drops = left_backdrops[current];
+            artistic_photographs += ( right_photogs * left_drops );
+        }
         
     }
     return artistic_photographs;
