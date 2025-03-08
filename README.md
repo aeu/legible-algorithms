@@ -72,9 +72,11 @@ Puzzles and problems from the meta careers interview preparation portal.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/rotary-lock">Rotary Lock (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/rotary-lock-chapter-2">Rotary Lock Chapter 2 (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/rotational-cipher">Rotational Cipher (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/scoreboard-inference">Scoreboard Inference (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/slow-sums">slow-sums (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/stack-stabilization">Stack Stabilization (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/uniform-integers">Uniform Integers (C++)</a>   
+
 
 
 ### Leetcode
