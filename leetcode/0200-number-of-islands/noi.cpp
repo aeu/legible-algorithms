@@ -14,6 +14,7 @@
 #include <iostream>
 #include <map>
 #include <unordered_set>
+#include <queue>
 
 // m = rows
 // n = columns
@@ -66,32 +67,64 @@ void markAsVisited(std::vector<std::vector<int>> &visited, int row, int column,i
 }
 
 
-void bfs(std::vector<std::vector<char>>& grid,
-         std::vector<std::vector<int>> &visited,
-         int island_id,
-         int row_index,
-         int col_index )
-{
-}
-
 void exploreIsland(std::vector<std::vector<char>>& grid,
                    std::vector<std::vector<int>> &visited,
                    int island_id,
                    int row_index,
                    int col_index )
 {
+    int num_rows = grid.size();
+    int num_cols = grid[0].size();
+
     std::queue<IslandHop> hop_queue;
     IslandHop start ;
     start.island_id = island_id;
     start.row = row_index;
     start.col = col_index;
-    hop_queue.push_back( start );
+    hop_queue.push( start );
     while( ! hop_queue.empty() )
     {
         IslandHop current = hop_queue.front();
         hop_queue.pop();
-        markAsVisited
-        
+        markAsVisited( visited, current.row, current.col, current.island_id );
+
+        std::pair<int,int> north = getNorth( current.row, current.col, num_rows, num_cols );
+        if( north.first != -1 )
+        {
+            if(( grid[north.first][north.second] == '1') && ( ! isVisited( visited, north.first, north.second ) ))
+            {
+                markAsVisited( visited, north.first, north.second, current.island_id );
+                hop_queue.push({island_id,north.first,north.second});
+            }
+        }
+        std::pair<int,int> south = getSouth( current.row, current.col, num_rows, num_cols );
+        if( south.first != -1 )
+        {
+            if((grid[south.first][south.second] == '1')&&( ! isVisited( visited, south.first, south.second ) ))
+            {
+                markAsVisited( visited, south.first, south.second, current.island_id );
+                hop_queue.push({island_id,south.first,south.second});
+            }
+        }
+        std::pair<int,int> east = getEast( current.row, current.col, num_rows, num_cols );
+        if( east.first != -1 )
+        {
+            if((grid[east.first][east.second] == '1')&&( ! isVisited( visited, east.first, east.second ) ))
+            {
+                markAsVisited( visited, east.first, east.second, current.island_id );
+                hop_queue.push({island_id,east.first,east.second});
+            }
+        }
+        std::pair<int,int> west = getWest( current.row, current.col, num_rows, num_cols );
+        if( west.first != -1 )
+        {
+            if((grid[west.first][west.second] == '1')&&( ! isVisited( visited, west.first, west.second ) ))
+            {
+                markAsVisited( visited, west.first, west.second, current.island_id );
+                hop_queue.push({island_id,west.first,west.second});
+            }
+        }
+    }
 }
         
 int numIslands(std::vector<std::vector<char>>& grid)
@@ -108,12 +141,11 @@ int numIslands(std::vector<std::vector<char>>& grid)
     std::vector<std::vector<int>> visited(num_rows, std::vector<int>(num_cols, 0 ));
     for(int row_index = 0; row_index<grid.size();row_index++)
     {
-        std::vector<char> current_row = grid[row_index];
-        for(int col_index = 0; col_index<current_row.size();col_index++)
+        for(int col_index = 0; col_index<grid[row_index].size();col_index++)
         {
-            if( current_row[col_index] == '1' )
+            if( grid[row_index][col_index] == '1' )
             {
-                if( ! isVisited (row_index,col_index ))
+                if( ! isVisited (visited,row_index,col_index ))
                 {
                     island_count++;
                     exploreIsland( grid, visited, island_count, row_index,col_index);
@@ -121,6 +153,7 @@ int numIslands(std::vector<std::vector<char>>& grid)
             }
         }
     }
+    return island_count -1;
 }
 
 int main(int argc, char **argv)
@@ -132,7 +165,33 @@ int main(int argc, char **argv)
              { '1','1','0','1','0' },
              { '1','1','0','0','0' },
              { '0','0','0','0','0' }};
-        numIslands( grid );
+        int num_islands = numIslands( grid );
+        int expected = 1;
+        if( num_islands == expected )
+        {
+            std::cout << "pass" << std::endl;
+        }
+        else
+        {
+            std::cout << "fail. expected : " << expected << " got : " << num_islands << std::endl;
+        }
+    }
+    {
+        std::vector<std::vector<char>> grid =
+           {{ '1','1','0','0','0' },
+            { '1','1','0','0','0' },
+            { '0','0','1','0','0' },
+            { '0','0','0','1','1' }};
+        int num_islands = numIslands( grid );
+        int expected = 3;
+        if( num_islands == expected )
+        {
+            std::cout << "pass" << std::endl;
+        }
+        else
+        {
+            std::cout << "fail. expected : " << expected << " got : " << num_islands << std::endl;
+        }
     }
 
     
