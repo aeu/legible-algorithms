@@ -84,20 +84,18 @@ void solve(std::vector<std::vector<char>>& board)
                 {
                     visited[{row,col}] = 1;
                     safe_os[ std::make_pair(row,col) ] = 1;
+                    bfs_queue.push({row,col});
                 }
                 else if (row==board.size()-1)
                 {
                     visited[{row,col}] = 1;
                     safe_os[ std::make_pair(row,col) ] = 1;
+                    bfs_queue.push({row,col});
                 }
                 else if( ( col == 0 ) || ( col == board[row].size()-1))
                 {
                     visited[{row,col}] = 1;
                     safe_os[ std::make_pair(row,col) ] = 1;
-                }
-                else
-                {
-                    visited[{row,col}] = 1;
                     bfs_queue.push({row,col});
                 }
             }
@@ -109,9 +107,6 @@ void solve(std::vector<std::vector<char>>& board)
         IslandHop current = bfs_queue.front();
         bfs_queue.pop();
 
-        if( safe_os.find( { current.row, current.col } ) != safe_os.end() )
-            continue;
-
         std::pair<int,int> npair = getNorth( board, current.row, current.col );
         std::pair<int,int> spair = getSouth( board, current.row, current.col );
         std::pair<int,int> epair = getEast( board, current.row, current.col );
@@ -122,35 +117,44 @@ void solve(std::vector<std::vector<char>>& board)
         char echar = getSquare(board,epair);
         char wchar = getSquare(board,wpair);
 
-        if( ( nchar == 'X' ) && ( schar == 'X' ) && ( echar == 'X' ) && ( wchar == 'X' ))
+        if(( nchar == 'O' ) && visited.find( npair ) == visited.end() )
         {
-            board[current.row][current.col] = 'X';
-            continue;
-        }
-
-        if( nchar == 'O' )
-        {
-            visited[{npair.first,npair.second}] = 1;
+            visited[npair] = 1;
+            safe_os[npair] = 1;
             bfs_queue.push({npair.first,npair.second});
-            continue;
         }
-        if( schar == 'O' )
+        if(( schar == 'O' ) && visited.find( spair ) == visited.end() )
         {
-            visited[{spair.first,spair.second}] = 1;
+            visited[spair] = 1;
+            safe_os[spair] = 1;
             bfs_queue.push({spair.first,spair.second});
-            continue;
         }
-        if( echar == 'O' )
+        if(( echar == 'O' ) && visited.find( epair ) == visited.end() )
         {
-            visited[{epair.first,epair.second}] = 1;
+            visited[epair] = 1;
+            safe_os[epair] = 1;
             bfs_queue.push({epair.first,epair.second});
-            continue;
         }
-        if( wchar == 'O' )
+        if(( wchar == 'O' ) && visited.find( wpair ) == visited.end() )
         {
-            visited[{wpair.first,wpair.second}] = 1;
+            visited[wpair] = 1;
+            safe_os[wpair] = 1;
             bfs_queue.push({wpair.first,wpair.second});
-            continue;
+        }
+    }
+
+    for(int row = 0;row<board.size();row++)
+    {
+        for(int col=0;col<board[row].size();col++)
+        {
+            char current = board[row][col];
+            if( current == 'O' )
+            {
+                if( safe_os.find({row,col}) == safe_os.end() )
+                {
+                    board[row][col] = 'X';
+                }
+            }
         }
     }
 }
