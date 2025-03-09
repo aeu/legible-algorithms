@@ -13,4 +13,4 @@ clean:
 	rm -f *.o
 	rm -f *~
 	rm -f *.*~
-	rm -f rbt
+	rm -f nodo
