@@ -168,5 +168,6 @@ int main(int argc, char **argv)
             {'X','O','O','X'},
             {'X','X','O','X'},
             {'X','O','X','X'}};
+        solve(board);
     }
 }
