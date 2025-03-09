@@ -41,47 +41,40 @@ bool canBeTaken(int candidate,
 bool canFinish(int numCourses, std::vector<std::vector<int>>& prerequisites)
 {
     std::unordered_map<int,std::vector<int>> graph;
-    std::unordered_set<int> untaken;
-    //    std::unordered_set<int> taken;
+    std::vector<int> in_degree(numCourses, 0 );
     std::queue<int> c_queue;
-
+    int taken_count = 0;
+    
     for( auto current : prerequisites )
     {
-        graph[current[0]].push_back(current[1]);
+        int course = current[0];
+        int prereq = current[1];
+        graph[prereq].push_back(course);
+        in_degree[course]++;
     }
 
-    for(int index=0;index<numCourses;index++)
+    for(int course=0;course<numCourses;course++)
     {
-        untaken.insert( index );
+        if( in_degree[course] == 0 )
+            c_queue.push( course );
     }
 
-    bool did_push = false;
-    while( ! untaken.empty() )
+    while( ! c_queue.empty() )
     {
-        did_push = false;
-        for( auto candidate : untaken )
+        int current = c_queue.front();
+        c_queue.pop();
+        taken_count++;
+
+        for(int neighbour : graph[current] )
         {
-            if( canBeTaken( candidate, untaken, graph ))
+            in_degree[neighbour]--;
+            if( in_degree[neighbour] == 0 )
             {
-                did_push = true;
-                c_queue.push( candidate );
+                c_queue.push( neighbour );
             }
         }
-        if( did_push == false )
-            break;
-
-        while( ! c_queue.empty () )
-        {
-            int current = c_queue.front();
-            c_queue.pop();
-            auto uit = untaken.find(current);
-            if( uit != untaken.end() )
-                untaken.erase(uit);
-        }
     }
-    if( untaken.empty() )
-        return true;
-    return false;
+    return taken_count == numCourses;
 }
 
 
