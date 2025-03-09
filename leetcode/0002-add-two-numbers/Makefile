@@ -16,5 +16,6 @@ clean:
 	rm -f *.o
 	rm -f *~
 	rm -f *.*~
+	rm -rf *.dSYM
 	rm -f atn
 
