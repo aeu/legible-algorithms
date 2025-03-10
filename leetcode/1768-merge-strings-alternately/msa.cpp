@@ -9,8 +9,8 @@
 #include <iostream>
 #include <string>
 
-std::string mergeStrings(std::string one,
-                         std::string two)
+std::string mergeStrings(std::string &one,
+                         std::string &two)
 {
     std::string::iterator oiter = one.begin();
     std::string::iterator titer = two.begin();
