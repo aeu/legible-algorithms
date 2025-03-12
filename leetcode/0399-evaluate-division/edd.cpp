@@ -26,6 +26,7 @@ std::vector<double> calcEquation(std::vector<std::vector<std::string>>& equation
                                  std::vector<double>& values,
                                  std::vector<std::vector<std::string>>& queries)
 {
+    std::vector<double> retval;
     std::unordered_map<std::string, std::vector<std::pair<std::string, double>>> graph;
     for(int index=0;index<values.size();index++)
     {
@@ -45,14 +46,22 @@ std::vector<double> calcEquation(std::vector<std::vector<std::string>>& equation
         std::vector<std::string> &current_query = queries[index];
         std::string qstart = current_query[0];
         std::string qend   = current_query[1];
+        bool found = false;
 
         std::cout << "q: " << index << " " << qstart << " -> " << qend << std::endl;
-        if(( graph.find(qstart) == graph.end() ) || ( graph.find(quend) == graph.end()))
+        
+        if(( graph.find(qstart) == graph.end() ) || ( graph.find(qend) == graph.end()))
         {
-            //            queries.push_back( -1 );
+            retval.push_back( -1 );
             continue;
         }
 
+        if( qstart == qend )
+        {
+            retval.push_back( 1 );
+            continue;
+        }
+        
         dpath query = { qstart, 1.0 };
         visited.insert( query.current_node );
         squeue.push( query );
@@ -60,19 +69,34 @@ std::vector<double> calcEquation(std::vector<std::vector<std::string>>& equation
         {
             query = squeue.front();
             squeue.pop();
-            auto git = graph.find( query.current_node );
-            if( git == graph.end() )
+            if( query.current_node == qend )
             {
-                //                queries.push_back(-1);
+                retval.push_back( query.weight );
+                found = true;
+                break;
             }
             else
             {
-                //                if( git.second[
+                auto it = graph.find( query.current_node );
+                if( it != graph.end())
+                {
+                    for(auto edge : it->second )
+                    {
+                        std::string next_node = edge.first;
+                        if( visited.find( next_node ) == visited.end())
+                        {
+                            visited.insert( next_node );
+                            double new_weight = query.weight * edge.second;
+                            squeue.push({next_node, new_weight});
+                        }
+                    }
+                }
             }
         }
+        if( found == false )
+            retval.push_back( -1 );
         
     }
-    std::vector<double> retval;
     return retval;
 }
 
@@ -85,9 +109,30 @@ int main(int argc, char **argv)
             {"a","b"},{"b","c"}};
         std::vector<double> values = { 2.0, 3.0 };
         std::vector<std::vector<std::string>> queries =
-            {{"a","c"},{"b","a"},{"a","e"},{"x","x"}};
+            {{"a","c"},{"b","a"},{"a","e"},{"a","a"},{"x","x"}};
         std::vector<double> expected = { 6.0,0.5,-1.0,1.0,-1.0};
         std::vector<double> calculated = calcEquation( equations, values, queries );
+        for(auto curr : calculated )
+        {
+            std::cout << curr << ", " ;
+        }
+        std::cout << std::endl;
+        // std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail") 
+        //           << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        std::vector<std::vector<std::string>> equations = {
+            {"a","b"},{"b","c"},{"bc","cd"}};
+        std::vector<double> values = { 1.5,2.5,5.0 };
+        std::vector<std::vector<std::string>> queries =
+            {{"a","c"},{"c","b"},{"bc","cd"},{"cd","bc"}};
+        std::vector<double> expected = { 3.75,0.4,5.0,0.2};
+        std::vector<double> calculated = calcEquation( equations, values, queries );
+        for(auto curr : calculated )
+        {
+            std::cout << curr << ", " ;
+        }
+        std::cout << std::endl;
         // std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail") 
         //           << " (expected " << expected << ", got " << result << ")\n";
     }
