@@ -14,8 +14,16 @@
 
 using namespace std;
 
-std::vector<int> buildValidLeftPhotographers(int N, string C, int X, int Y)
+void dumpVector(std::vector<int> nums )
 {
+    for( auto curr : nums )
+        std::cout << curr << ", " ;
+    std::cout << endl;
+}
+
+std::vector<int> buildValidLeftPhotographers(const std::string &C, int X, int Y)
+{
+    int N = C.size();
     std::vector<int> photographers(N,0);
     int num_photographers = 0;
     for(int window=0;window<N;window++)
@@ -38,8 +46,9 @@ std::vector<int> buildValidLeftPhotographers(int N, string C, int X, int Y)
     }
     return photographers;
 }
-std::vector<int> buildValidLeftBackdrops(int N, string C, int X, int Y)
-{
+std::vector<int> buildValidLeftBackdrops(const std::string &C, int X, int Y)
+{ 
+    int N = C.size();
     std::vector<int> backdrops(N,0);
     int num_backdrops = 0;
     for(int window=0;window<N;window++)
@@ -64,48 +73,69 @@ std::vector<int> buildValidLeftBackdrops(int N, string C, int X, int Y)
 }
 
 
-std::vector<int> buildValidRightBackdrops(int N, string C, int X, int Y)
+std::vector<int> buildValidRightBackdrops(const std::string &C, int X, int Y)
 {
-    std::string C_rev = C;
-    std::reverse(C_rev.begin(), C_rev.end());
-    
-    // Compute left counts on the reversed string
-    std::vector<int> leftCounts_rev = buildValidLeftBackdrops(N, C_rev, X, Y);
-    
-    // Reverse the result to get the right counts in original order
-    std::reverse(leftCounts_rev.begin(), leftCounts_rev.end());
-    return leftCounts_rev;
+    int N = C.size();
+    std::vector<int> backdrops(N,0);
+    int num_backdrops = 0;
+    for (int window = N-1; window >= 0; window--)
+    {
+        // Gain valid backdrop at index window+X
+        if (window + X < N && C[window+X] == 'B')
+        {
+            num_backdrops++;
+        }
+        // Lose the backdrop at index window+Y+1 (it just left the window)
+        if (window + Y + 1 < N && C[window+Y+1] == 'B')
+        {
+            num_backdrops--;
+        }
+        backdrops[window] = num_backdrops;
+    }
+    return backdrops;
 }
 
-std::vector<int> buildValidRightPhotographers(int N, string C, int X, int Y)
+std::vector<int> buildValidRightPhotographers(const std::string &C, int X, int Y)
 {
-    std::string C_rev = C;
-    std::reverse(C_rev.begin(), C_rev.end());
-    
-    std::vector<int> leftCounts_rev = buildValidLeftPhotographers(N, C_rev, X, Y);
-    std::reverse(leftCounts_rev.begin(), leftCounts_rev.end());
-    return leftCounts_rev;
+    int N = C.size();
+    std::vector<int> photographers(N,0);
+    int num_photographers = 0;
+    for (int window = N-1; window >= 0; window--)
+    {
+        if (window + X < N && C[window+X] == 'P')
+        {
+            num_photographers++;
+        }
+        if (window + Y + 1 < N && C[window+Y+1] == 'P')
+        {
+            num_photographers--;
+        }
+        photographers[window] = num_photographers;
+    }
+    return photographers;
 }
 
-int getArtisticPhotographCount(int N, string C, int X, int Y) {
 
+long long getArtisticPhotographCount(const std::string &C, int X, int Y) {
 
-    std::vector<int> left_photographers = buildValidLeftPhotographers(N,C,X,Y);
-    std::vector<int> left_backdrops     = buildValidLeftBackdrops(N,C,X,Y);
+    int N = C.size();
+
+    std::vector<int> left_photographers = buildValidLeftPhotographers(C,X,Y);
+    std::vector<int> left_backdrops     = buildValidLeftBackdrops(C,X,Y);
     
-    std::vector<int> right_photographers = buildValidRightPhotographers(N,C,X,Y);
-    std::vector<int> right_backdrops     = buildValidRightBackdrops(N,C,X,Y);
+    std::vector<int> right_photographers = buildValidRightPhotographers(C,X,Y);
+    std::vector<int> right_backdrops     = buildValidRightBackdrops(C,X,Y);
 
-    int artistic_photographs = 0;
+    long long artistic_photographs = 0;
     for(int current =0;current<N;current++)
     {
         if( C[current] == 'A' )
         {
-    std::cout << "Checking A at index: " << current << std::endl;
-    std::cout << "  Left photographers: " << left_photographers[current] << std::endl;
-    std::cout << "  Right backdrops: " << right_backdrops[current] << std::endl;
-    std::cout << "  Right photographers: " << right_photographers[current] << std::endl;
-    std::cout << "  Left backdrops: " << left_backdrops[current] << std::endl;
+            // std::cout << "Checking A at index: " << current << std::endl;
+            //  std::cout << "  Left photographers: " << left_photographers[current] << std::endl;
+            //  std::cout << "  Right backdrops: " << right_backdrops[current] << std::endl;
+            //  std::cout << "  Right photographers: " << right_photographers[current] << std::endl;
+            //  std::cout << "  Left backdrops: " << left_backdrops[current] << std::endl;
             
             int left_photogs = left_photographers[current];
             int right_drops = right_backdrops[current];
@@ -122,162 +152,216 @@ int getArtisticPhotographCount(int N, string C, int X, int Y) {
 
 int main(int argc, char **argv)
 {
+    int test_case = 1;
     {
-        int N = 10;
+        std::string C = "APABA";
+        int X = 1;
+        int Y = 2;
+        int expected_return = 1;
+        
+        int art_phot_count = getArtisticPhotographCount(C,X,Y);
+
+        std::cout << "Testcase #" << test_case++ << "   ";
+        if( art_phot_count == expected_return )
+            std::cout << "pass" << std::endl;
+        else
+        {
+            std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
+            std::cout << "X : " << X << std::endl;
+            std::cout << "Y : " << Y << std::endl;
+            std::cout << "C : " << C << std::endl;
+        }
+    }
+    {
+        std::string C = "APABA";
+        int X = 2;
+        int Y = 3;
+        int expected_return = 0;
+        
+        int art_phot_count = getArtisticPhotographCount(C,X,Y);
+
+        std::cout << "Testcase #" << test_case++ << "   ";
+        if( art_phot_count == expected_return )
+            std::cout << "pass" << std::endl;
+        else
+        {
+            std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
+            std::cout << "X : " << X << std::endl;
+            std::cout << "Y : " << Y << std::endl;
+            std::cout << "C : " << C << std::endl;
+        }
+    }
+    {
+        std::string C = ".PBAAP.B";
+        int X = 1;
+        int Y = 3;
+        int expected_return = 3;
+        
+        int art_phot_count = getArtisticPhotographCount(C,X,Y);
+
+        std::cout << "Testcase #" << test_case++ << "   ";
+        if( art_phot_count == expected_return )
+            std::cout << "pass" << std::endl;
+        else
+        {
+            std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
+            std::cout << "X : " << X << std::endl;
+            std::cout << "Y : " << Y << std::endl;
+            std::cout << "C : " << C << std::endl;
+        }
+    }
+    {
         std::string C = "P........A........B";
         int X = 5;
         int Y = 10;
         int expected_return = 1;
         
-        int art_phot_count = getArtisticPhotographCount(N,C,X,Y);
+        int art_phot_count = getArtisticPhotographCount(C,X,Y);
 
+        std::cout << "Testcase #" << test_case++ << "   ";
         if( art_phot_count == expected_return )
             std::cout << "pass" << std::endl;
         else
+        {
             std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
+            std::cout << "X : " << X << std::endl;
+            std::cout << "Y : " << Y << std::endl;
+            std::cout << "C : " << C << std::endl;
+        }
     }
-    return 1;
-
     {
-        int N = 5;
         std::string C = "APABA";
         int X = 1;
         int Y = 2;
         int expected_return = 1;
         
-        int art_phot_count = getArtisticPhotographCount(N,C,X,Y);
+        int art_phot_count = getArtisticPhotographCount(C,X,Y);
 
+        std::cout << "Testcase #" << test_case++ << "   ";
         if( art_phot_count == expected_return )
             std::cout << "pass" << std::endl;
         else
+        {
             std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
+            std::cout << "X : " << X << std::endl;
+            std::cout << "Y : " << Y << std::endl;
+            std::cout << "C : " << C << std::endl;
+        }
     }
     {
-        int N = 5;
         std::string C = "APABA";
         int X = 2;
         int Y = 3;
         int expected_return = 0;
         
-        int art_phot_count = getArtisticPhotographCount(N,C,X,Y);
+        int art_phot_count = getArtisticPhotographCount(C,X,Y);
 
+        std::cout << "Testcase #" << test_case++ << "   ";
         if( art_phot_count == expected_return )
             std::cout << "pass" << std::endl;
         else
+        {
             std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
+            std::cout << "X : " << X << std::endl;
+            std::cout << "Y : " << Y << std::endl;
+            std::cout << "C : " << C << std::endl;
+        }
     }
     {
-        int N = 8;
         std::string C = ".PBAAP.B";
         int X = 1;
         int Y = 3;
         int expected_return = 3;
         
-        int art_phot_count = getArtisticPhotographCount(N,C,X,Y);
+        int art_phot_count = getArtisticPhotographCount(C,X,Y);
 
+        std::cout << "Testcase #" << test_case++ << "   ";
         if( art_phot_count == expected_return )
             std::cout << "pass" << std::endl;
         else
+        {
             std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
+            std::cout << "X : " << X << std::endl;
+            std::cout << "Y : " << Y << std::endl;
+            std::cout << "C : " << C << std::endl;
+        }
     }
     {
-        int N = 5;
-        std::string C = "APABA";
-        int X = 1;
-        int Y = 2;
-        int expected_return = 1;
-        
-        int art_phot_count = getArtisticPhotographCount(N,C,X,Y);
-
-        if( art_phot_count == expected_return )
-            std::cout << "pass" << std::endl;
-        else
-            std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
-    }
-    {
-        int N = 5;
-        std::string C = "APABA";
-        int X = 2;
-        int Y = 3;
-        int expected_return = 0;
-        
-        int art_phot_count = getArtisticPhotographCount(N,C,X,Y);
-
-        if( art_phot_count == expected_return )
-            std::cout << "pass" << std::endl;
-        else
-            std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
-    }
-    {
-        int N = 8;
-        std::string C = ".PBAAP.B";
-        int X = 1;
-        int Y = 3;
-        int expected_return = 3;
-        
-        int art_phot_count = getArtisticPhotographCount(N,C,X,Y);
-
-        if( art_phot_count == expected_return )
-            std::cout << "pass" << std::endl;
-        else
-            std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
-    }
-    {
-        int N = 6;
         std::string C = "P..A..B";
         int X = 2;
         int Y = 2;
-        int expected_return = 1;
+        int expected_return = 0;
         
-        int art_phot_count = getArtisticPhotographCount(N,C,X,Y);
+        int art_phot_count = getArtisticPhotographCount(C,X,Y);
 
+        std::cout << "Testcase #" << test_case++ << "   ";
         if( art_phot_count == expected_return )
             std::cout << "pass" << std::endl;
         else
+        {
             std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
+            std::cout << "X : " << X << std::endl;
+            std::cout << "Y : " << Y << std::endl;
+            std::cout << "C : " << C << std::endl;
+        }
     }
     {
-        int N = 5;
         std::string C = "A.PB.";
         int X = 1;
         int Y = 3;
         int expected_return = 0;
         
-        int art_phot_count = getArtisticPhotographCount(N,C,X,Y);
+        int art_phot_count = getArtisticPhotographCount(C,X,Y);
 
+        std::cout << "Testcase #" << test_case++ << "   ";
         if( art_phot_count == expected_return )
             std::cout << "pass" << std::endl;
         else
+        {
             std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
+            std::cout << "X : " << X << std::endl;
+            std::cout << "Y : " << Y << std::endl;
+            std::cout << "C : " << C << std::endl;
+        }
     }
     {
-        int N = 5;
         std::string C = ".PB.A";
         int X = 1;
         int Y = 3;
         int expected_return = 0;
         
-        int art_phot_count = getArtisticPhotographCount(N,C,X,Y);
+        int art_phot_count = getArtisticPhotographCount(C,X,Y);
 
+        std::cout << "Testcase #" << test_case++ << "   ";
         if( art_phot_count == expected_return )
             std::cout << "pass" << std::endl;
         else
+        {
             std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
+            std::cout << "X : " << X << std::endl;
+            std::cout << "Y : " << Y << std::endl;
+            std::cout << "C : " << C << std::endl;
+        }
     }
     {
-        int N = 10;
         std::string C = "P.AA..B...";
         int X = 1;
         int Y = 5;
         int expected_return = 2;
         
-        int art_phot_count = getArtisticPhotographCount(N,C,X,Y);
+        int art_phot_count = getArtisticPhotographCount(C,X,Y);
 
+        std::cout << "Testcase #" << test_case++ << "   ";
         if( art_phot_count == expected_return )
             std::cout << "pass" << std::endl;
         else
+        {
             std::cout << "fail, retval should be " << expected_return << " you returned : " << art_phot_count << std::endl;
+            std::cout << "X : " << X << std::endl;
+            std::cout << "Y : " << Y << std::endl;
+            std::cout << "C : " << C << std::endl;
+        }
     }
-
-
+#if 0
+#endif
 }
