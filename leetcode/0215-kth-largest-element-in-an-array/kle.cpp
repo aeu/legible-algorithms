@@ -41,14 +41,16 @@ int quickSelect(std::vector<int> &nums, int left, int right, int k )
 {
     if( left == right )
         return nums[left];
+
     int pivot_index = partition(nums,left,right);
 
     if( pivot_index == k )
         return nums[k];
-    else if ( k < pivot_index )
+    
+    if ( k < pivot_index )
         return quickSelect(nums,left,pivot_index-1,k);
-    else
-        return quickSelect(nums,pivot_index+1,right,k);
+    
+    return quickSelect(nums,pivot_index+1,right,k);
 }
 
 int findKthLargest(std::vector<int>& nums, int k)
