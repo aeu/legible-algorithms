@@ -31,7 +31,6 @@ void setZeroes(std::vector<std::vector<int>> &matrix)
             }
         }
     }
-    std::cout << "zeroes found " << found_zeroes.size() << std::endl;
     for(auto current : found_zeroes )
     {
         std::fill( matrix[current.first].begin(), matrix[current.first].end(),0);
