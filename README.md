@@ -144,6 +144,7 @@ I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0019-remove-nth-node-from-end-of-list">Leetcode &numero; 19 (Medium) &mdash; Remove Nth Node From End of List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0036-valid-sudoku">Leetcode &numero; 36 (Medium) &mdash; Valid Sudoku (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0048-rotate-image">Leetcode &numero; 48 (Medium) &mdash; Rotate Image (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0054-spiral-matrix">Leetcode &numero; 54 (Medium) &mdash; Spiral Matrix (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0055-jump-game">Leetcode &numero; 55 (Medium) &mdash; Jump Game (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0061-rotate-list">Leetcode &numero; 61 (Medium) &mdash; Rotate List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0080-remove-duplicates-from-sorted-array-ii">Leetcode &numero; 80 (Medium) &mdash; Remove duplicates from Sorted Array II (C)</a>  
