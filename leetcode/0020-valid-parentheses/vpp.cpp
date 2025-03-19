@@ -42,12 +42,17 @@ bool isValid(std::string s)
     std::stack<char> cstack;
     for(char current : s )
     {
+        char tos;
         if( isOpener( current ))
         {
             cstack.push( current );
             continue;
         }
-        char tos = cstack.top();
+        if( cstack.size() > 0 )
+            tos = cstack.top();
+        else
+            tos = '0';
+        
         if( arePair( tos,current) )
         {
             cstack.pop();
