@@ -48,11 +48,11 @@ bool isValid(std::string s)
             cstack.push( current );
             continue;
         }
-        if( cstack.size() > 0 )
-            tos = cstack.top();
-        else
-            tos = '0';
         
+        if( cstack.empty() )
+            return false;
+        
+        tos = cstack.top();
         if( arePair( tos,current) )
         {
             cstack.pop();
