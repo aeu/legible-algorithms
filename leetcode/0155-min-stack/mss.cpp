@@ -35,19 +35,17 @@ public:
     void push(int val)
     {
         value_stack.push(val);
-        if( min_stack.size() == 0 )
-            min_stack.push(val);
-        else
+        if(( min_stack.empty() ) || ( val <= min_stack.top ()))
         {
-            if( val < min_stack.top () )
-            {
-                min_stack.push(val);
-            }
+            min_stack.push(val);
         }
     }
 
     void pop()
     {
+        if( value_stack.empty() )
+            return;
+        
         int popped = value_stack.top();
         value_stack.pop();
         if( popped == min_stack.top() )
