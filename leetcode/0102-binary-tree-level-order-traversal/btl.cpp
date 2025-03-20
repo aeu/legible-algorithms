@@ -57,20 +57,13 @@ std::vector<std::vector<int>> levelOrder(TreeNode *root)
 
         if( current.level == current_level )
         {
-            //            std::cout << "current level : " << current_level << " queue level " << current.level << std::endl;
             values.push_back( current.node->val );
-            //            dumpValues( values );
         }
         else
         {
-            //            dumpValues( values );
-            //            std::cout << "level changed, add the current values vector (above) to levels" << std::endl;
             levels.push_back( values );
-
-            //            std::cout << "now add the guy that triggered the change" << std::endl;
             values.clear();
             values.push_back( current.node->val );
-            //            dumpValues( values );
             current_level = current.level;
         }
         if( current.node->left != nullptr )
