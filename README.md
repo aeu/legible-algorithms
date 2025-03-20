@@ -80,28 +80,21 @@ Puzzles and problems from the meta careers interview preparation portal.
 
 
 
-
-
 ### Leetcode
 
-Leetcode has a funny subculture.  If you look at the solutions, you
-will see very often things like "solution in 4 lines of C" or
-"solution in two lines of python" and so on.
-
-I don't have that ability so my implementations are a little more
-verbose and sometimes inconsistent, as my style has evolved over the
-years. My solutions are in a mix of Objective-C and C++ depending on
-what I was doing at the time.
+Solutions are in a mix of Objective-C and C++ depending on what I was
+doing at the time.  These days it's mostly C++.
 
 Recently I've started re-visiting my old solutions to see how they
 held up to the test of time and improving their implementations as
 I've learned more.
 
 Some of my earlier implementations were really bad.  Like really,
-really bad.  As I go over these I have to keep reminding myself that
-this is a good thing.  If I didn't look back at my code years later
-and see that it was bad, then that means that I haven't improved since
-I wrote it.
+really, really bad.
+
+As I go over these I have to keep reminding myself that this is a good
+thing.  If I didn't look back at my code years later and see that it
+was bad, then that means that I haven't improved since I wrote it.
 
 
 #### Easy
@@ -139,7 +132,7 @@ I wrote it.
 
 #### Medium
 
-
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0103-binary-tree-zigzag-level-order-traversal">Leetcode &numero; 103 (Medium) &mdash; Binary Tree ZigZag Level Order Traversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0007-reverse-integer">Leetcode &numero; 7 (Medium) &mdash; Reverse Integer (C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0008-string-to-integer-atoi">Leetcode &numero; 8 (Medium) &mdash; String to Integer (C++)</a>  
