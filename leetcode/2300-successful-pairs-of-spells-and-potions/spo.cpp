@@ -30,13 +30,16 @@ int firstSuccessfulPotion(int spell,
                           std::vector<int> &potions,
                           long long success )
 {
+    //    std::cout << "fsp called with spell : " << spell << " and success : " << success << std::endl;
     int low = 0;
     int high = potions.size() -1 ;
     int mid = low + (high - low ) / 2 ;
     int did_succeed = false;
-    while( low < high )
+    while( low <= high )
     {
+        //        std::cout << "\tL: " << low << " M: " << mid << " H: " << high << std::endl;
         int strength = potions[mid] * spell;
+        //        std::cout << "\tStrength: " << strength << std::endl;
         if( strength >= success )
         {
             high = mid;
@@ -47,9 +50,16 @@ int firstSuccessfulPotion(int spell,
             low = mid + 1;
         }
         mid = low + (high - low ) / 2 ;        
+        //        std::cout << "\tEOL L: " << low << " M: " << mid << " H: " << high << std::endl;
+        if(( low == high ) && ( did_succeed == true ))
+            break;
     }
     if( did_succeed == true )
+    {
+        //        std::cout << "fsp returning : " << mid << " which corresponds to " << potions[mid] << std::endl;
         return mid;
+    }
+    //    std::cout << "fsp returning : -1" << std::endl;
     return -1;
 }
 
@@ -74,6 +84,15 @@ std::vector<int> successfulPairs(std::vector<int> &spells,
 int main(int argc, char **argv)
 {
     int test_case = 1;
+    {
+        int success = 25;
+        std::vector<int> spells   = { 1,2,3,4,5,6,7 };
+        std::vector<int> potions  = { 1,2,3,4,5,6,7 };
+        std::vector<int> expected = { 0,0,0,1,3,3,4 };
+        std::vector<int> result   = successfulPairs(spells,potions,success);
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        //   std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
     {
         int success = 7;
         std::vector<int> spells   = { 5,1,3};
