@@ -30,16 +30,13 @@ int firstSuccessfulPotion(int spell,
                           std::vector<int> &potions,
                           long long success )
 {
-    //    std::cout << "fsp called with spell : " << spell << " and success : " << success << std::endl;
     int low = 0;
     int high = potions.size() -1 ;
     int mid = low + (high - low ) / 2 ;
     int did_succeed = false;
     while( low <= high )
     {
-        //        std::cout << "\tL: " << low << " M: " << mid << " H: " << high << std::endl;
-        int strength = potions[mid] * spell;
-        //        std::cout << "\tStrength: " << strength << std::endl;
+        long long strength = (long long) potions[mid] * spell;
         if( strength >= success )
         {
             high = mid;
@@ -50,16 +47,13 @@ int firstSuccessfulPotion(int spell,
             low = mid + 1;
         }
         mid = low + (high - low ) / 2 ;        
-        //        std::cout << "\tEOL L: " << low << " M: " << mid << " H: " << high << std::endl;
         if(( low == high ) && ( did_succeed == true ))
             break;
     }
     if( did_succeed == true )
     {
-        //        std::cout << "fsp returning : " << mid << " which corresponds to " << potions[mid] << std::endl;
         return mid;
     }
-    //    std::cout << "fsp returning : -1" << std::endl;
     return -1;
 }
 
