@@ -75,12 +75,9 @@ std::vector<double> averageOfLevels(TreeNode *root)
         {
             running_sum += current.node->val;
             num_at_level++;
-            std::cout << "Level : " << current_level << " # " << num_at_level << " Sum: " << running_sum << std::endl;
         }
         else
         {
-            std::cout << "Level: " << current.level << " NAL : " << num_at_level << " RS: " << running_sum << std::endl;
-                
             double average = running_sum / num_at_level;
             averages.push_back( average );
             running_sum = 0;
@@ -92,18 +89,15 @@ std::vector<double> averageOfLevels(TreeNode *root)
         }
         if( current.node->left != nullptr )
         {
-            std::cout << "pushing : " << current.node->left->val << " with a depth of " << current.level + 1 << std::endl;
             bfs_queue.push( { current.level + 1 , current.node->left } );
         }
         if( current.node->right != nullptr )
         {
-            std::cout << "pushing : " << current.node->right->val << " with a depth of " << current.level + 1 << std::endl;
             bfs_queue.push( { current.level + 1 , current.node->right } );
         }
     }
     double average = running_sum / num_at_level;
     averages.push_back( average );
-    dumpDoubles(averages);
     return averages;
 }
 
@@ -124,7 +118,6 @@ TreeNode *buildTree(std::vector<std::optional<int>> values)
             TreeNode *left = new TreeNode( values[index].value() );
             current->left = left;
             tqueue.push(left);
-            std::cout << "adding node with value " << left->val << std::endl;
         }
         index++;
         if(( index < values.size()) && ( values[index].has_value() ))
@@ -132,7 +125,6 @@ TreeNode *buildTree(std::vector<std::optional<int>> values)
             TreeNode *right = new TreeNode( values[index].value() );
             current->right = right;
             tqueue.push(right);
-            std::cout << "adding node with value " << right->val << std::endl;
         }
         index++;
     }
