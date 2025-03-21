@@ -99,6 +99,7 @@ was bad, then that means that I haven't improved since I wrote it.
 
 #### Easy
 
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0020-valid-parentheses">Leetcode &numero; 20 (Easy) &mdash; Valid Parentheses (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0021-merge-two-sorted-lists">Leetcode &numero; 21 (Easy) &mdash; Merge Two Sorted Lists (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0026-remove-duplicates-from-sorted-array">Leetcode &numero; 26 (Easy) &mdash; Remove Duplicates from Sorted Array (C++)</a>  
@@ -113,6 +114,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0169-majority-element">Leetcode &numero; 169 (Easy) &mdash; Majority Element (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0206-reverse-linked-list">Leetcode &numero; 206 (Easy) &mdash; Reverse Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0226-invert-binary-tree">Leetcode &numero; 226 (Easy) &mdash; Invert Binary Tree (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0242-valid-anagram">Leetcode &numero; 242 (Easy) &mdash; Valid Anagram (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0283-move-zeroes">Leetcode &numero; 283 (Easy) &mdash; Move Zeroes (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0290-word-pattern">Leetcode &numero; 290 (Easy) &mdash; Word Pattern (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0338-counting-bits">Leetcode &numero; 338 (Easy) &mdash; Counting Bits (C++)</a>  
@@ -226,6 +228,7 @@ le
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0239-sliding-window-maximum">Leetcode &numero; 239 (Hard) &mdash; Sliding Window Maximum(C++/Hard)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1923-longest-common-subpath">Leetcode &numero; 1923 (Hard) &mdash; Longest Common Subpath (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2106-maximum-fruits-harvested-after-at-most-k-steps">Leetcode &numero; 2106 (Hard) &mdash; Maximum Fruits Harvested After at Most K Steps (Obj-C)</a>  
+
 
 
 
