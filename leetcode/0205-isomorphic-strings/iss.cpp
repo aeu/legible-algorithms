@@ -23,7 +23,10 @@ bool isIsomorphic(std::string s, std::string t)
         char schar = s[i];
         char tchar = t[i];
         if( schar == tchar )
+        {
+            already_mapped.insert(tchar);
             continue;
+        }
         auto mit = mappings.find( schar );
         if( mit != mappings.end() )
         {
@@ -51,6 +54,15 @@ int main(int argc, char **argv)
 {
     std::cout << "Leetcode #205 - Isomorphic Streings" << std::endl;
     int test_case = 1;
+    {
+        std::string s = "badc";
+        std::string t = "baba";
+        bool expected = false;
+        bool result = isIsomorphic(s,t);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
     {
         std::string s = "egg";
         std::string t = "add";
