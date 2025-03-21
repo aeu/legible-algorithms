@@ -22,28 +22,25 @@ bool isIsomorphic(std::string s, std::string t)
     {
         char schar = s[i];
         char tchar = t[i];
-        if( schar == tchar )
-        {
-            already_mapped.insert(tchar);
-            continue;
-        }
+        // check to see if schar is already mapped to something
         auto mit = mappings.find( schar );
-        if( mit != mappings.end() )
+        if( mit == mappings.end() )
         {
-            // check to see if it's been mapped to another char.  If it has, fail out
-            if( mit->second != tchar )
+            if( already_mapped.find(tchar) != already_mapped.end() )
             {
+                // tchar has been mapped by someone else.  fail out.
                 return false;
             }
+            mappings[schar] = tchar;
+            already_mapped.insert(tchar);
         }
         else
         {
-            // make sure tchar hasn't been mapped already by someone else
-            if( already_mapped.find(tchar) != already_mapped.end() )
+            if( mit->second != tchar )
+            {
+                // schar is already mapping to a different tchar. fail out
                 return false;
-
-            mappings[schar] = tchar;
-            already_mapped.insert(tchar);
+            }
         }
     }
     return true;
@@ -54,6 +51,15 @@ int main(int argc, char **argv)
 {
     std::cout << "Leetcode #205 - Isomorphic Streings" << std::endl;
     int test_case = 1;
+    {
+        std::string s = "bbbaaaba";
+        std::string t = "aaabbbba";
+        bool expected = false;
+        bool result = isIsomorphic(s,t);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
     {
         std::string s = "badc";
         std::string t = "baba";
