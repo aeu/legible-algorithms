@@ -83,8 +83,17 @@ int dfs(std::vector<std::vector<int>> &triangle,
 
 int minimumTotal(std::vector<std::vector<int>> &triangle)
 {
-    dfs(triangle, { 0, 0 }, 0 );
-    return min_path;
+    int second_to_last_row = triangle.size()-2;
+    for(int row = second_to_last_row; row >= 0;row--)
+    {
+        for(int col = 0;col < triangle[row].size();col++)
+        {
+            int current_plus_left  = triangle[row][col] + triangle[row+1][col];
+            int current_plus_right = triangle[row][col] + triangle[row+1][col+1];
+            triangle[row][col] = std::min( current_plus_left, current_plus_right );
+        }
+    }
+    return triangle[0][0];
 }
 
 
