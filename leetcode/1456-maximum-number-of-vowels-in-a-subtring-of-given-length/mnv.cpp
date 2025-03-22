@@ -20,22 +20,20 @@ bool isVowel(const char candidate)
     return vowels.find(candidate) != std::string::npos;
 }
             
-
-int maximumNumberOfVowels(const std::string &data,
-                          const int length )
+int maxVowels(std::string s, int k)
 {
-    if( data.length() < length )
+    if( s.length() < k )
         return -1;
-    if( length <= 0 )
+    if( k <= 0 )
         return -1;
     
     int vowel_count = 0;
     int max_vowels = 0;
     size_t start = 0;
-    size_t end   = length - 1;
-    for(int index=start;index<length;index++)
+    size_t end   = k - 1;
+    for(int index=start;index<k;index++)
     {
-        char current = data[index];
+        char current = s[index];
         if( isVowel( current ))
             vowel_count++;
     }
@@ -43,16 +41,16 @@ int maximumNumberOfVowels(const std::string &data,
     //
     // if we already have as many vowels as k, no need to keep going
     //
-    if ( max_vowels == length )
+    if ( max_vowels == k )
         return max_vowels;
     end++;
-    while( end < data.length() )
+    while( end < s.length() )
     {
-        if( isVowel(data[end]))
+        if( isVowel(s[end]))
         {
             vowel_count++;
         }
-        if( isVowel(data[start]))
+        if( isVowel(s[start]))
         {
             vowel_count--;
         }
@@ -63,11 +61,12 @@ int maximumNumberOfVowels(const std::string &data,
         // if we already have as many vowels as k, no need to keep
         // going
         //
-        if ( max_vowels == length )
+        if ( max_vowels == k )
             return max_vowels;
     }
     
     return max_vowels;
+    
 }
 
 
@@ -76,25 +75,32 @@ int main(int argc, char **argv)
     float max_vowels;
 
     std::cout << "Leetcode 1456 - Maximum Number of Vowels in a Substring of Given Length" << std::endl;
+    int test_case = 1;
     {
-        std::string data = "abciiidef";
+        std::string s = "abciiidef";
         int k = 3;
-        std::cout << "Counting: " << data << ", with k: " << k << std::endl;
-        max_vowels = maximumNumberOfVowels(data, k );
-        std::cout << "Maximum Number of Vowels : " << max_vowels << std::endl;
+        int expected = 3; 
+        int result = maxVowels(s,k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::string data = "aeiou"; 
+        std::string s = "aeiou";
         int k = 2;
-        std::cout << "Counting: " << data << ", with k: " << k << std::endl;
-        max_vowels = maximumNumberOfVowels(data, k );
-        std::cout << "Maximum Number of Vowels : " << max_vowels << std::endl;
+        int expected = 2; 
+        int result = maxVowels(s,k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::string data = "leetcode";
+        std::string s = "leetcode";
         int k = 3;
-        std::cout << "Counting: " << data << ", with k: " << k << std::endl;
-        max_vowels = maximumNumberOfVowels(data, k );
-        std::cout << "Maximum Number of Vowels : " << max_vowels << std::endl;
+        int expected = 2; 
+        int result = maxVowels(s,k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
 }
