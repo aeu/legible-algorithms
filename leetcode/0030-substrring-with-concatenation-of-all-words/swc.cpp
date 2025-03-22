@@ -47,19 +47,24 @@ std::vector<int> findSubstring(std::string s, std::vector<std::string>& words)
         target_map[current]++;
     }
     
-    std::sort( words.begin(), words.end() );
     int left = 0;
     int right = window_length;
     while( left + window_length <= s.length () )
     {
-        std::string curr_window = s.substr(left,window_length);
-        //       std::cout << "curr: " << curr_window << std::endl;
-        bool iscat = isConcatenation( curr_window, wordlen, target_map );
-        if( iscat )
+        bool valid = true;
+        std::unordered_map<std::string,int> seen;
+        for(int i = 0;i<words.size();i++)
         {
-            //            std::cout << "HIT at position " << left << " for : " << curr_window << std::endl;
-            found.push_back(left);
+            std::string curr = s.substr((left + ( i * wordlen )),wordlen);
+            seen[curr]++;
+            if( seen[curr] > target_map[curr] )
+            {
+                valid = false;
+                break;
+            }
         }
+        if ( valid == true )
+            found.push_back(left);
         left++;
     }
     return found;
