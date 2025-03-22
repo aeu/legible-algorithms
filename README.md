@@ -215,9 +215,11 @@ le
 
 #### Hard
 
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0004-median-of-two-sorted-arrays">Leetcode &numero; 4 (Hard) &mdash; Median of Two Sorted Arrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0023-merge-k-sorted-lists">Leetcode &numero; 23 (Hard) &mdash; Merge K Sorted Lists (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0025-reverse-nodes-in-k-group">Leetcode &numero; 25 (Hard) &mdash; Reverse Nodes in k-Group (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0030-substrring-with-concatenation-of-all-words">Leetcode &numero; 30 (Hard) &mdash; Substring With Concatenation of All Words (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0041-first-missing-positive">Leetcode &numero; 41 (Hard) &mdash; First Missing Positive (C++)</a>.   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0042-trapping-rain-water">Leetcode &numero; 42 (Hard) &mdash; Trapping Rain Water (C++)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0051-n-queens">Leetcode &numero; 51 (Hard) &mdash; N-Queens (C++11)</a>.  
