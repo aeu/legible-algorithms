@@ -27,52 +27,57 @@ void dumpNumbers(const std::vector<int> &numbers )
 }
 
 
-float maximumAverageSubarray(const std::vector<int> &numbers,
-                             const int array_length)
+double findMaxAverage(std::vector<int>& nums, int k)
 {
-    if( numbers.size() < array_length )
+    if( nums.size() < k )
         return -1;
 
-    if( array_length < 1 )
+    if( k < 1 )
         return -1;
     
     int start = 0;
-    int end = array_length-1;
-    float current_sum;
-    float max_avs = 0;
+    int end = k-1;
+    double current_sum;
+    double max_avs = 0;
 
     current_sum = 0;
     for(int index=0;index<=end;index++)
     {
-        current_sum += numbers[index];
+        current_sum += nums[index];
     }
     max_avs = current_sum;
-    while( end < numbers.size() - 1 )
+    while( end < nums.size() - 1 )
     {
         end++;
-        current_sum = current_sum + numbers[end];
-        current_sum = current_sum - numbers[start];
+        current_sum = current_sum + nums[end];
+        current_sum = current_sum - nums[start];
         start++;
         max_avs = std::max( max_avs, current_sum );
     }
-    return max_avs / array_length;;
+    return max_avs / k;
 }
+
 
 int main(int argc, char **argv)
 {
-    float max_avs;
-
     std::cout << "Leetcode 0643 - Maximum Average Subarray I" << std::endl;
+    int test_case = 1;
     {
-        std::vector<int> numbers = { 1,12,-5,-6,50,3 };
-        dumpNumbers(numbers);
-        max_avs = maximumAverageSubarray(numbers, 4 );
-        std::cout << "Maximum Average Subarray : " << max_avs << std::endl;
+        std::vector<int> nums = { 1,12,-5,-6,50,3 };
+        int k = 4;
+        double expected = 12.75;
+        double result = findMaxAverage(nums,k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::vector<int> numbers = { 5 };
-        dumpNumbers(numbers);
-        max_avs = maximumAverageSubarray(numbers, 1 );
-        std::cout << "Maximum Average Subarray : " << max_avs << std::endl;
+        std::vector<int> nums = { 5 };
+        int k = 1;
+        double expected = 5.0;
+        double result = findMaxAverage(nums,k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
 }
