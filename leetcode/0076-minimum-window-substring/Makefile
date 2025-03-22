@@ -1,11 +1,19 @@
 CC=g++
+CPPFLAGS=-g -Wall -std=c++17 -I.
 
-OBJECTS = 	main.o
+OBJS = mws.o
+#	other.o
 
-CFLAGS=-g -v -Wall -std=c++17
+%.o: %.c
+	$(CC) -o $@
 
-bst	: $(OBJECTS)
-	$(CC) $(CFLAGS) -o mws $(OBJECTS)
+mws: $(OBJS)
+	$(CC) $(CPPFLAGS) -o $@ $^
 
-clean	:
-	rm *~ *.*~ mws $(OBJECTS)
+
+clean:
+	rm -f *.o
+	rm -f *~
+	rm -f *.*~
+	rm -f mws
+
