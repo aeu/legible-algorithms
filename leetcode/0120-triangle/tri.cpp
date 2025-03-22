@@ -76,9 +76,9 @@ int dfs(std::vector<std::vector<int>> &triangle,
         min_path = std::min( min_path, path_sum );
         return path_sum;
     }
-    if( isValid(left))
+    if( isValid(triangle,left))
         dfs( triangle,left,value+valueAt(triangle,current));
-    if( isValid(right))
+    if( isValid(triangle,right))
         dfs( triangle,right,value+valueAt(triangle,current));
 
 }
