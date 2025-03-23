@@ -141,6 +141,7 @@ was bad, then that means that I haven't improved since I wrote it.
 #### Medium
 
 
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0167-two-sum-ii">Leetcode &numero; 167 (Medium) &mdash; Two Sum II - Input Array is Sorted (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0007-reverse-integer">Leetcode &numero; 7 (Medium) &mdash; Reverse Integer (C)</a>  
