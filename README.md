@@ -141,8 +141,6 @@ was bad, then that means that I haven't improved since I wrote it.
 
 #### Medium
 
-
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0074-search-a-2d-matrix">Leetcode &numero; 74 (Medium) &mdash; Search a 2D Matrix (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0007-reverse-integer">Leetcode &numero; 7 (Medium) &mdash; Reverse Integer (C)</a>  
@@ -156,7 +154,9 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0054-spiral-matrix">Leetcode &numero; 54 (Medium) &mdash; Spiral Matrix (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0055-jump-game">Leetcode &numero; 55 (Medium) &mdash; Jump Game (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0061-rotate-list">Leetcode &numero; 61 (Medium) &mdash; Rotate List (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0071-simplify-path">Leetcode &numero; 71 (Medium) &mdash; Simplify Path (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0073-set-matrix-zeroes">Leetcode &numero; 73 (Medium) &mdash; Set Matrix Zeroes (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0074-search-a-2d-matrix">Leetcode &numero; 74 (Medium) &mdash; Search a 2D Matrix (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0080-remove-duplicates-from-sorted-array-ii">Leetcode &numero; 80 (Medium) &mdash; Remove duplicates from Sorted Array II (C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0082-remove-duplicates-from-sorted-list-ii">Leetcode &numero; 82 (Medium) &mdash; Remove Duplicates from Sorted List II II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0092-reverse-linked-list-ii">Leetcode &numero; 92 (Medium) &mdash; Reverse Linked List II (C++)</a>  
