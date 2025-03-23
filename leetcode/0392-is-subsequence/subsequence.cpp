@@ -16,9 +16,9 @@ bool isSubsequence(const std::string &candidate,
     if( candidate.length() > superstring.length() )
         return false;
 
-    if(( candidate.lengt() == 0 ) || ( superstring.length() == 0 ))
-        return false;
-
+    if( candidate.length() == 0 )
+        return true;
+    
     int candidate_index = 0;
     for(size_t superstring_index=0;superstring_index<superstring.length();superstring_index++)
     {
@@ -36,17 +36,33 @@ bool isSubsequence(const std::string &candidate,
 
 int main(int argc, char **argv)
 {
+    int test_case = 1;
     std::cout << "Leetcode #392 - Is Subsequence" << std::endl << std::endl;
     {
-        std::string candidate   = "abc";
-        std::string superstring = "ahbgdc";
-        bool is_subsequence = isSubsequence( candidate, superstring );
-        std::cout << candidate << " is " << ( is_subsequence ? "" : "not " ) << "a subsequence of " << superstring << std::endl;
+        std::string s   = "abc";
+        std::string t = "ahbgdc";
+        bool expected = true;
+        bool result = isSubsequence( s, t );
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl;
     }
     {
-        std::string candidate   = "axc";
-        std::string superstring = "ahbgdc";
-        bool is_subsequence = isSubsequence( candidate, superstring );
-        std::cout << candidate << " is " << ( is_subsequence ? "" : "not " ) << "a subsequence of " << superstring << std::endl;
+        std::string s   = "axc";
+        std::string t = "ahbgdc";
+        bool expected = false;
+        bool result = isSubsequence( s, t );
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl;
+    }
+    {
+        std::string s   = "";
+        std::string t = "ahbgdc";
+        bool expected = true;
+        bool result = isSubsequence( s, t );
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl;
     }
 }
