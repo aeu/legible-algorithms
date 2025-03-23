@@ -27,21 +27,21 @@ void dumpValues(std::vector<int> values )
     std::cout << "]" << std::endl;
 }
 
+
 int findPeakElement(std::vector<int>& nums)
 {
-    size_t mid;
-    size_t low = 0;
-    size_t hight = nums.size() - 1 ;
-    while( low < hight )
+    int low = 0;
+    int high = nums.size() - 1;
+    while( low < high )
     {
-        mid = low + ( ( hight - low ) / 2 );
-        if( nums[mid] > nums[mid+1] )
+        int mid = low + ((high-low)/2);
+        if ( nums[mid] < nums[mid+1] )
         {
-            hight = mid;
+            low = mid+1;
         }
         else
         {
-            low = mid+1;
+            high = mid;
         }
     }
     return low;
@@ -50,19 +50,22 @@ int findPeakElement(std::vector<int>& nums)
 int main(int argc, char **argv)
 {
     std::cout << "Leetcode #162 - Find Peak Element" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::cout << "Example 1" << std::endl;
-        std::vector<int> values = {1,2,3,1};
-        dumpValues(values);
-        int peak = findPeakElement( values );
-        std::cout << "Peak Element : " << peak << std::endl;
+        std::vector<int> nums = { 1,2,3,1 };
+        int expected = 2;
+        int result = findPeakElement(nums);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::cout << "Example 2" << std::endl;
-        std::vector<int> values = {1,2,1,3,5,6,4};
-        dumpValues(values);
-        int peak = findPeakElement( values );
-        std::cout << "Peak Element : " << peak << std::endl;
+        std::vector<int> nums = { 1,2,1,3,5,6,4};
+        int expected = 5;
+        int result = findPeakElement(nums);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     return -1;
 }
