@@ -240,6 +240,7 @@ le
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0084-largest-rectangle-in-histogram">Leetcode &numero; 84 (Hard) &mdash; Largest Rectangle in Histogram (C++11)   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0085-maximal-rectangle">Leetcode &numero; 85 (Hard) &mdash; Maximal Rectangle (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0123-best-time-to-buy-and-sell-stock-iii">Leetcode &numero; 123 (Hard) &mdash; Best time to Buy and Sell Stock III (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0124-binary-tree-maximum-path-sum">Leetcode &numero; 124 (Hard) &mdash; Binary Tree Maximum Path Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0127-word-ladder">Leetcode &numero; 127 (Hard) &mdash; Word Ladder (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0135-candy">Leetcode &numero; 135 (Hard) &mdash; Candy (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0149_max_points_on_a_line">Leetcode &numero; 149 (Hard) &mdash; Max Points on a Line (C++)</a>  
