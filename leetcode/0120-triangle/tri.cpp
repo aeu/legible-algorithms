@@ -20,10 +20,9 @@ int min_path = INT_MAX;
 std::pair<int,int> getLeft(std::vector<std::vector<int>> &triangle,
                            std::pair<int,int> current)
 {
-    std::cout << "getLeft " << current.first << "," << current.second << std::endl;
     int row = current.first + 1;
     int col = current.second;
-    if( row > triangle.size() )
+    if( row >= triangle.size() )
         return { -1,-1 };
     return { row,col };
 }
@@ -31,11 +30,9 @@ std::pair<int,int> getLeft(std::vector<std::vector<int>> &triangle,
 std::pair<int,int> getRight(std::vector<std::vector<int>> &triangle,
                             std::pair<int,int> current)
 {
-    std::cout << "getRight " << current.first << "," << current.second << std::endl;
-    
     int row = current.first + 1;
     int col = current.second + 1;
-    if(( row > triangle.size() ) || ( col > triangle[row].size() ))
+    if(( row >= triangle.size() ) || ( col >= triangle[row].size() ))
         return { -1,-1 };
     return { row,col };
 }
@@ -43,7 +40,6 @@ std::pair<int,int> getRight(std::vector<std::vector<int>> &triangle,
 int valueAt(std::vector<std::vector<int>> &triangle,
             std::pair<int,int> current)
 {
-    std::cout << "valueAt " << current.first << "," << current.second << std::endl;
     return triangle[current.first][current.second];
 }
 
@@ -63,7 +59,6 @@ int dfs(std::vector<std::vector<int>> &triangle,
         std::pair<int,int> current,
         int value)
 {
-    std::cout << "dfs " << current.first << "," << current.second << std::endl;
     if( ! isValid( triangle,current ) )
         return 0;
 
@@ -81,13 +76,14 @@ int dfs(std::vector<std::vector<int>> &triangle,
     if( isValid(triangle,right))
         dfs( triangle,right,value+valueAt(triangle,current));
 
+    return 0;
 }
 
 
 
 int minimumTotal(std::vector<std::vector<int>> &triangle)
 {
-    dfs(triangle, { 0, 0 }, valueAt(triangle,{0,0}));
+    dfs(triangle, { 0, 0 }, 0 );
     return min_path;
 }
 
@@ -95,7 +91,7 @@ int minimumTotal(std::vector<std::vector<int>> &triangle)
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode #222 - Count Complete Tree Nodes" << std::endl << std::endl;
+    std::cout << "Leetcode #120 - Triangle" << std::endl << std::endl;
     int test_case = 1;
     {
         std::vector<std::vector<int>> triangle = {{2},{3,4},{6,5,7},{4,1,8,3}};
