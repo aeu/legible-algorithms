@@ -167,6 +167,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0080-remove-duplicates-from-sorted-array-ii">Leetcode &numero; 80 (Medium) &mdash; Remove duplicates from Sorted Array II (C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0082-remove-duplicates-from-sorted-list-ii">Leetcode &numero; 82 (Medium) &mdash; Remove Duplicates from Sorted List II II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0092-reverse-linked-list-ii">Leetcode &numero; 92 (Medium) &mdash; Reverse Linked List II (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0098-validate-binary-search-tree">Leetcode &numero; 98 (Medium) &mdash; Validate Binary Search Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0102-binary-tree-level-order-traversal">Leetcode &numero; 102 (Medium) &mdash; Binary Tree Level Order Traversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0103-binary-tree-zigzag-level-order-traversal">Leetcode &numero; 103 (Medium) &mdash; Binary Tree ZigZag Level Order Traversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0105-construct-binary-tree-from-preorder-and-inorder-traversal">Leetcode &numero; 105 (Medium) &mdash; Construct Binary Tree from Preorder and Inorder traversal (C++)</a>  
