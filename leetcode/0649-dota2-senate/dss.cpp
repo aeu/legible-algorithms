@@ -32,15 +32,15 @@ std::string predictPartyVictory(std::string senate)
     {
         int rtop = radiant_queue.front();
         int dtop = dire_queue.front();
+        dire_queue.pop();
+        radiant_queue.pop();
 
         if( rtop < dtop )
         {
-            dire_queue.pop();
             radiant_queue.push( rtop + senate.length() );
         }
         else
         {
-            radiant_queue.pop();
             dire_queue.push( dtop + senate.length() );
         }
     }
