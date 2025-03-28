@@ -17,35 +17,34 @@
 
 std::string predictPartyVictory(std::string senate)
 {
-    std::stack<int> radiant_stack;
-    std::stack<int> dire_stack;
+    std::queue<int> radiant_queue;
+    std::queue<int> dire_queue;
 
     for(int index=0;index<senate.length();index++)
     {
         char current = senate[index];
         if( current == 'R' )
-            radiant_stack.push(index);
+            radiant_queue.push(index);
         else
-            dire_stack.push(index);
+            dire_queue.push(index);
     }
-
-    while( ( ! radiant_stack.empty() ) && ( ! dire_stack.empty() ))
+    while( ( ! radiant_queue.empty() ) && ( ! dire_queue.empty() ))
     {
-        int rtop = radiant_stack.top();
-        int dtop = dire_stack.top();
+        int rtop = radiant_queue.front();
+        int dtop = dire_queue.front();
 
         if( rtop < dtop )
         {
-            dire_stack.pop();
-            radiant_stack.push( rtop + senate.length() );
+            dire_queue.pop();
+            radiant_queue.push( rtop + senate.length() );
         }
         else
         {
-            radiant_stack.pop();
-            dire_stack.push( dtop + senate.length() );
+            radiant_queue.pop();
+            dire_queue.push( dtop + senate.length() );
         }
     }
-    if( radiant_stack.empty() )
+    if( radiant_queue.empty() )
         return "Dire";
     return "Radiant";
 }
@@ -65,16 +64,8 @@ int main(int argc, char **argv)
         // std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::string senate = "RD";
-        std::string expected = "Radiant";
-        std::string result = predictPartyVictory(senate);
-        std::cout << std::endl;
-        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
-        // std::cout << " (expected " << expected << ", got " << result << ")\n";
-    }
-    {
-        std::string senate = "RD";
-        std::string expected = "Radiant";
+        std::string senate = "RDD";
+        std::string expected = "Dire";
         std::string result = predictPartyVictory(senate);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
