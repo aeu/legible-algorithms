@@ -144,8 +144,6 @@ was bad, then that means that I haven't improved since I wrote it.
 
 #### Medium
 
-
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0007-reverse-integer">Leetcode &numero; 7 (Medium) &mdash; Reverse Integer (C)</a>  
@@ -206,6 +204,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0452-minimum-number-of-arrows-to-burst-balloons">Leetcode &numero; 452 (Medium) &mdash; Minimum number of arrows to burst balloons (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0547-number-of-provinces">Leetcode &numero; 547 (Medium) &mdash; Number of Provinces (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0560-subarray-sum-equals-k">Leetcode &numero; 560 (Medium) &mdash; Subarray Sum Equals K (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0649-dota2-senate">Leetcode &numero; 649 (Medium) &mdash; Dota2 Senate (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0695-max-area-of-island">Leetcode &numero; 695 (Medium) &mdash; Max Area of Island (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0735-asteroid-collision">Leetcode &numero; 735 (Medium) &mdash; Asteroid Collision (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0739-daily-temperatures">Leetcode &numero; 739 (Medium) &mdash; Daily Temperature (C++)</a>  
@@ -229,9 +228,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2336-smallest-number-in-infinite-set">Leetcode &numero; 2336 (Medium) &mdash; Smallets Number in an Infinite Set (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2352-equal-row-and-column-pairs">Leetcode &numero; 2352 (Medium) &mdash; Equal Row and Column Pairs (C++)</a>  
 
-
 #### Hard
-
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0004-median-of-two-sorted-arrays">Leetcode &numero; 4 (Hard) &mdash; Median of Two Sorted Arrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0023-merge-k-sorted-lists">Leetcode &numero; 23 (Hard) &mdash; Merge K Sorted Lists (Obj-C)</a>  
