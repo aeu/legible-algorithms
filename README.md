@@ -258,9 +258,8 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1923-longest-common-subpath">Leetcode &numero; 1923 (Hard) &mdash; Longest Common Subpath (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2106-maximum-fruits-harvested-after-at-most-k-steps">Leetcode &numero; 2106 (Hard) &mdash; Maximum Fruits Harvested After at Most K Steps (Obj-C)</a>  
 
+### Beyond The Coding Interview
+Solutions to problems from the book.
 
-
-
-
-
-
+#### Two Pointers
+<a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/smaller-prefixes">Smaller Prefixes (C++)</a>  
