@@ -15,10 +15,20 @@
 #include <stack>
 #include <limits.h>
 
+void dumpValues(std::vector<int> values)
+{
+    for(auto curr : values )
+    {
+        std::cout << curr << ", " << std::endl;
+    }
+    std::cout << std::endl;
+}
+
 std::vector<int> partitionLabels(std::string s)
 {
     std::vector<int> retval;
     std::unordered_map<char,int> last_occurrence;
+    int last_pushed = 0;
     for(int index=0;index<s.size();index++)
     {
         char current = s[index];
@@ -34,8 +44,11 @@ std::vector<int> partitionLabels(std::string s)
         if( index == furthest_char )
         {
             std::cout << "\t index == furthest_char == " << index << std::endl;
+            retval.push_back(index-last_pushed);
+            last_pushed = index;
         }
     }
+    dumpValues(retval);
     return retval;
 }
 
