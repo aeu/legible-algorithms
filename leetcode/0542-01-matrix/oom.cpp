@@ -16,41 +16,6 @@
 #include <limits.h>
 
 
-bool isValid(std::pair<int,int> pos)
-{
-    if(( pos.first == -1 ) || ( pos.second == -1 ))
-        return false;
-    return true;
-}
-
-std::pair<int,int> getNorth(int row,int col, std::vector<std::vector<int>>& mat)
-{
-    if( row == 0 )
-        return { -1, -1 };
-    return { row - 1 , col };
-}
-
-std::pair<int,int> getSouth(int row,int col, std::vector<std::vector<int>>& mat)
-{
-    if( row >= mat.size() - 1 )
-        return { -1, -1 };
-    return { row + 1 , col };
-}
-
-std::pair<int,int> getEast(int row,int col, std::vector<std::vector<int>>& mat)
-{
-    if( col >= mat[0].size() - 1 )
-        return { -1, -1 };
-    return { row , col + 1 };
-}
-
-std::pair<int,int> getWest(int row,int col, std::vector<std::vector<int>>& mat)
-{
-    if( col == 0 )
-        return { -1, -1 };
-    return { row , col -1 };
-}
-
 struct bfs_info
 {
     int distance;
@@ -58,6 +23,13 @@ struct bfs_info
     int col;
 };
 
+
+bool isValid(std::pair<int,int> pos, std::vector<std::vector<int>>& mat)
+{
+    if(( pos.first >= 0 ) && ( pos.first < mat.size() ) && ( pos.second >= 0 ) && ( pos.second < mat[0].size() ))
+        return true;
+    return false;
+}
 
 std::vector<std::vector<int>> updateMatrix(std::vector<std::vector<int>>& mat)
 {
@@ -78,38 +50,26 @@ std::vector<std::vector<int>> updateMatrix(std::vector<std::vector<int>>& mat)
         }
     }
 
+    std::vector<std::pair<int,int>> directions =
+        {{ -1,  0 }, // north
+         {  1,  0 }, // south
+         {  0, -1 }, // east
+         {  0,  1 }}; // west
     std::pair<int,int> next;
     while( ! bfs_queue.empty() )
     {
         bfs_info current = bfs_queue.front();
         bfs_queue.pop();
-        next = getNorth( current.row,current.col,mat);
-        if(( isValid(next)) && ( seen[next.first][next.second] != 1 ))
+        for( auto current_direction : directions )
         {
-            retval[next.first][next.second] = current.distance;
-            seen[next.first][next.second] = 1;
-            bfs_queue.push({ current.distance + 1, next.first, next.second});
-        }
-        next = getSouth( current.row,current.col,mat);
-        if(( isValid(next)) && ( seen[next.first][next.second] != 1 ))
-        {
-            retval[next.first][next.second] = current.distance;
-            seen[next.first][next.second] = 1;
-            bfs_queue.push({ current.distance + 1, next.first, next.second});
-        }
-        next = getEast( current.row,current.col,mat);
-        if(( isValid(next)) && ( seen[next.first][next.second] != 1 ))
-        {
-            retval[next.first][next.second] = current.distance;
-            seen[next.first][next.second] = 1;
-            bfs_queue.push({ current.distance + 1, next.first, next.second});
-        }
-        next = getWest( current.row,current.col,mat);
-        if(( isValid(next)) && ( seen[next.first][next.second] != 1 ))
-        {
-            retval[next.first][next.second] = current.distance;
-            seen[next.first][next.second] = 1;
-            bfs_queue.push({ current.distance + 1, next.first, next.second});
+            next.first  = current.row + current_direction.first;
+            next.second = current.col + current_direction.second;
+            if(( isValid(next,mat)) && ( seen[next.first][next.second] != 1 ))
+            {
+                retval[next.first][next.second] = current.distance;
+                seen[next.first][next.second] = 1;
+                bfs_queue.push({ current.distance + 1, next.first, next.second});
+            }
         }
     }
     return retval;
