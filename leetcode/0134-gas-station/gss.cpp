@@ -28,32 +28,27 @@ int costToNextGasStation(int current, std::vector<int> &cost)
 int canCompleteCircuit(std::vector<int> &gas,
                        std::vector<int> &cost)
 {
-    int did_complete = false;
-    int index;
-    for(index = 0;index< gas.size();index++)
+    bool did_reset = false;
+    int last_reset = 0;
+    int current_tank =  0;
+    int net_tank = 0;
+    for(int index=0;index<gas.size();index++)
     {
-        int current_gas = 0;
-        int start_position = index;
-        int current_position = index;
-        bool full_loop = false;
-        while( ! full_loop )
+        current_tank += gasFromCurrentStation(index,gas) - costToNextGasStation(index,cost);
+        net_tank +=  (gasFromCurrentStation(index,gas) - costToNextGasStation(index,cost));
+        if( current_tank < 0 )
         {
-            current_gas += gasFromCurrentStation(current_position,gas);
-            current_gas -= costToNextGasStation(current_position,cost);
-            if( current_gas <  0 )
-                break;
-            current_position = (( current_position + 1 ) % gas.size() );
-            if( current_position == start_position )
-                full_loop = true;
-        }
-        if( full_loop )
-        {
-            did_complete = true;
-            break;
+            last_reset = index;
+            current_tank = 0;
+            did_reset = true;
         }
     }
-    if( did_complete )
-        return index;
+    if( did_reset == false )
+        return 0;
+
+    if( net_tank >= 0 )
+        return last_reset+1;
+    
     return -1;
 }
 
@@ -61,6 +56,15 @@ int main(int argc, char **argv)
 {
     std::cout << "Leetcode #134 - Gas Station" << std::endl << std::endl;
     int test_case = 1;
+    {
+        std::vector<int> gas  = {3,1,1};
+        std::vector<int> cost = {1,2,2};
+        int expected = 0;
+        int result = canCompleteCircuit(gas,cost);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
     {
         std::vector<int> gas  = {1,2,3,4,5};
         std::vector<int> cost = {3,4,5,1,2};
