@@ -42,14 +42,16 @@ std::vector<int> sortedSquares(std::vector<int> &nums)
             retval[writer] = rsquared;
             writer--;
             right--;
-            rsquared = nums[right] * nums[right];
+            if( left <= right )
+                rsquared = nums[right] * nums[right];
         }
         else if ( lsquared >= rsquared )
         {
             retval[writer] = lsquared;
             writer--;
             left++;
-            lsquared = nums[left] * nums[left];
+            if( left <= right )
+                lsquared = nums[left] * nums[left];
         }
     }
     return retval;
@@ -62,6 +64,13 @@ int main(int argc, char **argv)
     {
         std::vector<int> nums  = {-4,-1,0,3,10};
         std::vector<int> expected  = {0,1,9,16,100};
+        std::vector<int> result  = sortedSquares(nums);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+    }
+    {
+        std::vector<int> nums  = {1};
+        std::vector<int> expected  = {1};
         std::vector<int> result  = sortedSquares(nums);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
