@@ -274,3 +274,4 @@ Solutions to problems from the book.  Organized by category/chapter.
 #### CH 32 &mdash; Stacks &amp; Queues
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/stacks-and-queues/compress-array">32.1 &mdash; Compress Array (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/stacks-and-queues/custom-brackets">32.7 &mdash; Custom Brackets (C++)</a>  
