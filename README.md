@@ -261,12 +261,12 @@ was bad, then that means that I haven't improved since I wrote it.
 ### Beyond The Coding Interview
 Solutions to problems from the book.  Organized by category.
 
-#### CH 27 - Two Pointers
+#### CH 27 &mdash; Two Pointers
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/array-intersection">27.3 &mdash; Array Intersection (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/palindromic-sentence">27.4 &mdsh; Palindromic Sentence (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/smaller-prefixes">27.2 &mdash; Smaller Prefixes (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/reverse-case-match">27.5 &mdash; Reverse Case Match (C++)</a>  
 
-### CH 28 Grids &amp; Matrices
+#### CH 28 &mdash; Grids &amp; Matrices
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/grids-and-matrices/spiral-order">28.3 &mdash; Spiral Order (C++)</a>  
