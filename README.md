@@ -263,7 +263,7 @@ Solutions to problems from the book.  Organized by category/chapter.
 
 #### CH 27 &mdash; Two Pointers
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/array-intersection">27.3 &mdash; Array Intersection (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/palindromic-sentence">27.4 &mdsh; Palindromic Sentence (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/palindromic-sentence">27.4 &mdash; Palindromic Sentence (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/smaller-prefixes">27.2 &mdash; Smaller Prefixes (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/reverse-case-match">27.5 &mdash; Reverse Case Match (C++)</a>  
 
