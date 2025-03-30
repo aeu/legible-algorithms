@@ -211,6 +211,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0695-max-area-of-island">Leetcode &numero; 695 (Medium) &mdash; Max Area of Island (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0735-asteroid-collision">Leetcode &numero; 735 (Medium) &mdash; Asteroid Collision (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0739-daily-temperatures">Leetcode &numero; 739 (Medium) &mdash; Daily Temperature (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0802-find-eventual-safe-states">Leetcode &numero; 802 (Medium) &mdash; Find Eventual Safe States (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0841-keys-and-rooms">Leetcode &numero; 841 (Medium) &mdash; Keys &amp; Rooms (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0875-koko-eating-bananas">Leetcode &numero; 875 (Medium) &mdash; Koko eating bananas (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0994-rotting-oranges">Leetcode &numero; 994 (Medium) &mdash; Rotting Oranges (C++)</a>  
