@@ -50,7 +50,6 @@ std::vector<int> doWork(std::vector<std::vector<int>> adjacency_list, int node1,
         bfs_queue.pop();
         if( current.node == node2 )
         {
-            dumpValues(current.path);
             return current.path;
         }
         auto git = graph.find( current.node );
