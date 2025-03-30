@@ -258,8 +258,8 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1923-longest-common-subpath">Leetcode &numero; 1923 (Hard) &mdash; Longest Common Subpath (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2106-maximum-fruits-harvested-after-at-most-k-steps">Leetcode &numero; 2106 (Hard) &mdash; Maximum Fruits Harvested After at Most K Steps (Obj-C)</a>  
 
-### Beyond The Coding Interview
-Solutions to problems from the book.  Organized by category.
+### Beyond Cracking The Coding Interview
+Solutions to problems from the book.  Organized by category/chapter.
 
 #### CH 27 &mdash; Two Pointers
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/array-intersection">27.3 &mdash; Array Intersection (C++)</a>  
@@ -270,3 +270,7 @@ Solutions to problems from the book.  Organized by category.
 #### CH 28 &mdash; Grids &amp; Matrices
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/grids-and-matrices/spiral-order">28.3 &mdash; Spiral Order (C++)</a>  
+
+#### CH 32 &mdash; Stacks &amp; Queues
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/stacks-and-queues/compress-array">32.1 &mdash; Compress Array (C++)</a>  
