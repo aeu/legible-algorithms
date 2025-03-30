@@ -56,7 +56,6 @@ bool dfs(int current_node,
 std::vector<int> eventualSafeNodes(std::vector<std::vector<int>>& graph)
 {
     std::vector<int> graph_state( graph.size(), 0 );
-    std::unordered_set<int> known_safe;
 
     for(int index=0;index<graph.size();index++)
     {
