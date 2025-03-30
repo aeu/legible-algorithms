@@ -275,3 +275,7 @@ Solutions to problems from the book.  Organized by category/chapter.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/stacks-and-queues/compress-array">32.1 &mdash; Compress Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/stacks-and-queues/custom-brackets">32.7 &mdash; Custom Brackets (C++)</a>  
+
+#### CH 36 &mdash; Graphs
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/graphs/graph-path">36.2 Graph Path (C++)</a>  
