@@ -40,7 +40,7 @@ std::pair<int,int> getNorth(int row, int col, std::vector<std::vector<int>> &hei
 {
     if( row <= 0 )
         return { -1,-1 };
-    if( heights[row-1][col] <= heights[row][col] )
+    if( heights[row-1][col] >= heights[row][col] )
         return { ( row-1 ), col };
     return { -1, -1 };
 }
@@ -49,7 +49,7 @@ std::pair<int,int> getSouth(int row, int col, std::vector<std::vector<int>> &hei
 {
     if( row >= heights.size()-1 )
         return { -1,-1 };
-    if( heights[row+1][col] <= heights[row][col] )
+    if( heights[row+1][col] >= heights[row][col] )
         return { ( row+1 ), col };
     return { -1, -1 };
 }
@@ -58,7 +58,7 @@ std::pair<int,int> getEast(int row, int col, std::vector<std::vector<int>> &heig
 {
     if( col >= heights[0].size()-1 )
         return { -1,-1 };
-    if( heights[row][col+1] <= heights[row][col] )
+    if( heights[row][col+1] >= heights[row][col] )
         return { row, col+1 };
     return { -1, -1 };
 }
@@ -67,30 +67,70 @@ std::pair<int,int> getWest(int row, int col, std::vector<std::vector<int>> &heig
 {
     if( col <= 0 )
         return { -1,-1 };
-    if( heights[row][col-1] <= heights[row][col] )
+    if( heights[row][col-1] >= heights[row][col] )
         return { row, col-1 };
     return { -1, -1 };
 }
 
-enum Flows {
-    UNKNOWN = 0,
-    PACIFIC,
-    ATLANTIC,
-    BOTH,
-    NEITHER
-};
+bool dfs(int row, int col,
+         std::vector<std::vector<int>> &heights,
+         std::vector<std::vector<int>> &reachable)
+{
+    if( reachable[row][col] == 1 )
+        return true;
+
+    reachable[row][col] = 1;
+    std::pair<int,int> next;
+    next = getNorth( row,col,heights );
+    if( isValid(next ))
+        dfs( next.first, next.second, heights, reachable);
+
+    next = getSouth( row,col,heights );
+    if( isValid(next ))
+        dfs( next.first, next.second, heights, reachable);
+
+    next = getEast( row,col,heights );
+    if( isValid(next ))
+        dfs( next.first, next.second, heights, reachable);
+
+    next = getWest( row,col,heights );
+    if( isValid(next ))
+        dfs( next.first, next.second, heights, reachable);
+
+    
+    return false;
+}
+
 
 std::vector<std::vector<int>> pacificAtlantic(std::vector<std::vector<int>> &heights)
 {
-    std::vector<std::vector<int>> flows ( heights.size(), std::vector<int>( heights[0].size(), 0 ));
+    std::vector<std::vector<int>> pacific_reachable  ( heights.size(), std::vector<int>( heights[0].size(), 0 ));
+    std::vector<std::vector<int>> atlantic_reachable ( heights.size(), std::vector<int>( heights[0].size(), 0 ));
+
+    for(int row = 0; row<heights.size();row++)
+    {
+        for(int col = 0; col < heights[0].size(); col++ )
+        {
+            if( bordersPacific( row, col, heights ) )
+                dfs(row,col,heights,pacific_reachable);
+            if( bordersAtlantic( row, col, heights ) )
+                dfs(row,col,heights,atlantic_reachable);
+        }
+    }
+
+    std::vector<std::vector<int>> retval;
+    
     for(int row=0;row<heights.size();row++)
     {
         for(int col=0;col<heights[0].size();col++)
         {
-            std::cout << "about to start BFS for (" << row << "," << col << ")" << std::endl;
+            if(( pacific_reachable[row][col] == 1 )
+               && ( atlantic_reachable[row][col] == 1 ))
+            {
+                retval.push_back( { row, col });
+            }
         }
     }
-    std::vector<std::vector<int>> retval;
     return retval;
 }
 
@@ -109,6 +149,24 @@ int main(int argc, char **argv)
         std::vector<std::vector<int>> expected =
             {{0,4}, {1,3}, {1,4}, {2,2}, {3,0}, {3,1}, {4,0}};
              
+        std::vector<std::vector<int>> result = pacificAtlantic(heights);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        //        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        std::vector<std::vector<int>> heights = {{1}};
+        std::vector<std::vector<int>> expected = {{0,0}};
+
+        std::vector<std::vector<int>> result = pacificAtlantic(heights);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        //        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        std::vector<std::vector<int>> heights = {{1,1},{1,1},{1,1}};
+        std::vector<std::vector<int>> expected = {{0,0}};
+
         std::vector<std::vector<int>> result = pacificAtlantic(heights);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
