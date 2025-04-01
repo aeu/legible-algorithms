@@ -50,10 +50,10 @@ void backtrack(std::vector<int> &candidates,
     for(int index=candidate_index;index<candidates.size();index++)
     {
         // std::cout << "looop" << std::endl;
-        if( candidates[candidate_index] > target )
+        if( candidates[index] > target )
             continue;
         path.push_back( candidates[index] );
-        backtrack(candidates,candidate_index+1,target-candidates[index],path,retval,seen);
+        backtrack(candidates,index+1,target-candidates[index],path,retval,seen);
         path.pop_back();
     }
 }
