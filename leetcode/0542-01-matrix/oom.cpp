@@ -51,108 +51,65 @@ std::pair<int,int> getWest(int row,int col, std::vector<std::vector<int>>& mat)
     return { row , col -1 };
 }
 
-struct dfs_info
+struct bfs_info
 {
-    int depth;
+    int distance;
     int row;
     int col;
-    int origin_row;
-    int origin_col;
 };
 
 
-bool dfs( dfs_info di,
-          std::vector<std::vector<int>>& mat,
-          std::vector<std::vector<int>>& seen,
-          std::vector<std::vector<int>>& retval)
-{
-    std::pair<int,int> next = getNorth(di.row,di.col,mat);
-    if( isValid(next) )
-    {
-        if( mat[next.first][next.second] == 0 )
-        {
-            retval[di.origin_row][di.origin_col] = std::min(retval[di.origin_row][di.origin_col], di.depth ); 
-        }
-        else
-        {
-            if( seen[next.first][next.second] == 0 )
-            {
-                seen[next.first][next.second] = 1;
-                dfs( { di.depth+1,next.first,next.second,di.origin_row,di.origin_col }, mat, seen,retval );
-            }
-        }
-    }
-    next = getSouth(di.row,di.col,mat);
-    if( isValid(next) )
-    {
-        if( mat[next.first][next.second] == 0 )
-        {
-            retval[di.origin_row][di.origin_col] = std::min(retval[di.origin_row][di.origin_col], di.depth ); 
-        }
-        else
-        {
-            if( seen[next.first][next.second] == 0 )
-            {
-                seen[next.first][next.second] = 1;
-                dfs( { di.depth+1,next.first,next.second,di.origin_row, di.origin_col }, mat, seen,retval );
-            }
-        }
-    }
-    next = getEast(di.row,di.col,mat);
-    if( isValid(next) )
-    {
-        if( mat[next.first][next.second] == 0 )
-        {
-            retval[di.origin_row][di.origin_col] = std::min(retval[di.origin_row][di.origin_col], di.depth ); 
-        }
-        else
-        {
-            if( seen[next.first][next.second] == 0 )
-            {
-                seen[next.first][next.second] = 1;
-                dfs( { di.depth+1,next.first,next.second,di.origin_row,di.origin_col }, mat, seen,retval );
-            }
-        }
-    }
-    next = getWest(di.row,di.col,mat);
-    if( isValid(next) )
-    {
-        if( mat[next.first][next.second] == 0 )
-        {
-            retval[di.origin_row][di.origin_col] = std::min(retval[di.origin_row][di.origin_col], di.depth ); 
-        }
-        else
-        {
-            if( seen[next.first][next.second] == 0 )
-            {
-                seen[next.first][next.second] = 1;
-                dfs( { di.depth+1,next.first,next.second,di.origin_row,di.origin_col }, mat, seen,retval );
-            }
-        }
-    }
-    return true;
-}
-
 std::vector<std::vector<int>> updateMatrix(std::vector<std::vector<int>>& mat)
 {
+    std::queue<bfs_info> bfs_queue;
+    std::vector<std::vector<int>> seen ( mat.size(), std::vector<int>( mat[0].size(), 0 ));
     std::vector<std::vector<int>> retval( mat.size(), std::vector<int>( mat[0].size(), 0 ));
     for(int row = 0; row < mat.size(); row++)
     {
         for(int col = 0; col < mat[0].size(); col++)
         {
             retval[row][col] = mat[row][col];
+            if( mat[row][col] == 0 )
+            {
+                seen[row][col] = 1;
+                bfs_queue.push( { 1, row, col } );
+
+            }
         }
     }
-    for(int row = 0; row < mat.size(); row++)
+
+    std::pair<int,int> next;
+    while( ! bfs_queue.empty() )
     {
-        for(int col = 0; col < mat[0].size(); col++)
+        bfs_info current = bfs_queue.front();
+        bfs_queue.pop();
+        next = getNorth( current.row,current.col,mat);
+        if(( isValid(next)) && ( seen[next.first][next.second] != 1 ))
         {
-            if( mat[row][col] == 1 )
-            {
-                std::vector<std::vector<int>> seen ( mat.size(), std::vector<int>( mat[0].size(), 0 ));
-                retval[row][col] = INT_MAX;
-                dfs({1,row,col,row,col},mat,seen,retval);
-            }
+            retval[next.first][next.second] = current.distance;
+            seen[next.first][next.second] = 1;
+            bfs_queue.push({ current.distance + 1, next.first, next.second});
+        }
+        next = getSouth( current.row,current.col,mat);
+        if(( isValid(next)) && ( seen[next.first][next.second] != 1 ))
+        {
+            retval[next.first][next.second] = current.distance;
+            seen[next.first][next.second] = 1;
+            bfs_queue.push({ current.distance + 1, next.first, next.second});
+        }
+        next = getEast( current.row,current.col,mat);
+        if(( isValid(next)) && ( seen[next.first][next.second] != 1 ))
+        {
+            retval[next.first][next.second] = current.distance;
+            seen[next.first][next.second] = 1;
+            bfs_queue.push({ current.distance + 1, next.first, next.second});
+        }
+        next = getWest( current.row,current.col,mat);
+        if(( isValid(next)) && ( seen[next.first][next.second] != 1 ))
+        {
+            retval[next.first][next.second] = current.distance;
+            seen[next.first][next.second] = 1;
+            bfs_queue.push({ current.distance + 1, next.first, next.second});
         }
     }
     return retval;
