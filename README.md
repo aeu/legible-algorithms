@@ -201,6 +201,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0334-increasing-triplet-subsequence">Leetcode &numero; 334 (Medium) &mdash; Increasing Triplet Subsequence (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0394-decode-string">Leetcode &numero; 394 (Medium) &mdash; Decode String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0399-evaluate-division">Leetcode &numero; 399 (Medium) &mdash; Evaluate Division (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0406-queue-reconstruction-by-height">Leetcode &numero; 406 (Medium) &mdash; Queue Reconstruction by Height (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0417-pacific-island-water-flow">Leetcode &numero; 417 (Medium) &mdash; Pacific Island Water Flow (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0433-minimum-genetic-mutation">Leetcode &numero; 433 (Medium) &mdash; Minimum Genetic Mutation (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0437-path-sum-iii">Leetcode &numero; 437 (Medium) &mdash; Path Sum III (C++)</a>  
