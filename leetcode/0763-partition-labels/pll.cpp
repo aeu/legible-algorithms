@@ -28,7 +28,7 @@ std::vector<int> partitionLabels(std::string s)
 {
     std::vector<int> retval;
     std::unordered_map<char,int> last_occurrence;
-    int last_pushed = 0;
+    int start_point = 0;
     for(int index=0;index<s.size();index++)
     {
         char current = s[index];
@@ -39,22 +39,18 @@ std::vector<int> partitionLabels(std::string s)
     {
         char current = s[index];
         furthest_char = std::max( furthest_char, last_occurrence[current] );
-        std::cout << "last occurrence of " << current << ", at index " << index << " is " << last_occurrence[current] << std::endl;
-        std::cout << "The furthest distance of any char seen to date is " << furthest_char << std::endl;
-        if( index == furthest_char )
+        if( index >= furthest_char )
         {
-            std::cout << "\t index == furthest_char == " << index << std::endl;
-            retval.push_back(index-last_pushed);
-            last_pushed = index;
+            retval.push_back(( index - start_point + 1 ));
+            start_point += ( index - start_point + 1 );
         }
     }
-    dumpValues(retval);
     return retval;
 }
 
 int main(int argc, char **argv)
 {
-    std::cout << std::endl << "" << std::endl << std::endl;
+    std::cout << std::endl << "LC763 - Partition Labels" << std::endl << std::endl;
     int test_case = 1;
     {
         std::string s = "ababcbacadefegdehijhklij";
