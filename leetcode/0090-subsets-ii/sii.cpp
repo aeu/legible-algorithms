@@ -13,15 +13,29 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <stack>
+#include <algorithm>
 #include <limits.h>
 
+
+void dumpValues(std::vector<int> values)
+{
+    std::cout << "[" ;
+    for(auto curr : values )
+    {
+        std::cout << curr << ", " ;
+    }
+    std::cout << "]" << std::endl;
+}
 
 void backtrack(std::vector<int> &nums,
                int start_index,
                std::vector<int> &path,
                std::vector<std::vector<int>> &retval)
 {
-    for(int index=start_index,index<nums.size();index++)
+    retval.push_back(path);
+    dumpValues(path);
+
+    for(int index=start_index;index<nums.size();index++)
     {
         if( nums[index] == nums[index-1] )
             continue;
