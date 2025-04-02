@@ -33,14 +33,13 @@ void backtrack(std::vector<int> &nums,
                std::vector<std::vector<int>> &retval)
 {
     retval.push_back(path);
-    dumpValues(path);
 
     for(int index=start_index;index<nums.size();index++)
     {
-        if( nums[index] == nums[index-1] )
+        if( (index > start_index ) && (nums[index] == nums[index-1] ))
             continue;
         path.push_back(nums[index]);
-        backtrack(nums,start_index+1,path,retval);
+        backtrack(nums,index+1,path,retval);
         path.pop_back();
     }
 }
