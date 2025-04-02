@@ -35,9 +35,6 @@ void backtrack(std::vector<int> &candidates,
                std::vector<std::vector<int>> &retval,
                std::set<std::vector<int>> &seen)
 {
-    // std::cout << "bt called " << std::endl;
-    // std::cout << "ci called " << candidate_index << std::endl;
-    // std::cout << "t called "  << target << std::endl;
     if( target == 0 )
     {
         std::sort(path.begin(),path.end());
@@ -49,7 +46,6 @@ void backtrack(std::vector<int> &candidates,
     }
     for(int index=candidate_index;index<candidates.size();index++)
     {
-        // std::cout << "looop" << std::endl;
         if( candidates[index] > target )
             continue;
         path.push_back( candidates[index] );
@@ -67,8 +63,7 @@ std::vector<std::vector<int>> combinationSum2(std::vector<int> &candidates,
     std::vector<int> path;
     std::vector<std::vector<int>> retval;
     std::set<std::vector<int>> seen;
-    std::cout << "cs" << candidates.size() << std::endl;
-    backtrack( candidates, candidate_index, target, path, retval,seen);
+    backtrack( candidates, candidate_index, target, path, retval, seen);
     return retval;
 }
 
