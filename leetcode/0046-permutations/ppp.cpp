@@ -18,7 +18,7 @@
 
 void generatePermutations(std::vector<int> &nums,
                           int size,
-                          std::vector<std::vector<int>> retval)
+                          std::vector<std::vector<int>> &retval)
 {
     if(size == 1 )
     {
@@ -29,7 +29,7 @@ void generatePermutations(std::vector<int> &nums,
         for(int index=0;index<size;index++)
         {
             generatePermutations(nums,size-1,retval);
-            if( index & 1 )
+            if( size & 1 )
             {
                 std::swap(nums[0],nums[size-1]);
             }
