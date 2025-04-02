@@ -69,12 +69,6 @@ std::vector<std::vector<int>> combinationSum2(std::vector<int> &candidates,
     std::set<std::vector<int>> seen;
     std::cout << "cs" << candidates.size() << std::endl;
     backtrack( candidates, candidate_index, target, path, retval,seen);
-
-    for( auto curr : retval )
-    {
-        dumpValues( curr );
-    }
-    
     return retval;
 }
 
