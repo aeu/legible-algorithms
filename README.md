@@ -167,6 +167,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0071-simplify-path">Leetcode &numero; 71 (Medium) &mdash; Simplify Path (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0073-set-matrix-zeroes">Leetcode &numero; 73 (Medium) &mdash; Set Matrix Zeroes (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0074-search-a-2d-matrix">Leetcode &numero; 74 (Medium) &mdash; Search a 2D Matrix (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0077-combinations">Leetcode &numero; 77 (Medium) &mdash; Combinations (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0080-remove-duplicates-from-sorted-array-ii">Leetcode &numero; 80 (Medium) &mdash; Remove duplicates from Sorted Array II (C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0082-remove-duplicates-from-sorted-list-ii">Leetcode &numero; 82 (Medium) &mdash; Remove Duplicates from Sorted List II II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0092-reverse-linked-list-ii">Leetcode &numero; 92 (Medium) &mdash; Reverse Linked List II (C++)</a>  
