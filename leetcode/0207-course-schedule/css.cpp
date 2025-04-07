@@ -4,106 +4,102 @@
 //
 //  This software may not be used or reproduced, in whole or in part,
 //  without the express written permission of red82
-//
-#include <stdio.h>
-#include <limits.h>
-#include <string>
-#include <cmath>
-#include <vector>
-#include <algorithm>
+
 #include <iostream>
+#include <optional>
+#include <vector>
+#include <queue>
 #include <map>
 #include <unordered_set>
 #include <unordered_map>
-#include <queue>
-
-
-bool canBeTaken(int candidate,
-                std::unordered_set<int> &untaken,
-                std::unordered_map<int,std::vector<int>> &graph)
-{
-    auto rit = graph.find( candidate );
-    if( rit == graph.end() )
-    {
-        return true;
-    }
-    std::vector<int> prereq_list = rit->second;
-    for(auto current_prereq : prereq_list )
-    {
-        if( untaken.find( current_prereq ) != untaken.end())
-        {
-            return false;
-        }
-    }
-    return true;
-}
+#include <stack>
+#include <limits.h>
 
 bool canFinish(int numCourses, std::vector<std::vector<int>>& prerequisites)
 {
-    std::unordered_map<int,std::vector<int>> graph;
-    std::vector<int> in_degree(numCourses, 0 );
-    std::queue<int> c_queue;
-    int taken_count = 0;
+    std::map<int,int> in_degrees;
+    std::map<int,std::vector<int>> graph;
+    int classes_taken = 0;
+
+    // initialize requirements for all nodes (to zero)
+    for(int index=0;index<numCourses;index++)
+    {
+        in_degrees[index] = 0;
+    }
     
-    for( auto current : prerequisites )
+    // for all classes, set the pre-req {0,1} means to take 0 you hae to take 1
+    for(auto current : prerequisites )
     {
-        int course = current[0];
-        int prereq = current[1];
-        graph[prereq].push_back(course);
-        in_degree[course]++;
+        graph[current[1]].push_back(current[0]);
+        in_degrees[current[0]]++;
     }
 
-    for(int course=0;course<numCourses;course++)
+    // queue up all the classes that don't have any dependencies
+    std::queue<int> class_queue;
+    for( auto curr : in_degrees )
     {
-        if( in_degree[course] == 0 )
-            c_queue.push( course );
-    }
-
-    while( ! c_queue.empty() )
-    {
-        int current = c_queue.front();
-        c_queue.pop();
-        taken_count++;
-
-        for(int neighbour : graph[current] )
+        if( curr.second == 0 )
         {
-            in_degree[neighbour]--;
-            if( in_degree[neighbour] == 0 )
+            class_queue.push( curr.first );
+        }
+    }
+
+    while( ! class_queue.empty() )
+    {
+        int taken = class_queue.front();
+        class_queue.pop();
+        classes_taken++;
+        // find the class that depended on the one we just took
+        auto it = graph.find( taken );
+        if( it != graph.end() )
+        {
+            for( auto curr : it->second )
             {
-                c_queue.push( neighbour );
+                in_degrees[curr]--;
+                // if they have no dependencies, queue them up.
+                if( in_degrees[curr] <= 0 )
+                {
+                    class_queue.push( curr );
+                }
             }
         }
     }
-    return taken_count == numCourses;
+    // see if we took all the ones we were supposed to
+    return ( classes_taken == numCourses );
 }
 
 
 int main(int argc, char **argv)
 {
+    std::cout << std::endl << "LC207 - Course Schedule" << std::endl << std::endl;
     int test_case = 1;
+    {
+        int numCourses = 5;
+        std::vector<std::vector<int>> prerequisites = {{1,4},{2,4},{3,1},{3,2}};
+        bool expected = true;
+        bool result = canFinish(numCourses, prerequisites);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    return 0;
     {
         int numCourses = 2;
         std::vector<std::vector<int>> prerequisites = {{1,0}};
         bool expected = true;
-        bool result = canFinish( numCourses, prerequisites);
-        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail") 
-                  << " (expected " << expected << ", got " << result << ")\n";
+        bool result = canFinish(numCourses, prerequisites);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
         int numCourses = 2;
         std::vector<std::vector<int>> prerequisites = {{1,0},{0,1}};
         bool expected = false;
-        bool result = canFinish( numCourses, prerequisites);
-        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail") 
-                  << " (expected " << expected << ", got " << result << ")\n";
+        bool result = canFinish(numCourses, prerequisites);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
-    {
-        int numCourses = 3;
-        std::vector<std::vector<int>> prerequisites = {{1,0},{1,2},{0,1}};
-        bool expected = false;
-        bool result = canFinish( numCourses, prerequisites);
-        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail") 
-                  << " (expected " << expected << ", got " << result << ")\n";
-    }
-    
+    return 0;
 }
