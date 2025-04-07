@@ -253,21 +253,10 @@ was bad, then that means that I haven't improved since I wrote it.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0068-text-justification">Leetcode &numero; 68 (Hard) &mdash; Text Justification (C++11,C++17)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0076-minimum-window-substring">Leetcode &numero; 76 (Hard) &mdash; Minimum Window Substring (C++)</a>  
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0084-largest-rectangle-in-histogram">Leetcode &numero; 84 (Hard) &mdash; Largest Rectangle in Histogram (C++11)   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0085-maximal-rectangle">Leetcode &numero; 85 (Hard) &mdash; Maximal Rectangle (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0123-best-time-to-buy-and-sell-stock-iii">Leetcode &numero; 123 (Hard) &mdash; Best time to Buy and Sell Stock III (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0124-binary-tree-maximum-path-sum">Leetcode &numero; 124 (Hard) &mdash; Binary Tree Maximum Path Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0127-word-ladder">Leetcode &numero; 127 (Hard) &mdash; Word Ladder (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0135-candy">Leetcode &numero; 135 (Hard) &mdash; Candy (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0149_max_points_on_a_line">Leetcode &numero; 149 (Hard) &mdash; Max Points on a Line (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0174-dungeon-game">Leetcode &numero; 174 (Hard) &mdash; Dungeon Game (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0188-best-time-to-buy-and-sell-stock-iv">Leetcode &numero; 188 (Hard) &mdash; Best time to Buy and Sell Stock IV(C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0218-the-skyline-problem">Leetcode &numero; 218 (Hard) &mdash; The Skyline Problem (Obj-C)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0233-number-of-digit-one">Leetcode &numero; 233 (Hard) &mdash; Number of Digit One (C++/Hard)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0239-sliding-window-maximum">Leetcode &numero; 239 (Hard) &mdash; Sliding Window Maximum(C++/Hard)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1923-longest-common-subpath">Leetcode &numero; 1923 (Hard) &mdash; Longest Common Subpath (Obj-C)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2106-maximum-fruits-harvested-after-at-most-k-steps">Leetcode &numero; 2106 (Hard) &mdash; Maximum Fruits Harvested After at Most K Steps (Obj-C)</a>  
+
+
 
 ### Beyond Cracking The Coding Interview
 Solutions to problems from the book.  Organized by category/chapter.
