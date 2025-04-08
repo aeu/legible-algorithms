@@ -4,107 +4,97 @@
 //
 //  This software may not be used or reproduced, in whole or in part,
 //  without the express written permission of red82
-//
-#include <stdio.h>
-#include <limits.h>
-#include <string>
-#include <cmath>
-#include <vector>
-#include <algorithm>
+
 #include <iostream>
+#include <optional>
+#include <vector>
+#include <queue>
 #include <map>
 #include <unordered_set>
 #include <unordered_map>
-#include <queue>
-
+#include <stack>
+#include <limits.h>
 
 std::vector<int> findOrder(int numCourses, std::vector<std::vector<int>>& prerequisites)
 {
-    std::vector<int> retval;
-    std::unordered_map<int,std::vector<int>> graph;
-    std::unordered_map<int,int> in_degrees;
-    std::queue<int> n_queue;
+    // first initialize empty in-degree structure
+    std::unordered_map<int,int> in_degree;
+    for(int index=0;index<numCourses;index++)
+    {
+        in_degree[index] = 0;
+    }
 
-    for( auto curr : prerequisites )
+    // then build the graph
+    std::unordered_map<int,std::vector<int>> graph;
+    for(auto curr : prerequisites )
     {
         int course = curr[0];
         int prereq = curr[1];
         graph[prereq].push_back(course);
-        in_degrees[course]++;
+        in_degree[course]++;
     }
-    for(int index = 0;index<numCourses;index++)
+    // queue up all the courses that don't have dependencies
+    std::queue<int> bfs_queue;
+    for( auto it : in_degree )
     {
-        if( in_degrees[index] == 0 )
-            n_queue.push( index );
+        if( it.second == 0 )
+            bfs_queue.push( it.first );
     }
-    while( ! n_queue.empty() )
+    std::vector<int> schedule;
+    // now start processing them.
+    while( ! bfs_queue.empty() )
     {
-        int current_course = n_queue.front();
-        n_queue.pop();
-        retval.push_back( current_course );
-
-        auto it = graph.find( current_course );
+        int taken = bfs_queue.front();
+        bfs_queue.pop();
+        schedule.push_back(taken);
+        // free up whatever courses will be freed when we take this one.
+        auto it = graph.find(taken);
         if( it != graph.end() )
         {
-            for( int neighbour : it->second )
+            for( auto unlocked : it->second)
             {
-                in_degrees[neighbour]--;
-                if( in_degrees[neighbour] == 0 )
-                    n_queue.push( neighbour);
+                in_degree[unlocked]--;
+                if( in_degree[unlocked] <= 0 )
+                    bfs_queue.push(unlocked);
             }
         }
     }
-    if ( retval.size() == numCourses )
-        return retval;
+    if( schedule.size() == numCourses )
+        return schedule;
     std::vector<int> empty;
     return empty;
+        
 }
 
 
 
 int main(int argc, char **argv)
 {
+    std::cout << std::endl << "" << std::endl << std::endl;
     int test_case = 1;
     {
         int numCourses = 2;
         std::vector<std::vector<int>> prerequisites = {{1,0}};
+        std::vector<int> result = findOrder(numCourses, prerequisites);
         std::vector<int> expected = {0,1};
-        std::vector<int> res = findOrder( numCourses, prerequisites );
-        for(auto curr : res )
-        {
-            std::cout << curr << ", " ;
-        }
         std::cout << std::endl;
-        //       bool result = canFinish( numCourses, prerequisites);
-        //   std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail") 
-        //        << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
     {
         int numCourses = 4;
         std::vector<std::vector<int>> prerequisites = {{1,0},{2,0},{3,1},{3,2}};
+        std::vector<int> result = findOrder(numCourses, prerequisites);
         std::vector<int> expected = {0,2,1,3};
-        std::vector<int> res = findOrder( numCourses, prerequisites );
-        for(auto curr : res )
-        {
-            std::cout << curr << ", " ;
-        }
         std::cout << std::endl;
-        //       bool result = canFinish( numCourses, prerequisites);
-        //   std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail") 
-        //        << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
     {
         int numCourses = 1;
         std::vector<std::vector<int>> prerequisites = {};
+        std::vector<int> result = findOrder(numCourses, prerequisites);
         std::vector<int> expected = {0};
-        std::vector<int> res = findOrder( numCourses, prerequisites );
-        for(auto curr : res )
-        {
-            std::cout << curr << ", " ;
-        }
         std::cout << std::endl;
-        //       bool result = canFinish( numCourses, prerequisites);
-        //   std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail") 
-        //        << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
+    return 0;
 }
