@@ -48,7 +48,7 @@ int dfs(std::vector<std::pair<int,int>> &path,
     auto last = path.back();
     int row = last.first;
     int col = last.second;
-    
+
     if( memo[row][col] != -1 )
         return memo[row][col];
 
@@ -107,7 +107,6 @@ int main(int argc, char **argv)
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
         std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
-    return 0;
     {
         std::vector<std::vector<int>> matrix =
             {{3,4,5},
