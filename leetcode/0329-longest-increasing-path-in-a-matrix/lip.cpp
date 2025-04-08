@@ -15,6 +15,19 @@
 #include <stack>
 #include <limits.h>
 
+void dumpPath(std::vector<std::pair<int,int>> &path,
+              std::vector<std::vector<int>> &matrix)
+{
+    int count = 0;
+    for( auto curr : path )
+    {
+        int row = curr.first;
+        int col = curr.second;
+        std::cout << count++ << ": (" << row << "," << col << ") - " << matrix[row][col] << std::endl; 
+    }
+}
+
+
 std::vector<std::pair<int,int>> cardinals =
     { {  1,  0 }, // N
       { -1,  0 }, // S
@@ -29,17 +42,6 @@ bool isValid(int row, int col, std::vector<std::vector<int>> &matrix)
 }
 
 
-void dumpPath(std::vector<std::pair<int,int>> &path,
-              std::vector<std::vector<int>> &matrix)
-{
-    int count = 0;
-    for( auto curr : path )
-    {
-        int row = curr.first;
-        int col = curr.second;
-        std::cout << count++ << ": (" << row << "," << col << ") - " << matrix[row][col] << std::endl; 
-    }
-}
 
 int dfs(std::vector<std::pair<int,int>> &path,
         std::vector<std::vector<int>> &memo,
