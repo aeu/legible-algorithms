@@ -160,6 +160,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0036-valid-sudoku">Leetcode &numero; 36 (Medium) &mdash; Valid Sudoku (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0039-combination-sum">Leetcode &numero; 39 (Medium) &mdash; Combination Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0040-combination-sum-ii">Leetcode &numero; 40 (Medium) &mdash; Combination Sum II (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0047-permutations-ii">Leetcode &numero; 47 (Medium) &mdash; Permutations II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0048-rotate-image">Leetcode &numero; 48 (Medium) &mdash; Rotate Image (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0049-group-anagrams">Leetcode &numero; 49 (Medium) &mdash; Group Anagrams (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0050-pow">Leetcode &numero; 50 (Medium) &mdash; Pow (C++)</a>  
