@@ -16,11 +16,6 @@
 #include <set>
 #include <limits.h>
 
-int doWork()
-{
-    return 1;
-}
-
 std::vector<std::pair<int,int>> directions =
     { { -1,  0 }, // north
       {  1,  0 }, // south
