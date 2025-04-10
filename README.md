@@ -54,6 +54,7 @@ learn how it worked.  Note that I still don't have delete working.
 
 Puzzles and problems from the meta careers interview preparation portal.
 
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/portals">Portals (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/balance-brackets">Balance Brackets (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/balanced-split">Balanced Split (C++)</a>   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/meta/cafeteria">Cafeteria (C++)</a>   
