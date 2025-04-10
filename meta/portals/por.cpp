@@ -62,8 +62,6 @@ int getSecondsRequired(int R, int C, std::vector<std::vector<char>> &G)
         }
     }
 
-    std::set<char> portals_seen;
-    
     while( ! bfs_queue.empty() )
     {
         BfsNode now = bfs_queue.front();
@@ -77,20 +75,16 @@ int getSecondsRequired(int R, int C, std::vector<std::vector<char>> &G)
 
         if(( current >= 'a' ) && ( current <= 'z' ))
         {
-            if( portals_seen.count(current) == 0 )
+            for(int ir = 0; ir < R; ir++)
             {
-                portals_seen.insert(current);
-                for(int ir = 0; ir < R; ir++)
+                for(int ic=0;ic<C;ic++)
                 {
-                    for(int ic=0;ic<C;ic++)
+                    if( G[ir][ic] == current )
                     {
-                        if( G[ir][ic] == current )
+                        if( seen[ir][ic] == 0 )
                         {
-                            if( seen[ir][ic] == 0 )
-                            {
-                                seen[ir][ic] = 1;
-                                bfs_queue.push( { ir, ic, now.steps+1 });
-                            }
+                            seen[ir][ic] = 1;
+                            bfs_queue.push( { ir, ic, now.steps+1 });
                         }
                     }
                 }
