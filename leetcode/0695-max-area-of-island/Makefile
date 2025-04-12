@@ -3,25 +3,21 @@
 # Alfonso E. Urdaneta
 # alfonso@red82.com
 #
-CC=gcc
+CC=g++
+CPPFLAGS=-g -Wall -std=c++17 -I.
 
-FRAMEWORKS:= -framework Foundation
-LIBRARIES:= -lobjc
+OBJS = mai.o
+#	other.o
 
-SOURCE=maxarea.m
+%.o: %.c
+	$(CC) -o $@
 
-OBJECTS = 	Ocean.o	\
-		maxarea.o
+mai: $(OBJS)
+	$(CC) $(CPPFLAGS) -o $@ $^
 
-CFLAGS=-g -v
-LDFLAGS=$(LIBRARIES) $(FRAMEWORKS)
-OUT=maxarea
 
-maxarea	: $(OBJECTS)
-	$(CC) -o maxarea $(OBJECTS) $(LDFLAGS)
-
-Ocean.o	: Ocean.m Ocean.h
-	$(CC) -c Ocean.m
-
-clean	:
-	rm maxarea $(OBJECTS)
+clean:
+	rm -f *.o
+	rm -f *~
+	rm -f *.*~
+	rm -f mai
