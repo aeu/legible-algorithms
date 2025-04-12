@@ -182,6 +182,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0071-simplify-path">Leetcode &numero; 71 (Medium) &mdash; Simplify Path (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0073-set-matrix-zeroes">Leetcode &numero; 73 (Medium) &mdash; Set Matrix Zeroes (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0074-search-a-2d-matrix">Leetcode &numero; 74 (Medium) &mdash; Search a 2D Matrix (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0075-sort-colors">Leetcode &numero; 75 (Medium) &mdash; Sort Colors (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0077-combinations">Leetcode &numero; 77 (Medium) &mdash; Combinations (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0078-subsets">Leetcode &numero; 78 (Medium) &mdash; Subsets (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0079-word-search">Leetcode &numero; 79 (Medium) &mdash; Word Search (C++)</a>  
