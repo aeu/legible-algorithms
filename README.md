@@ -206,6 +206,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0133-clone-graph">Leetcode &numero; 0133 (Medium) &mdash; Clone Graph (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0134-gas-station">Leetcode &numero; 134 (Medium) &mdash; Gas Station (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0138-copy-list-with-random-pointer">Leetcode &numero; 138 (Medium) &mdash; Copy List with Random Pointer (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0139-word-break">Leetcode &numero; 139 (Medium) &mdash; Word Break (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0150-evaluate-reverse-polish-notation">Leetcode &numero; 150 (Medium) &mdash; Evaluate Reverse Polish Notation (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0151-reverse-words-in-a-string">Leetcode &numero; 151 (Medium) &mdash; Reverse Words in a String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0155-min-stack">Leetcode &numero; 155 (Medium) &mdash; Min Stack (C++)</a>  
