@@ -68,6 +68,22 @@ bool backtrack(std::vector<std::vector<char>>& board,
 bool exist(std::vector<std::vector<char>>& board,
            std::string word)
 {
+    std::map<char,int> counts;
+    for(int row = 0;row<board.size();row++)
+    {
+        for(int col = 0; col < board[0].size(); col++)
+        {
+            counts[board[row][col]]++;
+        }
+    }
+    for( auto curr : word )
+    {
+        counts[curr]--;
+        if( counts[curr] < 0 )
+            return false;
+    }
+
+
     bool found = false;
     for(int row = 0;row<board.size();row++)
     {
@@ -88,7 +104,7 @@ bool exist(std::vector<std::vector<char>>& board,
 
 int main(int argc, char **argv)
 {
-    std::cout << std::endl << "" << std::endl << std::endl;
+    std::cout << std::endl << "LC79 - Word Search" << std::endl << std::endl;
     int test_case = 1;
     {
         std::vector<std::vector<char>> board = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
