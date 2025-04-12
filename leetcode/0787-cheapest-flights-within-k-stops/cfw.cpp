@@ -16,24 +16,67 @@
 #include <limits.h>
 
 
-int dfs(int src,int dst, int k,
-        std::unordered_map<int,std::pair<int,int>> &graph)
+void dumpPath(std::vector<int> &path)
 {
-    return -1;
+    for( auto curr : path )
+    {
+        std::cout << curr << " -> " ;
+    }
+    std::cout << std::endl;
+}
+
+int dfs(int dst, int k, int cost,
+        std::vector<int> &path,
+        std::unordered_set<int> &seen,
+        std::unordered_map<int,std::vector<std::pair<int,int>>> &graph)
+{
+    int last_city = path.back();
+    if( last_city == dst )
+    {
+        return cost;
+    }
+    if( path.size() > k + 1 )
+        return INT_MAX;
+
+    if( path.size() == 0 )
+        return INT_MAX;
+    
+    auto it = graph.find( last_city );
+    int lowest_cost = INT_MAX;
+    if( it != graph.end() )
+    {
+        for(auto curr : it->second )
+        {
+            int destination_city = curr.first;
+            if( seen.count( destination_city  ) == 0 )
+            {
+                seen.insert(destination_city);
+                path.push_back( destination_city );
+                int flight_cost = dfs( dst, k, cost + curr.second, path,seen, graph );
+                lowest_cost = std::min(flight_cost, lowest_cost);
+                path.pop_back();
+                seen.erase(destination_city);
+            }
+        }
+    }
+    return lowest_cost;
 }
         
-
-
 int findCheapestPrice(int n, std::vector<std::vector<int>>& flights, int src, int dst, int k)
 {
-    std::unordered_map<int,std::pair<int,int>> graph;
+    std::unordered_map<int,std::vector<std::pair<int,int>>> graph;
     for( auto curr : flights )
     {
-        graph[curr[0]] = { curr[1], curr[2] };
+        graph[curr[0]].push_back({ curr[1], curr[2] });
     }
     int cheapest = INT_MAX;
-    int cost = dfs( src, dst, k, graph );
+    std::unordered_set<int> seen;
+    std::vector<int> path;
+    path.push_back(src);
+    int cost = dfs( dst, k, 0, path, seen, graph );
     cheapest = std::min(cheapest,cost);
+    if( cheapest == INT_MAX )
+        return -1;
     return cheapest;
 }        
 
@@ -41,6 +84,22 @@ int main(int argc, char **argv)
 {
     std::cout << std::endl << "787. Cheapest Flights Within K Stops" << std::endl << std::endl;
     int test_case = 1;
+    {
+        int n = 10;
+        int src = 6;
+        int dst = 0;
+        int k = 7;
+        int expected = 14;
+        std::vector<std::vector<int>> flights =
+            {{3,4,4},{2,5,6},{4,7,10},{9,6,5},{7,4,4},{6,2,10},{6,8,6},
+             {7,9,4},{1,5,4},{1,0,4},{9,7,3},{7,0,5},{6,5,8},{1,7,6},
+             {4,0,9},{5,9,1},{8,7,3},{1,2,6},{4,1,5},{5,2,4},{1,9,1},{7,8,10},{0,4,2},{7,2,8}};
+        int result = findCheapestPrice(n, flights, src, dst, k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    return 0;
     {
         int n = 4;
         int src = 0;
@@ -79,3 +138,5 @@ int main(int argc, char **argv)
     }
     return 0;
 }
+
+
