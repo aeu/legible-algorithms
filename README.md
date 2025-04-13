@@ -157,6 +157,7 @@ was bad, then that means that I haven't improved since I wrote it.
 #### Medium
 
 
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -256,6 +257,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1456-maximum-number-of-vowels-in-a-subtring-of-given-length">Leetcode &numero; 1456 (Medium) &mdash; Maximum Number of Vowels in a Substring of Given Length (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1466-reorder-routes-to-make-all-paths-lead-to-the-city-zero">Leetcode &numero; 1466 (Medium) &mdash; Re-order routes to make all paths lead to the city zero (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1493-longest-subarray-of-1s-after-deleting-one-element">Leetcode &numero; 1493 (Medium) &mdash; Longest Subarray of 1's after Deleting One Element (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1584-min-cost-to-connect-all-points">Leetcode &numero; 1584 (Medium) &mdash; Min Cost to Connect All Points (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1657-determine-if-two-strings-are-close">Leetcode &numero; 1657 (Medium) &mdash; Determine if two strings are close (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1679-max-number-of-k-sum-pairs">Leetcode &numero; 1679 (Medium) &mdash; Max Numbef of K-Sum Pairs(C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1926-nearest-exit-from-entrance-in-maze">Leetcode &numero; 1926 (Medium) &mdash; Nearest Exit From Entrance In Maze (C++)</a>  
