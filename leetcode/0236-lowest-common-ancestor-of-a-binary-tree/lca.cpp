@@ -10,179 +10,129 @@
 #include <vector>
 #include <queue>
 #include <map>
-#include <set>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
-#include "TreeNode.h"
 
-int max_zags = 0;
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+ 
+TreeNode *pnode;
+TreeNode *qnode;
 
-void dumpValues(const std::vector<std::optional<int>> &values )
+
+
+TreeNode *buildTree(std::vector<std::optional<int>> values, int p, int q)
 {
-    bool first_time = true;
-    std::cout << "[";
-    for( auto current : values )
+    TreeNode *root = new TreeNode(values[0].value());
+    if( root->val == p )
+        pnode = root;
+    if( root->val == q )
+        qnode = root;
+    
+    int index = 1;
+    std::queue<TreeNode *> bqueue;
+    bqueue.push(root);
+    while( index < values.size() )
     {
-        if( ! first_time )
-            std::cout << ", ";
-        if( current.has_value() )
-            std::cout << current.value();
-        else
-            std::cout << "null";
-        first_time = false;
-    }
-    std::cout << "]" << std::endl;
-}
+        TreeNode *curr = bqueue.front();
+        bqueue.pop();
 
-std::shared_ptr<TreeNode> buildTree(std::vector<std::optional<int>> &values)
-{
-    if( values.size() == 0 )
-        return nullptr;
-    int index=0;
-    std::shared_ptr<TreeNode> root = std::make_shared<TreeNode>(values[index].value());
-    std::queue<std::shared_ptr<TreeNode>> node_queue;
-    node_queue.push(root);
-    index++;
-    while(index<values.size())
-    {
-        std::shared_ptr<TreeNode> current = node_queue.front();
-        node_queue.pop();
-        if( values[index].has_value())
+        if( values[index].has_value() )
         {
-            std::shared_ptr<TreeNode> left = std::make_shared<TreeNode>(values[index].value());
-            current->setLeft(left);
-            node_queue.push(left);
+            TreeNode *left = new TreeNode( values[index].value());
+            curr->left = left;
+            bqueue.push(left);
+            if( left->val == p )
+                pnode = left;
+            else if( left->val == q )
+                qnode = left;
         }
         index++;
-        if((index<values.size())&&( values[index].has_value()))
+        if((index<values.size())&&(values[index].has_value()))
         {
-            std::shared_ptr<TreeNode> right = std::make_shared<TreeNode>(values[index].value());
-            current->setRight(right);
-            node_queue.push(right);
+            TreeNode *right = new TreeNode(values[index].value());
+            curr->right = right;
+            bqueue.push(right);
+            if( right->val == p )
+                pnode = right;
+            else if( right->val == q )
+                qnode = right;
+
         }
         index++;
     }
     return root;
 }
 
-void dumpPath(std::vector<std::shared_ptr<TreeNode>> &path)
-{
-    bool first_time = true;
-    std::cout << "[";
-    for(auto current : path )
-    {
-        if( ! first_time )
-            std::cout << ", ";
-        std::cout << current->getValue();
-        first_time = false;
-    }
-    std::cout << "]" << std::endl;
-}
-
-bool dfs(std::shared_ptr<TreeNode> root,
-         std::vector<std::shared_ptr<TreeNode>> &path,
-         const int target)
+TreeNode *dfs(TreeNode *root, TreeNode *p, TreeNode *q)
 {
     if( root == nullptr )
-        return false;
-    path.push_back(root);
-    if( root->getValue() == target )
-    {
-        return true;
-    }
-    if( dfs(root->getLeft(),path,target))
-        return true;
+        return root;
+
+    if( root == p )
+        return root;
+
+    if( root == q )
+        return root;
+
+    TreeNode *left = dfs(root->left,p,q);
+    TreeNode *right = dfs(root->right,p,q);
     
-    if(dfs(root->getRight(),path,target))
-        return true;
+    if( ( left != nullptr ) && ( right != nullptr ))
+    {
+        return root;
+    }
 
-    path.pop_back();
-    return false;
-}
-std::shared_ptr<TreeNode> lowestCommonNodeInTwoPaths(std::vector<std::shared_ptr<TreeNode>> path_to_p,
-                                               std::vector<std::shared_ptr<TreeNode>> path_to_q )
-{
-    std::set<std::shared_ptr<TreeNode>> matching_set;
-    for(auto current : path_to_p )
-    {
-        matching_set.insert( current );
-    }
-    for(int index=path_to_q.size()-1;index>=0;index--)
-    {
-        auto current = path_to_q[index];
-        auto insertion = matching_set.insert( current );
-        if( insertion.second == false )
-        {
-            return current;
-        }
-    }
-    return nullptr;
+    if( left != nullptr )
+        return left;
+    return right;
 }
 
 
-std::shared_ptr<TreeNode> lowestCommonAncestor(std::shared_ptr<TreeNode> root,
-                                               const int p,
-                                               const int q)
+TreeNode *lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q)
 {
-    std::vector<std::shared_ptr<TreeNode>> path_to_p;
-    std::vector<std::shared_ptr<TreeNode>> path_to_q;
-    bool p_found = dfs(root,path_to_p,p);
-    bool q_found = dfs(root,path_to_q,q);
-    if( p_found && q_found )
-    {
-        std::shared_ptr<TreeNode> lca = lowestCommonNodeInTwoPaths( path_to_p, path_to_q );
-        if( lca != nullptr )
-        {
-            return lca;
-        }
-    }
-    return nullptr;
+    TreeNode *lca = dfs(root,p,q);
+    return lca;
 }
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode #0236 - Lowest Common Ancestor of a Binary Tree" << std::endl;
+    std::cout << std::endl << "0236-lowest-common-ancestor-of-a-binary-tree" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::cout << "Example 1" << std::endl;
+        std::vector<std::optional<int>> values = {3,5,1,6,2,0,8,std::nullopt,std::nullopt,7,4};
         int p = 5;
         int q = 1;
-        std::vector<std::optional<int>> values =
-            { 3,5,1,6,2,0,8,std::nullopt,std::nullopt,7,4};
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::cout << "p = " << p << std::endl;
-        std::cout << "q = " << q << std::endl;
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        auto lca = lowestCommonAncestor(root,p,q);
-        std::cout << "LCA: " << lca->getValue() << std::endl;
+        int expected = 3;
+        TreeNode *root = buildTree(values,p,q);
+        TreeNode *res = lowestCommonAncestor(root, pnode, qnode);
+        int result = -1;
+        if( res != nullptr )
+            result = res->val;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::cout << std::endl << "Example 2" << std::endl;
-        std::vector<std::optional<int>> values =
-            {3,5,1,6,2,0,8,std::nullopt,std::nullopt,7,4};
-        int p = 5;
-        int q = 4;
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::cout << "p = " << p << std::endl;
-        std::cout << "q = " << q << std::endl;
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        auto lca = lowestCommonAncestor(root,p,q);
-        std::cout << "LCA: " << lca->getValue() << std::endl;
-    }
-    {
-        std::cout << std::endl << "Example 3" << std::endl;
-        std::vector<std::optional<int>> values =
-            {1,2};
+        std::vector<std::optional<int>> values = {1,2};
         int p = 1;
         int q = 2;
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::cout << "p = " << p << std::endl;
-        std::cout << "q = " << q << std::endl;
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        auto lca = lowestCommonAncestor(root,p,q);
-        std::cout << "LCA: " << lca->getValue() << std::endl;
+        int expected = 1;
+        TreeNode *root = buildTree(values,p,q);
+        TreeNode *res = lowestCommonAncestor(root, pnode, qnode);
+        int result = -1;
+        if( res != nullptr )
+            result = res->val;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
-
-    return -1;
+    return 0;
 }
