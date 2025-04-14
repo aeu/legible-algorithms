@@ -1,4 +1,4 @@
-# legible-algorithms
+# Legible Algorithms
 
 When I get stuck on something, I like to solve puzzles and implement
 algorithms as a form of focused distraction.  This is a collection of
