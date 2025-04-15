@@ -159,7 +159,6 @@ was bad, then that means that I haven't improved since I wrote it.
 
 #### Medium
 
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -227,6 +226,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0238-product-of-array-except-self">Leetcode &numero; 238 (Medium) &mdash; Product of Array except Self (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0274-h-index">Leetcode &numero; 274 (Medium) &mdash; H-Index (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0289-game-of-life">Leetcode &numero; 289 (Medium) &mdash; Game of Life (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0314-binary-tree-vertical-order-traversal">Leetcode &numero; 314 (Medium) &mdash; Binary Tree Vertical Order Traversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0328-odd-even-linked-list">Leetcode &numero; 328 (Medium) &mdash; Odd Even Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0334-increasing-triplet-subsequence">Leetcode &numero; 334 (Medium) &mdash; Increasing Triplet Subsequence (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0347-top-k-frequent-elements">Leetcode &numero; 347 (Medium) &mdash; Top K Frequent Elements (C++)</a>  
