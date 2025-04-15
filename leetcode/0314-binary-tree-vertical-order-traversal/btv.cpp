@@ -54,56 +54,45 @@ TreeNode *buildTree(std::vector<std::optional<int>> &nums)
     return root;
 }
 
-
-struct tpos {
-    int val;
-    int depth;
-    int pcol;
+struct bfs_info {
+    int row;
+    int col;
+    TreeNode *node;
 };
-
-
-static bool tposcomp( const tpos &lhs, const tpos &rhs )
-{
-    if( lhs.depth < rhs.depth )
-        return true;
-    if( lhs.depth == rhs.depth )
-        if( lhs.pcol < rhs.pcol )
-            return true;
-    return false;
-}
-
-
-void dfs(TreeNode *root, int depth, int pcol, int col,
-         std::map<int,std::vector<tpos>> &out)
-{
-    if( root == nullptr )
-        return;
-
-    out[col].push_back({root->val,depth,pcol});
-    
-    dfs(root->left,  depth+1, col, col-1, out);
-    dfs(root->right, depth+1, col, col+1, out);
-
-    return;
-}
 
 std::vector<std::vector<int>> verticalOrder(TreeNode* root)
 {
-    std::map<int,std::vector<tpos>> out;
     std::vector<std::vector<int>> retval;
-    dfs(root, 0, 0, 0, out );
-
+    if( root == nullptr )
+        return retval;
+    
+    std::map<int,std::vector<int>> out;
+    std::queue<bfs_info> bfs_queue;
+    bfs_queue.push( { 0, 0, root} );
+    while( ! bfs_queue.empty() )
+    {
+        bfs_info curr = bfs_queue.front();
+        bfs_queue.pop();
+        // std::cout << "[" << curr.node->val << "] R: " << curr.row << " C: " << curr.col << std::endl;
+        out[curr.col].push_back(curr.node->val);
+        if( curr.node->left != nullptr )
+        {
+            bfs_queue.push( { curr.row + 1, curr.col - 1, curr.node->left });
+        }
+        if( curr.node->right != nullptr )
+        {
+            bfs_queue.push( { curr.row + 1, curr.col + 1, curr.node->right });
+        }
+    }
     for(auto curr  : out )
     {
-        std::sort( curr.second.begin(), curr.second.end(), tposcomp );
         std::vector<int> ilist;
         for( auto inner : curr.second )
         {
-            ilist.push_back(inner.val);
+            ilist.push_back(inner);
         }
         retval.push_back(ilist);
     }
-    
     return retval;
 }
 
