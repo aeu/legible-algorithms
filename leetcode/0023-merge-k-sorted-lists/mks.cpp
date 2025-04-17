@@ -46,19 +46,19 @@ struct NodeSorter {
 
 ListNode *mergeKLists(std::vector<ListNode *> &lists )
 {
-    std::priority_queue<ListNode *, std::vector<ListNode *>, NodeSorter> squeue;
+    std::priority_queue<ListNode *, std::vector<ListNode *>, NodeSorter> merging_queue;
     for(auto curr : lists )
     {
         if( curr != nullptr )
-            squeue.push( curr );
+            merging_queue.push( curr );
     }
 
     ListNode *newhead = nullptr;
     ListNode *last_added = nullptr;
-    while ( ! squeue.empty() )
+    while ( ! merging_queue.empty() )
     {
-        ListNode *curr = squeue.top();
-        squeue.pop();
+        ListNode *curr = merging_queue.top();
+        merging_queue.pop();
         if( newhead == nullptr )
         {
             newhead = curr;
@@ -71,7 +71,7 @@ ListNode *mergeKLists(std::vector<ListNode *> &lists )
         }
         if( curr->next != nullptr )
         {
-            squeue.push(curr->next);
+            merging_queue.push(curr->next);
         }
     }
     return newhead;
