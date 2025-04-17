@@ -16,19 +16,20 @@
 
 int maxSubArray(std::vector<int> &nums )
 {
-    int current_sum = nums[0];
     int max_sum = nums[0];
-
+    int current_sum = nums[0];
     for(int index=1;index<nums.size();index++)
     {
         if( current_sum < 0 )
+        {
             current_sum = nums[index];
+        }
         else
+        {
             current_sum += nums[index];
-        
-        max_sum = std::max( max_sum, current_sum );
+        }
+        max_sum = std::max( current_sum, max_sum );
     }
-    
     return max_sum;
 }
 
