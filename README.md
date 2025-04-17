@@ -154,6 +154,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0977-squares-of-a-sorted-array">Leetcode &numero; 977 (Easy) &mdash; Squares of a Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1071-greatest-common-divisor-of-strings/">Leetcode &numero; 1071 (Easy) &mdash; Greatest Common Divisor of Strings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1207-unique-number-of-occurrences/">Leetcode &numero; 1207 (Easy) &mdash; Unique Number of Occurrences (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1480-running-sum-of-1d-array">Leetcode &numero; 1480 (Easy) &mdash; Running Sum of 1D Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1732-find-the-highest-altitude/">Leetcode &numero; 1732 (Easy) &mdash; Find The Highest Altitude(C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2215-find-the-difference-of-two-arrays/">Leetcode &numero; 2215 (Easy) &mdash; Find the Difference of Two Arrays (C++)</a>  
 
