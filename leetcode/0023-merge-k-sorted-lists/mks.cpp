@@ -49,8 +49,8 @@ ListNode *mergeKLists(std::vector<ListNode *> &lists )
     std::priority_queue<ListNode *, std::vector<ListNode *>, NodeSorter> squeue;
     for(auto curr : lists )
     {
-        ListNode *cand = curr;
-        squeue.push( cand );
+        if( curr != nullptr )
+            squeue.push( curr );
     }
 
     ListNode *newhead = nullptr;
