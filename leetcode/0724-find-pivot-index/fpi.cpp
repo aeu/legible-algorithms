@@ -18,7 +18,7 @@
 int pivotIndex(std::vector<int>& nums)
 {
     int allsum = 0;
-    for( auto curr : nums )
+    for(const auto &curr : nums )
     {
         allsum += curr;
     }
