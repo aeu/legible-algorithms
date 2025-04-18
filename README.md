@@ -111,6 +111,7 @@ was bad, then that means that I haven't improved since I wrote it.
 #### Easy
 
 
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0001-two-sum">Leetcode &numero; 1 (Easy) &mdash; Two Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0020-valid-parentheses">Leetcode &numero; 20 (Easy) &mdash; Valid Parentheses (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0021-merge-two-sorted-lists">Leetcode &numero; 21 (Easy) &mdash; Merge Two Sorted Lists (C++)</a>  
@@ -153,6 +154,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0977-squares-of-a-sorted-array">Leetcode &numero; 977 (Easy) &mdash; Squares of a Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1071-greatest-common-divisor-of-strings/">Leetcode &numero; 1071 (Easy) &mdash; Greatest Common Divisor of Strings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1207-unique-number-of-occurrences/">Leetcode &numero; 1207 (Easy) &mdash; Unique Number of Occurrences (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1480-running-sum-of-1d-array">Leetcode &numero; 1480 (Easy) &mdash; Running Sum of 1D Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1732-find-the-highest-altitude/">Leetcode &numero; 1732 (Easy) &mdash; Find The Highest Altitude(C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2215-find-the-difference-of-two-arrays/">Leetcode &numero; 2215 (Easy) &mdash; Find the Difference of Two Arrays (C++)</a>  
 
@@ -217,6 +219,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0162-find-peak-element">Leetcode &numero; 162 (Medium) &mdash; Find Peak Element (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0167-two-sum-ii">Leetcode &numero; 167 (Medium) &mdash; Two Sum II - Input Array is Sorted (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0189-rotate-array">Leetcode &numero; 189 (Medium) &mdash; Rotate Array (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0198-house-robber">Leetcode &numero; 198 (Medium) &mdash; House Robber (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0199-binary-tree-right-side-view">Leetcode &numero; 199 (Medium) &mdash; Binary Tree Right Side View (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0200-number-of-islands">Leetcode &numero; 200 (Medium) &mdash; Number of Islands (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0207-course-schedule">Leetcode &numero; 207 (Medium) &mdash; Course Schedule (C++)</a>  
@@ -227,6 +230,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0238-product-of-array-except-self">Leetcode &numero; 238 (Medium) &mdash; Product of Array except Self (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0274-h-index">Leetcode &numero; 274 (Medium) &mdash; H-Index (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0289-game-of-life">Leetcode &numero; 289 (Medium) &mdash; Game of Life (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0314-binary-tree-vertical-order-traversal">Leetcode &numero; 314 (Medium) &mdash; Binary Tree Vertical Order Traversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0328-odd-even-linked-list">Leetcode &numero; 328 (Medium) &mdash; Odd Even Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0334-increasing-triplet-subsequence">Leetcode &numero; 334 (Medium) &mdash; Increasing Triplet Subsequence (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0347-top-k-frequent-elements">Leetcode &numero; 347 (Medium) &mdash; Top K Frequent Elements (C++)</a>  
@@ -277,7 +281,7 @@ was bad, then that means that I haven't improved since I wrote it.
 
 #### Hard
 
-
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0023-merge-k-sorted-lists">Leetcode &numero; 23 (Hard) &mdash; Merge K Sorted Lists (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0068-text-justification">Leetcode &numero; 68 (Hard) &mdash; Text Justification (C++11,C++17)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0076-minimum-window-substring">Leetcode &numero; 76 (Hard) &mdash; Minimum Window Substring (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0084-largest-rectangle-in-histogram">Leetcode &numero; 84 (Hard) &mdash; Largest Rectangle in Histogram (C++11)   

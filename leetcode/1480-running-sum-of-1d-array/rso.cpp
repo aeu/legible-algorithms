@@ -11,57 +11,46 @@
 #include <queue>
 #include <map>
 #include <unordered_set>
+#include <unordered_map>
 #include <stack>
 #include <limits.h>
 
-int maxSubArray(std::vector<int> &nums )
+std::vector<int> runningSum(std::vector<int> &nums)
 {
-    int max_sum = nums[0];
-    int current_sum = nums[0];
+    std::vector<int> retval;
+    retval.push_back(nums[0]);
     for(int index=1;index<nums.size();index++)
     {
-        if( current_sum < 0 )
-        {
-            current_sum = nums[index];
-        }
-        else
-        {
-            current_sum += nums[index];
-        }
-        max_sum = std::max( current_sum, max_sum );
+        retval.push_back( nums[index] + retval.back() );
     }
-    return max_sum;
+    return retval;
 }
-
 
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode #53 - Maximum Subarray" << std::endl << std::endl;
+    std::cout << std::endl << "1480-running-sum-of-1d-array/" << std::endl << std::endl;
     int test_case = 1;
     {
-        std::vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
-        int expected = 6;
-        int result = maxSubArray(nums);
+        std::vector<int> nums  = {1,2,3,4};
+        std::vector<int> expected = {1,3,6,10};
+        std::vector<int> result = runningSum(nums);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
-        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::vector<int> nums = {1};
-        int expected = 1;
-        int result = maxSubArray(nums);
+        std::vector<int> nums  = {1,1,1,1,1};
+        std::vector<int> expected = {1,2,3,4,5};
+        std::vector<int> result = runningSum(nums);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
-        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::vector<int> nums = {5,4,-1,7,8};
-        int expected = 23;
-        int result = maxSubArray(nums);
+        std::vector<int> nums  = {3,1,2,10,1};
+        std::vector<int> expected = {3,4,6,16,17};
+        std::vector<int> result = runningSum(nums);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
-        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     return 0;
 }
