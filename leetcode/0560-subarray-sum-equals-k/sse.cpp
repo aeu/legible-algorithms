@@ -4,72 +4,65 @@
 //
 //  This software may not be used or reproduced, in whole or in part,
 //  without the express written permission of red82
-//
-#include <stdio.h>
-#include <limits.h>
-#include <string>
-#include <cmath>
-#include <vector>
-#include <algorithm>
+
 #include <iostream>
+#include <optional>
+#include <vector>
+#include <queue>
 #include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
-
-void dumpValues(const std::vector<int> &values)
+int subarraySum(std::vector<int>& nums, int k)
 {
-    bool first_time = true;
-    std::cout << "[";
-    for(auto current : values )
-    {
-        if( ! first_time )
-            std::cout << ", " ;
-        std::cout << current ;
-        first_time = false;
-    }
-    std::cout << "]" << std::endl;
-}
-
-int subarraySum(std::vector<int> &sums, int k )
-{
-    std::map<int,int> prefix_sums;
+    int subarray_count = 0;
+    std::map<int,int> psums;
+    psums[0]++;
     int running_sum = 0;
-    int subarray_sums = 0;
-    prefix_sums[0]++;
-    for(int current : sums )
+    for(int index=0;index<nums.size();index++)
     {
-        running_sum += current;
-        int prefix_sum = running_sum - k;
-        std::map<int,int>::iterator ps_iter;
-        ps_iter = prefix_sums.find( prefix_sum );
-        if( ps_iter != prefix_sums.end())
-        {
-            int prefix_sum_count = ps_iter->second;
-            subarray_sums += prefix_sum_count;
-        }
-        prefix_sums[running_sum]++;
+        running_sum += nums[index];
+        auto psit = psums.find( running_sum - k );
+        if( psit != psums.end() )
+            subarray_count += psit->second;
+        psums[running_sum]++;
     }
-    return subarray_sums;
+    return subarray_count;
 }
+
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode 0560 - Subarray Sum Equals K" << std::endl;
+    std::cout << std::endl << "0560-subarray-sum-equals-k" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::cout << "Example 1" << std::endl;
+        std::vector<int> nums  = {1,1,1};
         int k = 2;
-        std::vector<int> sums = { 1,1,1 };
-        std::cout << "Values: " ;
-        dumpValues(sums);
-        int sas = subarraySum(sums,k);
-        std::cout << "Subarray Sums: " << sas << std::endl;
+        int expected = 2;
+        int result = subarraySum(nums,k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::cout << "Example 2" << std::endl; 
+        std::vector<int> nums  = {1,2,3};
         int k = 3;
-        std::vector<int> sums = { 1,2,3 };
-        std::cout << "Values: " ;
-        dumpValues(sums);
-        int sas = subarraySum(sums,k);
-        std::cout << "Subarray Sums: " << sas << std::endl;
+        int expected = 2;
+        int result = subarraySum(nums,k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
+    {
+        std::vector<int> nums  = {1,-1,0};
+        int k = 0;
+        int expected = 3;
+        int result = subarraySum(nums,k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    return 0;
 }
