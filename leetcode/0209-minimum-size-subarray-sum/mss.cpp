@@ -14,7 +14,8 @@
 #include <iostream>
 
 
-int minSubArrayLen(int target, std::vector<int>& nums)
+// this version I do my own binary search.
+int minSubArrayLenBinarySearch(int target, std::vector<int>& nums)
 {
     // first build the prefix sums array
     std::vector<int> prefix_sums(nums.size()+1,0);
@@ -51,6 +52,38 @@ int minSubArrayLen(int target, std::vector<int>& nums)
         if(( low < prefix_sums.size() ) && ( prefix_sums[low] >= target_sum ))
         {
             int length = low - index;
+            min_len = std::min(min_len, length);
+        }
+    }
+    return ( min_len == INT_MAX ) ? 0 : min_len  ;
+}
+
+int minSubArrayLen(int target, std::vector<int>& nums)
+{
+    // first build the prefix sums array
+    std::vector<int> prefix_sums(nums.size()+1,0);
+    prefix_sums[0] = 0;
+    for(int index=1;index<=nums.size();index++)
+    {
+        prefix_sums[index] = prefix_sums[index-1] + nums[index-1];
+    }
+    int min_len = INT_MAX;
+    // if there's a subarray that hits the sum, its got to start and
+    // end somewhere.
+    for(int index=0;index<prefix_sums.size();index++)
+    {
+        // for this start point
+        int curr = prefix_sums[index];
+        // calculate what the next sum has to be in order to hit the target
+        int target_sum = curr + target;
+
+        // do a binary search to find the first possible place where this hits
+        auto found = std::lower_bound(prefix_sums.begin(),
+                                     prefix_sums.end(),
+                                     target_sum );
+        if( found != prefix_sums.end() )
+        {
+            int length = found - prefix_sums.begin() - index;
             min_len = std::min(min_len, length);
         }
     }
