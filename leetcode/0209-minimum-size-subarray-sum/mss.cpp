@@ -16,25 +16,45 @@
 
 int minSubArrayLen(int target, std::vector<int>& nums)
 {
-    int min_length = INT_MAX;
-    int left = -1;
-    int right = 0;
-    int running_sum = 0;
-
-    while(( left < right ) && ( right < nums.size() ))
+    // first build the prefix sums array
+    std::vector<int> prefix_sums(nums.size()+1,0);
+    prefix_sums[0] = 0;
+    for(int index=1;index<=nums.size();index++)
     {
-        running_sum += nums[right];
-        while( running_sum >= target )
-        {
-            min_length = std::min( min_length, ( right - left ) );
-            left++;
-            running_sum -= nums[left];
-        }
-        right++;
+        prefix_sums[index] = prefix_sums[index-1] + nums[index-1];
     }
-    if( min_length != INT_MAX )
-        return min_length;
-    return 0;
+    int min_len = INT_MAX;
+    // if there's a subarray that hits the sum, its got to start and
+    // end somewhere.
+    for(int index=0;index<prefix_sums.size();index++)
+    {
+        // for this start point
+        int curr = prefix_sums[index];
+        // calculate what the next sum has to be in order to hit the target
+        int target_sum = curr + target;
+        // do a binary search to find the first possible place where this hits
+        int low  = index+1;
+        int high = prefix_sums.size() -1;
+        int mid;
+        while( low < high )
+        {
+            mid = low + ( ( high - low ) / 2 );
+            if( prefix_sums[mid] < target_sum )
+                low = mid+1;
+            else
+                high = mid;
+        }
+        // now see if the binary search actually hit a valid point
+        // (the subarray may not exist.  If it does, get the size of
+        // the subarray and see if its smaller than what we have found
+        // so far
+        if(( low < prefix_sums.size() ) && ( prefix_sums[low] >= target_sum ))
+        {
+            int length = low - index;
+            min_len = std::min(min_len, length);
+        }
+    }
+    return ( min_len == INT_MAX ) ? 0 : min_len  ;
 }
 
 
