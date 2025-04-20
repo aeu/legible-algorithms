@@ -15,23 +15,15 @@
 #include <stack>
 #include <limits.h>
 
-int oddsToOne(int number)
-{
-    if( number % 2 == 1 )
-        return 1;
-    return 0;
-}
-
 int numberOfSubarrays(std::vector<int>& nums, int k)
 {
-    std::map<int,int> psums;
+    std::unordered_map<int,int> psums;
     int running_sum    = 0;
     int subarray_count = 0;
     psums[0]++;
     for(int index=0;index<nums.size();index++)
     {
-        int current = oddsToOne( nums[index] );
-        running_sum += current;
+        running_sum += nums[index] % 2 ;
         int goal = running_sum - k;
         auto piter = psums.find( goal );
         if( piter != psums.end() )
