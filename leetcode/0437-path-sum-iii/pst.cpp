@@ -66,14 +66,14 @@ void dumpPath(std::vector<TreeNode *> &path)
 }
 
 
-void dumpPathSum(std::vector<int> &cps)
+void dumpPathSum(std::vector<TreeNode *> &cps)
 {
     bool first_time = true;
     for(auto curr : cps )
     {
         if( ! first_time )
             std::cout << ", ";
-        std::cout << curr ;
+        std::cout << curr->val ;
         first_time = false;
     }
     std::cout << std::endl;
@@ -81,47 +81,39 @@ void dumpPathSum(std::vector<int> &cps)
 
 void processPath(int targetSum,
                  std::vector<TreeNode *> &path,
-                 std::set<std::vector<int>> &found)
+                 std::set<std::vector<TreeNode *>> &found)
 {
     int running_sum = 0;
     std::unordered_map<int,std::vector<int>> prefix_sums;
+    prefix_sums[0].push_back(-1);
     for(int index=0;index<path.size();index++)
     {
         TreeNode *curr = path[index];
         running_sum += curr->val;
-        prefix_sums[running_sum].push_back(index);
         int prefix_needed = running_sum - targetSum;
         auto piter = prefix_sums.find( prefix_needed );
         if( piter != prefix_sums.end() )
         {
             // at this point we have a path whose sum is target sum in
             // the path, and it starts at the position(s) in the prefix sum map
-            for( const auto &curr : piter->second )
+            for(int start_index : piter->second )
             {
-                int running = targetSum;
-                std::vector<int> current_path_sum;
-                for(int index=curr+1;index<path.size();index++)
+                std::vector<TreeNode *> current_path_sum;
+                for(int j = start_index+1; j <= index; j++)
                 {
-                    if( running == 0 )
-                    {
-                        break;
-                    }
-                    current_path_sum.push_back( path[index]->val );
-                    running -= path[index]->val;
+                    current_path_sum.push_back( path[j] );
                 }
-                if( found.count ( current_path_sum ) == 0 ) 
-                {
-                    found.insert( current_path_sum );
-                }
+                found.insert( current_path_sum );
             }
         }
+        prefix_sums[running_sum].push_back(index);
     }
 }
 
 TreeNode *dfs(TreeNode *root,
               int targetSum,
               std::vector<TreeNode *> &path,
-              std::set<std::vector<int>> &found
+              std::set<std::vector<TreeNode *>> &found
               )
          
 {
@@ -130,16 +122,11 @@ TreeNode *dfs(TreeNode *root,
 
     path.push_back(root);
     if(( root->left == nullptr ) && ( root->right == nullptr ))
-    {
-        // end node, do prefix sum stuff here so its done only once
-    }
-
-    processPath(targetSum,path,found);
+        processPath(targetSum,path,found);
     if( root->left != nullptr )
     {
         dfs( root->left, targetSum, path, found );
     }
-
     if( root->right != nullptr )
     {
         dfs( root->right, targetSum, path, found );
@@ -152,11 +139,11 @@ TreeNode *dfs(TreeNode *root,
 int pathSum(TreeNode* root, int targetSum)
 {
     std::vector<TreeNode *> path;
-    std::set<std::vector<int>> found;
+    std::set<std::vector<TreeNode *>> found;
     dfs(root,targetSum,path,found);
     for(auto curr: found )
     {
-        dumpPathSum(curr);
+        //        dumpPathSum(curr);
     }
     return found.size();
 }
@@ -164,8 +151,38 @@ int pathSum(TreeNode* root, int targetSum)
 
 int main(int argc, char **argv)
 {
-    std::cout << std::endl << "" << std::endl << std::endl;
+    std::cout << std::endl << "0437-path-sum-iii" << std::endl << std::endl;
     int test_case = 1;
+    {
+        std::vector<std::optional<int>> values = { 1, -2, -3, 1, 3, -2, std::nullopt, -1 };
+        TreeNode *root  = buildTree(values);
+        int targetSum = -1;
+        int expected = 4;
+        int result = pathSum(root,targetSum);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        std::vector<std::optional<int>> values = { 1, -2, -3, 1, 3, -2, std::nullopt, -1 };
+        TreeNode *root  = buildTree(values);
+        int targetSum = 0;
+        int expected = 2;
+        int result = pathSum(root,targetSum);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        std::vector<std::optional<int>> values = { 1 };
+        TreeNode *root  = buildTree(values);
+        int targetSum = 0;
+        int expected = 0;
+        int result = pathSum(root,targetSum);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
     {
         std::vector<std::optional<int>> values = { 10,5,-3,3,2,std::nullopt,11,3,-2,std::nullopt,1 };
         TreeNode *root  = buildTree(values);
