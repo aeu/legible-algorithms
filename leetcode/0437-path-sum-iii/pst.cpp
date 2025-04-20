@@ -10,174 +10,181 @@
 #include <vector>
 #include <queue>
 #include <map>
+#include <set>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
-#include "TreeNode.h"
 
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
 
-void dumpValues(const std::vector<std::optional<int>> &values )
+TreeNode *buildTree(std::vector<std::optional<int>> values)
 {
-    bool first_time = true;
-    std::cout << "[";
-    for( auto current : values )
+    if( values.empty() )
+        return nullptr;
+    
+    TreeNode *root = new TreeNode(values[0].value());
+    int index=1;
+    std::queue<TreeNode *> nodes;
+    nodes.push(root);
+    while( index < values.size() )
     {
-        if( ! first_time )
-            std::cout << ", ";
-        if( current.has_value() )
-            std::cout << current.value();
-        else
-            std::cout << "null";
-        first_time = false;
-    }
-    std::cout << "]" << std::endl;
-}
-
-void dumpPath(const std::vector<std::shared_ptr<TreeNode>> &values )
-{
-    bool first_time = true;
-    std::cout << "[";
-    for( auto current : values )
-    {
-        if( ! first_time )
-            std::cout << ", ";
-        std::cout << current->getValue();
-        first_time = false;
-    }
-    std::cout << "]" << std::endl;
-}
-
-std::shared_ptr<TreeNode> buildTree(std::vector<std::optional<int>> &values)
-{
-    int index = 0;
-    std::shared_ptr<TreeNode> root = std::make_shared<TreeNode>(values[index].value());
-    std::queue<std::shared_ptr<TreeNode>> node_queue;
-    node_queue.push( root);
-    index++;
-    while(index<values.size())
-    {
-        std::shared_ptr<TreeNode> current = node_queue.front();
-        node_queue.pop();
+        TreeNode *curr = nodes.front();
+        nodes.pop();
         if( values[index].has_value() )
         {
-            std::shared_ptr<TreeNode> left = std::make_shared<TreeNode>(values[index].value());
-            node_queue.push( left );
-            current->setLeft(left);
+            TreeNode *new_left = new TreeNode(values[index].value());
+            curr->left = new_left;
+            nodes.push(new_left);
         }
         index++;
-        if( ( index < values.size() ) && ( values[index].has_value() ))
+        if(( index < values.size()) && ( values[index].has_value() ))
         {
-            std::shared_ptr<TreeNode> right = std::make_shared<TreeNode>(values[index].value());
-            node_queue.push(right);
-            current->setRight(right);
+            TreeNode *new_right = new TreeNode(values[index].value());
+            curr->right = new_right;
+            nodes.push(new_right);
         }
         index++;
     }
     return root;
 }
-
-int markPath(const std::vector<std::shared_ptr<TreeNode>> &path,
-              int endpoint,
-             int target_sum,
-             std::map< std::vector<std::shared_ptr<TreeNode>>,int> &valid_paths)
+void dumpPath(std::vector<TreeNode *> &path)
 {
-    std::vector<std::shared_ptr<TreeNode>> marked_path;
-    int running_sum = 0;
-    for(int index=endpoint;index>=0;index--)
+    for( auto curr : path )
     {
-        auto current = path[index];
-        marked_path.push_back(current);
-        running_sum += current->getValue();
-        if( running_sum == target_sum )
-            break;
+        std::cout << curr->val << " -> ";
     }
-    valid_paths[marked_path] = 1;
-    return 0;
+    std::cout << std::endl;
 }
 
-int sumFunction(const std::vector<std::shared_ptr<TreeNode>> &path,
-                int target_sum,
-                std::map< std::vector<std::shared_ptr<TreeNode>>,int> &valid_paths)
+
+void dumpPathSum(std::vector<int> &cps)
 {
-    std::map<int,int> prefix_sums;
-    std::map<int,int>::iterator psiter;
-    prefix_sums[0]++;
-    int sum_count = 0;
+    bool first_time = true;
+    for(auto curr : cps )
+    {
+        if( ! first_time )
+            std::cout << ", ";
+        std::cout << curr ;
+        first_time = false;
+    }
+    std::cout << std::endl;
+}
+
+void processPath(int targetSum,
+                 std::vector<TreeNode *> &path,
+                 std::set<std::vector<int>> &found)
+{
     int running_sum = 0;
+    std::unordered_map<int,std::vector<int>> prefix_sums;
     for(int index=0;index<path.size();index++)
     {
-        auto current = path[index];
-        running_sum+=current->getValue();
-        int prefix_sum = running_sum - target_sum;
-        psiter = prefix_sums.find(prefix_sum);
-        if( psiter != prefix_sums.end() )
+        TreeNode *curr = path[index];
+        running_sum += curr->val;
+        prefix_sums[running_sum].push_back(index);
+        int prefix_needed = running_sum - targetSum;
+        auto piter = prefix_sums.find( prefix_needed );
+        if( piter != prefix_sums.end() )
         {
-            sum_count += psiter->second;
-            markPath(path,index,target_sum,valid_paths);
+            // at this point we have a path whose sum is target sum in
+            // the path, and it starts at the position(s) in the prefix sum map
+            for( const auto &curr : piter->second )
+            {
+                int running = targetSum;
+                std::vector<int> current_path_sum;
+                for(int index=curr+1;index<path.size();index++)
+                {
+                    if( running == 0 )
+                    {
+                        break;
+                    }
+                    current_path_sum.push_back( path[index]->val );
+                    running -= path[index]->val;
+                }
+                if( found.count ( current_path_sum ) == 0 ) 
+                {
+                    found.insert( current_path_sum );
+                }
+            }
         }
-        prefix_sums[running_sum]++;
     }
-    return sum_count;
 }
 
-void dfs(std::shared_ptr<TreeNode> root,
-         std::vector<std::shared_ptr<TreeNode>> &path,
-         int target_sum,
-         std::map< std::vector<std::shared_ptr<TreeNode>>,int> &valid_paths)
+TreeNode *dfs(TreeNode *root,
+              int targetSum,
+              std::vector<TreeNode *> &path,
+              std::set<std::vector<int>> &found
+              )
+         
 {
     if( root == nullptr )
-        return;
+        return root;
 
     path.push_back(root);
-    if(( root->getLeft() == nullptr ) && ( root->getRight() == nullptr ))
+    if(( root->left == nullptr ) && ( root->right == nullptr ))
     {
-        sumFunction( path, target_sum, valid_paths );
+        // end node, do prefix sum stuff here so its done only once
     }
-    else
+
+    processPath(targetSum,path,found);
+    if( root->left != nullptr )
     {
-        dfs( root->getLeft(), path,target_sum,valid_paths );
-        dfs( root->getRight(), path,target_sum,valid_paths );
+        dfs( root->left, targetSum, path, found );
+    }
+
+    if( root->right != nullptr )
+    {
+        dfs( root->right, targetSum, path, found );
     }
     path.pop_back();
+    return root;
 }
 
-int walkToLeaves(std::shared_ptr<TreeNode> root,
-                 int target_sum)
+
+int pathSum(TreeNode* root, int targetSum)
 {
-    std::vector<std::shared_ptr<TreeNode>> path;
-    std::map< std::vector<std::shared_ptr<TreeNode>>,int> valid_paths;
-    dfs(root,path,target_sum,valid_paths);
-    std::cout << "valid paths count : " << valid_paths.size() << std::endl;
-    std::cout << "These are: " << std::endl;
-    for(auto current : valid_paths )
+    std::vector<TreeNode *> path;
+    std::set<std::vector<int>> found;
+    dfs(root,targetSum,path,found);
+    for(auto curr: found )
     {
-        dumpPath( current.first );
+        dumpPathSum(curr);
     }
-    return 0;
+    return found.size();
 }
 
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode #437 - Path Sum III" << std::endl;
+    std::cout << std::endl << "" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::cout << "Example 1" << std::endl;
-        int target_sum = 8;
         std::vector<std::optional<int>> values = { 10,5,-3,3,2,std::nullopt,11,3,-2,std::nullopt,1 };
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::cout << "Looking for a sum of : " << target_sum << std::endl;
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        walkToLeaves(root,target_sum);
+        TreeNode *root  = buildTree(values);
+        int expected = 3;
+        int targetSum = 8;
+        int result = pathSum(root,targetSum);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::cout << "Example 2" << std::endl;
-        int target_sum = 22;
         std::vector<std::optional<int>> values = { 5,4,8,11,std::nullopt,13,4,7,2,std::nullopt,std::nullopt,5,1 };
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::cout << "Looking for a sum of : " << target_sum << std::endl;
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        walkToLeaves(root,target_sum);
+        TreeNode *root  = buildTree(values);
+        int expected = 3;
+        int targetSum = 22;
+        int result = pathSum(root,targetSum);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
-
-    return -1;
+    return 0;
 }
