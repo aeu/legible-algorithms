@@ -17,7 +17,12 @@
 
 int sumSubarrayMins(std::vector<int>& arr)
 {
+    std::stack<int> mono_left;
     
+    for(int index=0;index<arr.size();index++)
+    {
+        int current = arr[index];
+    }
 }
 
 
