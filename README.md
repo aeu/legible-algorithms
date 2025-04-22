@@ -4,7 +4,7 @@ When I get stuck on something, I like to solve puzzles and implement
 algorithms as a form of focused distraction.  This is a collection of
 my implementations of various things that I wrote to pass the time.
 They are in C++ and Obj-C because I enjoy working on those
-languages. Maybe I'll add some Rust soon.
+languages.
 
 ## Data Structures
 The data structures we take for granted.  These were a lot more typing
