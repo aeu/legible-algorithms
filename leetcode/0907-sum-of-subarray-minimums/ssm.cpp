@@ -17,11 +17,34 @@
 
 int sumSubarrayMins(std::vector<int>& arr)
 {
-    std::stack<int> mono_left;
-    
+    std::stack<int> mstack;
+    std::vector<int> lefts(arr.size(),0);
+    std::vector<int> rights(arr.size(),0);
     for(int index=0;index<arr.size();index++)
     {
+        lefts[index] = -1;
         int current = arr[index];
+        // find the last entry that was bigger than current
+        while( ( ! mstack.empty() ) && ( arr[ mstack.top()] > current ))
+        {
+            // store his index
+            lefts[index] = mstack.top();
+            mstack.pop();
+        }
+        mstack.push(index);
+    }
+    mstack.erase();
+    
+    for(int index=arr.size()-1;index>=0;index--)
+    {
+        rights[index] = -1;
+        int curr = arr[index];
+        while( ( ! mstack.empty() ) && ( arr[ mstack.top() ] < current ))
+        {
+            rights[index] = mstack.top();
+            mstack.pop();
+        }
+        mstack.push(index);
     }
 }
 
