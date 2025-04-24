@@ -18,34 +18,48 @@
 int sumSubarrayMins(std::vector<int>& arr)
 {
     std::stack<int> mstack;
-    std::vector<int> lefts(arr.size(),0);
+    std::vector<int> lefts(arr.size(),-1);
     std::vector<int> rights(arr.size(),0);
     for(int index=0;index<arr.size();index++)
     {
-        lefts[index] = -1;
-        int current = arr[index];
-        // find the last entry that was bigger than current
-        while( ( ! mstack.empty() ) && ( arr[ mstack.top()] > current ))
+        while( ( ! mstack.empty() ) && ( arr[ mstack.top()] > arr[index] ))
         {
-            // store his index
-            lefts[index] = mstack.top();
             mstack.pop();
         }
+
+        if( ! mstack.empty() )
+            lefts[index] = index - mstack.top();
+        else
+            lefts[index] = index + 1;
+            
         mstack.push(index);
     }
-    mstack.erase();
+    while( !mstack.empty() )
+        mstack.pop();
     
     for(int index=arr.size()-1;index>=0;index--)
     {
-        rights[index] = -1;
-        int curr = arr[index];
-        while( ( ! mstack.empty() ) && ( arr[ mstack.top() ] < current ))
+        while( ( ! mstack.empty() ) && ( arr[ mstack.top() ] >= arr[index] ))
         {
             rights[index] = mstack.top();
             mstack.pop();
         }
+
+        if( ! mstack.empty() )
+            rights[index] = mstack.top() - index;
+        else
+            rights[index] = arr.size() - index;
+        
         mstack.push(index);
     }
+    long long left_count;
+    long long right_count;
+    long long total=0;
+    for(int index=0;index<arr.size();index++)
+    {
+        total += static_cast<long long>(arr[index]) * lefts[index] * rights[index];
+    }
+    return static_cast<int>(total % 1000000007 );
 }
 
 

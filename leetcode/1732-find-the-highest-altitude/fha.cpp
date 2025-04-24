@@ -27,11 +27,11 @@ void dumpNumbers(const std::vector<int> &numbers )
 }   
 
 
-int findHighestAltitude(const std::vector<int> &numbers)
+int largestAltitude(const std::vector<int> &gain)
 {
     int highest_altitude = 0;
     int current_altitude = 0;
-    for( int current : numbers )
+    for( const auto &current : gain )
     {
         current_altitude += current;
         highest_altitude = std::max( highest_altitude, current_altitude );
@@ -42,17 +42,22 @@ int findHighestAltitude(const std::vector<int> &numbers)
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode 1732 - Find The Highest Altitude" << std::endl;
-    {
+    std::cout << std::endl << "Leetcode 1732 - Find The Highest Altitude" << std::endl << std::endl;
+    int test_case = 1;
+    { 
         std::vector<int> numbers = {-5,1,5,0,-7};
-        int highest_altitude = findHighestAltitude(numbers);
-        dumpNumbers( numbers);
-        std::cout << "Highest Altitude: " << highest_altitude << std::endl;
+        int expected = 1;
+        int result = largestAltitude(numbers);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
-    {
+    { 
         std::vector<int> numbers = {-4,-3,-2,-1,4,3,2};
-        int highest_altitude = findHighestAltitude(numbers);
-        dumpNumbers( numbers);
-        std::cout << "Highest Altitude: " << highest_altitude << std::endl;
+        int expected = 0;
+        int result = largestAltitude(numbers);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
 }
