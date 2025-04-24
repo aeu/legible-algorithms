@@ -17,31 +17,22 @@
 
 std::vector<int> intersection(std::vector<int>& nums1, std::vector<int>& nums2)
 {
-    std::unordered_map<int, int> intersection;
     std::vector<int> retval;
-
+    std::unordered_set<int> first_pass;
+    std::unordered_set<int> intersection;
+    
     for(const auto &curr : nums1 )
     {
-        auto it = intersection.find( curr );
-        if( it == intersection.end() )
-        {
-            intersection[curr]++;
-        }
+        first_pass.insert(curr);
     }
     for(const auto &curr : nums2 )
     {
-        auto it = intersection.find( curr );
-        if( it != intersection.end() ) 
-        {
-            intersection[curr]++;
-        }
+        if( first_pass.count(curr) )
+            intersection.insert(curr);
     }
     for( const auto &curr : intersection )
     {
-        if( curr.second > 1 )
-        {
-            retval.push_back( curr.first );
-        }
+        retval.push_back( curr );
     }
     return retval;
 }
