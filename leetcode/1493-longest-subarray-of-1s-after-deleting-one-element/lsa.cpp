@@ -4,92 +4,80 @@
 //
 //  This software may not be used or reproduced, in whole or in part,
 //  without the express written permission of red82
-//
-#include <stdio.h>
-#include <limits.h>
-#include <string>
-#include <cmath>
-#include <vector>
-#include <algorithm>
+
 #include <iostream>
+#include <optional>
+#include <vector>
+#include <queue>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
-void dumpNumbers(const std::vector<int> &numbers )
+int longestSubarray(std::vector<int>& nums)
 {
-    bool first_time = true;
-    for(int current : numbers )
-    {
-        if( ! first_time )
-            std::cout << ", " ;
-        std::cout << current ;
-        first_time = false;
-    }
-    std::cout << std::endl;
-}   
-
-
-int longestSubarrayOfOnes(const std::vector<int> &numbers)
-{
+    int left = 0;
+    int right = 0;
     int longest_subarray = 0;
-    int current_subarray = 0;
-    int start_index = -1;
-    size_t end_index = 0;
-    int required_drops = 1;
-    int did_at_least_one_drop = false;
-    while(end_index<numbers.size())
+    int num_zeroes = 0;
+    while(right < nums.size())
     {
-        if( numbers[end_index] == 1 )
+        if( nums[right] == 0 )
         {
-            current_subarray++;
-        }
-        else
-        {
-            required_drops--;
-            did_at_least_one_drop = true;
-            if( required_drops != 0 )
+            num_zeroes++;
+            if( num_zeroes > 1 )
             {
-                longest_subarray = std::max(longest_subarray, current_subarray );
-                start_index++;
-                while( numbers[start_index] == 1 )
+                while(left <= right )
                 {
-                    current_subarray--;
-                    start_index++;
+                    if( nums[left] == 0 )
+                    {
+                        num_zeroes--;
+                        left++;
+                        break;
+                    }
+                    left++;
                 }
-                required_drops++;
             }
         }
-        end_index++;
+        int length = right - left;
+        longest_subarray = std::max( longest_subarray, length );
+        right++;
     }
-    longest_subarray = std::max(longest_subarray, current_subarray);
-    // covers the case where we didn't hit any zeroes
-    if( did_at_least_one_drop == false )
-        longest_subarray--;
     return longest_subarray;
 }
 
-
 int main(int argc, char **argv)
 {
-    float max_consecutive_ones;
-
-    std::cout << "Leetcode 1493 - Longest Subarray of 1's After Deleting One Element" << std::endl;
+    std::cout << std::endl << "" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::vector<int> numbers = { 1,1,0,1};
-        dumpNumbers(numbers);
-        max_consecutive_ones = longestSubarrayOfOnes(numbers);
-        std::cout << "Longest Subarray of 1's : " << max_consecutive_ones << std::endl;
+        std::vector<int> nums = { 1,1,0,1};
+        int expected = 3;
+        int result = longestSubarray(nums);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::vector<int> numbers = { 0,1,1,1,0,1,1,0,1};
-        dumpNumbers(numbers);
-        max_consecutive_ones = longestSubarrayOfOnes(numbers);
-        std::cout << "Longest Subarray of 1's : " << max_consecutive_ones << std::endl;
-
+        std::vector<int> nums = { 0,1,1,1,0,1,1,0,1};
+        int expected = 5;
+        int result = longestSubarray(nums);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::vector<int> numbers = { 1,1,1};
-        dumpNumbers(numbers);
-        max_consecutive_ones = longestSubarrayOfOnes(numbers);
-        std::cout << "Longest Subarray of 1's : " << max_consecutive_ones << std::endl;
-
+        std::vector<int> nums = { 1,1,1};
+        int expected = 2;
+        int result = longestSubarray(nums);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
+    return 0;
 }
+
+
+
+
