@@ -162,7 +162,6 @@ was bad, then that means that I haven't improved since I wrote it.
 #### Medium
 
 
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -285,6 +284,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2300-successful-pairs-of-spells-and-potions">Leetcode &numero; 2300 (Medium) &mdash; Successful Pairs of Spells and Potions (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2336-smallest-number-in-infinite-set">Leetcode &numero; 2336 (Medium) &mdash; Smallets Number in an Infinite Set (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2352-equal-row-and-column-pairs">Leetcode &numero; 2352 (Medium) &mdash; Equal Row and Column Pairs (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/3294-convert-doubly-linked-list-to-array-ii">Leetcode &numero; 3294 (Medium) &mdash; Convert Doubly Linked List To Array II (C++)</a>  
 
 #### Hard
 
