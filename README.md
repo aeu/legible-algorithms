@@ -137,6 +137,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0303-range-sum-query-immutable">Leetcode &numero; 303 (Easy) &mdash; Range Sum Query Immutable (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0338-counting-bits">Leetcode &numero; 338 (Easy) &mdash; Counting Bits (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0345-reverse-vowels-of-a-string">Leetcode &numero; 345 (Easy) &mdash; Reverse Vowels of a String (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0349-intersection-of-two-arrays">Leetcode &numero; 349 (Easy) &mdash; Intersection of Two Arrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0374-guess-number-higher-or-lower">Leetcode &numero; 374 (Easy) &mdash; Guess Number Higher or Lower (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0383-ransom-note">Leetcode &numero; 383 (Easy) &mdash; Ransom Note (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0392-is-subsequence">Leetcode &numero; 392 (Easy) &mdash; Is Subsequence (C++)</a>  
