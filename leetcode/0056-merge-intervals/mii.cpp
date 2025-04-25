@@ -30,12 +30,26 @@ std::vector<std::vector<int>> merge(std::vector<std::vector<int>>& intervals)
         return retval;
     
     std::sort( intervals.begin(), intervals.end(), IntervalSort() );
+    // for(auto curr : intervals )
+    // {
+    //     std::cout << curr[0] << " - " << curr[1] << std::endl;
+    // }
     retval.push_back( intervals[0]);
     for(int index=1;index<intervals.size();index++)
     {
-        if( retval.back()[1] >= intervals[index][1] )
-            
-        std::cout << curr[0] << " - " << curr[1] << std::endl;
+        //        std::cout << "in loop" << std::endl;
+        if( retval.back()[1] >= intervals[index][0] )
+        {
+            // there's an overlap, so extend the existing interval to whichever end time is longer
+            // to the end of the overlapping one
+            //            std::cout << "overlap : " << retval.back()[1] << " - " << intervals[index][0] << std::endl;
+            retval.back()[1] = std::max(retval.back()[1],intervals[index][1]);
+        }
+        else
+        {
+            // no overlap, just add
+            retval.push_back( intervals[index] );
+        }
     }
     return retval;
 }
