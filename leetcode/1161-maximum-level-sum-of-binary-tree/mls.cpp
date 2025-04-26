@@ -10,122 +10,130 @@
 #include <vector>
 #include <queue>
 #include <map>
-#include "TreeNode.h"
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
 
-void dumpValues(const std::vector<std::optional<int>> &values )
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+ 
+TreeNode *buildTree(std::vector<std::optional<int>> values)
 {
-    bool first_time = true;
-    std::cout << "[";
-    for( auto current : values )
+    int index=0;
+    TreeNode *root;
+    std::queue<TreeNode *> tqueue;
+    root = new TreeNode(values[0].value());
+    tqueue.push( root );
+    index++;
+    while( index < values.size() )
     {
-        if( ! first_time )
-            std::cout << ", ";
-        if( current.has_value() )
-            std::cout << current.value();
-        else
-            std::cout << "null";
-        first_time = false;
-    }
-    std::cout << "]" << std::endl;
-}
-
-
-std::shared_ptr<TreeNode> buildTree(std::vector<std::optional<int>> values)
-{
-    if( values.empty() )
-        return nullptr;
-    std::queue<std::shared_ptr<TreeNode>> node_queue;
-    std::shared_ptr<TreeNode> root = std::make_shared<TreeNode>( values[0].value() );
-    node_queue.push(root);
-    size_t index=1;
-    while(index < values.size())
-    {
-        std::shared_ptr<TreeNode> current = node_queue.front();
-        node_queue.pop();
+        TreeNode *current = tqueue.front();
+        tqueue.pop();
         if( values[index].has_value() )
         {
-            std::shared_ptr<TreeNode> left = std::make_shared<TreeNode>( values[index].value() );
-            current->setLeft(left);
-            node_queue.push(left);
+            TreeNode *left = new TreeNode( values[index].value() );
+            current->left = left;
+            tqueue.push(left);
         }
         index++;
-        if( ( index < values.size() ) && ( values[index].has_value() ) )
+        if(( index < values.size()) && ( values[index].has_value() ))
         {
-            std::shared_ptr<TreeNode> right = std::make_shared<TreeNode>( values[index].value() );
-            current->setRight(right);
-            node_queue.push(right);
+            TreeNode *right = new TreeNode( values[index].value() );
+            current->right = right;
+            tqueue.push(right);
         }
         index++;
     }
-    return root;    
+    return root;
 }
 
-struct NodeAndLevel
-{
-    std::shared_ptr<TreeNode> node;
+
+struct BfsInfo {
     int level;
+    TreeNode *node;
 };
 
-int maxLevelSum(std::shared_ptr<TreeNode> root)
+int maxLevelSum(TreeNode* root)
 {
-    std::map<int,int> sums_for_levels;
-    std::queue<NodeAndLevel> node_queue;
-    NodeAndLevel current;
-    current.node = root;
-    current.level = 1;
-    node_queue.push(current);
-    while( ! node_queue.empty() )
+    std::queue<BfsInfo> bqueue;
+    std::unordered_map<int,int> sums;
+    bqueue.push( { 0, root } );
+    while( ! bqueue.empty() )
     {
-        current = node_queue.front();
-        node_queue.pop();
-        sums_for_levels[current.level] += current.node->getValue();
-        if( current.node->getLeft() != nullptr )
+        BfsInfo curr = bqueue.front();
+        bqueue.pop();
+        sums[curr.level] += curr.node->val;
+        if( curr.node->left != nullptr )
+            bqueue.push( { curr.level+1, curr.node->left });
+        if( curr.node->right != nullptr )
+            bqueue.push( { curr.level+1, curr.node->right });
+    }
+    int max_sum = INT_MIN;
+    int level = 0;
+    for(auto curr : sums )
+    {
+        if( curr.second > max_sum )
         {
-            NodeAndLevel left;
-            left.node = current.node->getLeft();
-            left.level = current.level + 1;
-            node_queue.push( left );
+            max_sum = curr.second;
+            level = curr.first;
         }
-        if( current.node->getRight() != nullptr )
+        else if( curr.second == max_sum )
         {
-            NodeAndLevel right;
-            right.node = current.node->getRight();
-            right.level = current.level + 1;
-            node_queue.push( right );
+            if( curr.first < level )
+                level = curr.first;
         }
     }
-    int max_level = 0;
-    int max_value = 0;
-    for(auto current : sums_for_levels )
-    {
-        if( current.second > max_value )
-        {
-            max_value = current.second;
-            max_level = current.first;
-        }
-    }
-    std::cout << "max level : " << max_level << std::endl;
-    return 0;
+    return level + 1;
 }
+
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode #1161 - Maximum Level Sum of a Binary Tree" << std::endl;
+    std::cout << std::endl << "1161-maximum-level-sum-of-binary-tree" << std::endl << std::endl;
+    int test_case = 1;
+    {
+        std::vector<std::optional<int>> values = { 1,1,0,7,-8,-7,9};
+        int expected = 1;
+        TreeNode *root = buildTree(values);
+        int result = maxLevelSum(root);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
     {
         std::vector<std::optional<int>> values = { 1,7,0,7,-8,std::nullopt,std::nullopt };
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        maxLevelSum( root );
+        int expected = 2;
+        TreeNode *root = buildTree(values);
+        int result = maxLevelSum(root);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
         std::vector<std::optional<int>> values = { 989,std::nullopt,10250,98693,-89388,std::nullopt,std::nullopt,std::nullopt,-32127};
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        maxLevelSum( root );
+        int expected = 2;
+        TreeNode *root = buildTree(values);
+        int result = maxLevelSum(root);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
-
-    return -1;
+    {
+        std::vector<std::optional<int>> values = { -100,-200,-300,-20,-5,-10,std::nullopt};
+        int expected = 3;
+        TreeNode *root = buildTree(values);
+        int result = maxLevelSum(root);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    return 0;
 }
