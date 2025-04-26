@@ -4,105 +4,83 @@
 //
 //  This software may not be used or reproduced, in whole or in part,
 //  without the express written permission of red82
-#include <stdio.h>
-#include <vector>
-#include <string>
-#include <iostream>
 
-void dumpChars(const std::vector<char> &chars,
-               const int stop_at = -1 )
-{
-    bool first_time = true;
-    int chars_dumped = 0;
-    for(char current : chars )
-    {
-        if( ! first_time )
-            std::cout << ", ";
-        std::cout << current;
-        first_time = false;
-        chars_dumped++;
-        if( ( stop_at != -1 ) && ( chars_dumped > stop_at -1 ))
-            break;
-    }
-    std::cout << std::endl;
-}
+#include <iostream>
+#include <optional>
+#include <vector>
+#include <queue>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
 int compress(std::vector<char>& chars)
 {
-    int running_size = 0;
-    char previous;
-    int running_count = 0;
-    bool first_time = true;
-    for(char current : chars )
+    int tail = 0;
+    int head = 0;
+    int write = 0;
+    while(head<chars.size())
     {
-        if( first_time )
+        if( chars[head] != chars[tail] )
         {
-            previous = current;
-            running_count++;
+            int count = head - tail;
+            chars[write++] = chars[tail];
+            if( count > 1 )
+            {
+                std::string scount = std::to_string( count );
+                for(auto curr : scount )
+                {
+                    chars[write++] = curr;
+                }
+            }
+            tail = head;
         }
-        else
+        head++;
+    }
+    if( head != tail )
+    {
+        int count = head - tail;
+        chars[write++] = chars[tail];
+        if( count > 1 )
         {
-            if ( current == previous )
+            std::string scount = std::to_string( count );
+            for(auto curr : scount )
             {
-                running_count++;
-            }
-            else
-            {
-                std::string temp;
-                temp += previous;
-                if( running_count > 1 )
-                {
-                    temp += std::to_string(running_count);
-                }
-                for(char ccar : temp )
-                {
-                    chars[running_size++] = ccar;
-                }
-                previous = current;
-                running_count = 1;
+                chars[write++] = curr;
             }
         }
-        first_time = false;
     }
-    std::string temp;
-    temp += previous;
-    if( running_count > 1 )
-    {
-        temp += std::to_string(running_count);
-    }
-    for(char ccar : temp )
-    {
-        chars[running_size++] = ccar;
-    }
-    return running_size;
+    return write;
 }
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode #443 - String Compression" << std::endl;
+    std::cout << std::endl << "" << std::endl << std::endl;
+    int test_case = 1;
     {
         std::vector<char> chars = {'a','a','b','b','c','c','c'};
-        std::cout << "Input  : ";
-        dumpChars(chars);
-        int size = compress(chars);
-        std::cout << "Output n=" << size << " : ";
-        dumpChars(chars,size);
+        int expected = 6;
+        int result = compress(chars);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
         std::vector<char> chars = {'a'};
-        std::cout << "Input  : ";
-        dumpChars(chars);
-        int size = compress(chars);
-        std::cout << "Output n=" << size << " : ";
-        dumpChars(chars,size);
+        int expected = 1;
+        int result = compress(chars);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
         std::vector<char> chars = {'a','b','b','b','b','b','b','b','b','b','b','b','b'};
-        std::cout << "Input  : ";
-        dumpChars(chars);
-        int size = compress(chars);
-        std::cout << "Output n=" << size << " : ";
-        dumpChars(chars,size);
+        int expected = 4;
+        int result = compress(chars);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
-    return 1;
+    return 0;
 }
