@@ -4,91 +4,63 @@
 //
 //  This software may not be used or reproduced, in whole or in part,
 //  without the express written permission of red82
-//
-#include <stdio.h>
-#include <limits.h>
-#include <string>
-#include <cmath>
-#include <vector>
-#include <algorithm>
+
 #include <iostream>
+#include <optional>
+#include <vector>
+#include <queue>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
-void dumpNumbers(const std::vector<int> &numbers )
+int longestOnes(std::vector<int>& nums, int k)
 {
-    bool first_time = true;
-    for(int current : numbers )
+    int head = 0;
+    int tail = 0;
+    int num_flips = 0;
+    int mco = 0;
+    while( head < nums.size() )
     {
-        if( ! first_time )
-            std::cout << ", " ;
-        std::cout << current ;
-        first_time = false;
-    }
-    std::cout << std::endl;
-}   
+        if( nums[head] == 0 )
+            num_flips++;
 
-
-int maxConsecutiveOnes(const std::vector<int> &numbers,
-                       const int allowed_flips )
-{
-    size_t window_start = -1;
-    size_t window_end = 0;
-    int consecutive_ones = 0;
-    int max_consecutive_ones = 0;
-    int remaining_flips = allowed_flips;
-    
-    while( window_end < numbers.size() )
-    {
-        if( numbers[window_end] == 1 )
+        while( num_flips > k )
         {
-            consecutive_ones++;
-        }
-        else
-        {
-            if( remaining_flips > 0 )
+            if( nums[tail] == 0 )
             {
-                remaining_flips--;
-                consecutive_ones++;
+                num_flips--;
             }
-            else
-            {
-                // we have no more flips.  capture the current consecutive_ones count
-                max_consecutive_ones = std::max(max_consecutive_ones, consecutive_ones );
-                window_start++;
-                // bring tali of window forward until we hit a 0
-                while ( numbers[window_start] != 0 )
-                {
-                    consecutive_ones--;
-                    window_start++;
-                }
-                // we found a zero, so now we have one to spare and keep going forward.
-                remaining_flips--;
-            }
+            tail++;
         }
-        window_end++;
+        mco = std::max(mco,head-tail+1);
+        head++;
     }
-    return max_consecutive_ones;
+    return mco;
 }
-
 
 int main(int argc, char **argv)
 {
-    float max_consecutive_ones;
-
-    std::cout << "Leetcode 1004 - Max Consecutive Ones III" << std::endl;
+    std::cout << std::endl << "" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::vector<int> numbers = { 1,1,1,0,0,0,1,1,1,1,0};
+        std::vector<int> nums  = {1,1,1,0,0,0,1,1,1,1,0};
         int k = 2;
-        dumpNumbers(numbers);
-        std::cout << "Counting with k: " << k << std::endl;
-        max_consecutive_ones = maxConsecutiveOnes(numbers, k );
-        std::cout << "Max consecutive ones : " << max_consecutive_ones << std::endl;
+        int expected = 6;
+        int result = longestOnes(nums,k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::vector<int> numbers = { 0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1};
+        std::vector<int> nums  = {0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1};
         int k = 3;
-        dumpNumbers(numbers);
-        std::cout << "Counting with k: " << k << std::endl;
-        max_consecutive_ones = maxConsecutiveOnes(numbers, k );
-        std::cout << "Max consecutive ones : " << max_consecutive_ones << std::endl;
+        int expected = 10;
+        int result = longestOnes(nums,k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
+    return 0;
 }
