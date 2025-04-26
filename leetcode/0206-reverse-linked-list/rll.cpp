@@ -4,129 +4,86 @@
 //
 //  This software may not be used or reproduced, in whole or in part,
 //  without the express written permission of red82
-//
-#include <stdio.h>
+
 #include <iostream>
+#include <optional>
 #include <vector>
-#include "ListNode.h"
+#include <queue>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
-std::shared_ptr<ListNode> buildList(std::vector<int> values )
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+void dumpList(ListNode *head)
 {
-    std::shared_ptr<ListNode> prev_node = nullptr;
-    std::shared_ptr<ListNode> next_node = nullptr;
-    std::shared_ptr<ListNode> root_node = nullptr;
-    bool first_time = true;
-
-    for(int current : values )
+    if( head == nullptr )
+        return;
+    ListNode *curr = head;
+    while( curr != nullptr )
     {
-        if( first_time )
-        {
-            root_node = std::make_shared<ListNode>(current);
-            prev_node = root_node;
-            first_time = false;
-        }
-        else
-        {
-            next_node = std::make_shared<ListNode>(current);
-            prev_node->setNext(next_node);
-            prev_node = next_node;
-        }
+        std::cout << curr->val << "->";
+        curr = curr->next;
     }
-    return root_node;
+    std::cout << std::endl;
 }
 
 
+ListNode* reverseList(ListNode* head)
+{
+    if(( head == nullptr ) || ( head->next == nullptr ))
+        return head;
+    
+    ListNode *curr;
+    ListNode *nhead;
+    ListNode *temp;
+    ListNode *ntail = head;
+
+    curr = head;
+    nhead = curr->next;
+    while( curr != nullptr )
+    {
+        temp  = curr->next;
+        curr->next = nhead;
+        nhead = curr;
+        curr  = temp;
+    }
+    ntail->next = nullptr;
+    return nhead;
+}
+
 int main(int argc, char **argv)
 {
+    std::cout << std::endl << "0206-reverse-linked-list" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::vector<int> values = { 1,2,3,4,5};
-        std::shared_ptr<ListNode> root_node = buildList(values);
-        root_node->dumpNodes();
-        std::shared_ptr<ListNode> current;
-        std::shared_ptr<ListNode> reversed_root;
-        std::shared_ptr<ListNode> reversed_tail;
-        std::shared_ptr<ListNode> temp;
-        bool first_time = true;
-        current = root_node;
-        while( current != nullptr )
-        {
-            if( first_time )
-            {
-                reversed_root = current;
-                reversed_tail = current;
-                first_time = false;
-            }
-            temp = current->getNext();
-            current->setNext(reversed_root);
-            reversed_root = current;
-            current = temp;
-        }
-        reversed_tail->setNext(nullptr);
-        reversed_root->dumpNodes();
+        ListNode *one   = new ListNode(1);
+        ListNode *two   = new ListNode(2);
+        ListNode *three = new ListNode(3);
+        ListNode *four  = new ListNode(4);
+        ListNode *five  = new ListNode(5);
+        ListNode *six  = new ListNode(6);
+
+        one->next   = two;
+        two->next   = three;
+        three->next = four;
+        four->next  = five;
+        five->next  = six;
+
+        dumpList(one);
+        ListNode *reversed = reverseList(one);
+        dumpList(reversed);
+        
+        std::cout << std::endl;
+        //        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
-    {
-        std::vector<int> values = { 1,2 };
-        std::shared_ptr<ListNode> root_node = buildList(values);
-        if( root_node )
-            root_node->dumpNodes();
-        else
-            std::cout << "[]" << std::endl;
-        std::shared_ptr<ListNode> current;
-        std::shared_ptr<ListNode> reversed_root;
-        std::shared_ptr<ListNode> reversed_tail;
-        std::shared_ptr<ListNode> temp;
-        bool first_time = true;
-        current = root_node;
-        while( current != nullptr )
-        {
-            if( first_time )
-            {
-                reversed_root = current;
-                reversed_tail = current;
-                first_time = false;
-            }
-            temp = current->getNext();
-            current->setNext(reversed_root);
-            reversed_root = current;
-            current = temp;
-        }
-        reversed_tail->setNext(nullptr);
-        reversed_root->dumpNodes();
-    }
-    {
-        std::vector<int> values = { };
-        std::shared_ptr<ListNode> root_node = buildList(values);
-        if( root_node )
-            root_node->dumpNodes();
-        else
-            std::cout << "[]" << std::endl;
-        std::shared_ptr<ListNode> current = nullptr;
-        std::shared_ptr<ListNode> reversed_root = nullptr;
-        std::shared_ptr<ListNode> reversed_tail = nullptr;
-        std::shared_ptr<ListNode> temp = nullptr;
-        bool first_time = true;
-        current = root_node;
-        while( current != nullptr )
-        {
-            if( first_time )
-            {
-                reversed_root = current;
-                reversed_tail = current;
-                first_time = false;
-            }
-            temp = current->getNext();
-            current->setNext(reversed_root);
-            reversed_root = current;
-            current = temp;
-        }
-        if( reversed_tail )
-        {
-            reversed_tail->setNext(nullptr);
-            reversed_root->dumpNodes();
-        }
-        else
-        {
-            std::cout << "[]" << std::endl;
-        }            
-    }
+    return 0;
 }
