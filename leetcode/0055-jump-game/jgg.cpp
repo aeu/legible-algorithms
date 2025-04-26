@@ -1,68 +1,69 @@
-#include <stdio.h>
-#include <vector>
+// -*- Mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; -*-
+//
+//  red82 // software
+//
+//  This software may not be used or reproduced, in whole or in part,
+//  without the express written permission of red82
+
 #include <iostream>
+#include <optional>
+#include <vector>
+#include <queue>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
-void dumpValues(std::vector<int>& values)
+bool canJump(std::vector<int>& nums)
 {
-    bool first_time = true;
-    std::cout << "[" ;
-    for(auto current : values )
-    {
-        if( ! first_time )
-            std::cout << ", ";
-        std::cout << current;
-        first_time = false;
-    }
-    std::cout << "]" << std::endl;
-}
-
-
-int canGetHere(std::vector<int>& nums,
-               int curpos)
-{
-    for(int index=curpos-1;index>=0;index--)
-    {
-        int value = nums[index];
-        if(( index + value ) >= curpos )
-        {
-            return index;
-        }
-    }
-    return -1;
-}
-
-bool canJump(std::vector<int> &nums)
-{
-    int furthest_possible = 0;
+    int furthest = 0;
     for(int index=0;index<nums.size();index++)
     {
-        if( index > furthest_possible )
+        furthest = std::max( furthest, (index+nums[index]) );
+        if((index >= furthest) && ( furthest < nums.size()-1))
+        {
             return false;
-        int destination = index + nums[index];
-        furthest_possible = std::max(furthest_possible, destination );
-        if( furthest_possible >= nums.size() -1 )
-            return true;
+        }
     }
-    return false;
+    return true;
 }
 
-int main( int argc, char **argv)
+int main(int argc, char **argv)
 {
-    printf("Leetcode #0055 - Jump Game\n");
-
+    std::cout << std::endl << "0055-jump-game" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::cout << "Example: 1" << std::endl;
-        std::vector<int> nums = { 2,3,1,1,4 };
-        dumpValues(nums);
-        bool can_jump = canJump(nums);
-        std::cout << "Can Jump : " << can_jump << std::endl;
+        std::vector<int> nums  = {0};
+        bool expected = true;
+        bool result = canJump(nums);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::cout << "Example: 1" << std::endl;
-        std::vector<int> nums = { 3,2,1,0,4 };
-        dumpValues(nums);
-        bool can_jump = canJump(nums);
-        std::cout << "Can Jump : " << can_jump << std::endl;
+        std::vector<int> nums  = {0,1};
+        bool expected = false;
+        bool result = canJump(nums);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        std::vector<int> nums  = {2,3,1,1,4};
+        bool expected = true;
+        bool result = canJump(nums);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        std::vector<int> nums  = {3,2,1,0,4};
+        bool expected = false;
+        bool result = canJump(nums);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     return 0;
 }
