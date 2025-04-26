@@ -4,143 +4,134 @@
 //
 //  This software may not be used or reproduced, in whole or in part,
 //  without the express written permission of red82
-//
-#include <stdio.h>
+
 #include <iostream>
+#include <optional>
 #include <vector>
-#include "ListNode.h"
+#include <queue>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
-std::shared_ptr<ListNode> buildList(std::vector<int> values )
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+void dumpList(ListNode *head)
 {
-    std::shared_ptr<ListNode> prev_node;
-    std::shared_ptr<ListNode> next_node;
-    std::shared_ptr<ListNode> root_node;
-    bool first_time = true;
-
-    for(int current : values )
+    if( head == nullptr )
+        std::cout << "nullhead" << std::endl;
+    ListNode *curr = head;
+    while( curr != nullptr )
     {
-        if( first_time )
-        {
-            root_node = std::make_shared<ListNode>(current);
-            prev_node = root_node;
-            first_time = false;
-        }
-        else
-        {
-            next_node = std::make_shared<ListNode>(current);
-            prev_node->setNext(next_node);
-            prev_node = next_node;
-        }
+        std::cout << curr->val << "->";
+        curr = curr->next;
     }
-    return root_node;
+    std::cout << std::endl;
 }
 
 
+
+ListNode* oddEvenList(ListNode* head)
+{
+    ListNode *odd_head = nullptr; // head;
+    ListNode *odd_tail = nullptr;
+    ListNode *even_head = nullptr;
+    ListNode *even_tail = nullptr;
+
+    int step = 0;
+
+    if( head == nullptr )
+        return nullptr;
+    
+    ListNode *curr = head;
+    while( curr != nullptr )
+    {
+        if( ! ( step % 2 ))
+        {
+            if( odd_head == nullptr )
+            {
+                odd_head = curr;
+                odd_tail = curr;
+            }
+            else
+            {
+                odd_tail->next = curr;
+                odd_tail = curr;
+            }
+        }
+        else
+        {
+            if( even_head == nullptr )
+            {
+                even_head = curr;
+                even_tail = curr;
+            }
+            else
+            {
+                even_tail->next = curr;
+                even_tail = curr;
+            }
+        }
+        step++;
+        curr = curr->next;
+    }
+    if( even_tail )
+        even_tail->next = nullptr;
+
+    odd_tail->next = even_head;
+    return odd_head;
+}
+
 int main(int argc, char **argv)
 {
+    std::cout << std::endl << "0328-odd-even-linked-list" << std::endl << std::endl;
+    int test_case = 1;
     {
-        // setup
-        std::vector<int> values = { 1,2,3,4,5};
-        std::shared_ptr<ListNode> root_node = buildList(values);
-        
-        root_node->dumpNodes();
+        ListNode *one    = new ListNode(1);
+        ListNode *two    = new ListNode(2);
+        ListNode *three  = new ListNode(3);
+        ListNode *four   = new ListNode(4);
+        ListNode *five   = new ListNode(5);
 
-        std::shared_ptr<ListNode> odd_root;
-        std::shared_ptr<ListNode> odd_tail;
-        std::shared_ptr<ListNode> even_root;
-        std::shared_ptr<ListNode> even_tail;
-        std::shared_ptr<ListNode> current;
+        one->next = two;
+        two->next = three;
+        three->next = four;
+        four->next = five;
+        dumpList(one);
+        ListNode *after = oddEvenList(one);
+        dumpList(after);
 
-        bool is_odd = true;
-        current = root_node;
-        while( current != nullptr )
-        {
-            if( is_odd )
-            {
-                if( odd_root == nullptr )
-                {
-                    odd_root = current;
-                    odd_tail = current;
-                }
-                else
-                {
-                    odd_tail->setNext(current);
-                    odd_tail = current;
-                }
-            }
-            else
-            {
-                if( even_root == nullptr )
-                {
-                   even_root = current;
-                   even_tail = current;
-                }
-                else
-                {
-                    even_tail->setNext(current);
-                    even_tail = current;
-                }
-            }
-            is_odd = ! is_odd;
-            current = current->getNext();
-        }
-        root_node = odd_root;
-        odd_tail->setNext(even_root);
-        even_tail->setNext(nullptr);
-        root_node->dumpNodes();
-        
+        std::cout << std::endl;
     }
     {
-        // setup
-        std::vector<int> values = { 2,1,3,5,6,4,7};
-        std::shared_ptr<ListNode> root_node = buildList(values);
-        
-        root_node->dumpNodes();
+        ListNode *one    = new ListNode(1);
+        ListNode *two    = new ListNode(2);
+        ListNode *three  = new ListNode(3);
+        ListNode *four   = new ListNode(4);
+        ListNode *five   = new ListNode(5);
+        ListNode *six    = new ListNode(6);
+        ListNode *seven  = new ListNode(7);
 
-        std::shared_ptr<ListNode> odd_root;
-        std::shared_ptr<ListNode> odd_tail;
-        std::shared_ptr<ListNode> even_root;
-        std::shared_ptr<ListNode> even_tail;
-        std::shared_ptr<ListNode> current;
+        two->next = one;
+        one->next = three;
+        three->next = five;
+        five->next = six;
+        six->next = four;
+        four->next = seven;
 
-        bool is_odd = true;
-        current = root_node;
-        while( current != nullptr )
-        {
-            if( is_odd )
-            {
-                if( odd_root == nullptr )
-                {
-                    odd_root = current;
-                    odd_tail = current;
-                }
-                else
-                {
-                    odd_tail->setNext(current);
-                    odd_tail = current;
-                }
-            }
-            else
-            {
-                if( even_root == nullptr )
-                {
-                   even_root = current;
-                   even_tail = current;
-                }
-                else
-                {
-                    even_tail->setNext(current);
-                    even_tail = current;
-                }
-            }
-            is_odd = ! is_odd;
-            current = current->getNext();
-        }
-        root_node = odd_root;
-        odd_tail->setNext(even_root);
-        even_tail->setNext(nullptr);
-        root_node->dumpNodes();
-        
+        dumpList(two);
+        ListNode *after = oddEvenList(two);
+        dumpList(after);
+
+        std::cout << std::endl;
     }
-
+    return 0;
 }
