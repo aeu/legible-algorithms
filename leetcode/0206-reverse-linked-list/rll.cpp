@@ -42,22 +42,17 @@ ListNode* reverseList(ListNode* head)
     if(( head == nullptr ) || ( head->next == nullptr ))
         return head;
     
-    ListNode *curr;
-    ListNode *nhead;
-    ListNode *temp;
-    ListNode *ntail = head;
+    ListNode *prev = nullptr;
+    ListNode *curr = head;
 
-    curr = head;
-    nhead = curr->next;
     while( curr != nullptr )
     {
-        temp  = curr->next;
-        curr->next = nhead;
-        nhead = curr;
-        curr  = temp;
+        ListNode *ntemp = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = ntemp;
     }
-    ntail->next = nullptr;
-    return nhead;
+    return prev;
 }
 
 int main(int argc, char **argv)
