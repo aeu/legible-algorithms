@@ -10,84 +10,55 @@
 #include <vector>
 #include <queue>
 #include <map>
+#include <unordered_set>
+#include <unordered_map>
 #include <stack>
-
-void dumpValues(std::vector<int> &values)
-{
-    bool first_time = true;
-    std::cout << "[";
-    for(int current : values )
-    {
-        if( ! first_time )
-            std::cout << ", ";
-        std::cout << current;
-        first_time = false;
-    }
-    std::cout << "]" << std::endl;
-}
-
-typedef struct ValuePostitionPair
-{
-    int value;
-    int position;
-} ValuePositionPair;
-
+#include <limits.h>
 
 std::vector<int> dailyTemperatures(std::vector<int>& temperatures)
 {
-    std::vector<int> answer( temperatures.size(),0);
-    std::stack<ValuePositionPair> vpps;
-    for(int index=temperatures.size()-1;index>=0;index--)
+    std::vector<int> retval(temperatures.size(),0);
+    std::stack<int> mstack;
+    
+    for(int index=0;index<temperatures.size();index++)
     {
-        while (!vpps.empty() && vpps.top().value <= temperatures[index])
+        int current = temperatures[index];
+        while(( ! mstack.empty() ) &&
+              ( current > temperatures[mstack.top()] ))
         {
-            vpps.pop();
+            int previous_index = mstack.top();
+            mstack.pop();
+            retval[previous_index] = index - previous_index;
         }
-
-        if (!vpps.empty())
-        {
-            int offset = vpps.top().position - index;
-            answer[index] = offset;
-        }
-
-        ValuePositionPair current;
-        current.value = temperatures[index];
-        current.position = index;
-        vpps.push(current);
+        mstack.push(index);
     }
-    return answer;
+    return retval;
 }
-
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode #739 - Daily Temperatures" << std::endl << std::endl;
+    std::cout << std::endl << "0739-daily-temperatures" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::cout << "Example 1" << std::endl;
         std::vector<int> temperatures = {73,74,75,71,69,72,76,73};
-        std::cout << "Temps: " ;
-        dumpValues(temperatures);
-        std::vector<int> answer = dailyTemperatures(temperatures);
-        std::cout << "Wait Days: " ;
-        dumpValues(answer);
+        std::vector<int> expected     = {1,1,4,2,1,1,0,0};
+        std::vector<int> result       = dailyTemperatures(temperatures);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
     {
-        std::cout << "Example 2" << std::endl;
         std::vector<int> temperatures = {30,40,50,60};
-        std::cout << "Temps: " ;
-        dumpValues(temperatures);
-        std::vector<int> answer = dailyTemperatures(temperatures);
-        std::cout << "Wait Days: " ;
-        dumpValues(answer);
+        std::vector<int> expected     = {1,1,1,0};
+        std::vector<int> result       = dailyTemperatures(temperatures);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
     {
-        std::cout << "Example 3" << std::endl;
         std::vector<int> temperatures = {30,60,90};
-        std::cout << "Temps: " ;
-        dumpValues(temperatures);
-        std::vector<int> answer = dailyTemperatures(temperatures);
-        std::cout << "Wait Days: " ;
-        dumpValues(answer);
+        std::vector<int> expected     = {1,1,0};
+        std::vector<int> result       = dailyTemperatures(temperatures);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
-    return -1;
+    return 0;
 }
