@@ -175,6 +175,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0017-letter-combinations-of-a-phone-number">Leetcode &numero; 17 (Medium) &mdash; Letter Combinations of a Phone Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0019-remove-nth-node-from-end-of-list">Leetcode &numero; 19 (Medium) &mdash; Remove Nth Node From End of List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0022-generate-parentheses">Leetcode &numero; 22 (Medium) &mdash; Generate Prentheses (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0024-swap-nodes-in-pairs">Leetcode &numero; 24 (Medium) &mdash; Swap Nodes in Pairs (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0033-search-in-rotated-sorted-array">Leetcode &numero; 33 (Medium) &mdash; Search in Rotated Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0034-find-first-and-last-position-of-element-in-sorted-array">Leetcode &numero; 34 (Medium) &mdash; Find First an Last Position of Element in Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0036-valid-sudoku">Leetcode &numero; 36 (Medium) &mdash; Valid Sudoku (C++)</a>  
