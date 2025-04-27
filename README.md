@@ -124,6 +124,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0121-best-time-to-buy-and-sell-stock">Leetcode &numero; 121 (Easy) &mdash; Best Time to Buy and Sell Stock (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0125-valid-palindrome">Leetcode &numero; 125 (Easy) &mdash; Valid Palindrome (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0136-single-number">Leetcode &numero; 136 (Easy) &mdash; Single Number (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0141-linked-list-cycle">Leetcode &numero; 141 (Easy) &mdash; Linked List Cycle (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0169-majority-element">Leetcode &numero; 169 (Easy) &mdash; Majority Element (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0202-happy-number">Leetcode &numero; 202 (Easy) &mdash; Happy Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0205-isomorphic-strings">Leetcode &numero; 205 (Easy) &mdash; Isomorphic Strings (C++)</a>  
