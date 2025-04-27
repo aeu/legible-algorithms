@@ -4,194 +4,146 @@
 //
 //  This software may not be used or reproduced, in whole or in part,
 //  without the express written permission of red82
-//
-#include <stdio.h>
+
 #include <iostream>
+#include <optional>
 #include <vector>
-#include "ListNode.h"
+#include <queue>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
-std::shared_ptr<ListNode> buildList(std::vector<int> values )
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+
+void dumpList(ListNode *head)
 {
-    std::shared_ptr<ListNode> prev_node;
-    std::shared_ptr<ListNode> next_node;
-    std::shared_ptr<ListNode> root_node;
-    bool first_time = true;
-
-    for(int current : values )
+    ListNode *curr = head;
+    while( curr != nullptr )
     {
-        if( first_time )
-        {
-            root_node = std::make_shared<ListNode>(current);
-            prev_node = root_node;
-            first_time = false;
-        }
-        else
-        {
-            next_node = std::make_shared<ListNode>(current);
-            prev_node->setNext(next_node);
-            prev_node = next_node;
-        }
+        std::cout << curr->val << "->";
+        curr = curr->next;
     }
-    return root_node;
+    std::cout << std::endl;
+}
+
+ListNode *reverseList(ListNode *head)
+{
+    ListNode *prev = nullptr;
+    ListNode *curr = head;
+    while( curr != nullptr )
+    {
+        ListNode *ntemp = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = ntemp;
+    }
+    return prev;
 }
 
 
+int pairSum(ListNode* head)
+{
+    // first find the middle of the list
+    ListNode *slow = head;
+    ListNode *fast = head;
+
+    int flip = 0;
+    while( fast != nullptr )
+    {
+        fast = fast->next;
+        flip++;
+        if( flip % 2 )
+            slow = slow->next;
+    }
+    // slow is pointing to the middle of the list.  so reverse it.
+    ListNode *curr = slow;
+
+    ListNode *after = reverseList(curr);
+    int max_sum = INT_MIN;
+    while( after != nullptr )
+    {
+        int sum = after->val + head->val;
+        max_sum = std::max( max_sum, sum );
+        after = after->next;
+        head = head->next;
+    }
+    
+    return max_sum;
+}
+
 int main(int argc, char **argv)
 {
+    std::cout << std::endl << "2130-maximum-twin-sum-of-a-linked-list" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::vector<int> values = { 5,4,2,1};
-        std::shared_ptr<ListNode> root_node = buildList(values);
-        root_node->dumpNodes();
-        std::shared_ptr<ListNode> lead_node = root_node;
-        std::shared_ptr<ListNode> lead_node_previous = root_node;
-        std::shared_ptr<ListNode> trailing_node = root_node;
-        std::shared_ptr<ListNode> trailing_node_parent = root_node;
-        bool should_advance_trailing_node = false;
-        while( lead_node != nullptr )
-        {
-            if( should_advance_trailing_node )
-            {
-                trailing_node_parent = trailing_node;
-                trailing_node = trailing_node_parent->getNext();
-            }
-            should_advance_trailing_node = ! should_advance_trailing_node;
-            lead_node_previous = lead_node;
-            lead_node = lead_node_previous->getNext();
-        }
+        ListNode *five  = new ListNode(5);
+        ListNode *four  = new ListNode(4);
+        ListNode *two   = new ListNode(2);
+        ListNode *one   = new ListNode(1);
 
-        trailing_node_parent->setNext(nullptr);
-        // now I have to reverse the 2nd half of the list
-        std::shared_ptr<ListNode> reversed_root = trailing_node;
-        std::shared_ptr<ListNode> reversed_last = trailing_node;
-        std::shared_ptr<ListNode> current = trailing_node->getNext();
-        std::shared_ptr<ListNode> temp = nullptr;
-        while( current )
-        {
-            temp = current;
-            current = current->getNext();
-            temp->setNext( reversed_root );
-            reversed_root = temp;
-        }
-        reversed_last->setNext(nullptr);
-
-        int max_twin_sum = 0;
-        std::shared_ptr<ListNode> current_pair;
-
-        int twin_sum = root_node->getValue() + reversed_root->getValue();
-        max_twin_sum = std::max( max_twin_sum, twin_sum );
-        current = root_node->getNext();
-        current_pair = reversed_root->getNext();
-        while( current )
-        {
-            twin_sum = current->getValue() + current_pair->getValue();
-            max_twin_sum = std::max( max_twin_sum, twin_sum );
-            current = current->getNext();
-            current_pair = current_pair->getNext();
-        }
-        std::cout << "Max Twin Sum: " << max_twin_sum << std::endl;
+        five->next  = four;
+        four->next  = two;
+        two->next   = one;
+        
+        int expected = 6;
+        int result = pairSum(five);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::vector<int> values = { 4,2,2,3};
-        std::shared_ptr<ListNode> root_node = buildList(values);
-        root_node->dumpNodes();
-        std::shared_ptr<ListNode> lead_node = root_node;
-        std::shared_ptr<ListNode> lead_node_previous = root_node;
-        std::shared_ptr<ListNode> trailing_node = root_node;
-        std::shared_ptr<ListNode> trailing_node_parent = root_node;
-        bool should_advance_trailing_node = false;
-        while( lead_node != nullptr )
-        {
-            if( should_advance_trailing_node )
-            {
-                trailing_node_parent = trailing_node;
-                trailing_node = trailing_node_parent->getNext();
-            }
-            should_advance_trailing_node = ! should_advance_trailing_node;
-            lead_node_previous = lead_node;
-            lead_node = lead_node_previous->getNext();
-        }
+        ListNode *five = new ListNode(5);
+        ListNode *four = new ListNode(4);
+        ListNode *two  = new ListNode(2);
+        ListNode *one  = new ListNode(1);
 
-        trailing_node_parent->setNext(nullptr);
-        // now I have to reverse the 2nd half of the list
-        std::shared_ptr<ListNode> reversed_root = trailing_node;
-        std::shared_ptr<ListNode> reversed_last = trailing_node;
-        std::shared_ptr<ListNode> current = trailing_node->getNext();
-        std::shared_ptr<ListNode> temp = nullptr;
-        while( current )
-        {
-            temp = current;
-            current = current->getNext();
-            temp->setNext( reversed_root );
-            reversed_root = temp;
-        }
-        reversed_last->setNext(nullptr);
-
-        int max_twin_sum = 0;
-        std::shared_ptr<ListNode> current_pair;
-
-        int twin_sum = root_node->getValue() + reversed_root->getValue();
-        max_twin_sum = std::max( max_twin_sum, twin_sum );
-        current = root_node->getNext();
-        current_pair = reversed_root->getNext();
-        while( current )
-        {
-            twin_sum = current->getValue() + current_pair->getValue();
-            max_twin_sum = std::max( max_twin_sum, twin_sum );
-            current = current->getNext();
-            current_pair = current_pair->getNext();
-        }
-        std::cout << "Max Twin Sum: " << max_twin_sum << std::endl;
+        five->next = four;
+        four->next = two;
+        two->next  = one;
+        
+        int expected = 6;
+        int result = pairSum(five);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::vector<int> values = { 1,100000};
-        std::shared_ptr<ListNode> root_node = buildList(values);
-        root_node->dumpNodes();
-        std::shared_ptr<ListNode> lead_node = root_node;
-        std::shared_ptr<ListNode> lead_node_previous = root_node;
-        std::shared_ptr<ListNode> trailing_node = root_node;
-        std::shared_ptr<ListNode> trailing_node_parent = root_node;
-        bool should_advance_trailing_node = false;
-        while( lead_node != nullptr )
-        {
-            if( should_advance_trailing_node )
-            {
-                trailing_node_parent = trailing_node;
-                trailing_node = trailing_node_parent->getNext();
-            }
-            should_advance_trailing_node = ! should_advance_trailing_node;
-            lead_node_previous = lead_node;
-            lead_node = lead_node_previous->getNext();
-        }
+        ListNode *four  = new ListNode(4);
+        ListNode *two   = new ListNode(2);
+        ListNode *ttwo  = new ListNode(2);
+        ListNode *three = new ListNode(3);
 
-        trailing_node_parent->setNext(nullptr);
-        // now I have to reverse the 2nd half of the list
-        std::shared_ptr<ListNode> reversed_root = trailing_node;
-        std::shared_ptr<ListNode> reversed_last = trailing_node;
-        std::shared_ptr<ListNode> current = trailing_node->getNext();
-        std::shared_ptr<ListNode> temp = nullptr;
-        while( current )
-        {
-            temp = current;
-            current = current->getNext();
-            temp->setNext( reversed_root );
-            reversed_root = temp;
-        }
-        reversed_last->setNext(nullptr);
-
-        int max_twin_sum = 0;
-        std::shared_ptr<ListNode> current_pair;
-
-        int twin_sum = root_node->getValue() + reversed_root->getValue();
-        max_twin_sum = std::max( max_twin_sum, twin_sum );
-        current = root_node->getNext();
-        current_pair = reversed_root->getNext();
-        while( current )
-        {
-            twin_sum = current->getValue() + current_pair->getValue();
-            max_twin_sum = std::max( max_twin_sum, twin_sum );
-            current = current->getNext();
-            current_pair = current_pair->getNext();
-        }
-        std::cout << "Max Twin Sum: " << max_twin_sum << std::endl;
+        four->next = two;
+        two->next  = ttwo;
+        ttwo->next = three;
+        
+        int expected = 7;
+        int result = pairSum(four);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
+    {
+        ListNode *one  = new ListNode(1);
+        ListNode *two   = new ListNode(100000);
+
+        one->next = two;
+        
+        int expected = 100001;
+        int result = pairSum(one);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    return 0;
 }
