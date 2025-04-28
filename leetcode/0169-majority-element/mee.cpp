@@ -10,55 +10,51 @@
 #include <iostream>
 #include <unordered_map>
 
-void dumpValues(std::vector<int> &nums)
-{
-    bool first_time = true;
-    std::cout << "[" ;
-    for(auto current : nums )
-    {
-        if( ! first_time )
-            std::cout << ", ";
-        std::cout << current;
-        first_time = false;
-    }
-    std::cout << "]" << std::endl;
-}
-
-
-
 int majorityElement(std::vector<int>& nums)
 {
-    int majority_count = 0;
-    int majority_element = 0;
-    std::unordered_map<int,int> counts;
-    for(int index=0;index<nums.size();index++)
+    int candidate;
+    int count = 0;
+    for(int index = 0; index < nums.size();index++)
     {
-        int current = nums[index];
-        counts[current]++;
-        if( counts[current] > majority_count )
+        if( index == 0 )
         {
-            majority_count = counts[current];
-            majority_element = current;
+            candidate = nums[index];
+            count++;
+            continue;
+        }
+        if( nums[index] == candidate )
+        {
+            count++;
+        }
+        else
+        {
+            count--;
+            if( count < 0 )
+                candidate = nums[index];
         }
     }
-    return majority_element;
+    std::cout << "Count " << count << std::endl;
+    return candidate;
 }
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode 169 - Majority Element" << std::endl;
+    std::cout << std::endl << "Leetcode 169 - Majority Element" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::cout << "Example 1" << std::endl;
         std::vector<int> vnums = {3,2,3};
-        int majority_element = majorityElement( vnums );
-        dumpValues(vnums);
-        std::cout << "Majority element: " << majority_element << std::endl;
+        int expected = 3;
+        int result = majorityElement( vnums );
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::cout << "Example 2" << std::endl;
         std::vector<int> vnums = { 2,2,1,1,1,2,2};
-        int majority_element = majorityElement( vnums );
-        dumpValues(vnums);
-        std::cout << "Majority element: " << majority_element << std::endl;
+        int expected = 2;
+        int result = majorityElement( vnums );
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
 }
