@@ -33,7 +33,6 @@ int majorityElement(std::vector<int>& nums)
                 candidate = nums[index];
         }
     }
-    std::cout << "Count " << count << std::endl;
     return candidate;
 }
 
