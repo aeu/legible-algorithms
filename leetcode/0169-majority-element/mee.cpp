@@ -30,7 +30,10 @@ int majorityElement(std::vector<int>& nums)
         {
             count--;
             if( count < 0 )
+            {
                 candidate = nums[index];
+                count = 1;
+            }
         }
     }
     return candidate;
@@ -40,6 +43,14 @@ int main(int argc, char **argv)
 {
     std::cout << std::endl << "Leetcode 169 - Majority Element" << std::endl << std::endl;
     int test_case = 1;
+    {
+        std::vector<int> vnums = {10,9,9,9,10};
+        int expected = 9;
+        int result = majorityElement( vnums );
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
     {
         std::vector<int> vnums = {3,2,3};
         int expected = 3;
