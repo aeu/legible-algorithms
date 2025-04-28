@@ -9,168 +9,125 @@
 #include <optional>
 #include <vector>
 #include <queue>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
-#include "TreeNode.h"
 
-
-void dumpValues(const std::vector<std::optional<int>> &values )
+void dumpValues(const std::vector<int> values)
 {
-    bool first_time = true;
-    std::cout << "[";
-    for( auto current : values )
+    bool first = true;
+    for(const auto &curr : values )
     {
-        if( ! first_time )
+        if( ! first )
             std::cout << ", ";
-        if( current.has_value() )
-            std::cout << current.value();
-        else
-            std::cout << "null";
-        first_time = false;
+        std::cout << curr;
+        first = false;
     }
-    std::cout << "]" << std::endl;
+    std::cout << std::endl;
 }
 
+struct TreeNode {
+    int val;
+    TreeNode  *left;
+    TreeNode  *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
 
-std::shared_ptr<TreeNode> buildTree(std::vector<std::optional<int>> values)
+TreeNode *buildTree(std::vector<std::optional<int>> tree_values)
 {
-    if( values.empty() )
-        return nullptr;
-    size_t index = 0;
-    std::queue<std::shared_ptr<TreeNode>> nodes;
-    std::shared_ptr<TreeNode> root = std::make_shared<TreeNode>( values[index].value() );
-    nodes.push(root);
-    
-    index++;
-    while(index < values.size() )
+    TreeNode *root = new TreeNode(tree_values[0].value());
+    std::queue<TreeNode *>bqueue;
+    int index=1;
+    bqueue.push(root);
+    while( index < tree_values.size() )
     {
-        std::shared_ptr<TreeNode> current = nodes.front();
-        nodes.pop();
-
-        if( values[index].has_value() )
+        TreeNode *curr = bqueue.front();
+        bqueue.pop();
+        if( tree_values[index].has_value() )
         {
-            std::shared_ptr<TreeNode> left = std::make_shared<TreeNode>( values[index].value() );
-            current->setLeft(left);
-            nodes.push(left);
+            TreeNode *left = new TreeNode( tree_values[index].value() );
+            curr->left = left;
+            bqueue.push(left);
         }
         index++;
-        if( index < values.size() && values[index].has_value())
+        if( ( index < tree_values.size() ) && ( tree_values[index].has_value() ))
         {
-            std::shared_ptr<TreeNode> right = std::make_shared<TreeNode>( values[index].value() );
-            current->setRight(right);
-            nodes.push(right);
+            TreeNode *right = new TreeNode( tree_values[index].value() );
+            curr->right = right;
+            bqueue.push(right);
         }
         index++;
     }
     return root;
-    
 }
 
-struct NodeAndLevel {
-    std::shared_ptr<TreeNode> node;
-    int level;
+
+struct BfsInfo {
+    int depth;
+    TreeNode *node;
 };
+                
 
-
-void breadthFirstSearch(std::queue<NodeAndLevel> node_list,
-                  std::vector<NodeAndLevel> &processed,
-                  int level )
+std::vector<int> rightSideView(TreeNode *tree)
 {
-    NodeAndLevel current;
-    while( ! node_list.empty() )
+    std::vector<int> retval;
+    if( tree == nullptr )
+        return retval;
+    
+    std::queue<BfsInfo> bqueue;
+    std::map<int,int> view;
+    bqueue.push( { 0, tree } );
+    // int last_at_depth = tree->value();
+    // int current_depth = 0;
+    while( ! bqueue.empty() )
     {
-        current = node_list.front();
-        node_list.pop();
-        processed.push_back(current);
-        if( current.node->getLeft() != nullptr )
+        BfsInfo curr = bqueue.front();
+        bqueue.pop();
+        view[ curr.depth ] = curr.node->val ;
+        if( curr.node->left != nullptr )
         {
-            NodeAndLevel left;
-            left.node = current.node->getLeft();
-            left.level = current.level+1;
-            node_list.push(left);
+            bqueue.push( { curr.depth + 1 , curr.node->left });
         }
-        if( current.node->getRight() != nullptr )
+        if( curr.node->right != nullptr )
         {
-            NodeAndLevel right;
-            right.node = current.node->getRight();
-            right.level = current.level+1;
-            node_list.push(right);
+            bqueue.push( { curr.depth + 1 , curr.node->right });
         }
     }
-}
-
-
-std::vector<std::optional<int>> breadthFirstTraversal(std::shared_ptr<TreeNode> root )
-{
-    std::vector<std::optional<int>> values;
-    if( root != nullptr )
+    for( const auto curr : view )
     {
-        std::queue<NodeAndLevel> node_list;
-        std::vector<NodeAndLevel> processed;
-        NodeAndLevel current;
-        current.node = root;
-        current.level = 0;
-        node_list.push(current);
-        breadthFirstSearch(node_list,processed,0);
-        int last_level = 0;
-        NodeAndLevel previous;
-        for(size_t index=0;index<processed.size();index++)
-        {
-            current = processed[index];
-            if( current.level != last_level )
-            {
-                previous = processed[index-1];
-                values.push_back( previous.node->getValue());
-                last_level = current.level;
-            }
-        }
-        // the last node is always going to linger because there is no
-        // next level
-        values.push_back((processed.back().node->getValue()));
+        retval.push_back( curr.second );
     }
-    return values;   
+    return retval;
 }
 
 
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode #199 - Binary Tree Right Side View" << std::endl;
+    std::cout << std::endl << "0199-binary-tree-right-side-view" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::vector<std::optional<int>> values = { 1,2,3,std::nullopt,5,std::nullopt,4 };
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        std::vector<std::optional<int>> right_sides = breadthFirstTraversal(root);
-        std::cout << "Right Side View : ";
-        dumpValues( right_sides );
+        std::vector<std::optional<int>> tree_values = { 1,2,3,std::nullopt,5,std::nullopt,4};
+        std::vector<int> expected = {1,3,4};
+        TreeNode *tree = buildTree(tree_values);
+        std::vector<int> result = rightSideView(tree);
+        dumpValues(result);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
     {
-        std::vector<std::optional<int>> values = { 1,2,3,4,std::nullopt,std::nullopt,std::nullopt,5 };
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        std::vector<std::optional<int>> right_sides = breadthFirstTraversal(root);
-        std::cout << "Right Side View : ";
-        dumpValues( right_sides );
+        std::vector<std::optional<int>> tree_values = { 1,2,3,4,std::nullopt,std::nullopt,std::nullopt,5};
+        std::vector<int> expected = {1,3,4,5};
+        TreeNode *tree = buildTree(tree_values);
+        std::vector<int> result = rightSideView(tree);
+        dumpValues(result);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
-    {
-        std::vector<std::optional<int>> values = { 1,std::nullopt,3};
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        std::vector<std::optional<int>> right_sides = breadthFirstTraversal(root);
-        std::cout << "Right Side View : ";
-        dumpValues( right_sides );
-    }
-    {
-        std::vector<std::optional<int>> values = {};
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        std::vector<std::optional<int>> right_sides = breadthFirstTraversal(root);
-        std::cout << "Right Side View : ";
-        dumpValues( right_sides );
-    }
-
-    return -1;
+    return 0;
 }
