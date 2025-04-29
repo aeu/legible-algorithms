@@ -27,7 +27,7 @@ struct BfsInfo {
 };
 
 
-bool isValid(int row, int col, std::vector<std::vector<int>> &grid)
+bool isValid(int row, int col, const std::vector<std::vector<int>> &grid)
 {
     if(( row < 0 ) || ( col < 0 ) || ( row >= grid.size() ) || ( col >= grid[0].size() ))
     {
@@ -39,48 +39,59 @@ bool isValid(int row, int col, std::vector<std::vector<int>> &grid)
 
 std::vector<std::pair<int,int>> cardinals =
     {
-        {  1,  0 }, // n
-        {  1,  1 }, // ne
-        {  0,  1 }, // e
-        { -1,  1 }, // se
-        { -1,  0 }, // s
-        { -1, -1 }, // sw
-        {  0, -1 }, // w
-        {  1, -1 }  // nw
+        {  1,  0 },
+        {  1,  1 },
+        {  0,  1 },
+        { -1,  1 },
+        { -1,  0 },
+        { -1, -1 },
+        {  0, -1 },
+        {  1, -1 }
     };
 
     
-int shortestPathBinaryMatrix(std::vector<std::vector<int> &grid)
+int shortestPathBinaryMatrix(std::vector<std::vector<int>> &grid)
 {
+    if( grid[0][0] == 1 )
+        return -1;
+
+    std::vector<std::vector<int>> seen ( grid.size(), std::vector<int>( grid[0].size(), 0 ));
     std::queue<BfsInfo> bqueue;
-    bqueue.push( { 0, 0, 0 } );
+    bqueue.push( { 1, 0, 0 } );
+    seen[0][0] = 1;
     while( ! bqueue.empty() )
     {
-        BfsInfo curr = bqueue.top();
+        BfsInfo curr = bqueue.front();
         bqueue.pop();
-        for( auto curr : cardinals )
+        if(( curr.row == grid.size() -1 ) && ( curr.col == grid[0].size() -1 ))
         {
-            int nrow = curr.row + curr.first;
-            int ncol = curr.col + curr.second;
+            return curr.steps;
+        }
+        for( const auto &card : cardinals )
+        {
+            int nrow = curr.row + card.first;
+            int ncol = curr.col + card.second;
             if( isValid( nrow, ncol, grid ) )
             {
-                if( grid[nrow][ncol] == 0 )
+                if(( grid[nrow][ncol] == 0 ) && ( seen[nrow][ncol] == 0 ))
+                {
+                    seen[nrow][ncol] = 1;
+                    bqueue.push({ curr.steps + 1, nrow, ncol });
+                }
             }
         }
-        
     }
-    int retval = 0;
-    return retval;
+    return -1;
 }
 
 int main(int argc, char **argv)
 {
-    std::cout << std::endl << "" << std::endl << std::endl;
+    std::cout << std::endl << "1091-shortest-path-in-binary-matrix" << std::endl << std::endl;
     int test_case = 1;
     {
         std::vector<std::vector<int>> grid = {{0,1},{1,0}};
         int expected = 2;
-        int result = shortestPathBinaryhMatrix(grid);
+        int result = shortestPathBinaryMatrix(grid);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
         std::cout << " (expected " << expected << ", got " << result << ")\n";
@@ -88,15 +99,15 @@ int main(int argc, char **argv)
     {
         std::vector<std::vector<int>> grid = {{0,0,0},{1,1,0},{1,1,0}};
         int expected = 4;
-        int result = shortestPathBinaryhMatrix(grid);
+        int result = shortestPathBinaryMatrix(grid);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
         std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
         std::vector<std::vector<int>> grid = {{1,0,0},{1,1,0},{1,1,0}};
-        int expected = 1;
-        int result = shortestPathBinaryhMatrix(grid);
+        int expected = -1;
+        int result = shortestPathBinaryMatrix(grid);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
         std::cout << " (expected " << expected << ", got " << result << ")\n";
