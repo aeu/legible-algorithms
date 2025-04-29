@@ -6,13 +6,13 @@
 CC=g++
 CPPFLAGS=-g -Wall -std=c++17 -I.
 
-OBJS = btr.o
+OBJS = spb.o
 #	other.o
 
 %.o: %.c
 	$(CC) -o $@
 
-btr: $(OBJS)
+spb: $(OBJS)
 	$(CC) $(CPPFLAGS) -o $@ $^
 
 
@@ -20,4 +20,4 @@ clean:
 	rm -f *.o
 	rm -f *~
 	rm -f *.*~
-	rm -f btr
+	rm -f spb

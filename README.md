@@ -271,6 +271,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0974-subarray-sums-divisible-by-k">Leetcode &numero; 974 (Medium) &mdash; Subarray Sums Divisible by K (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0994-rotting-oranges">Leetcode &numero; 994 (Medium) &mdash; Rotting Oranges (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1004-max-consecutive-ones-iii">Leetcode &numero; 1004 (Medium) &mdash; Max Consecutive Ones III (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1091-shortest-path-in-binary-matrix">Leetcode &numero; 1091 (Medium) &mdash; Shortest Path in Binary Matrix (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1161-maximum-level-sum-of-binary-tree">Leetcode &numero; 1161 (Medium) &mdash; Maximum Level Sum of Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1248-count-number-of-nice-subarrays">Leetcode &numero; 1248 (Medium) &mdash; Count Number of Nice Subarrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1249-minimum-remove-to-make-valid-parentheses">Leetcode &numero; 1249 (Medium) &mdash; Minimum Remove to Make Valide Parentheses (C++)</a>  

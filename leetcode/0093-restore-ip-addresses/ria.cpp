@@ -17,43 +17,47 @@
 #include <limits.h>
 
 
-bool isValidIp(std::string candidate)
+bool isValidIp(const std::string candidate)
 {
     if( candidate.length() <= 0 )
         return false;
     if( candidate.length() > 3 )
         return false;
-    
-    long value = std::stol(candidate);
-    if( ( value == 0 ) && ( candidate.length() > 1 ))
+    if( ( candidate[0] == '0') && candidate.length() > 1 )
         return false;
-    if(( value > 0 ) && ( candidate[0] == '0' ))
+    long ip = std::stol( candidate );
+    if( ( ip < 0 ) || ( ip > 255 ))
         return false;
-    if((value < 0 ) || ( value > 255 ))
+    if( ( ip > 0 ) && ( candidate[0] == '0' ))
         return false;
     return true;
 }
 
-void backtrace(std::string s,
-               int start_index,
+
+void backtrace(int start_index,
+               std::string s,
                std::vector<std::string> &path,
                std::vector<std::string> &retval)
 {
+    // all characters have been used
     if( start_index == s.length() )
     {
+        // is comprised of 4 strings, so a valid IP
         if( path.size() == 4 )
         {
-            std::string ip_address = path[0] + "." + path[1] + "." + path[2] + "." + path[3];
-            retval.push_back( ip_address );
+            std::string ip = path[0] + "." + path[1] + "." + path[2] + "." + path[3];
+            retval.push_back(ip);
         }
     }
+
     for(int index=start_index;index<s.length();index++)
     {
-        std::string candidate = s.substr(start_index,index-start_index+1);
-        if( isValidIp( candidate ) )
+        std::string curr = s.substr(start_index,index-start_index+1);
+
+        if(isValidIp(curr ))
         {
-            path.push_back( candidate );
-            backtrace(s,index+1,path,retval);
+            path.push_back(curr);
+            backtrace(index+1,s,path,retval);
             path.pop_back();
         }
     }
@@ -62,9 +66,9 @@ void backtrace(std::string s,
 
 std::vector<std::string> restoreIpAddresses(std::string s)
 {
-    std::vector<std::string> path;
     std::vector<std::string> retval;
-    backtrace(s,0,path,retval);
+    std::vector<std::string> path;
+    backtrace(0,s,path,retval);
     return retval;
 }
 
