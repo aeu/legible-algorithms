@@ -94,7 +94,9 @@ std::vector<std::vector<int>> verticalTraversal(TreeNode *tree)
         {
             // std::cout << "\tL: " << inner.first << std::endl;
             bool first = true;
-            for( auto curr : inner.second )
+            std::vector<int> ivec = inner.second;
+            std::sort(ivec.begin(), ivec.end());
+            for( auto curr : ivec )
             {
                 // if( ! first )
                 //     std::cout << ", " ;
@@ -104,7 +106,6 @@ std::vector<std::vector<int>> verticalTraversal(TreeNode *tree)
             }
             // std::cout << std::endl;
         }
-        std::sort( current_column.begin(), current_column.end());
         retval.push_back(current_column);
     }
     return retval;
