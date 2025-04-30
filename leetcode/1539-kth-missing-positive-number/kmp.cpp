@@ -17,21 +17,20 @@
 
 int findKthPositive(std::vector<int> &arr, int k )
 {
-    int largest = arr.back();
-    std::vector<int> hits(1000,0);
-    for( const auto &curr : arr )
-    {
-        hits[curr] = 1;
-    }
+    std::unordered_set<int> seen(arr.begin(),arr.end());
+    int candidate = 1;
     int seek = k;
-    for(int index=1;index<hits.size();index++)
+    while ( seek > 0 )
     {
-        if( hits[index] == 0 )
+        if( seen.count(candidate) == 0 )
+        {
             seek--;
-        if( seek == 0 )
-            return index;
+            if( seek == 0 )
+                return candidate;
+        }
+        candidate++;
     }
-    return 0;
+    return candidate;
 }
 
 
