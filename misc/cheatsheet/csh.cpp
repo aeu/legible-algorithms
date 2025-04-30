@@ -72,8 +72,32 @@ void dumpList(ListNode *list)
 }
 
 
+std::vector<int> nextLesserIndices(std::vector<int> nums)
+{
+    std::vector<int> lessers( nums.size(), -1);
+    std::stack<int> mstack;
+    for(int index=nums.size()-1;index>=0;index--)
+    {
+        // if the number pointed to by the index at the top of the
+        // stack is greater than the number we're currently testing,
+        // pop it off the stack
 
-std::vector<int> monoLess(std::vector<int> nums)
+        while( ( !mstack.empty()) && ( nums[mstack.top()] > nums[index] ))
+        {
+            mstack.pop();
+        }
+        // whatever the stack has on the top is less than what we were
+        // testing against.
+        if( ! mstack.empty() )
+            lessers[index] = mstack.top();
+        
+        mstack.push(index);
+    }
+    return lessers;
+}
+
+
+std::vector<int> previousLesserIndices(std::vector<int> nums)
 {
     std::vector<int> lessers( nums.size(), -1 );
     std::stack<int>  mstack;
@@ -91,20 +115,50 @@ std::vector<int> monoLess(std::vector<int> nums)
     return lessers;
 }
 
+std::vector<int> previousGreaterIndices(std::vector<int> nums)
+{
+    std::vector<int> greaters( nums.size(), -1 );
+    std::stack<int>  mstack;
+
+    for(int index =0;index<nums.size();index++)
+    {
+        while(( ! mstack.empty() ) && ( nums[ mstack.top() ] < nums[index] ))
+        {
+            mstack.pop();
+        }
+        if( ! mstack.empty() )
+            greaters[index] = mstack.top() ;
+        mstack.push(index);
+    }
+    return greaters;
+}
+
+
+std::vector<int> nextGreaterIndices(std::vector<int> nums)
+{
+    std::stack<int> mstack;
+    std::vector<int> greaters(nums.size(),-1);
+    for(int index=nums.size()-1;index>=0;index--)
+    {
+        while(( ! mstack.empty() ) && ( nums[mstack.top()] < nums[index] ))
+        {
+            mstack.pop();
+        }
+        if( ! mstack.empty() )
+            greaters[index] = mstack.top();
+        mstack.push(index);
+    }
+    return greaters;        
+}
+
+
 int main(int argc, char **argv)
 {
     std::cout << std::endl << "Alfonso's Programming Cheatsheet" << std::endl << std::endl;
     
     int test_case = 1;
     {
-        std::vector<int> nums  = {5,7,8,2,4,6,11,2,3};
-        std::vector<int> result   = monoLess(nums);
-        std::cout << std::endl << "Recipe: " << test_case << " - Monotonic stack lessers" << std::endl;
-        dumpValues(nums);
-        dumpValues(result);
-    }
-    {
-        std::cout << std::endl << "Recipe: " << test_case << " - Reverse Linked List" << std::endl;
+        std::cout << std::endl << "Recipe: " << test_case++ << " - Reverse Linked List" << std::endl;
         ListNode *one = new ListNode(1);
         ListNode *two = new ListNode(2);
         ListNode *thr = new ListNode(3);
@@ -119,6 +173,34 @@ int main(int argc, char **argv)
         dumpList(one);
         ListNode *reversed = reverseList(one);
         dumpList(reversed);
+    }
+    {
+        std::vector<int> nums  = {5,7,8,2,4,6,11,2,3};
+        std::vector<int> result   = previousLesserIndices(nums);
+        std::cout << std::endl << "Recipe: " << test_case++ << " - Monotonic stack - closest previous lesser indices" << std::endl;
+        dumpValues(nums);
+        dumpValues(result);
+    }
+    {
+        std::vector<int> nums  = {5,7,8,2,4,6,11,2,3};
+        std::vector<int> result   = nextLesserIndices(nums);
+        std::cout << std::endl << "Recipe: " << test_case++ << " - Monotonic stack - closest subsequent lesser indices" << std::endl;
+        dumpValues(nums);
+        dumpValues(result);
+    }
+    {
+        std::vector<int> nums  = {5,7,8,2,4,6,11,2,3};
+        std::vector<int> result   = previousGreaterIndices(nums);
+        std::cout << std::endl << "Recipe: " << test_case++ << " - Monotonic stack - closest previous greater indices" << std::endl;
+        dumpValues(nums);
+        dumpValues(result);
+    }
+    {
+        std::vector<int> nums  = {5,7,8,2,4,6,11,2,3};
+        std::vector<int> result   = nextGreaterIndices(nums);
+        std::cout << std::endl << "Recipe: " << test_case++ << " - Monotonic stack - closest next greater indices" << std::endl;
+        dumpValues(nums);
+        dumpValues(result);
     }
     return 0;
 }
