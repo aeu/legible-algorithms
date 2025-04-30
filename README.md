@@ -164,9 +164,6 @@ was bad, then that means that I haven't improved since I wrote it.
 
 #### Medium
 
-
-
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0986-interval-list-intersections">Leetcode &numero; 986 (Medium) &mdash; Interval List Intersections (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -251,6 +248,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0437-path-sum-iii">Leetcode &numero; 437 (Medium) &mdash; Path Sum III (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0450-delete-node-in-a-bst">Leetcode &numero; 450 (Medium) &mdash; Delete Node in a BST (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0452-minimum-number-of-arrows-to-burst-balloons">Leetcode &numero; 452 (Medium) &mdash; Minimum number of arrows to burst balloons (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0498-diagonal-traverse">Leetcode &numero; 498 (Medium) &mdash; Diagonal Traverse (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0523-continuous-subarray-sum">Leetcode &numero; 523 (Medium) &mdash; Continuous Subarray Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0525-contiguous-array">Leetcode &numero; 525 (Medium) &mdash; Contiguous Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0542-01-matrix">Leetcode &numero; 542 (Medium) &mdash; 1 Matrix (C++)</a>  
@@ -271,6 +269,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0930-binary-subarrays-with-sum">Leetcode &numero; 930 (Medium) &mdash; Binary Subarrays With Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0973-k-closest-points-to-origin">Leetcode &numero; 973 (Medium) &mdash; K closest points to origin (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0974-subarray-sums-divisible-by-k">Leetcode &numero; 974 (Medium) &mdash; Subarray Sums Divisible by K (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0986-interval-list-intersections">Leetcode &numero; 986 (Medium) &mdash; Interval List Intersections (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0994-rotting-oranges">Leetcode &numero; 994 (Medium) &mdash; Rotting Oranges (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1004-max-consecutive-ones-iii">Leetcode &numero; 1004 (Medium) &mdash; Max Consecutive Ones III (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1091-shortest-path-in-binary-matrix">Leetcode &numero; 1091 (Medium) &mdash; Shortest Path in Binary Matrix (C++)</a>  
