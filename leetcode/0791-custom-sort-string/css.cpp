@@ -23,7 +23,7 @@ std::string customSortString(const std::string order, const std::string s)
     {
         counts[curr]++;
     }
-    std::vector<char> builder;
+    std::string builder;
     for(const auto &curr : order )
     {
         auto citer = counts.find( curr );
@@ -32,10 +32,10 @@ std::string customSortString(const std::string order, const std::string s)
             int count = citer->second;
             while(count > 0 )
             {
-                builder.push_back( curr );
+                builder.push_back(curr);
                 count--;
             }
-            counts[curr] = 0;
+            counts.erase(curr);
         }
     }
     for(const auto &curr : counts )
@@ -44,12 +44,11 @@ std::string customSortString(const std::string order, const std::string s)
         int count  = curr.second;
         while( count > 0 )
         {
-            builder.push_back( letter );
+            builder.push_back(letter);
             count--;
         }
     }
-    std::string retval(builder.begin(),builder.end());
-    return retval;
+    return builder;
 }
 
 

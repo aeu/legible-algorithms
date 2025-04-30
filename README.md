@@ -164,6 +164,7 @@ was bad, then that means that I haven't improved since I wrote it.
 
 #### Medium
 
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -261,6 +262,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0735-asteroid-collision">Leetcode &numero; 735 (Medium) &mdash; Asteroid Collision (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0739-daily-temperatures">Leetcode &numero; 739 (Medium) &mdash; Daily Temperature (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0763-partition-labels">Leetcode &numero; 763 (Medium) &mdash; Partition Labels (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0791-custom-sort-string">Leetcode &numero; 791 (Medium) &mdash; Custom Sort String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0797-all-paths-from-source-to-target">Leetcode &numero; 797 (Medium) &mdash; All Paths from Source to Target (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0802-find-eventual-safe-states">Leetcode &numero; 802 (Medium) &mdash; Find Eventual Safe States (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0841-keys-and-rooms">Leetcode &numero; 841 (Medium) &mdash; Keys &amp; Rooms (C++)</a>  
