@@ -24,13 +24,12 @@ int findKthPositive(std::vector<int> &arr, int k )
         hits[curr] = 1;
     }
     int seek = k;
-    for(int index=0;index<hits.size();index++)
+    for(int index=1;index<hits.size();index++)
     {
-        std::cout << "[" << index << "] " << hits[index] << std::endl;
         if( hits[index] == 0 )
             seek--;
         if( seek == 0 )
-            return index+1;
+            return index;
     }
     return 0;
 }
@@ -44,6 +43,15 @@ int main(int argc, char **argv)
         std::vector<int> arr = {2,3,4,7,11};
         int k = 5;
         int expected = 9;
+        int result = findKthPositive(arr, k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        std::vector<int> arr = {1,2};
+        int k = 1;
+        int expected = 3;
         int result = findKthPositive(arr, k);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
