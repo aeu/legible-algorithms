@@ -50,20 +50,25 @@ std::string addStrings(std::string num1,std::string num2)
         int digit = sum % 10;
         carry = sum / 10;
 
-        if(( digit != 0 ) || ( carry != 0 ))
-            retval += std::to_string(digit);
-        
-        // std::cout << i1 << " + " << i2 << " = " << digit << " with carry of " << carry << std::endl;
+        retval += std::to_string(digit);
         
         if( index > num1.length() && ( index > num2.length()) && ( carry == 0 ))
             done = true;
         index++;
     }
     std::reverse(retval.begin(),retval.end());
-    if( retval.length() == 0 )
-        retval = "0";
-    // std::cout << "RV: " << retval << std::endl;
-    return retval;
+    bool found = false;
+    std::string trimmed;
+    for( auto curr : retval )
+    {
+        if( curr != '0' )
+            found = true;
+        if( found )
+            trimmed.push_back(curr);
+    }
+    if( trimmed.length() == 0 )
+        trimmed = "0";
+    return trimmed;
 }
     
 
@@ -71,6 +76,15 @@ int main(int argc, char **argv)
 {
     std::cout << std::endl << "0415-add-strings" << std::endl << std::endl;
     int test_case = 1;
+    {
+        std::string num1 = "6";
+        std::string num2 = "501";
+        std::string result = addStrings(num1,num2);
+        std::string expected = "507";
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
     {
         std::string num1 = "1";
         std::string num2 = "9";

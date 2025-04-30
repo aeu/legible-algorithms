@@ -110,8 +110,6 @@ was bad, then that means that I haven't improved since I wrote it.
 
 #### Easy
 
-
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0001-two-sum">Leetcode &numero; 1 (Easy) &mdash; Two Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0020-valid-parentheses">Leetcode &numero; 20 (Easy) &mdash; Valid Parentheses (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0021-merge-two-sorted-lists">Leetcode &numero; 21 (Easy) &mdash; Merge Two Sorted Lists (C++)</a>  
@@ -146,6 +144,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0383-ransom-note">Leetcode &numero; 383 (Easy) &mdash; Ransom Note (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0392-is-subsequence">Leetcode &numero; 392 (Easy) &mdash; Is Subsequence (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0408-valid-word-abbreviation">Leetcode &numero; 408 (Easy) &mdash; Valid Word Abbreviation (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0415-add-strings">Leetcode &numero; 415 (Easy) &mdash; Add Strings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0496-next-greater-element-i">Leetcode &numero; 496 (Easy) &mdash; Next Greater Element I (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0543-diameter-of-binary-tree">Leetcode &numero; 543 (Easy) &mdash; Diameter of Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0605-can-place-flowers">Leetcode &numero; 605 (Easy) &mdash; Can Place Flowers(C++)</a>  
