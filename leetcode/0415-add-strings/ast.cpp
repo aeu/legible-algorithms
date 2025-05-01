@@ -19,12 +19,9 @@
 
 std::string addStrings(std::string num1,std::string num2)
 {
-    std::cout << "add strings " << num1 << " " << num2 << std::endl;
-    
     std::string retval;
     std::reverse(num1.begin(),num1.end());
     std::reverse(num2.begin(),num2.end());
-    std::cout << num1 << " " << num2 << std::endl;
 
     char c1 = '0';
     char c2 = '0';
