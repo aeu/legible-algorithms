@@ -36,34 +36,34 @@ int backtrack(int n,
               std::vector<int> &current_path,
               std::set<std::vector<int>> &paths)
 {
-    std::cout << "in backtrack, n: " << n << " start_point: " << start_point << std::endl;
-    // exit condition
-    if( start_point == n )
+    if( ! current_path.empty() )
     {
-        if( paths.count( current_path ) )
+        int last = current_path.back();
+        // exit condition
+        if( start_point == n )
         {
-            dumpValues( current_path );
-            paths.insert( current_path );
+            if( paths.count( current_path ) == 0 )
+            {
+                dumpValues( current_path );
+                paths.insert( current_path );
+            }
         }
     }
 
-    for(int index=start_point;index<n;index++)
+    // first try going up 1 stair
+    if((start_point + 1 ) <= n )
     {
-        // first try going up 1 stair
-        std::cout << "I still can go : " << ( n - index ) << " stairs " << std::endl;
-        if((n - index) >= 1)
-        {
-            current_path.push_back(1);
-            backtrack(n,start_point+index+1,current_path,paths);
-            current_path.pop_back();
-        }
-        // now try goign up 2 stairs
-        if((n - index) >= 2)
-        {
-            current_path.push_back(2);
-            backtrack(n,start_point+index+2,current_path,paths);
-            current_path.pop_back();
-        }
+        current_path.push_back(1);
+        backtrack(n,start_point+1,current_path,paths);
+        current_path.pop_back();
+    }
+
+    // first try going up 2 stairs
+    if((start_point + 2 ) <= n )
+    {
+        current_path.push_back(2);
+        backtrack(n,start_point+2,current_path,paths);
+        current_path.pop_back();
     }
     return 0;
 }
@@ -73,8 +73,8 @@ int climbStairs(int n)
 {
     std::vector<int> current_path;
     std::set<std::vector<int>> paths;
-    int retval = backtrack(n,0,current_path,paths);
-    return retval;
+    backtrack(n,0,current_path,paths);
+    return paths.size();
 }
 
 int main(int argc, char **argv)
