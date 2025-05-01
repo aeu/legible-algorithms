@@ -76,20 +76,26 @@ TreeNode *dfs(TreeNode *root, TreeNode *p, TreeNode *q)
     if( root == nullptr )
         return root;
 
+    // I am one of the nodes being searched for, so return myself.
     if( root == p )
         return root;
 
+    // I am one of the nodes being searched for, so return myself.
     if( root == q )
         return root;
 
     TreeNode *left = dfs(root->left,p,q);
     TreeNode *right = dfs(root->right,p,q);
     
+    // if both the left and right dfs have non-null returns, then that
+    // means that I am an ancester of both
     if( ( left != nullptr ) && ( right != nullptr ))
     {
         return root;
     }
 
+    // only one subtree is non-null, then that subtree has both p and
+    // q, so its the LCA
     if( left != nullptr )
         return left;
     return right;
