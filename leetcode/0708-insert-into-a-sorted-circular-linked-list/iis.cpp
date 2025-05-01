@@ -82,15 +82,12 @@ Node* insert(Node* head, int insertVal)
         if( prev->val > curr->val )
             transition = prev;
         
-        std::cout << "checking if " << insertVal << " can go between " << prev->val << " and " << curr->val << std::endl;
         if((( prev->val <= insertVal ) && ( curr->val >= insertVal )))
-           // || (( prev->val >= insertVal ) && ( curr->val >= insertVal )))
         {
             Node *newnode = new Node(insertVal);
             newnode->next = curr;
             prev->next = newnode;
             did_insert = true;
-            std::cout << "\t yes, good insert" << std::endl;
             continue;
         }
         if( did_loop == true )
@@ -103,7 +100,6 @@ Node* insert(Node* head, int insertVal)
                 newnode->next = transition->next;
                 transition->next = newnode;
                 did_insert = true;
-                std::cout << "\tinserted at transition" << std::endl;
                 continue;
             }
             else
@@ -113,7 +109,6 @@ Node* insert(Node* head, int insertVal)
                 newnode->next = curr;
                 prev->next = newnode;
                 did_insert = true;
-                std::cout << "\t inserted anywhere all nodes were the same" << std::endl;
                 continue;
             }
             
@@ -176,6 +171,7 @@ int main(int argc, char **argv)
         thr->next = fou;
         fou->next = one;
 
+        dumpList(thr);
         insert(thr,5);
         dumpList(thr);
         int expected = 0;
