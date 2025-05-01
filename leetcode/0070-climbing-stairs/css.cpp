@@ -17,64 +17,24 @@
 #include <stack>
 #include <limits.h>
 
-void dumpValues(std::vector<int> values)
-{
-    bool first = true;
-    for(const auto &curr : values )
-    {
-        if( ! first )
-            std::cout << ", ";
-        first = false;
-        std::cout << std::setw(3) << curr ;
-    }
-    std::cout << std::endl;
-}
-
-
-int backtrack(int n,
-              int start_point,
-              std::vector<int> &current_path,
-              std::set<std::vector<int>> &paths)
-{
-    if( ! current_path.empty() )
-    {
-        int last = current_path.back();
-        // exit condition
-        if( start_point == n )
-        {
-            if( paths.count( current_path ) == 0 )
-            {
-                dumpValues( current_path );
-                paths.insert( current_path );
-            }
-        }
-    }
-
-    // first try going up 1 stair
-    if((start_point + 1 ) <= n )
-    {
-        current_path.push_back(1);
-        backtrack(n,start_point+1,current_path,paths);
-        current_path.pop_back();
-    }
-
-    // first try going up 2 stairs
-    if((start_point + 2 ) <= n )
-    {
-        current_path.push_back(2);
-        backtrack(n,start_point+2,current_path,paths);
-        current_path.pop_back();
-    }
-    return 0;
-}
-
-
 int climbStairs(int n)
 {
-    std::vector<int> current_path;
-    std::set<std::vector<int>> paths;
-    backtrack(n,0,current_path,paths);
-    return paths.size();
+    if( n == 0 )
+        return 1;
+    if( n == 1 )
+        return 1;
+
+    int curr = 1;
+    int prev = 1;
+    int next;
+    for(int count=2;count<=n;count++)
+    {
+        next = curr + prev;
+        prev = curr;
+        curr = next;
+    }
+    return next;
+
 }
 
 int main(int argc, char **argv)
