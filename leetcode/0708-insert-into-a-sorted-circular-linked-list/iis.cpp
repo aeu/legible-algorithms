@@ -35,6 +35,24 @@ public:
     }
 };
 
+
+void dumpList(Node *list)
+{
+    Node *saved = list;
+    Node *curr = list; 
+    while(curr != nullptr )
+    {
+        std::cout << curr->val;
+        if( curr->next != nullptr )
+            std::cout << " -> ";
+        curr = curr->next;
+        if( curr == saved )
+            break;
+    }
+    std::cout << std::endl;
+}
+
+
 Node* insert(Node* head, int insertVal)
 {
     Node *savedhead = head;
@@ -55,39 +73,48 @@ Node* insert(Node* head, int insertVal)
 
     Node *prev = head;
     Node *curr = head->next;
+    Node *transition = nullptr;
     bool did_insert = false;
     bool did_loop = false;
-    while(( curr != nullptr ) && ( ! did_insert ))
+    while(! did_insert )
     {
-        // std::cout << "checking if " << insertVal << " can go between " << prev->val << " and " << curr->val << std::endl;
-        if(
-           (( prev->val <= insertVal ) && ( curr->val >= insertVal ))
-           || (( prev->val >= insertVal ) && ( curr->val <= insertVal ))
-           )
+        // store the transition from high to low for later.
+        if( prev->val > curr->val )
+            transition = prev;
+        
+        std::cout << "checking if " << insertVal << " can go between " << prev->val << " and " << curr->val << std::endl;
+        if((( prev->val <= insertVal ) && ( curr->val >= insertVal )))
+           // || (( prev->val >= insertVal ) && ( curr->val >= insertVal )))
         {
-            // std::cout << "\tcan" << std::endl;
             Node *newnode = new Node(insertVal);
             newnode->next = curr;
             prev->next = newnode;
             did_insert = true;
-            // std::cout << "good insert" << std::endl;
+            std::cout << "\t yes, good insert" << std::endl;
             continue;
         }
-                
         if( did_loop == true )
         {
-            if(( prev->val <= insertVal ) || ( curr->val >= insertVal ))
+            if( transition != nullptr )
             {
-                // we looped all the way around without finding a
-                // place to slot it in (for example adding a 3, to a
-                // list that has only 1 & 2 in it will not hit the
-                // previous if statement, so just insert it whenver we
-                // can.
+                // it couldn't insert, the new node is either higher
+                // than the highest or lower than the lowest.
+                Node *newnode = new Node(insertVal);
+                newnode->next = transition->next;
+                transition->next = newnode;
+                did_insert = true;
+                std::cout << "\tinserted at transition" << std::endl;
+                continue;
+            }
+            else
+            {
+                // Or the list is all one value repeated, stick it anywhere
                 Node *newnode = new Node(insertVal);
                 newnode->next = curr;
                 prev->next = newnode;
                 did_insert = true;
-                // std::cout << "fallback insert" << std::endl;
+                std::cout << "\t inserted anywhere all nodes were the same" << std::endl;
+                continue;
             }
             
         }
@@ -107,13 +134,36 @@ int main(int argc, char **argv)
     {
         Node *one = new Node(1);
         Node *thr = new Node(3);
+        Node *fiv = new Node(5);
+
+        thr->next = fiv;
+        fiv->next = one;
+        one->next = thr;
+
+        dumpList(thr);
+        insert(thr,0);
+        dumpList(thr);
+        int expected = 0;
+        int result = 0;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+    }
+    {
+        Node *thr = new Node(3);
         Node *fou = new Node(4);
+        Node *one = new Node(1);
 
         one->next = thr;
         thr->next = fou;
         fou->next = one;
 
+        dumpList(thr);
         insert(thr,2);
+        dumpList(thr);
+        int expected = 0;
+        int result = 0;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
     {
         Node *one = new Node(1);
@@ -127,6 +177,11 @@ int main(int argc, char **argv)
         fou->next = one;
 
         insert(thr,5);
+        dumpList(thr);
+        int expected = 0;
+        int result = 0;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
     return 0;
 }
