@@ -61,9 +61,9 @@ std::optional, so you can put in std::nullopt in the data array.
 ### Meta
 
 Puzzles and problems from the meta careers interview preparation
-portal.  These are sometimes annoying, because they sometimes seem to
-be more word puzzles than software puzzles, but still rewarding when
-you get them working.
+portal.  These are sometimes annoying, because they often seem to be
+more word puzzles than software puzzles, but still rewarding when you
+get them working.
 
 #### Warmup
 
@@ -114,6 +114,8 @@ really, really bad.
 As I go over these I have to keep reminding myself that this is a good
 thing.  If I didn't look back at my code years later and see that it
 was bad, then that means that I haven't improved since I wrote it.
+
+As of right now I am in the top 8% of Leetcode rankings!
 
 
 #### Easy
