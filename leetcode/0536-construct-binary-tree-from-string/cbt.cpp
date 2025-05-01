@@ -27,6 +27,9 @@ struct TreeNode {
 
 TreeNode *parser(std::string s, int &current_pos)
 {
+    if( s.empty() )
+        return nullptr;
+    
     int start = current_pos;
     char curr = s[current_pos];
     if( curr == '-' )
@@ -35,7 +38,6 @@ TreeNode *parser(std::string s, int &current_pos)
         current_pos++;
     std::string nvals = s.substr( start, current_pos - start ) ;
     int nvali = std::stoi( nvals );
-
     TreeNode *root = new TreeNode( nvali );
     
     if(( current_pos < s.size()) && ( s[current_pos] == '(' ))
@@ -56,7 +58,6 @@ TreeNode *parser(std::string s, int &current_pos)
 
 TreeNode *str2tree(std::string s)
 {
-    std::cout << "str2tree : " << s << std::endl;
     int current_pos = 0;
     TreeNode *root = parser(s,current_pos);
     std::cout << "cpos : " << current_pos << std::endl;
