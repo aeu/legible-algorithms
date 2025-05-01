@@ -9,14 +9,20 @@ languages.
 ## Data Structures
 The data structures we take for granted.
 
+### Binary Search Tree
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/binary_search_tree">Binary Search Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
 
-The Red-Black tree especially was a lot of typing.
-You see typically see it represented in books as about 20-30 lines of
-especially if you are making it robust.  This one was definitely more than I expected.
-pseudocode, but the reality is that it's way more than that,
+### Red Black Tree
+
+The Red-Black tree especially was a lot of typing.  You see typically
+see it represented in books as about 20-30 lines of pseudocode, but
+the reality is that it's way more than that, especially if you are
+making it robust.  This one was definitely more than I expected.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/red-black-tree">Red Black Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
+
+### Trie
 
 An implementation of trie.  Never did one of these before, and it's
 been a hole in my knowledge for some time now.  This was really fun to
