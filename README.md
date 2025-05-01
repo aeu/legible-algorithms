@@ -1,10 +1,11 @@
 # Legible Algorithms
 
-When I get stuck on something, I like to solve puzzles and implement
-algorithms as a form of focused distraction.  This is a collection of
-my implementations of various things that I wrote to pass the time.
-They are in C++ and Obj-C because I enjoy working on those
-languages.
+When I am bored or get stuck on something, I like to solve puzzles and
+implement algorithms as a form of focused distraction.  This is a
+collection of my implementations of various things that I wrote to
+pass the time.  They are in C++ and Obj-C because I enjoy working on
+those languages, but it's mostly C++ these days because I haven't done
+any iOS work in a while.
 
 ## Data Structures
 The data structures we take for granted.
@@ -15,10 +16,10 @@ The data structures we take for granted.
 
 ### Red Black Tree
 
-The Red-Black tree especially was a lot of typing.  You see typically
-see it represented in books as about 20-30 lines of pseudocode, but
-the reality is that it's way more than that, especially if you are
-making it robust.  This one was definitely more than I expected.
+The Red-Black tree especially was a lot of typing.  You typically see
+it represented in books as about 20-30 lines of pseudocode, but when
+you actually code it its waaaaay more than that, especially if you are
+making it robust.  This one was definitely more work than I expected.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/red-black-tree">Red Black Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
 
@@ -26,7 +27,7 @@ making it robust.  This one was definitely more than I expected.
 
 An implementation of trie.  Never did one of these before, and it's
 been a hole in my knowledge for some time now.  This was really fun to
-learn how it worked.  Note that I still don't have delete working.
+learn how it worked.  Doesn't support delete.  Yet.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/trie">Trie (C++)</a>
 
@@ -59,7 +60,10 @@ std::optional, so you can put in std::nullopt in the data array.
 
 ### Meta
 
-Puzzles and problems from the meta careers interview preparation portal.
+Puzzles and problems from the meta careers interview preparation
+portal.  These are sometimes annoying, because they sometimes seem to
+be more word puzzles than software puzzles, but still rewarding when
+you get them working.
 
 #### Warmup
 
@@ -99,9 +103,6 @@ Puzzles and problems from the meta careers interview preparation portal.
 
 
 ### Leetcode
-
-Solutions are in a mix of Objective-C and C++ depending on what I was
-doing at the time.  These days it's mostly C++.
 
 Recently I've started re-visiting my old solutions to see how they
 held up to the test of time and improving their implementations as
@@ -266,6 +267,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0498-diagonal-traverse">Leetcode &numero; 498 (Medium) &mdash; Diagonal Traverse (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0523-continuous-subarray-sum">Leetcode &numero; 523 (Medium) &mdash; Continuous Subarray Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0525-contiguous-array">Leetcode &numero; 525 (Medium) &mdash; Contiguous Array (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0536-construct-binary-tree-from-string">Leetcode &numero; 536 (Medium) &mdash; Construct Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0542-01-matrix">Leetcode &numero; 542 (Medium) &mdash; 1 Matrix (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0547-number-of-provinces">Leetcode &numero; 547 (Medium) &mdash; Number of Provinces (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0560-subarray-sum-equals-k">Leetcode &numero; 560 (Medium) &mdash; Subarray Sum Equals K (C++)</a>  
@@ -330,6 +332,7 @@ was bad, then that means that I haven't improved since I wrote it.
 Solutions to problems from the book.  Organized by category/chapter.
 
 #### CH 27 &mdash; Two Pointers
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/array-intersection">27.3 &mdash; Array Intersection (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/palindromic-sentence">27.4 &mdash; Palindromic Sentence (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/bctci/two-pointers/smaller-prefixes">27.2 &mdash; Smaller Prefixes (C++)</a>  
