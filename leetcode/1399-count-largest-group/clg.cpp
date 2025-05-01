@@ -32,7 +32,7 @@ void dumpValues(std::vector<int> values)
 
 int countLargestGroup(int n)
 {
-    std::vector<int> counts (10,0);
+    std::unordered_map<int,int> counts;
     for(int index=0;index<=n;index++)
     {
         int val = index;
@@ -45,15 +45,19 @@ int countLargestGroup(int n)
         counts[digit_sum]++;
     }
     int max = INT_MIN;
-    for(int index=1;index<counts.size();index++)
+    for(const auto cit : counts )
     {
-        int curr = counts[index];
+        if( cit.first == 0 )
+            continue;
+        int curr = cit.second;
         max = std::max( max, curr );
     }
     int count = 0;
-    for(int index=1;index<counts.size();index++)
+    for(const auto cit : counts )
     {
-        int curr = counts[index];
+        if( cit.first == 0 )
+            continue;
+        int curr = cit.second;
         if(curr == max )
             count++;
     }
@@ -75,6 +79,14 @@ int main(int argc, char **argv)
     }
     {
         int n = 2;
+        int expected = 2;
+        int result = countLargestGroup(n);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        int n = 24;
         int expected = 2;
         int result = countLargestGroup(n);
         std::cout << std::endl;
