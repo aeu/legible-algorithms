@@ -192,7 +192,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0048-rotate-image">Leetcode &numero; 48 (Medium) &mdash; Rotate Image (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0049-group-anagrams">Leetcode &numero; 49 (Medium) &mdash; Group Anagrams (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0050-pow">Leetcode &numero; 50 (Medium) &mdash; Pow (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0053-maximum-subarray">Leetcode &numero; 53 (Medium) &mdash; Maximum Subarray (C++)</a>
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0053-maximum-subarray">Leetcode &numero; 53 (Medium) &mdash; Maximum Subarray (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0054-spiral-matrix">Leetcode &numero; 54 (Medium) &mdash; Spiral Matrix (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0055-jump-game">Leetcode &numero; 55 (Medium) &mdash; Jump Game (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0056-merge-intervals">Leetcode &numero; 56 (Medium) &mdash; Merge Intervals (C++)</a>  
