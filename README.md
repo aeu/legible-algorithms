@@ -7,17 +7,24 @@ They are in C++ and Obj-C because I enjoy working on those
 languages.
 
 ## Data Structures
-The data structures we take for granted.  These were a lot more typing
-than I expected.  The Red-Black tree especially was a lot of typing.
-You see typically see it represented in books as about 20-30 lines of
-pseudocode, but the reality is that it's way more than that,
-especially if you are making it robust.
-
+The data structures we take for granted.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/binary_search_tree">Binary Search Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
+
+The Red-Black tree especially was a lot of typing.
+You see typically see it represented in books as about 20-30 lines of
+especially if you are making it robust.  This one was definitely more than I expected.
+pseudocode, but the reality is that it's way more than that,
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/red-black-tree">Red Black Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
 
-## Sorting & Searching
+An implementation of trie.  Never did one of these before, and it's
+been a hole in my knowledge for some time now.  This was really fun to
+learn how it worked.  Note that I still don't have delete working.
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/trie">Trie (C++)</a>
+
+## Sorting & Searching Algorithms
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/heapsort">Heapsort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/mergesort">Mergesort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (Obj-C)</a>  
@@ -40,12 +47,6 @@ std::optional, so you can put in std::nullopt in the data array.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/binary-tree">Drop in, int holding, memory safe binary tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/depth-first-search">Depth first search (C++)</a>  
-
-An implementation of trie.  Never did one of these before, and it's
-been a hole in my knowledge for some time now.  This was really fun to
-learn how it worked.  Note that I still don't have delete working.
-
-<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/trie">Trie (C++)</a>
 
 
 ## Puzzles & Problems
@@ -110,8 +111,6 @@ was bad, then that means that I haven't improved since I wrote it.
 
 #### Easy
 
-
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0001-two-sum">Leetcode &numero; 1 (Easy) &mdash; Two Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0020-valid-parentheses">Leetcode &numero; 20 (Easy) &mdash; Valid Parentheses (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0021-merge-two-sorted-lists">Leetcode &numero; 21 (Easy) &mdash; Merge Two Sorted Lists (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0026-remove-duplicates-from-sorted-array">Leetcode &numero; 26 (Easy) &mdash; Remove Duplicates from Sorted Array (C++)</a>  
@@ -163,6 +162,7 @@ was bad, then that means that I haven't improved since I wrote it.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0977-squares-of-a-sorted-array">Leetcode &numero; 977 (Easy) &mdash; Squares of a Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1071-greatest-common-divisor-of-strings/">Leetcode &numero; 1071 (Easy) &mdash; Greatest Common Divisor of Strings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1207-unique-number-of-occurrences/">Leetcode &numero; 1207 (Easy) &mdash; Unique Number of Occurrences (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1399-count-largest-group">Leetcode &numero; 1399 (Easy) &mdash; Count Largest Group (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1480-running-sum-of-1d-array">Leetcode &numero; 1480 (Easy) &mdash; Running Sum of 1D Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1539-kth-missing-positive-number">Leetcode &numero; 1539 (Easy) &mdash; Kth Missing Positive Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1732-find-the-highest-altitude/">Leetcode &numero; 1732 (Easy) &mdash; Find The Highest Altitude(C++)</a>  
