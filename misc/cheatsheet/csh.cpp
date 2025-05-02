@@ -60,13 +60,19 @@ ListNode* reverseList(ListNode* head)
 
 void dumpList(ListNode *list)
 {
-    ListNode *curr = list; 
+    ListNode *curr = list;
+    ListNode *original = list;
     while(curr != nullptr )
     {
         std::cout << curr->val;
         if( curr->next != nullptr )
             std::cout << " -> ";
         curr = curr->next;
+        if( curr == original )
+        {
+            std::cout << "endless loop, breaking" << std::endl;
+            break;
+        }
     }
     std::cout << std::endl;
 }
