@@ -6,6 +6,7 @@
 //  without the express written permission of red82
 
 #include <iostream>
+#include <iomanip>
 #include <optional>
 #include <vector>
 #include <queue>
@@ -15,10 +16,6 @@
 #include <stack>
 #include <limits.h>
 
-int doWork()
-{
-    return 1;
-}
 
 int main(int argc, char **argv)
 {
@@ -27,7 +24,7 @@ int main(int argc, char **argv)
     {
         std::vector<int> nums  = {1,2,3};
         int expected = 0;
-        int result = doWork();
+        int result = 0;
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
         std::cout << " (expected " << expected << ", got " << result << ")\n";
