@@ -175,6 +175,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0977-squares-of-a-sorted-array">Leetcode &numero; 977 (Easy) &mdash; Squares of a Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1071-greatest-common-divisor-of-strings/">Leetcode &numero; 1071 (Easy) &mdash; Greatest Common Divisor of Strings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1207-unique-number-of-occurrences/">Leetcode &numero; 1207 (Easy) &mdash; Unique Number of Occurrences (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1295-find-numbers-with-even-number-of-digits">Leetcode &numero; 1295 (Easy) &mdash; Find Numbers With Even Number of Digits (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1399-count-largest-group">Leetcode &numero; 1399 (Easy) &mdash; Count Largest Group (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1480-running-sum-of-1d-array">Leetcode &numero; 1480 (Easy) &mdash; Running Sum of 1D Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1539-kth-missing-positive-number">Leetcode &numero; 1539 (Easy) &mdash; Kth Missing Positive Number (C++)</a>  
