@@ -41,7 +41,7 @@ void nextPermutation(std::vector<int>& nums)
         return;
     }
 
-    // scan L to R, starting at ipivot, until you find the first place
+    // scan R to L, stopping at ipivot, until you find the first place
     // where nums[j] is > nums[i], this is the j pivot.
 
     int jpivot = -1;
