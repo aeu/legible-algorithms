@@ -309,6 +309,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0542-01-matrix">Leetcode &numero; 542 (Medium) &mdash; 1 Matrix (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0547-number-of-provinces">Leetcode &numero; 547 (Medium) &mdash; Number of Provinces (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0560-subarray-sum-equals-k">Leetcode &numero; 560 (Medium) &mdash; Subarray Sum Equals K (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0647-palindromic-substrings">Leetcode &numero; 647 (Medium) &mdash; Palindromic Substrings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0649-dota2-senate">Leetcode &numero; 649 (Medium) &mdash; Dota2 Senate (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0670-maximum-swap">Leetcode &numero; 670 (Medium) &mdash; Maximum Swap (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0684-redundant-connection">Leetcode &numero; 684 (Medium) &mdash; Redundant Connection (C++)</a>  
