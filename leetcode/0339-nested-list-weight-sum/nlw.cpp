@@ -43,9 +43,8 @@ public:
 };
 
 
-int dfs(NestedInteger ni, int depth)
+int dfs(const NestedInteger &ni, int depth)
 {
-    std::cout << "in dfs, depth is " << depth << std::endl;
     int retval = 0;
     if( ni.isInteger() )
     {
