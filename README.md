@@ -31,7 +31,22 @@ learn how it worked.  Doesn't support delete.  Yet.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/trie">Trie (C++)</a>
 
-## Sorting & Searching Algorithms
+## Knuth's Algorithm L
+
+For going on 30 years now I've had Donald Knuth's "The Art of Computer
+Programming" on my shelf, with the goal of someday working my way
+through it.
+
+I once had dreams of getting a cheque.  Now I think I'll be lucky to
+make it through one of the books. (If you know, you know).
+
+This Leetcode solution is actually is Knuth's "Algorithm L" for
+generating the next permutation of elements, in lexicographical order, in place.
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0031-next-permutation">Leetcode &numero; 31 (Medium) &mdash; Next Permutation (C++)</a>  
+
+
+## Sorting ( Mergesort, Quicksort &amp; Heapsort )
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/heapsort">Heapsort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/mergesort">Mergesort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (Obj-C)</a>  
@@ -200,6 +215,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0019-remove-nth-node-from-end-of-list">Leetcode &numero; 19 (Medium) &mdash; Remove Nth Node From End of List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0022-generate-parentheses">Leetcode &numero; 22 (Medium) &mdash; Generate Prentheses (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0024-swap-nodes-in-pairs">Leetcode &numero; 24 (Medium) &mdash; Swap Nodes in Pairs (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0031-next-permutation">Leetcode &numero; 31 (Medium) &mdash; Next Permutation (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0033-search-in-rotated-sorted-array">Leetcode &numero; 33 (Medium) &mdash; Search in Rotated Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0034-find-first-and-last-position-of-element-in-sorted-array">Leetcode &numero; 34 (Medium) &mdash; Find First an Last Position of Element in Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0036-valid-sudoku">Leetcode &numero; 36 (Medium) &mdash; Valid Sudoku (C++)</a>  
