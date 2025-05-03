@@ -5,59 +5,67 @@
 //  This software may not be used or reproduced, in whole or in part,
 //  without the express written permission of red82
 
-#include <stdio.h>
 #include <iostream>
-#include <string>
+#include <iomanip>
+#include <optional>
+#include <vector>
+#include <queue>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
-std::string mergeStrings(std::string &one,
-                         std::string &two)
+std::string mergeAlternately(std::string word1, std::string word2)
 {
-    std::string::iterator oiter = one.begin();
-    std::string::iterator titer = two.begin();
     std::string retval;
-  
-    while((oiter != one.end()) && (titer != two.end()))
+    int w1index = 0;
+    int w2index = 0;
+    while( ( w1index < word1.length() ) && ( w2index < word2.length() ))
     {
-        retval += *oiter;
-        retval += *titer;
-        oiter++;
-        titer++;
+        retval.push_back( word1[w1index++] );
+        retval.push_back( word2[w2index++] );
     }
 
-    while( oiter != one.end() )
-    {
-        retval += *oiter;
-        oiter++;
-    }
-    while( titer != two.end() )
-    {
-        retval += *titer;
-        titer++;
-    }
+    if( w1index < word1.length() )
+        retval.append( word1.substr(w1index));
+
+    if( w2index < word2.length() )
+        retval.append( word2.substr(w1index));
+
     return retval;
 }
 
-
 int main(int argc, char **argv)
 {
+    std::cout << std::endl << "1768-merge-strings-alternately" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::string one = "abc";
-        std::string two = "pqr";
-        std::string merged = mergeStrings(one,two);
-        std::cout << "merging : " << one << " and : " << two << " merged : " << merged << std::endl;
+        std::string word1 = "abc";
+        std::string word2 = "pqr";
+        std::string expected = "apbqcr";
+        std::string result = mergeAlternately(word1,word2);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::string one = "ab";
-        std::string two = "pqrs";
-        std::string merged = mergeStrings(one,two);
-        std::cout << "merging : " << one << " and : " << two << " merged : " << merged << std::endl;
+        std::string word1 = "ab";
+        std::string word2 = "pqrs";
+        std::string expected = "apbqrs";
+        std::string result = mergeAlternately(word1,word2);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::string one = "abcd";
-        std::string two = "pq";
-        std::string merged = mergeStrings(one,two);
-        std::cout << "merging : " << one << " and : " << two << " merged : " << merged << std::endl;
+        std::string word1 = "abcd";
+        std::string word2 = "pq";
+        std::string expected = "apbqcd";
+        std::string result = mergeAlternately(word1,word2);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
+    return 0;
 }
-
-    

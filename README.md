@@ -31,7 +31,7 @@ learn how it worked.  Doesn't support delete.  Yet.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/trie">Trie (C++)</a>
 
-## Knuth's Algorithm L
+### Knuth's Algorithm L
 
 For going on 30 years now I've had Donald Knuth's "The Art of Computer
 Programming" on my shelf, with the goal of someday working my way
@@ -46,7 +46,7 @@ generating the next permutation of elements, in lexicographical order, in place.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0031-next-permutation">Leetcode &numero; 31 (Medium) &mdash; Next Permutation (C++)</a>  
 
 
-## Sorting ( Mergesort, Quicksort &amp; Heapsort )
+### Sorting ( Mergesort, Quicksort &amp; Heapsort )
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/heapsort">Heapsort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/mergesort">Mergesort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (Obj-C)</a>  
@@ -54,21 +54,30 @@ generating the next permutation of elements, in lexicographical order, in place.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/improved-mergesort">Improved Mergesort (C++)</a>  
 
 
-## Misc Snippets / Drop Ins
-Code snippets that can be dropped in to other projects so you don't have to re-type the wheel every time.
+### Misc Snippets / Drop Ins
+Random cool things as well as snippets that can be dropped in to other projects so you don't have to re-type the wheel every time.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/heaps-algorithm">Heap's Algorithm for generating permutations (C++)</a>    
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/fibonacci">Fibonacci number generator (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/linked-list">Drop in, int holding, memory safe linked list (C++)</a>  
 
-Binary tree is sort of optimized for leetcode, which uses an array in
-the style of [1,2,null,4,6,7,null,8...] to represent the tree. I can't
-use a vector of ints because of the nulls, and I don't want to use a
-sentinel value which may occur in real data.  This implementation uses
-std::optional, so you can put in std::nullopt in the data array.
+
+This Binary tree implementation is sort of optimized for leetcode,
+which uses an array in the style of [1,2,null,4,6,7,null,8...] to
+represent the tree. I can't use a vector of ints because of the nulls,
+and I don't want to use a sentinel value which may occur in real data.
+This implementation uses std::optional, so you can put in std::nullopt
+in the data array.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/binary-tree">Drop in, int holding, memory safe binary tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/depth-first-search">Depth first search (C++)</a>  
+
+If you are doing Leetcode you may find yourself typing the same thing
+over and over and over.  Little things like dumping an array of ints,
+or a linked list, or building a tree from an array of values, etc.  So
+I made a little cheatsheet (C++) that I can pull from.
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/cheatsheet">Leetcode Cheatsheet (C++)</a>  
 
 
 ## Puzzles & Problems
@@ -197,6 +206,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1480-running-sum-of-1d-array">Leetcode &numero; 1480 (Easy) &mdash; Running Sum of 1D Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1539-kth-missing-positive-number">Leetcode &numero; 1539 (Easy) &mdash; Kth Missing Positive Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1732-find-the-highest-altitude/">Leetcode &numero; 1732 (Easy) &mdash; Find The Highest Altitude(C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1768-merge-strings-alternately">Leetcode &numero; 1768 (Easy) &mdash; Merge Strings Alternately (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2119-a-number-after-a-double-reversal">Leetcode &numero; 2119 (Easy) &mdash; A Number After a Double Reversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2215-find-the-difference-of-two-arrays/">Leetcode &numero; 2215 (Easy) &mdash; Find the Difference of Two Arrays (C++)</a>  
 
