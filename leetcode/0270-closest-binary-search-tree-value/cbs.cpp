@@ -15,6 +15,8 @@
 #include <unordered_map>
 #include <stack>
 #include <limits.h>
+#include <float.h>
+#include <cmath>
 
 
 struct TreeNode {
@@ -55,15 +57,51 @@ TreeNode *buildTree(std::vector<std::optional<int>> tree_values)
 }
 
 
+void dfs(TreeNode *root, double target, double &difference, int &retval)
+{
+    if( root == nullptr )
+        return;
+    double abs_difference = fabs((double) root->val - target);
+    if( abs_difference < difference )
+    {
+        retval = root->val;
+        difference = abs_difference;
+    }
+    dfs(root->left,  target, difference, retval );
+    dfs(root->right, target, difference, retval );
+}
+
+
+int closestValue(TreeNode *root, double target)
+{
+    double difference = DBL_MAX;
+    int retval;
+    dfs(root,target,difference,retval);
+    return retval;
+}
+
+
+
 int main(int argc, char **argv)
 {
     std::cout << std::endl << "0270-closest-binary-search-tree-value" << std::endl << std::endl;
     int test_case = 1;
     {
-        std::vector<std::nullopt<int>> nums = {4,2,5,1,3};
-        float target = 3.713
-        int expected = 0;
-        int result = 0;
+        std::vector<std::optional<int>> nums = {4,2,5,1,3};
+        TreeNode *root = buildTree(nums);
+        float target = 3.713;
+        int expected = 4;
+        int result = closestValue(root,target);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        std::vector<std::optional<int>> nums = {1};
+        TreeNode *root = buildTree(nums);
+        float target = 4.428571;
+        int expected = 1;
+        int result = closestValue(root,target);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
         std::cout << " (expected " << expected << ", got " << result << ")\n";
