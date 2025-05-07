@@ -1,11 +1,12 @@
 # Legible Algorithms
 
 When I am bored or get stuck on something, I like to solve puzzles and
-implement algorithms as a form of focused distraction.  This is a
-collection of my implementations of various things that I wrote to
-pass the time.  They are in C++ and Obj-C because I enjoy working on
-those languages, but it's mostly C++ these days because I haven't done
-any iOS work in a while.
+implement algorithms as a form of focused distraction.
+
+This is a collection of my implementations of various things that I
+wrote to pass the time.  They are in C++ and Obj-C because I enjoy
+working on those languages, but it's mostly C++ these days as I
+haven't done any iOS work in a while.
 
 ## Data Structures
 The data structures we take for granted.
