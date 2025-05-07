@@ -61,11 +61,25 @@ void dfs(TreeNode *root, double target, double &difference, int &retval)
 {
     if( root == nullptr )
         return;
-    double abs_difference = fabs((double) root->val - target);
-    if( abs_difference < difference )
+
+    double dfs_difference = 0;
+    
+    if( target > (double) root->val )
+        dfs_difference = target - (double) root->val;
+    else
+        dfs_difference = (double) root->val - target;
+        
+    if( dfs_difference < difference )
     {
         retval = root->val;
-        difference = abs_difference;
+        difference = dfs_difference;
+    }
+    else if ( dfs_difference == difference )
+    {
+        if( root->val < retval )
+        {
+            retval = root->val;
+        }
     }
     dfs(root->left,  target, difference, retval );
     dfs(root->right, target, difference, retval );
@@ -75,7 +89,7 @@ void dfs(TreeNode *root, double target, double &difference, int &retval)
 int closestValue(TreeNode *root, double target)
 {
     double difference = DBL_MAX;
-    int retval;
+    int retval = INT_MAX;
     dfs(root,target,difference,retval);
     return retval;
 }
@@ -86,6 +100,16 @@ int main(int argc, char **argv)
 {
     std::cout << std::endl << "0270-closest-binary-search-tree-value" << std::endl << std::endl;
     int test_case = 1;
+    {
+        std::vector<std::optional<int>> nums = {1,std::nullopt,2};
+        TreeNode *root = buildTree(nums);
+        float target = 3.428571;
+        int expected = 2;
+        int result = closestValue(root,target);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
     {
         std::vector<std::optional<int>> nums = {4,2,5,1,3};
         TreeNode *root = buildTree(nums);
