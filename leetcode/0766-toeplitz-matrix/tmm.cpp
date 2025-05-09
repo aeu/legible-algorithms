@@ -16,16 +16,6 @@
 #include <stack>
 #include <limits.h>
 
-
-int flipFetch(int row, int col, std::vector<std::vector<int>>& matrix)
-{
-    int num_rows = matrix.size();
-    int num_cols = matrix[0].size();
-    int frow = num_rows - row - 1;
-    return matrix[frow][col];
-}
-
-
 bool isToeplitzMatrix(std::vector<std::vector<int>>& matrix)
 {
     std::unordered_map<int,int> lookups;
@@ -35,12 +25,12 @@ bool isToeplitzMatrix(std::vector<std::vector<int>>& matrix)
     {
         for( int col = 0; col<num_cols;col++)
         {
-            int csum = row + col;
-            int val  = flipFetch(row,col,matrix);
-            auto lit = lookups.find( csum );
+            int key = row - col;
+            int val  = matrix[row][col];
+            auto lit = lookups.find( key );
             if( lit == lookups.end() )
             {
-                lookups[csum] = val;
+                lookups[key] = val;
             }
             else
             {
