@@ -26,6 +26,20 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
+void dumpNodeList(std::vector<TreeNode *> values)
+{
+    bool first = true;
+    for(const auto &curr : values )
+    {
+        if( ! first )
+            std::cout << "->" ;
+        first = false;
+        std::cout << curr->val;
+    }
+    std::cout << std::endl;
+}
+
+
 TreeNode *buildTree(std::vector<std::optional<int>> tree_values)
 {
     TreeNode *root = new TreeNode(tree_values[0].value());
