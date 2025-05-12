@@ -222,6 +222,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 #### Medium
 
 
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -364,6 +365,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2095-delete-the-middle-node-of-a-linked-list">Leetcode &numero; 2095 (Medium) &mdash; Delete the Middle Node of a Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2104-sum-of-subarray-ranges">Leetcode &numero; 2104 (Medium) &mdash; Sum of Subarray Ranges (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2130-maximum-twin-sum-of-a-linked-list">Leetcode &numero; 2130 (Medium) &mdash; Maximum Twin Sum of a Linked List (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2176-count-equal-and-divisible-pairs-in-an-array">Leetcode &numero; 2176 (Medium) &mdash; Count Equal and Divisible Pairs in an Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2192-all-ancestors-of-a-node-in-a-directed-acyclic-graph">Leetcode &numero; 2192 (Medium) &mdash; All ancestors of a node in a directed acyclic graph (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2300-successful-pairs-of-spells-and-potions">Leetcode &numero; 2300 (Medium) &mdash; Successful Pairs of Spells and Potions (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2336-smallest-number-in-infinite-set">Leetcode &numero; 2336 (Medium) &mdash; Smallets Number in an Infinite Set (C++)</a>  
