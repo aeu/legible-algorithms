@@ -146,7 +146,6 @@ As of right now I am in the top 8% of Leetcode rankings!
 #### Easy
 
 
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0009-palindrome-number">Leetcode &numero; 9 (Easy) &mdash; Palindrome Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0014-longest-common-prefix">Leetcode &numero; 14 (Easy) &mdash; Longest Common Prefix (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0020-valid-parentheses">Leetcode &numero; 20 (Easy) &mdash; Valid Parentheses (C++)</a>  
@@ -199,6 +198,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0680-valid-palindrome-ii">Leetcode &numero; 680 (Easy) &mdash; Valid Palindrome (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0700-search-in-a-binary-search-tree/">Leetcode &numero; 700 (Easy) &mdash; Sarch in a Binary Search Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0724-find-pivot-index/">Leetcode &numero; 724 (Easy) &mdash; Find Pivot Index (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0728-self-dividing-numbers">Leetcode &numero; 728 (Easy) &mdash; Self Dividing Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0733-flood-fill">Leetcode &numero; 733 (Easy) &mdash; Flood Fill (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0766-toeplitz-matrix">Leetcode &numero; 766 (Easy) &mdash; Toeplitz Matrix (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0824-goat-latin">Leetcode &numero; 824 (Easy) &mdash; Goat Latin (C++)</a>  
