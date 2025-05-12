@@ -53,7 +53,7 @@ bool ListNodeCompare(ListNode *lhs, ListNode *rhs)
 ListNode* sortList(ListNode* head)
 {
     if(( head == nullptr ) || ( head->next == nullptr ))
-        return nullptr;
+        return head;
 
     std::vector<ListNode *> nvl;
     ListNode *curr = head;
