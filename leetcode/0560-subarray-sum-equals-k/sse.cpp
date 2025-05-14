@@ -17,17 +17,19 @@
 
 int subarraySum(std::vector<int>& nums, int k)
 {
-    int subarray_count = 0;
-    int running_sum = 0;
     std::unordered_map<int,int> prefixes;
+    int running_sum = 0;
+    int subarray_count = 0;
     prefixes[0]++;
-    for(int index=0;index<nums.size();index++)
+    for(const auto &curr: nums )
     {
-        running_sum += nums[index];
+        running_sum += curr;
         int goal_prefix = running_sum - k;
-        auto piter = prefixes.find( goal_prefix );
-        if( piter != prefixes.end() )
-            subarray_count += piter->second;
+        auto siter = prefixes.find( goal_prefix );
+        if( siter != prefixes.end() )
+        {
+            subarray_count += siter->second;
+        }
         prefixes[running_sum]++;
     }
     return subarray_count;
