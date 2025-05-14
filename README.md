@@ -332,6 +332,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0739-daily-temperatures">Leetcode &numero; 739 (Medium) &mdash; Daily Temperature (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0763-partition-labels">Leetcode &numero; 763 (Medium) &mdash; Partition Labels (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0781-rabbits-in-forest">Leetcode &numero; 781 (Medium) &mdash; Rabbits in Forest (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0784-letter-case-permutation">Leetcode &numero; 784 (Medium) &mdash; Letter Case Permutation (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0791-custom-sort-string">Leetcode &numero; 791 (Medium) &mdash; Custom Sort String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0797-all-paths-from-source-to-target">Leetcode &numero; 797 (Medium) &mdash; All Paths from Source to Target (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0802-find-eventual-safe-states">Leetcode &numero; 802 (Medium) &mdash; Find Eventual Safe States (C++)</a>  
