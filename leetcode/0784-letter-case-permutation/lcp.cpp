@@ -31,20 +31,28 @@ void backtrack(std::string s,
                int start,
                std::unordered_set<std::string> &seen)
 {
-    if( seen.count( s ) == 0 )
+    if( start == s.length() )
     {
         seen.insert(s);
+        return;
     }
 
     for(int index=start;index<s.length();index++)
     {
         char curr = s[index];
-        char upper = toupper(curr);
-        char lower = tolower(curr);
-        s[index] = upper;
-        backtrack(s,index+1,seen);
-        s[index] = lower;
-        backtrack(s,index+1,seen);
+        if( std::isalpha( curr ) )
+        {
+            char upper = toupper(curr);
+            char lower = tolower(curr);
+            s[index] = upper;
+            backtrack(s,index+1,seen);
+            s[index] = lower;
+            backtrack(s,index+1,seen);
+        }
+        else
+        {
+            backtrack(s,index+1,seen);
+        }
     }
 }
 
