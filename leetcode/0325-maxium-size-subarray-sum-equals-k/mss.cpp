@@ -21,7 +21,6 @@ int maxSubArrayLen(std::vector<int>& nums, int k)
     std::unordered_map<long long,int> prefix_sums;
     prefix_sums[0]  = -1;
     long long running_sum =  0;
-    int start_index =  0;
     for(int index=0;index<nums.size();index++)
     {
         running_sum +=nums[index];
@@ -39,7 +38,6 @@ int maxSubArrayLen(std::vector<int>& nums, int k)
             // so the current subarray length is
             int current_size = index - prefix_location;
             max_size = std::max( max_size, current_size );
-            start_index = index;
         }
     }
     return max_size;
