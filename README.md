@@ -240,6 +240,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0033-search-in-rotated-sorted-array">Leetcode &numero; 33 (Medium) &mdash; Search in Rotated Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0034-find-first-and-last-position-of-element-in-sorted-array">Leetcode &numero; 34 (Medium) &mdash; Find First an Last Position of Element in Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0036-valid-sudoku">Leetcode &numero; 36 (Medium) &mdash; Valid Sudoku (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0038-count-and-say">Leetcode &numero; 38 (Medium) &mdash; Count and Say (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0039-combination-sum">Leetcode &numero; 39 (Medium) &mdash; Combination Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0040-combination-sum-ii">Leetcode &numero; 40 (Medium) &mdash; Combination Sum II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0047-permutations-ii">Leetcode &numero; 47 (Medium) &mdash; Permutations II (C++)</a>  
