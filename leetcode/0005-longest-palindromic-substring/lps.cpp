@@ -16,22 +16,25 @@
 #include <limits.h>
 
 std::pair<int,std::string> palindromeAtStartIndex(std::string s,
-                                             int start_index )
+                                                  int start_index )
 {
+    // an empty string is not a palindrome
     std::string retval = "";
     if( s.length() == 0 )
         return { -1, "" };
 
-    // the worse case is that the very first char is the palindrome so make that the default return.
+    // the worst case is that the very first char is the palindrome so
+    // make that the default return.
     int max_length = 1;
     retval += s[0];
 
     if( s.length() == 1 )
         return { max_length, retval };
 
+    // edge case handing - if our starting index is 0, the longest
+    // possible palindrome is of length two, so check for that.
     if( start_index == 0 )
     {
-        // longest possible pali at start position 0 is 2.
         if( s.length() >= 2 )
         {
             if( s[0] == s[1] )
@@ -39,7 +42,12 @@ std::pair<int,std::string> palindromeAtStartIndex(std::string s,
         }
     }
 
-    // palindrome can either have an isolated middle char or not.  Check first for isolated middle.
+    // palindrome can either have an isolated middle char or not.
+    // Check first for isolated middle by starting at our current
+    // position and expanding outwards.
+    //
+    // Example:     abcba
+    //
     int left = start_index-1;
     int right = start_index+1;
     int pairs = 0;
@@ -66,6 +74,8 @@ std::pair<int,std::string> palindromeAtStartIndex(std::string s,
     }
 
     // now check for the non-isolated middle
+    // Example:  cbaabc
+    //
     left = start_index;
     right = start_index+1;
     int start_point = start_index;
@@ -84,7 +94,6 @@ std::pair<int,std::string> palindromeAtStartIndex(std::string s,
             break;
         }
     }    
-    std::cout << "nimlen : " << nimlen << "  start point : " << start_point << std::endl;
     if( nimlen > max_length )
     {
         max_length = nimlen;
@@ -97,6 +106,12 @@ std::string longestPalindrome(std::string s)
 {
     std::string longest = "";
     int max_length = INT_MIN;
+    // loop through the entire string, and for every possible start
+    // point within the string, check to see what is the longest
+    // possible palindrome at that start point.  And then accumulate
+    // the best answer.  That is the key insight of this problem,
+    // which allows us to solve it in one pass.
+
     for(int index=0;index<s.length();index++)
     {
         std::pair<int,std::string> curr = palindromeAtStartIndex(s,index);
