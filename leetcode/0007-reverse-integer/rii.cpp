@@ -18,7 +18,8 @@
 
 int reverse(int x)
 {
-    int local = abs(x);
+    long local = x;
+    local = abs(x);
     bool first = true;
     long retval = 0;
     while( local > 0 )
