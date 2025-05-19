@@ -16,6 +16,10 @@
 #include <stack>
 #include <limits.h>
 
+// we know that if the numrows is N, then the grid is going to be s.length / 3.
+// we know that if the numrows is 3, the gap between the 
+
+
 std::string convert(std::string s, int numRows)
 {
     std::string retval = "";

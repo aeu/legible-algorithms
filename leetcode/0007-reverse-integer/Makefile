@@ -3,20 +3,21 @@
 # Alfonso E. Urdaneta
 # alfonso@red82.com
 #
-CC=gcc
+CC=g++
+CPPFLAGS=-g -Wall -std=c++17 -I.
 
+OBJS = rii.o
+#	other.o
 
-SOURCE=reverse.c
+%.o: %.c
+	$(CC) -o $@
 
-CFLAGS=-g -v $(SOURCE)
-LDFLAGS=$(LIBRARIES) $(FRAMEWORKS)
-OUT=-o reverse
+rii: $(OBJS)
+	$(CC) $(CPPFLAGS) -o $@ $^
 
-all:
-	$(CC)		\
-	$(CFLAGS)	\
-	$(LDFLAGS)	\
-	$(OUT)
 
 clean:
-	rm -rf	*.dSYM	reverse
+	rm -f *.o
+	rm -f *~
+	rm -f *.*~
+	rm -f rii
