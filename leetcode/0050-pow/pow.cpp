@@ -18,7 +18,6 @@
 // ever decreating the exponent. i.e. 8 ^ 4 is the same as 64 ^ 2.
 // and 8 ^ 5 is the same as ( 64 ^ 2 ) * 8
 
-
 double myPow(double x, int n)
 {
     long long N = n;
@@ -27,8 +26,10 @@ double myPow(double x, int n)
         return 1;
 
     if( N < 0 )
-        return 1 / myPow(x,-N);
-
+    {
+        N = -N;
+        x = 1/x;
+    }
     
     if(( N % 2 ) == 0 )
         return myPow( ( x * x ), N / 2);
