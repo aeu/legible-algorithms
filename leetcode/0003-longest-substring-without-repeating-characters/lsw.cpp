@@ -36,11 +36,14 @@ int lengthOfLongestSubstring(std::string s) {
         }
         else
         {
+            // bring left foward until you hit the same char as right
+            // (which caused the duplicate in the first place).
             while( s[left] != s[right] )
             {
                 seen.erase( s[left] );
                 left++;
             }
+            // and then go one more to remove the duplicate.
             seen.erase( s[left] );
             left++;
         }
