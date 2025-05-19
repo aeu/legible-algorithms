@@ -13,9 +13,10 @@
 #include <unordered_set>
 #include <stack>
 
-//  8 ^ 4
-//  ( 8 * 8 ) ^ 2
-
+// So the basic premise that this solution is built on is that N^Y =
+// (N*N) ^ ( Y/ 2 ).  Which means you can recursively solve this by
+// ever decreating the exponent. i.e. 8 ^ 4 is the same as 64 ^ 2.
+// and 8 ^ 5 is the same as ( 64 ^ 2 ) * 8
 
 
 double myPow(double x, int n)
@@ -31,6 +32,7 @@ double myPow(double x, int n)
     
     if(( N % 2 ) == 0 )
         return myPow( ( x * x ), N / 2);
+
     return myPow( (x * x ), N / 2 ) * x;
 }
 
