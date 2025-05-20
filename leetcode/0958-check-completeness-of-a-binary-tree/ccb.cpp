@@ -89,7 +89,6 @@ bool isCompleteTree(TreeNode *root)
     {
         BfsInfo curr = bqueue.front();
         bqueue.pop();
-        std::cout << "testing " << curr.node->val << std::endl;
         last_nodes[curr.level] = curr.node;
         max_level = std::max(max_level, curr.level );
         if(( curr.node->left == nullptr ) && (curr.node->right != nullptr ))
@@ -107,6 +106,11 @@ bool isCompleteTree(TreeNode *root)
             if(( prev.node->right == nullptr ) && ( prev.node->left != nullptr) && (curr.node->left != nullptr))
             {
                 std::cout << "\tthe right node of the previous node at our level was null but our left isn't" << std::endl;
+                return false;
+            }
+            if(( prev.node->right == nullptr ) || ( prev.node->left == nullptr))
+            {
+                std::cout << "\tthe previous node at our level " << prev.node->val << " has either a left or a right of null" << std::endl;
                 return false;
             }
         }
@@ -148,6 +152,16 @@ int main(int argc, char **argv)
     }
     {
         std::vector<std::optional<int>> values = {1,2,3,4,std::nullopt,7};
+        TreeNode *root = buildTree(values);
+        bool expected = false;
+        bool result = isCompleteTree(root);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        
+        std::vector<std::optional<int>> values = {1,2,3,std::nullopt,std::nullopt,7,8};
         TreeNode *root = buildTree(values);
         bool expected = false;
         bool result = isCompleteTree(root);
