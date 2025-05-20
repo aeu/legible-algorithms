@@ -108,9 +108,10 @@ bool isCompleteTree(TreeNode *root)
                 std::cout << "\tthe right node of the previous node at our level was null but our left isn't" << std::endl;
                 return false;
             }
-            if(( prev.node->right == nullptr ) || ( prev.node->left == nullptr))
+            if( ( curr.node->left != nullptr )
+                && (( prev.node->right == nullptr ) || ( prev.node->left == nullptr)))
             {
-                std::cout << "\tthe previous node at our level " << prev.node->val << " has either a left or a right of null" << std::endl;
+                std::cout << "\t"<< curr.node->val << " has a left, but the previous node at our level " << prev.node->val << " has either a left or a right of null" << std::endl;
                 return false;
             }
         }
