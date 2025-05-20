@@ -111,13 +111,14 @@ bool isCompleteTree(TreeNode *root)
             }
         }
 
-        // if the previous node existed, and was the preious level as the
-        // current node, and had a gap anywhere, then then this tree is
-        // not complete
+        // The previous node had a level below us, so we are the first
+        // node on a new row.  So make sure that node has a left node
+        // set.
         if((prev.node != nullptr ) && ( prev.level == curr.level - 1 ))
         {
-            if(( prev.node->left == nullptr ) || ( prev.node->right == nullptr))
+            if(( prev.node->left == nullptr ) && ( prev.node->right != nullptr))
             {
+                std::cout << "\treturning out false because prev node " << prev.node->val << " had a left null and a right non-null" <<  std::endl;
                 return false;
             }
         }
