@@ -84,6 +84,7 @@ bool isCompleteTree(TreeNode *root)
     int max_level = 0;
     std::unordered_map<int,TreeNode *> last_nodes;
     bqueue.push({root,0});
+    BfsInfo prev({nullptr,0});
     while( ! bqueue.empty() )
     {
         BfsInfo curr = bqueue.front();
@@ -92,13 +93,42 @@ bool isCompleteTree(TreeNode *root)
         last_nodes[curr.level] = curr.node;
         max_level = std::max(max_level, curr.level );
         if(( curr.node->left == nullptr ) && (curr.node->right != nullptr ))
+        {
+            std::cout << "\tleft was null and right wasn't, returning false" << std::endl;
             return false;
+        }
+
+        // if the previous node existed, and was the same level as the
+        // current node, and had a gap on the right, then this tree is
+        // not complete
+        
+        if((prev.node != nullptr ) && ( prev.level == curr.level ))
+        {
+            if(( prev.node->right == nullptr ) && ( prev.node->left != nullptr) && (curr.node->left != nullptr))
+            {
+                std::cout << "\tthe right node of the previous node at our level was null but our left isn't" << std::endl;
+                return false;
+            }
+        }
+
+        // if the previous node existed, and was the preious level as the
+        // current node, and had a gap anywhere, then then this tree is
+        // not complete
+        if((prev.node != nullptr ) && ( prev.level == curr.level - 1 ))
+        {
+            if(( prev.node->left == nullptr ) || ( prev.node->right == nullptr))
+            {
+                return false;
+            }
+        }
+        
         if( curr.node->left != nullptr )
             bqueue.push({ curr.node->left, curr.level+1 });
         if( curr.node->right != nullptr )
             bqueue.push({ curr.node->right, curr.level+1 });
+        prev = curr;
     }
-    return false;
+    return true;
 }
 
 
@@ -118,7 +148,17 @@ int main(int argc, char **argv)
     {
         std::vector<std::optional<int>> values = {1,2,3,4,std::nullopt,7};
         TreeNode *root = buildTree(values);
-        bool expected = true;
+        bool expected = false;
+        bool result = isCompleteTree(root);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        
+        std::vector<std::optional<int>> values = {1,2,3,4,5,6,7,8,9,10,11,12,13,std::nullopt,std::nullopt,15};
+        TreeNode *root = buildTree(values);
+        bool expected = false;
         bool result = isCompleteTree(root);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
