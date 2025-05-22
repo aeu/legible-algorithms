@@ -18,22 +18,24 @@
 
 int candy(std::vector<int> ratings)
 {
-    int total_candies = ratings.size();
-
-    for(size_t index=0;index<ratings.size();index++)
+    std::vector<int> candies(ratings.size(),1);
+    int total_candies = 0;
+    for(int index=1;index<ratings.size();index++)
     {
-        if( index == 0 )
+        if( ratings[index] > ratings[index-1] )
+            candies[index] = candies[index-1] + 1 ;
+    }
+
+    for(int index=ratings.size()-2;index>=0;index--)
+    {
+        if( ratings[index] > ratings[index+1] )
         {
-            if( ratings[index] > ratings[index+1] )
-                total_candies++;
+            candies[index] = std::max( candies[index], candies[index+1] + 1 );
         }
-        if( index == ratings.size() -1 )
-        {
-            if( ratings[index] > ratings[index-1] )
-                total_candies++;
-        }
-        else if( ( ratings[index] > ratings[index-1] ) || ( ratings[index] > ratings[index+1] ))
-            total_candies++;
+    }
+    for(auto const &curr : candies )
+    {
+        total_candies += curr;
     }
     return total_candies;
 }
