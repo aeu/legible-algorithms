@@ -15,6 +15,14 @@ int maxProfit(std::vector<int>& prices)
     int min_price = prices[0];
     for(int index=1;index<prices.size();index++)
     {
+        // since this is a single transaction, we can just walk
+        // through the price array and update as we go the following:
+        // min price and max profit.  If we find a price lower than
+        // our previous min, we just switch to it going forward.  It
+        // doesn't matter that we switched, because we are still
+        // keeping track of best possible profit using the previous
+        // min price, so we can just return that at the end.
+
         min_price = std::min( min_price, prices[index] );
         int profit = prices[index] - min_price;
         max_profit = std::max( max_profit, profit);
