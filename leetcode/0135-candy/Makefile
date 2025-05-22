@@ -1,12 +1,23 @@
+#
+# red82 // software
+# Alfonso E. Urdaneta
+# alfonso@red82.com
+#
 CC=g++
-CFLAGS=-g -Wall -std=c++17
+CPPFLAGS=-g -Wall -std=c++17 -I.
 
-mxr: main.cpp 
-	$(CC) $(CFLAGS)  -o candy main.cpp
+OBJS = can.o
+#	other.o
+
+%.o: %.c
+	$(CC) -o $@
+
+can: $(OBJS)
+	$(CC) $(CPPFLAGS) -o $@ $^
+
 
 clean:
 	rm -f *.o
 	rm -f *~
 	rm -f *.*~
-	rm -rf *.dSYM
-	rm -f candy
+	rm -f can

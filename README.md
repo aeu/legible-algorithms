@@ -399,6 +399,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0084-largest-rectangle-in-histogram">Leetcode &numero; 84 (Hard) &mdash; Largest Rectangle in Histogram (C++11)   
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0124-binary-tree-maximum-path-sum">Leetcode &numero; 124 (Hard) &mdash; Binary Tree Maximum Path Sum (C++)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0127-word-ladder">Leetcode &numero; 127 (Hard) &mdash; Word Ladder (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0135-candy">Leetcode &numero; 135 (Hard) &mdash; Candy (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0329-longest-increasing-path-in-a-matrix">Leetcode &numero; 329 (Hard) &mdash; Longest Increasing Path in a Matrix (C++)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0987-vertical-order-traversal-of-a-binary-tree">Leetcode &numero; 987 (Hard) &mdash; Vertical Order Traversal of a Binary Tree (C++)</a>  
 
