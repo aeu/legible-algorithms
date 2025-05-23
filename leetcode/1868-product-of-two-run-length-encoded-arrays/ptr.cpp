@@ -16,30 +16,12 @@
 #include <stack>
 #include <limits.h>
 
-
-void dumpValues(std::vector<int> values)
-{
-    bool first = true;
-    for(const auto &curr : values )
-    {
-        if( ! first )
-            std::cout << ", ";
-        first = false;
-        std::cout << std::setw(3) << curr ;
-    }
-    std::cout << std::endl;
-}
-
-
-
 std::vector<std::vector<int>> findRLEArray(std::vector<std::vector<int>>& encoded1,
                                            std::vector<std::vector<int>>& encoded2)
 {
     std::vector<std::vector<int>> retval;
 
     bool done = false;
-    auto e1_iterator = encoded1.begin();
-    auto e2_iterator = encoded1.begin();
 
     int e1_index = 0;
     int e1_count = 0;
@@ -50,7 +32,8 @@ std::vector<std::vector<int>> findRLEArray(std::vector<std::vector<int>>& encode
     int e2_current = 0;
 
     int prod;
-    int prev = INT_MIN;
+    int prev;
+    bool first = true;
     int push_count = 1;
     
     while( ! done )
@@ -79,19 +62,18 @@ std::vector<std::vector<int>> findRLEArray(std::vector<std::vector<int>>& encode
         if(( e1_count != 0 ) && ( e2_count != 0 ))
         {
             prod = e1_current * e2_current;
-            //            std::cout << "prod is  " << prod << std::endl;
-            if( prev != INT_MIN )
+            if( first == true )
             {
-                if( ( prev == prod ))
-                {
-                    push_count++;
-                }
-                else
-                {
-                    retval.push_back({ prev,push_count});
-                    //                    std::cout << "pushing prod: " << prev << " count : " << push_count << std::endl;
-                    push_count = 1;
-                }
+                first = false;
+            }
+            else if( ( prev == prod ))
+            {
+                push_count++;
+            }
+            else
+            {
+                retval.push_back({ prev,push_count});
+                push_count = 1;
             }
             prev = prod;
             e1_count--;
@@ -102,8 +84,7 @@ std::vector<std::vector<int>> findRLEArray(std::vector<std::vector<int>>& encode
             done = true;
         }
     }
-    retval.push_back({ prod,push_count});
-    //    std::cout << "pushing prod : " << prod << " count : " << push_count << std::endl;
+    retval.push_back({prod,push_count});
     return retval;
 }
 
