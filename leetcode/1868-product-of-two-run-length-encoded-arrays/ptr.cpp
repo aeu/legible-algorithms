@@ -37,54 +37,73 @@ std::vector<std::vector<int>> findRLEArray(std::vector<std::vector<int>>& encode
 {
     std::vector<std::vector<int>> retval;
 
-    std::vector<int> nums1;
-    std::vector<int> nums2;
+    bool done = false;
+    auto e1_iterator = encoded1.begin();
+    auto e2_iterator = encoded1.begin();
 
-    for(const auto &curr : encoded1 )
-    {
-        int value = curr[0];
-        int count = curr[1];
-        while( count > 0 )
-        {
-            nums1.push_back(value);
-            count--;
-        }
-    }
+    int e1_index = 0;
+    int e1_count = 0;
+    int e1_current = 0;
+
+    int e2_index = 0;
+    int e2_count = 0;
+    int e2_current = 0;
+
+    int prod;
+    int prev = INT_MIN;
+    int push_count = 1;
     
-    for(const auto &curr : encoded2 )
+    while( ! done )
     {
-        int value = curr[0];
-        int count = curr[1];
-        while( count > 0 )
+        if( e1_count == 0 )
         {
-            nums2.push_back(value);
-            count--;
+            if( e1_index < encoded1.size() )
+            {
+                const auto &current_pair = encoded1[e1_index];
+                e1_current = current_pair[0];
+                e1_count   = current_pair[1];
+                e1_index++;
+            }
         }
-    }
-    dumpValues(nums1);
-    dumpValues(nums2);
-
-    for(int index=0;index<nums1.size();index++)
-    {
-        nums1[index] *= nums2[index];
-    }
-    dumpValues(nums1);
-
-    int count = 1;
-    int current = nums1[0];
-    for(int index=1;index<nums1.size();index++)
-    {
-        if( nums1[index] == nums1[index-1] )
+        if( e2_count == 0 )
         {
-            count++;
+            if( e2_index < encoded2.size() )
+            {
+                const auto &current_pair = encoded2[e2_index];
+                e2_current = current_pair[0];
+                e2_count   = current_pair[1];
+                e2_index++;
+            }
+        }
+
+        if(( e1_count != 0 ) && ( e2_count != 0 ))
+        {
+            prod = e1_current * e2_current;
+            //            std::cout << "prod is  " << prod << std::endl;
+            if( prev != INT_MIN )
+            {
+                if( ( prev == prod ))
+                {
+                    push_count++;
+                }
+                else
+                {
+                    retval.push_back({ prev,push_count});
+                    //                    std::cout << "pushing prod: " << prev << " count : " << push_count << std::endl;
+                    push_count = 1;
+                }
+            }
+            prev = prod;
+            e1_count--;
+            e2_count--;
         }
         else
         {
-            retval.push_back({nums1[index],count});
-            std::cout << "pushing back " << nums1[index] << " - " << count << std::endl;
-            count = 1;
+            done = true;
         }
     }
+    retval.push_back({ prod,push_count});
+    //    std::cout << "pushing prod : " << prod << " count : " << push_count << std::endl;
     return retval;
 }
 
