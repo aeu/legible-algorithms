@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <string>
+#include <stack>
 #include <cmath>
 #include <vector>
 #include <algorithm>
@@ -65,33 +66,88 @@ std::string processSegment(std::string candidate,
 }
 
 
+//    std::string retval;
+//    retval += processSegment(candidate,0);
+//    return retval;
+
+
 std::string decodeString(std::string candidate)
 {
-    std::string retval;
-    retval += processSegment(candidate,0);
-    return retval;
+    std::stack<int> multipliers;
+    std::stack<std::string> strings;
+    std::string current_string;
+    int multiplier = 0;
+    for(const auto curr : candidate )
+    {
+        if( isdigit(curr) )
+        {
+            multiplier = multiplier * 10 + ( curr - '0' ) ;
+        }
+        else if( curr == '[' )
+        {
+            multipliers.push( multiplier );
+            strings.push(current_string);
+            current_string.clear();
+            multiplier = 0;
+        }
+        else if( curr == ']' )
+        {
+            int repeat_count = multipliers.top();
+            multipliers.pop();
+            std::string previous = strings.top();
+            strings.pop();
+
+            std::string repeated;
+            while( repeat_count > 0 )
+            {
+                repeated += current_string;
+                repeat_count--;
+            }
+            current_string = previous + repeated;
+        }
+        else
+        {
+            current_string += curr;
+        }
+    }
+    return current_string;
 }
 
 
 int main(int argc, char **argv)
 {
     std::cout << "Leetcode 0394 - Decode String" << std::endl;
+    int test_case = 1;
     {
-        std::string candidate  = "3[a]2[bc]";
-        std::cout << "Candidate: " << candidate << std::endl;
-        std::string decoded = decodeString( candidate );
-        std::cout << "Decoded: " << decoded << std::endl;
+        std::string s = "3[z]2[2[y]pq4[2[jk]e1[f]]]ef";
+        std::string expected = "zzzyypqjkjkefjkjkefjkjkefjkjkefyypqjkjkefjkjkefjkjkefjkjkefef";
+        std::string result = decodeString(s);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::string candidate  = "3[a2[c]]";
-        std::cout << "Candidate: " << candidate << std::endl;
-        std::string decoded = decodeString( candidate );
-        std::cout << "Decoded: " << decoded << std::endl;
+        std::string s = "3[a]2[bc]";
+        std::string expected = "aaabcbc";
+        std::string result = decodeString(s);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::string candidate  = "2[abc]3[cd]ef";
-        std::cout << "Candidate: " << candidate << std::endl;
-        std::string decoded = decodeString( candidate );
-        std::cout << "Decoded: " << decoded << std::endl;
+        std::string s = "3[a2[c]]";
+        std::string expected = "accaccacc";
+        std::string result = decodeString(s);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        std::string s = "2[abc]3[cd]ef";
+        std::string expected = "abcabccdcdcdef";
+        std::string result = decodeString(s);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
 }
