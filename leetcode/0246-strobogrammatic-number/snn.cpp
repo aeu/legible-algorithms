@@ -34,6 +34,12 @@ bool isStrobogrammatic(std::string num)
         else if( lchar == '8' && nchar == '8' )
         {
         }
+        else if( lchar == '1' && nchar == '1' )
+        {
+        }
+        else if( lchar == '9' && nchar == '6' )
+        {
+        }
         else if( lchar == '6' && nchar == '9' )
         {
         }
