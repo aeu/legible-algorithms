@@ -27,6 +27,8 @@ int main(int argc, char **argv)
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
         std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl;
+        std::cout << std::endl;
     }
     return 0;
 }
