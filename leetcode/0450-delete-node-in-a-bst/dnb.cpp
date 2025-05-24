@@ -6,137 +6,212 @@
 //  without the express written permission of red82
 
 #include <iostream>
+#include <iomanip>
 #include <optional>
 #include <vector>
 #include <queue>
-#include "TreeNode.h"
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <stack>
+#include <limits.h>
 
 
-void dumpValues(const std::vector<std::optional<int>> &values )
+struct TreeNode {
+    int val;
+    TreeNode  *left;
+    TreeNode  *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+void dumpNodeList(std::vector<TreeNode *> values)
 {
-    bool first_time = true;
-    std::cout << "[";
-    for( auto current : values )
+    bool first = true;
+    for(const auto &curr : values )
     {
-        if( ! first_time )
-            std::cout << ", ";
-        if( current.has_value() )
-            std::cout << current.value();
-        else
-            std::cout << "null";
-        first_time = false;
+        if( ! first )
+            std::cout << "->" ;
+        first = false;
+        std::cout << curr->val;
     }
-    std::cout << "]" << std::endl;
+    std::cout << std::endl;
 }
 
-std::shared_ptr<TreeNode> buildTree(const std::vector<std::optional<int>> &values)
+
+TreeNode *buildTree(std::vector<std::optional<int>> tree_values)
 {
-    if( values.empty() )
+    if( tree_values.size() == 0 )
         return nullptr;
     
-    size_t index = 0;
-    std::queue<std::shared_ptr<TreeNode>> node_queue;
-    std::shared_ptr<TreeNode> root = std::make_shared<TreeNode>(values[index].value());
-    node_queue.push( root );
-    index++;
-    while( index < values.size() )
+    TreeNode *root = new TreeNode(tree_values[0].value());
+    std::queue<TreeNode *>bqueue;
+    int index=1;
+    bqueue.push(root);
+    while( index < tree_values.size() )
     {
-        std::shared_ptr<TreeNode> current = node_queue.front();
-        node_queue.pop();
-        if( values[index].has_value() )
+        TreeNode *curr = bqueue.front();
+        bqueue.pop();
+        if( tree_values[index].has_value() )
         {
-            std::shared_ptr<TreeNode> left = std::make_shared<TreeNode>(values[index].value());
-            current->setLeft(left);
-            node_queue.push(left);
+            TreeNode *left = new TreeNode( tree_values[index].value() );
+            curr->left = left;
+            bqueue.push(left);
         }
         index++;
-        if((index<values.size()) && ( values[index].has_value() ))
+        if( ( index < tree_values.size() ) && ( tree_values[index].has_value() ))
         {
-            std::shared_ptr<TreeNode> right = std::make_shared<TreeNode>(values[index].value());
-            current->setRight(right);
-            node_queue.push(right);
+            TreeNode *right = new TreeNode( tree_values[index].value() );
+            curr->right = right;
+            bqueue.push(right);
         }
         index++;
     }
     return root;
 }
 
+TreeNode* deleteNode(TreeNode* root, int key);
 
-std::shared_ptr<TreeNode> getMinimumNode(std::shared_ptr<TreeNode> root)
+TreeNode *getSuccessor(TreeNode *root)
 {
-    std::shared_ptr<TreeNode> min_node = root;
-    while( min_node->getLeft() != nullptr )
-    {
-        min_node = min_node->getLeft();
-    }
-    return min_node;
+    TreeNode *retval = root->right;
+    while(( retval != nullptr ) && ( retval->left != nullptr ))
+        retval = retval->left;
+    return retval;
 }
 
-std::shared_ptr<TreeNode> deleteNode(std::shared_ptr<TreeNode> root,
-                                     int key)
+
+TreeNode *dfs(TreeNode *root,
+              int key,
+              std::vector<TreeNode *> &path)
+{
+    if( root == nullptr )
+        return nullptr;
+    
+    if( root->val == key )
+    {
+        if( path.size() == 0 )
+            return nullptr;
+        TreeNode *parent = path.back();
+        //        std::cout << "deleting : " << root->val << " and parent is " << parent->val << std::endl;
+        // node has no kids, so just set it to null in parent
+        if(( root->left == nullptr ) && ( root->right == nullptr ))
+        {
+            if( parent->left == root )
+                parent->left = nullptr;
+            if( parent->right == root )
+                parent->right = nullptr;
+            return nullptr;
+        }
+        // node has only one child, we just put the child in our place
+        else if( root->left == nullptr )
+        {
+            if( parent->left == root )
+                parent->left = root->right;
+            if( parent->right == root )
+                parent->right = root->right;
+            return nullptr;
+        }
+        else if( root->right == nullptr )
+        {
+            if( parent->left == root )
+                parent->left = root->left;
+            if( parent->right == root )
+                parent->right = root->left;
+            return nullptr;
+        }
+        // node has two children
+        else
+        {
+            // find inorder successor
+            TreeNode *successor = getSuccessor(root);
+            root->val = successor->val ;
+            root->right = deleteNode( root->right, successor->val );
+        }
+    }
+    
+    path.push_back(root);
+
+    
+    if( root->val > key )
+        dfs( root->left,key,path );
+    else
+        dfs( root->right,key,path);
+
+    return root;
+}
+
+TreeNode* deleteNode(TreeNode* root, int key)
 {
     if( root == nullptr )
         return nullptr;
 
-    if( root->getValue() == key )
+    // handle the special case where we're trying to delete the root
+    if( root->val == key )
     {
-        if( root->getLeft() == nullptr )
-            return root->getRight();
-        if( root->getRight() == nullptr )
-            return root->getLeft();
+        if( ( root->left == nullptr ) && ( root->right == nullptr ))
+        {
+            return nullptr;
+        }
+        if( root->left == nullptr )
+            return root->right;
+        if( root->right == nullptr )
+            return root->left;
 
-        std::shared_ptr<TreeNode> min_node = getMinimumNode( root->getRight() );
-        root->setRight( deleteNode( root->getRight(), min_node->getValue()));
-        min_node->setLeft( root->getLeft() );
-        min_node->setRight( root->getRight() );
-        return min_node;
+        TreeNode *successor = getSuccessor(root);
+        root->val = successor->val;
+        root->right = deleteNode(root->right, successor->val );
+        return root;
     }
-    else if( root->getValue() < key )
-    {
-        root->setRight(deleteNode( root->getRight(), key ));
-    }
-    else
-    {
-        root->setLeft(deleteNode( root->getLeft(),key ));
-    }
-    return root;
+    
+    std::vector<TreeNode *> path;
+    return dfs(root,key,path);
 }
 
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode #450 - Delete Node in a BST" << std::endl;
+    std::cout << std::endl << "0450-delete-node-in-a-bst" << std::endl << std::endl;
+    int test_case = 1;
     {
-        int deletion = 3;
         std::vector<std::optional<int>> values = {5,3,6,2,4,std::nullopt,7};
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        std::cout << "Before : " ;
-        TreeNode::dumpTree( root );
-        std::cout << "About to try to delete : " << deletion << std::endl;
-        root = deleteNode(root, deletion);
-        std::cout << "After : " ;
-        TreeNode::dumpTree( root );
+        TreeNode *root = buildTree(values);
+        int key = 7;
+        deleteNode(root,key);
+        bool expected = true;
+        bool result = true;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
     {
-        int deletion = 0;
         std::vector<std::optional<int>> values = {5,3,6,2,4,std::nullopt,7};
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        std::cout << "Before : " ;
-        TreeNode::dumpTree( root );
-        std::cout << "About to try to delete : " << deletion << std::endl;
-        root = deleteNode(root, deletion);
-        std::cout << "After : " ;
-        TreeNode::dumpTree( root );
+        TreeNode *root = buildTree(values);
+        int key = 3;
+        deleteNode(root,key);
+        bool expected = true;
+        bool result = true;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
     {
-        int deletion = 0;
+        std::vector<std::optional<int>> values = {5,3,6,2,4,std::nullopt,7};
+        TreeNode *root = buildTree(values);
+        int key = 4;
+        deleteNode(root,key);
+        bool expected = true;
+        bool result = true;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+    }
+    {
         std::vector<std::optional<int>> values = {};
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        std::cout << "Before : " ;
-        TreeNode::dumpTree( root );
-        std::cout << "About to try to delete : " << deletion << std::endl;
-        root = deleteNode(root, deletion);
-        std::cout << "After : " ;
-        TreeNode::dumpTree( root );
+        TreeNode *root = buildTree(values);
+        int key = 0;
+        deleteNode(root,key);
+        bool expected = true;
+        bool result = true;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
     }
-    return -1;
+    return 0;
 }
