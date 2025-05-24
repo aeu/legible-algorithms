@@ -7,71 +7,57 @@
 #include <stdio.h>
 #include <vector>
 #include <string>
+#include <cstring>
 #include <iostream>
 #include <sstream>
 
 std::string reverseWords(std::string &input)
 {
-    std::string retval;
-    bool first_word = true;
-    std::ostringstream output;
-    std::string::iterator word_start = input.end() - 1;
-    std::string::iterator word_end   = input.end();
-    while( word_start >= input.begin() )
+    std::string retval = "";
+    char *copy = strdup(input.c_str());
+
+    char *tmp = strtok(copy, " ");
+    while( tmp )
     {
-        while( ( *word_start != ' ' ) && ( word_start >= input.begin()))
-        {
-            word_start--;
-        }
-        if(( *word_start == ' ' ) || ( word_start == input.begin()))
-        {
-            std::string found = std::string( (word_start+1), word_end );
-            if( found.length() )
-            {
-                if( ! first_word )
-                {
-                    output << " ";
-                }
-                output << found;
-                first_word = false;
-            }
-            word_end = word_start;
-            word_start--;
-        }
+        std::string newstr(tmp);
+        // don't do this the first time so we don't get a trailing
+        // space
+        if( retval.length() > 0 )
+            newstr.append(" ");
+        retval.insert(0,newstr);
+        tmp = strtok(NULL, " ");
     }
-    std::string found = std::string( (word_start+1), word_end );
-    if( found.length() )
-    {
-        if( ! first_word )
-        {
-            output << " ";
-        }
-        output << found;
-    }
-    return output.str();
+    free(copy);
+    return retval;
 }
 
 
 int main(int argc, char **argv)
 {
     std::cout << "Leetcode #151 - Reverse Words in a String" << std::endl << std::endl;
+    int test_case = 1;
     {
         std::string input_string = "the sky is blue"; 
-        std::cout << "Input[" << input_string << "]" << std::endl;
-        std::string output_string = reverseWords(input_string);
-        std::cout << "Output[" << output_string << "]" << std::endl;
+        std::string expected = "blue is sky the";
+        std::string result = reverseWords(input_string);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
         std::string input_string = "    hello world  ";
-        std::cout << "Input[" << input_string << "]" << std::endl;
-        std::string output_string = reverseWords(input_string);
-        std::cout << "Output[" << output_string << "]" << std::endl;
-        std::cout << "Output[" << output_string << "]" << std::endl;
+        std::string expected = "world hello";
+        std::string result = reverseWords(input_string);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
         std::string input_string = "a good    example";
-        std::cout << "Input[" << input_string << "]" << std::endl;
-        std::string output_string = reverseWords(input_string);
-        std::cout << "Output[" << output_string << "]" << std::endl;
+        std::string expected = "example good a";
+        std::string result = reverseWords(input_string);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
 }
