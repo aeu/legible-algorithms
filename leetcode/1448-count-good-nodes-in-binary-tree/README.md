@@ -1,43 +1,10 @@
-# 1448. Count Good Nodes in Binary Tree
+Leetcode #1448 - Count Good Nodes in Binary Tree
 
-# Problem Statement
-Given a binary tree root, a node X in the tree is named good if in the path from root to X there are no nodes with a value greater than X.
+Test case : 1 : Pass
+ (expected 4, got 4)
 
-Return the number of good nodes in the binary tree.
+Test case : 2 : Pass
+ (expected 3, got 3)
 
-# Examples 
-
-     Example 1:
-     Input: root = [3,1,4,3,null,1,5]
-     Output: 4
-     Explanation: Nodes in blue are good.
-     Root Node (3) is always a good node.
-     Node 4 -> (3,4) is the maximum value in the path starting from the root.
-     Node 5 -> (3,4,5) is the maximum value in the path
-     Node 3 -> (3,1,3) is the maximum value in the path.
-
-     Example 2:
-     Input: root = [3,3,null,4,2]
-     Output: 3
-     Explanation: Node 2 -> (3, 3, 2) is not good, because "3" is higher than it.
-
-     Example 3:
-     Input: root = [1]
-     Output: 1
-     Explanation: Root is considered as good.
- 
-
-# Constraints:
-
-The number of nodes in the binary tree is in the range [1, 10^5].
-Each node's value is between [-10^4, 10^4].
-
-# Output
-     balandra:1448-count-good-nodes-in-binary-tree alfonso$ ./cgn 
-     Leetcode #1448 - Count Good Nodes in Binary Tree
-     Input : [3, 1, 4, 3, null, 1, 5]
-     good node count : 4
-     Input : [3, 3, null, 4, 2]
-     good node count : 3
-     Input : [1]
-     good node count : 1
+Test case : 3 : Pass
+ (expected 1, got 1)
