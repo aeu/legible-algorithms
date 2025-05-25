@@ -24,7 +24,7 @@ void dumpNumbers(const std::vector<int> &numbers)
     std::cout << std::endl;
 }
 
-int maxNumberOfKSumPairs(std::vector<int> &numbers,
+int maxOperations(std::vector<int> &numbers,
                          const int k_value)
 {
     if( numbers.size() < 2 )
@@ -60,14 +60,14 @@ int main(int argc, char **argv)
     {
         std::vector<int> numbers = { 1,2,3,4 };
         dumpNumbers(numbers);
-        int max_ksum = maxNumberOfKSumPairs( numbers, 5 );
+        int max_ksum = maxOperations( numbers, 5 );
         std::cout << "Max number of KSum Pairs : " << max_ksum << std::endl;
         
     }
     {
         std::vector<int> numbers = { 3,1,3,4,3 };
         dumpNumbers(numbers);
-        int max_ksum = maxNumberOfKSumPairs( numbers, 6 );
+        int max_ksum = maxOperations( numbers, 6 );
         std::cout << "Max number of KSum Pairs : " << max_ksum << std::endl;
         
     }
