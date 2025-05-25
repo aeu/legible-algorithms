@@ -1,5 +1,5 @@
 
-1423-diagonal-traverse-ii
+1424-diagonal-traverse-ii
 
 
 Test case : 1 : Pass

@@ -66,7 +66,7 @@ std::vector<int> findDiagonalOrder(std::vector<std::vector<int>>& nums)
 
 int main(int argc, char **argv)
 {
-    std::cout << std::endl << "1423-diagonal-traverse-ii" << std::endl << std::endl;
+    std::cout << std::endl << "1424-diagonal-traverse-ii" << std::endl << std::endl;
     int test_case = 1;
     {
         std::vector<std::vector<int>> nums  = {{1,2,3},{4,5,6},{7,8,9}};
