@@ -11,9 +11,16 @@
 #include <queue>
 #include <map>
 
-#include "TreeNode.h"
+//int max_zags = 0;
 
-int max_zags = 0;
+struct TreeNode {
+    int val;
+    TreeNode  *left;
+    TreeNode  *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
 
 void dumpValues(const std::vector<std::optional<int>> &values )
 {
@@ -32,73 +39,51 @@ void dumpValues(const std::vector<std::optional<int>> &values )
     std::cout << "]" << std::endl;
 }
 
-std::shared_ptr<TreeNode> buildTree(const std::vector<std::optional<int>> &values)
+TreeNode *buildTree(std::vector<std::optional<int>> tree_values)
 {
-    std::queue<std::shared_ptr<TreeNode>> node_list;
-    int index=0;
-    std::shared_ptr<TreeNode> root = std::make_shared<TreeNode>(values[index].value());
-    node_list.push(root);
-    index++;
-    while(index<values.size())
+    TreeNode *root = new TreeNode(tree_values[0].value());
+    std::queue<TreeNode *>bqueue;
+    int index=1;
+    bqueue.push(root);
+    while( index < tree_values.size() )
     {
-        std::shared_ptr<TreeNode> current = node_list.front();
-        node_list.pop();
-        if( values[index].has_value())
+        TreeNode *curr = bqueue.front();
+        bqueue.pop();
+        if( tree_values[index].has_value() )
         {
-            std::shared_ptr<TreeNode> left = std::make_shared<TreeNode>(values[index].value());
-            current->setLeft(left);
-            node_list.push(left);
+            TreeNode *left = new TreeNode( tree_values[index].value() );
+            curr->left = left;
+            bqueue.push(left);
         }
         index++;
-        if((index<values.size())&&( values[index].has_value()))
+        if( ( index < tree_values.size() ) && ( tree_values[index].has_value() ))
         {
-            std::shared_ptr<TreeNode> right = std::make_shared<TreeNode>(values[index].value());
-            current->setRight(right);
-            node_list.push(right);
+            TreeNode *right = new TreeNode( tree_values[index].value() );
+            curr->right = right;
+            bqueue.push(right);
         }
         index++;
     }
     return root;
 }
 
-
-struct PathEntry {
-    bool left;
-    std::shared_ptr<TreeNode> node;
-};
-
-void dumpPath(const std::vector<std::shared_ptr<TreeNode>> &values )
-{
-    bool first_time = true;
-    std::cout << "[";
-    for( auto current : values )
-    {
-        if( ! first_time )
-            std::cout << ", ";
-        std::cout << current->getValue();
-        first_time = false;
-    }
-    std::cout << "]" << std::endl;
-}
-
-int findLongestZigZagSegment(std::vector<std::shared_ptr<TreeNode>> &path)
+int findLongestZigZagSegment(std::vector<TreeNode *> &path, int &max_zags)
 {
     if( path.size() == 0 )
         return 0;
     if( path.size() == 1 )
         return 0;
     int zag_count = 1;
-    int max_zags = 0;
     int last_direction = 0;
     int next_direction;
     
     for(int index=0;index<path.size()-1;index++)
     {
-        std::shared_ptr<TreeNode> previous = ( index > 1 ) ? path[index-1] : nullptr;
-        std::shared_ptr<TreeNode> current = path[index];
-        std::shared_ptr<TreeNode> next = path[index+1];
+        TreeNode * previous = ( index > 1 ) ? path[index-1] : nullptr;
+        TreeNode * current = path[index];
+        TreeNode * next = path[index+1];
         
-        if( next == current->getLeft() )
+        if( next == current->left )
         {
             next_direction = -1;
         }
@@ -127,69 +112,65 @@ int findLongestZigZagSegment(std::vector<std::shared_ptr<TreeNode>> &path)
 }
 
 
-int dfs(std::shared_ptr<TreeNode> root,
-        std::vector<std::shared_ptr<TreeNode>> &path)
+int dfs(TreeNode * root,
+        std::vector<TreeNode *> &path,
+        int &max_zags)
 {
-    int lzz = 0;
-    int zags = 0;
     if( root == nullptr )
         return 0;
 
     path.push_back(root);
-    if(( root->getLeft() == nullptr ) && ( root->getRight() == nullptr ))
+    if(( root->left == nullptr ) && ( root->right == nullptr ))
     {
-        zags = findLongestZigZagSegment(path);
-        lzz = std::max(lzz,zags);
+        findLongestZigZagSegment(path,max_zags);
     }
-    dfs(root->getLeft(),path);
-    dfs(root->getRight(),path);
+    dfs(root->left,path,max_zags);
+    dfs(root->right,path,max_zags);
     path.pop_back();
-    max_zags = std::max(max_zags,lzz);
-    return lzz;
+    return max_zags;
 }
 
-int zigZag(std::shared_ptr<TreeNode> root )
+int longestZigZag(TreeNode * root )
 {
-    std::vector<std::shared_ptr<TreeNode>> path;
-    int lzz = dfs(root,path);
-    return lzz;
+    int max_zags = 0;
+    std::vector<TreeNode *> path;
+    dfs(root,path,max_zags);
+    return max_zags;
 }
 
 int main(int argc, char **argv)
 {
     std::cout << "Leetcode #1372 - Longest ZigZag Path in a Binary Tree" << std::endl;
+    int test_case = 1;
     {
-        max_zags = 0;
-        std::cout << "Example 1" << std::endl;
         std::vector<std::optional<int>> values =
             { 1, std::nullopt,1,1,1,std::nullopt,std::nullopt,1,1,std::nullopt,1,std::nullopt,std::nullopt,std::nullopt,1 };
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        zigZag(root);
-        std::cout << "Max zzp : " << max_zags << std::endl;
+
+        TreeNode * root = buildTree(values);
+        int result = longestZigZag(root);
+        int expected = 3;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        max_zags = 0;
-        std::cout << "Example 2" << std::endl;
         std::vector<std::optional<int>> values =
             { 1,1,1,std::nullopt,1,std::nullopt,std::nullopt,1,1,std::nullopt,1};
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        zigZag(root);
-        std::cout << "Max zzp : " << max_zags << std::endl;
+        TreeNode * root = buildTree(values);
+        int result = longestZigZag(root);
+        int expected = 4;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        max_zags = 0;
-        std::cout << "Example 3" << std::endl;
         std::vector<std::optional<int>> values = { 1 };
-        std::cout << "Input : ";
-        dumpValues( values );
-        std::shared_ptr<TreeNode> root = buildTree(values);
-        zigZag(root);
-        std::cout << "Max zzp : " << max_zags << std::endl;
+        TreeNode * root = buildTree(values);
+        int result = longestZigZag(root);
+        int expected = 0;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
-
     return -1;
 }
