@@ -11,90 +11,73 @@
 #include <queue>
 #include <map>
 #include <stack>
+#include <cmath>
 
-void dumpValues(std::vector<int> &values)
-{
-    bool first_time = true;
-    std::cout << "[";
-    for(int current : values )
-    {
-        if( ! first_time )
-            std::cout << ", ";
-        std::cout << current;
-        first_time = false;
-    }
-    std::cout << "]" << std::endl;
-}
 
-int hoursNeededToEat(std::vector<int>& piles,
-                     int hourly_rate)
+bool isPossibleToEatAll(std::vector<int>& piles,
+                        int bph,
+                        int num_hours)
 {
     int hours_needed = 0;
-    for(int pile : piles )
+    for(const auto pile : piles )
     {
-        hours_needed += (pile + hourly_rate - 1) / hourly_rate; 
+        int hours_for_pile = std::ceil ( static_cast<double>(pile) / static_cast<double>(bph) );
+        hours_needed += hours_for_pile;
     }
-    return hours_needed;
+    return hours_needed <= num_hours;
 }
-
 
 int minEatingSpeed(std::vector<int>& piles, int available_hours)
 {
-    auto min_max = std::minmax_element(piles.begin(), piles.end());
-    int low  = *min_max.first;
-    int high = *min_max.second;
+    int low  = 1;
+    int high = *std::max_element(piles.begin(), piles.end());
     int mid;
-    while( high > low )
+    while( low < high )
     {
         mid = low + ( high - low ) / 2;
-        int mid_hours = hoursNeededToEat(piles,mid);
-        if ( mid_hours <= available_hours )
+        if( isPossibleToEatAll( piles, mid, available_hours ))
         {
             high = mid;
         }
         else
         {
-            low = mid + 1;
+            low = mid+1;
         }
     }
     return low;
 }
 
+
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode #875 - Koko Eating Bananas" << std::endl << std::endl;
+    std::cout << std::endl << "Leetcode #875 - Koko Eating Bananas" << std::endl << std::endl;
+    int test_case = 1;
     {
-        std::cout << std::endl << "Example 1" << std::endl;
-        int available_hours = 8;
         std::vector<int> piles = {3,6,7,11};
-        std::cout << "Piles: " ;
-        dumpValues(piles);
-        std::cout << "Hours available : " << available_hours << std::endl;
-        int min_eating_speed = minEatingSpeed(piles,available_hours);
-        std::cout << "Min eating speed " << min_eating_speed << std::endl;
-        
+        int h = 8;
+        int expected = 4;
+        int result = minEatingSpeed(piles,h);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::cout << std::endl << "Example 2" << std::endl;
-        int available_hours = 5;
         std::vector<int> piles = {30,11,23,4,20};
-        std::cout << "Piles: " ;
-        dumpValues(piles);
-        std::cout << "Hours available : " << available_hours << std::endl;
-        int min_eating_speed = minEatingSpeed(piles,available_hours);
-        std::cout << "Min eating speed " << min_eating_speed << std::endl;
-        
+        int h = 5;
+        int expected = 30;
+        int result = minEatingSpeed(piles,h);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::cout << std::endl << "Example 3" << std::endl;
-        int available_hours = 6;
         std::vector<int> piles = {30,11,23,4,20};
-        std::cout << "Piles: " ;
-        dumpValues(piles);
-        std::cout << "Hours available : " << available_hours << std::endl;
-        int min_eating_speed = minEatingSpeed(piles,available_hours);
-        std::cout << "Min eating speed " << min_eating_speed << std::endl;
-        
+        int h = 6;
+        int expected = 23;
+        int result = minEatingSpeed(piles,h);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     return -1;
 }
