@@ -8,29 +8,121 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
-#include "ListNode.h"
 
-std::shared_ptr<ListNode> buildList(std::vector<int> values )
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+void dumpList(ListNode *list)
 {
-    std::shared_ptr<ListNode> prev_node;
-    std::shared_ptr<ListNode> next_node;
-    std::shared_ptr<ListNode> root_node;
+    ListNode *curr = list;
+    ListNode *original = list;
+    while(curr != nullptr )
+    {
+        std::cout << curr->val;
+        if( curr->next != nullptr )
+            std::cout << " -> ";
+        curr = curr->next;
+        if( curr == original )
+        {
+            std::cout << "endless loop, breaking" << std::endl;
+            break;
+        }
+    }
+    std::cout << std::endl;
+}
+
+
+ListNode * buildList(std::vector<int> values )
+{
+    ListNode * prev_node;
+    ListNode * next_node;
+    ListNode * root_node;
     bool first_time = true;
 
     for(int current : values )
     {
         if( first_time )
         {
-            root_node = std::make_shared<ListNode>(current);
+            root_node = new ListNode(current);
             prev_node = root_node;
             first_time = false;
         }
         else
         {
-            next_node = std::make_shared<ListNode>(current);
-            prev_node->setNext(next_node);
+            next_node = new ListNode(current);
+            prev_node->next = next_node;
             prev_node = next_node;
         }
+    }
+    return root_node;
+}
+#if 0
+ListNode* deleteMiddle(ListNode* root_node)
+{
+    // work
+    ListNode * lead_node;
+    ListNode * trail_node;
+    ListNode * trail_nodes_parent;
+    
+    lead_node = root_node;
+    trail_node = root_node;
+    trail_nodes_parent = root_node;
+    
+    int loop_count = 0;
+    while( lead_node->next )
+    {
+        if( loop_count & 1 )
+        {
+            trail_nodes_parent = trail_node;
+            trail_node = trail_node->next;
+        }
+        lead_node = lead_node->next;
+        loop_count++;
+    }
+    if( loop_count == 1 )
+        trail_node = root_node->next;
+    
+    trail_nodes_parent->next = trail_node->next;
+    return root_node;
+}
+#endif
+
+ListNode* deleteMiddle(ListNode* root_node)
+{
+    if(( root_node == nullptr ) || ( root_node->next == nullptr ))
+        return nullptr;
+    // work
+    ListNode * lead_node;
+    ListNode * trail_node;
+    ListNode * trail_nodes_parent;
+    
+    lead_node = root_node;
+    trail_node = root_node;
+    trail_nodes_parent = root_node;
+    
+    int loop_count = 0;
+    while( lead_node )
+    {
+        if( loop_count & 1 )
+        {
+            trail_nodes_parent = trail_node;
+            trail_node = trail_node->next;
+        }
+        lead_node = lead_node->next;
+        loop_count++;
+    }
+    if( trail_node->next != nullptr )
+    {
+        trail_nodes_parent->next = trail_node->next;
+    }
+    else
+    {
+        trail_nodes_parent->next = nullptr;
     }
     return root_node;
 }
@@ -38,104 +130,36 @@ std::shared_ptr<ListNode> buildList(std::vector<int> values )
 
 int main(int argc, char **argv)
 {
+    int test_case = 1;
     {
-        // setup
         std::vector<int> values = { 1,3,4,7,1,2,6 };
-        std::shared_ptr<ListNode> root_node = buildList(values);
-        
-        root_node->dumpNodes();
-
-        // work
-        std::shared_ptr<ListNode> lead_node;
-        std::shared_ptr<ListNode> trail_node;
-        std::shared_ptr<ListNode> trail_nodes_parent;
-
-        lead_node = root_node;
-        trail_node = root_node;
-        trail_nodes_parent = root_node;
-
-        int loop_count = 0;
-        while( lead_node->getNext() )
-        {
-            if( loop_count & 1 )
-            {
-                trail_nodes_parent = trail_node;
-                trail_node = trail_node->getNext();
-            }
-            lead_node = lead_node->getNext();
-            loop_count++;
-        }
-        if( loop_count == 1 )
-            trail_node = root_node->getNext();
-        //        std::cout << "at end, lead node : " << lead_node->getValue() << std::endl;
-        // std::cout << "at end, trail node : " << trail_node->getValue() << std::endl;
-        //std::cout << "at end, trail parent : " << trail_nodes_parent->getValue() << std::endl;
-
-        trail_nodes_parent->setNext( trail_node->getNext() );
-        root_node->dumpNodes();
+        ListNode * root_node = buildList(values);
+        std::cout << std::endl;
+        bool expected = true;
+        bool result = true;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        dumpList(root_node);
+        deleteMiddle(root_node);
+        dumpList(root_node);
     }
     {
         std::vector<int> values = { 1,2,3,4 };
-        std::shared_ptr<ListNode> root_node = buildList(values);
-
-        // work
-        std::shared_ptr<ListNode> lead_node;
-        std::shared_ptr<ListNode> trail_node;
-        std::shared_ptr<ListNode> trail_nodes_parent;
-
-        lead_node = root_node;
-        trail_node = root_node;
-        trail_nodes_parent = root_node;
-
-        int loop_count = 0;
-        while( lead_node->getNext() )
-        {
-            if( loop_count & 1 )
-            {
-                trail_nodes_parent = trail_node;
-                trail_node = trail_node->getNext();
-            }
-            lead_node = lead_node->getNext();
-            loop_count++;
-        }
-        if( loop_count == 1 )
-            trail_node = root_node->getNext();
-        //        std::cout << "at end, lead node : " << lead_node->getValue() << std::endl;
-        // std::cout << "at end, trail node : " << trail_node->getValue() << std::endl;
-        //std::cout << "at end, trail parent : " << trail_nodes_parent->getValue() << std::endl;
-
-        trail_nodes_parent->setNext( trail_node->getNext() );
-        root_node->dumpNodes();
+        ListNode * root_node = buildList(values);
+        bool expected = true;
+        bool result = true;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        dumpList(root_node);
+        deleteMiddle(root_node);
+        dumpList(root_node);
     }
     {
         std::vector<int> values = { 2,1 };
-        std::shared_ptr<ListNode> root_node = buildList(values);
-        root_node->dumpNodes();
-
-        // work
-        std::shared_ptr<ListNode> lead_node;
-        std::shared_ptr<ListNode> trail_node;
-        std::shared_ptr<ListNode> trail_nodes_parent;
-
-        lead_node = root_node;
-        trail_node = root_node;
-        trail_nodes_parent = root_node;
-
-        int loop_count = 0;
-        while( lead_node->getNext() )
-        {
-            if( loop_count & 1 )
-            {
-                trail_nodes_parent = trail_node;
-                trail_node = trail_node->getNext();
-            }
-            lead_node = lead_node->getNext();
-            loop_count++;
-        }
-        if( loop_count == 1 )
-            trail_node = root_node->getNext();
-
-        trail_nodes_parent->setNext( trail_node->getNext() );
-        root_node->dumpNodes();
+        ListNode * root_node = buildList(values);
+        bool expected = true;
+        bool result = true;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        dumpList(root_node);
+        deleteMiddle(root_node);
+        dumpList(root_node);
     }
 }
