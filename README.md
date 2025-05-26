@@ -309,6 +309,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0334-increasing-triplet-subsequence">Leetcode &numero; 334 (Medium) &mdash; Increasing Triplet Subsequence (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0339-nested-list-weight-sum">Leetcode &numero; 339 (Medium) &mdash; Nested List Weight Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0347-top-k-frequent-elements">Leetcode &numero; 347 (Medium) &mdash; Top K Frequent Elements (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0348-design-tic-tac-toe">Leetcode &numero; 348 (Medium) &mdash; Design Tic-Tac-Toe (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0394-decode-string">Leetcode &numero; 394 (Medium) &mdash; Decode String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0399-evaluate-division">Leetcode &numero; 399 (Medium) &mdash; Evaluate Division (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0406-queue-reconstruction-by-height">Leetcode &numero; 406 (Medium) &mdash; Queue Reconstruction by Height (C++)</a>  
