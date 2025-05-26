@@ -83,49 +83,51 @@ Node *buildTree(std::vector<std::optional<int>> tree_values)
 
 
 void dfs(Node *root,
-         std::vector<Node *> &path)
+         Node * &prev,
+         Node * &head)
 {
     if( root == nullptr )
         return;
 
     if( root->left != nullptr )
-        dfs(root->left,path);
+        dfs(root->left,prev,head);
 
-    path.push_back(root);
-    //    std::cout << root->val << "->";
+    if( prev )
+    {
+        // we are thinking of the node as right -> next and left ->
+        // previous.  "prev" is currently set to the node that made
+        // this dfs call, so we are setting it's right to ourself, and
+        // then setting our left to prev
+        prev->right = root;
+        root->left = prev;
+    }
+    else
+    {
+        // prev is null, so this is the first node in in-order
+        // traversal, so we set the head to the current node, which
+        // must be the root node.
+        head = root;
+    }
+    // set prev to the node we just got called in with, think of this
+    // as pushing the last element onto the path (if we were using a path based
+    // approach
+    prev = root;
 
     if( root->right != nullptr )
-        dfs(root->right,path);
+        dfs(root->right,prev,head);
+
 }
 
 Node *treeToDoublyList(Node *root)
 {
     if( root == nullptr )
         return nullptr;
-    std::vector<Node *> path;
-    dfs(root,path);
-    Node *node;
-    for(int index=0;index<path.size();index++)
-    {
-        node = path[index];
-        if( index > 0 )
-        {
-            node->left = path[index-1];
-        }
-        if( index < path.size() - 1 )
-        {
-            node->right = path[index+1];
-        }
-        if( index == 0 )
-        {
-            node->left = path[path.size()-1];
-        }
-        if( index == path.size() - 1 )
-        {
-            node->right = path[0];
-        }
-    }
-    return path[0];
+    Node *prev = nullptr;
+    Node *head = nullptr;
+    dfs(root,prev,head);
+    head->left = prev;
+    prev->right = head;
+    return head;
 }
 
 
