@@ -393,7 +393,6 @@ As of right now I am in the top 8% of Leetcode rankings!
 
 #### Hard
 
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0023-merge-k-sorted-lists">Leetcode &numero; 23 (Hard) &mdash; Merge K Sorted Lists (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0025-reverse-nodes-in-k-group">Leetcode &numero; 25 (Hard) &mdash; Reverse Nodes in K Group (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0068-text-justification">Leetcode &numero; 68 (Hard) &mdash; Text Justification (C++11,C++17)</a>.  
@@ -403,6 +402,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0127-word-ladder">Leetcode &numero; 127 (Hard) &mdash; Word Ladder (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0135-candy">Leetcode &numero; 135 (Hard) &mdash; Candy (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0329-longest-increasing-path-in-a-matrix">Leetcode &numero; 329 (Hard) &mdash; Longest Increasing Path in a Matrix (C++)</a>.  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0827-making-a-large-island">Leetcode &numero; 827 (Hard) &mdash; Making a Large Island (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0987-vertical-order-traversal-of-a-binary-tree">Leetcode &numero; 987 (Hard) &mdash; Vertical Order Traversal of a Binary Tree (C++)</a>  
 
 
