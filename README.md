@@ -190,7 +190,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0383-ransom-note">Leetcode &numero; 383 (Easy) &mdash; Ransom Note (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0392-is-subsequence">Leetcode &numero; 392 (Easy) &mdash; Is Subsequence (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0408-valid-word-abbreviation">Leetcode &numero; 408 (Easy) &mdash; Valid Word Abbreviation (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0409-longest-palindrome">Leetcode &numero; 9 (Easy) &mdash; Longest Palindrome (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0409-longest-palindrome">Leetcode &numero; 409 (Easy) &mdash; Longest Palindrome (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0415-add-strings">Leetcode &numero; 415 (Easy) &mdash; Add Strings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0496-next-greater-element-i">Leetcode &numero; 496 (Easy) &mdash; Next Greater Element I (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0509-fibonacci-number">Leetcode &numero; 509 (Easy) &mdash; Fibonacci Number (C++)</a>  
@@ -277,7 +277,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0129-sum-root-to-leaf-numbers">Leetcode &numero; 129 (Medium) &mdash; Sum Root to Leaf Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0130-surrounded-regions">Leetcode &numero; 130 (Medium) &mdash; Surrounded Regions (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0131-palindrome-partitioning">Leetcode &numero; 131 (Medium) &mdash; Palindrome Partitioning (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0133-clone-graph">Leetcode &numero; 0133 (Medium) &mdash; Clone Graph (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0133-clone-graph">Leetcode &numero; 133 (Medium) &mdash; Clone Graph (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0134-gas-station">Leetcode &numero; 134 (Medium) &mdash; Gas Station (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0138-copy-list-with-random-pointer">Leetcode &numero; 138 (Medium) &mdash; Copy List with Random Pointer (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0139-word-break">Leetcode &numero; 139 (Medium) &mdash; Word Break (C++)</a>  
@@ -365,7 +365,7 @@ As of right now I am in the top 8% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1248-count-number-of-nice-subarrays">Leetcode &numero; 1248 (Medium) &mdash; Count Number of Nice Subarrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1249-minimum-remove-to-make-valid-parentheses">Leetcode &numero; 1249 (Medium) &mdash; Minimum Remove to Make Valide Parentheses (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1372-longest-zigzag-path-in-a-binary-tree">Leetcode &numero; 1372 (Medium) &mdash; Longest ZigZag Path in a Binary Tree (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1396-design-underground-system">Leetcode &numero; 2 (Medium) &mdash; Design Underground System (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1396-design-underground-system">Leetcode &numero; 1396 (Medium) &mdash; Design Underground System (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1424-diagonal-traverse-ii">Leetcode &numero; 1424 (Medium) &mdash; Diagonal Traverse II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1448-count-good-nodes-in-binary-tree">Leetcode &numero; 1448 (Medium) &mdash; Count Good Nodes in Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1456-maximum-number-of-vowels-in-a-subtring-of-given-length">Leetcode &numero; 1456 (Medium) &mdash; Maximum Number of Vowels in a Substring of Given Length (C++)</a>  
