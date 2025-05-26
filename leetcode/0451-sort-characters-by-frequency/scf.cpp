@@ -56,7 +56,7 @@ std::string frequencySort(std::string s)
 
 int main(int argc, char **argv)
 {
-    std::cout << std::endl << "0451-sort-characters-by-frequeny" << std::endl << std::endl;
+    std::cout << std::endl << "0451-sort-characters-by-frequency" << std::endl << std::endl;
     int test_case = 1;
     {
         std::string s = "tree";

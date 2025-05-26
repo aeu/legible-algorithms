@@ -1,5 +1,5 @@
 
-0451-sort-characters-by-frequeny
+0451-sort-characters-by-frequency
 
 
 Test case : 1 : Pass
