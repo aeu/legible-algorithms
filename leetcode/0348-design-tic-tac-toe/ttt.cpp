@@ -20,66 +20,43 @@
 class TicTacToe {
 public:
     int N;
-    std::vector<std::vector<int>> board;
-    TicTacToe(int n) : board( n, std::vector<int> ( n, 0 ))
+    std::vector<int> rows;
+    std::vector<int> cols;
+    int down_diag;
+    int up_diag;
+    TicTacToe(int n) :
+        rows(n,0),
+        cols(n,0),
+        down_diag(0),
+        up_diag(0)
     {
         N=n;
     }
     
     int move(int row, int col, int player)
     {
-        bool win = true;
-        board[row][col] = player;
-        const auto &curr = board[row];
-        for(const auto cell : curr )
-        {
-            if( cell != player )
-            {
-                win = false;
-                break;
-            }
-        }
-        if( win == true )
-            return player;
-        win = true;
-        for(int index=0;index<N;index++)
-        {
-            if( board[index][col] != player )
-            {
-                win = false;
-                break;
-            }
-        }
-        if( win == true )
-            return player;
+        int add = player;
+        if( player == 2 )
+            add = -1;
 
+        rows[row] += add;
+        if( abs( rows[row] ) == N )
+            return player;
+        
+        cols[col] += add;
+        if( abs ( cols[col] ) == N )
+            return player;
+        
         if( row == col )
         {
-            win = true;
-            for(int index=0;index<N;index++)
-            {
-                if( board[index][index] != player )
-                {
-                    win = false;
-                    break;
-                }
-            }
-            if( win == true )
+            down_diag += add;
+            if( abs( down_diag ) == N )
                 return player;
         }
-
-        if( ( row + col ) == ( N - 1 ))
+        if( ( row + col ) == ( N - 1 ) )
         {
-            win = true;
-            for(int index=0;index<N;index++)
-            {
-                if( board[index][N-index-1] != player )
-                {
-                    win = false;
-                    break;
-                }
-            }
-            if( win == true )
+            up_diag += add;
+            if( abs ( up_diag ) == N )
                 return player;
         }
         return 0;
@@ -88,10 +65,10 @@ public:
 
 int main(int argc, char **argv)
 {
-    std::cout << std::endl << "0348-design-tic-tac-toe" << std::endl << std::endl;
+    std::cout << std::endl << "0N48-design-tic-tac-toe" << std::endl << std::endl;
     int test_case = 1;
     {
-        std::vector<int> nums  = {1,2,3};
+        std::vector<int> nums  = {1,2,N};
         int expected = 0;
         int result = 0;
         std::cout << std::endl;
