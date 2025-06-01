@@ -38,8 +38,7 @@ int lengthOfLongestSubstringTwoDistinct(std::string s)
             ccounts[lchar]--;
             if( ccounts[lchar] == 0 )
             {
-                auto mit  = ccounts.find( lchar );
-                ccounts.erase(mit);
+                ccounts.erase(lchar);
             }
             left++;
         }
