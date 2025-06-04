@@ -11,6 +11,7 @@
 #include <vector>
 #include <queue>
 #include <map>
+#include <numeric>
 #include <unordered_set>
 #include <unordered_map>
 #include <stack>
@@ -29,7 +30,6 @@ bool canShipWithinNDays(std::vector<int>& weights,
         int next = weights[index];
         if( ( payload + next ) <= capacity )
         {
-            std::cout << "day : " << num_days << " next : " << next << std::endl;
             payload += next;
         }
         else
@@ -49,13 +49,16 @@ bool canShipWithinNDays(std::vector<int>& weights,
 
 int shipWithinDays(std::vector<int>& weights, int days)
 {
-    int low = 0;
-    int high = 2;
+    // on the low end, a ship big enough to take the single bigest
+    // load (since we can't split them)
+    int low = *std::max_element(weights.begin(), weights.end());
+    // on the high end, a big enough ship to carry everything in one
+    // shot
+    int high = std::accumulate(weights.begin(),weights.end(),0);
     int mid = 0;
     while( low < high )
     {
         mid = low + ((high - low)/2);
-        std::cout << "low : " << low << " mid: " << mid << " high: " << high << std::endl;
         bool canship = canShipWithinNDays(weights,days,mid);
         if( canship == true )
         {
@@ -67,7 +70,6 @@ int shipWithinDays(std::vector<int>& weights, int days)
             high = high * 2;
         }
     }
-    std::cout << "END low : " << low << " mid: " << mid << " high: " << high << std::endl;
     return low;
 }
 
