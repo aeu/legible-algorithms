@@ -226,6 +226,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2094-finding-3-digit-even-numbers">Leetcode &numero; 2094 (Easy) &mdash; Finding 3 Digit Even Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2119-a-number-after-a-double-reversal">Leetcode &numero; 2119 (Easy) &mdash; A Number After a Double Reversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2215-find-the-difference-of-two-arrays/">Leetcode &numero; 2215 (Easy) &mdash; Find the Difference of Two Arrays (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/3545-minimum-deletions-for-at-most-k-distinct-characters">Leetcode &numero; 3345 (Easy) &mdash; Minimum Deletions for at most K Distinct Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/3396-minimum-number-of-operations-to-make-elements-in-array-distinct">Leetcode &numero; 3396 (Easy) &mdash; Minimum Number of Operations to Make Elements in Array Distinct (C++)</a>  
 
 
