@@ -140,7 +140,7 @@ As I go over these I have to keep reminding myself that this is a good
 thing.  If I didn't look back at my code years later and see that it
 was bad, then that means that I haven't improved since I wrote it.
 
-As of right now I am in the top 8% of Leetcode rankings!
+As of right now I am in the top 4.1% of Leetcode rankings!
 
 
 #### Easy
