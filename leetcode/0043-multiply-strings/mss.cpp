@@ -17,22 +17,6 @@
 #include <stack>
 #include <limits.h>
 
-
- 
-void dumpValues(std::vector<int> values)
-{
-    bool first = true;
-    for(const auto &curr : values )
-    {
-        if( ! first )
-            std::cout << ", ";
-        first = false;
-        std::cout << std::setw(3) << curr ;
-    }
-    std::cout << std::endl;
-}
-
-
    //   C5C4C3C2C1
    //        1 2 3
    //        4 5 6
@@ -41,9 +25,6 @@ void dumpValues(std::vector<int> values)
    //   040812.... 
 
    //        56088
-  // 2346
-  //  574
-  // 3804  
 
 
 std::string multiply(std::string num1, std::string num2)
@@ -64,9 +45,6 @@ std::string multiply(std::string num1, std::string num2)
             char n1c = num1[n1index];
             char n2c = num2[n2index];
             prod = ( n1c - '0' ) * ( n2c - '0' );
-            //   int digit = prod % 10;
-            //            int carry = prod / 10;
-            std::cout << "adding : " << prod << " to column " << n1index + n2index << std::endl;
             columns[ n1index + n2index ] += prod;
         }
     }
