@@ -22,6 +22,17 @@ bool isStrobogrammatic(std::string candidate)
     if ( candidate.length() == 0 )
         return false;
 
+    if( candidate.find_first_of('2') != std::string::npos )
+        return false;
+    if( candidate.find_first_of('3') != std::string::npos )
+        return false;
+    if( candidate.find_first_of('4') != std::string::npos )
+        return false;
+    if( candidate.find_first_of('5') != std::string::npos )
+        return false;
+    if( candidate.find_first_of('7') != std::string::npos )
+        return false;
+    
     int low = 0;
     int high = candidate.length()-1;
     while( low <= high )
