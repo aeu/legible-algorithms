@@ -18,56 +18,81 @@
 #include <limits.h>
 
 
+ 
+void dumpValues(std::vector<int> values)
+{
+    bool first = true;
+    for(const auto &curr : values )
+    {
+        if( ! first )
+            std::cout << ", ";
+        first = false;
+        std::cout << std::setw(3) << curr ;
+    }
+    std::cout << std::endl;
+}
+
+
+   //   C5C4C3C2C1
+   //        1 2 3
+   //        4 5 6
+   //        61218
+   //     051015..
+   //   040812.... 
+
+   //        56088
+  // 2346
+  //  574
+  // 3804  
+
+
 std::string multiply(std::string num1, std::string num2)
 {
     if((num1 == "0") || ( num2 == "0" ))
         return "0";
 
-    std::reverse(num1.begin(),num1.end());
-    std::reverse(num2.begin(),num2.end());
-    
-    int carry  = 0;
-    int n1digit = 0;
-    int n2digit = 0;
-    int total  = 0;
-    int index = 0;
+    std::vector<int> columns((num1.length() + num2.length() + 1 ), 0 );
+    std::reverse( num2.begin(), num2.end() );
+    std::reverse( num1.begin(), num1.end() );
     std::string retval;
-    
-    while( ( index < num1.length() ) && ( index < num2.length() ))
-    {
-        n1digit = num1[index] - '0';
-        n2digit = num2[index] - '0';
-        int prod = ( n1digit * n2digit ) + carry ;
-        int digit = prod % 10;
-        int carry = ( prod - digit ) / 10;
+    int prod = 0;
 
-        std::cout << "n1digit " << n1digit << std::endl;
-        std::cout << "n2digit " << n2digit << std::endl;
-        std::cout << "prod    " << prod    << std::endl;
-        std::cout << "digit   " << digit   << std::endl;
-        std::cout << "carry   " << carry   << std::endl;
-        retval+= std::to_string( prod );
-        index++;
-    }
-    
-    while( index < num1.length() )
+    for(int n1index = 0; n1index < num1.length(); n1index++)
     {
-        n1digit = num1[index] - '0';
-        int prod = prod + carry;
-        carry = 0;
-        retval += std::to_string( prod );
-        index++;
+        for(int n2index = 0; n2index < num2.length(); n2index++)
+        {
+            char n1c = num1[n1index];
+            char n2c = num2[n2index];
+            prod = ( n1c - '0' ) * ( n2c - '0' );
+            //   int digit = prod % 10;
+            //            int carry = prod / 10;
+            std::cout << "adding : " << prod << " to column " << n1index + n2index << std::endl;
+            columns[ n1index + n2index ] += prod;
+        }
     }
-    while( index < num2.length() )
+    for(int index=0;index<columns.size()-1;index++)
     {
-        n2digit = num2[index] - '0';
-        int prod = prod + carry;
-        carry = 0;
-        retval += std::to_string( prod );
-        index++;
+        int val = columns[index];
+        int digit = val % 10;
+        int carry = val / 10;
+        char cdigit = digit + '0';
+        retval.push_back( cdigit );
+        columns[index+1] += carry;
     }
-    std::cout << "reval: " << retval;
-    return retval;
+    std::reverse( retval.begin(),retval.end() );
+    std::string final;
+    bool found_digit = false;
+    for( auto curr : retval )
+    {
+        if(( curr == '0' ) && ( found_digit == false ))
+            continue;
+        else
+        {
+            found_digit = true;
+            final.push_back( curr );
+        }
+    }
+    return final;
 }
 
 
@@ -76,19 +101,19 @@ int main(int argc, char **argv)
     std::cout << std::endl << "0043-multiply-strings" << std::endl << std::endl;
     int test_case = 1;
     {
-        std::string num1 = "2";
-        std::string num2 = "3";
+        std::string num1 = "123";
+        std::string num2 = "456";
         std::string result = multiply(num1,num2);
-        std::string expected = "6";
+        std::string expected = "56088";
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
         std::cout << " (expected " << expected << ", got " << result << ")\n";
     }
     {
-        std::string num1 = "123";
-        std::string num2 = "456";
+        std::string num1 = "2";
+        std::string num2 = "3";
         std::string result = multiply(num1,num2);
-        std::string expected = "56088";
+        std::string expected = "6";
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
         std::cout << " (expected " << expected << ", got " << result << ")\n";
