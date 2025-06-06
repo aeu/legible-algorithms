@@ -65,23 +65,62 @@ bool isStrobogrammatic(std::string candidate)
 }
 
 
+std::vector<std::pair<char,char>> pairs {
+    { '6' , '9' },
+    { '9' , '6' },
+    { '8' , '8' },
+    { '1' , '1' },
+    { '0' , '0' },
+};
+
+
+void backtrace(std::string number,
+               int n,
+               std::vector<std::string> &results)
+{
+    if( number.length() > n )
+        return;
+
+    if(( n == 1 ) && ( number.length() == 1 ))
+    {
+        results.push_back( number );
+        return;
+    }
+        
+    if(( number.length() == n ) && ( number[0] != '0' ))
+    {
+        std::cout << number << std::endl;
+        results.push_back( number );
+        return;
+    }
+
+    for( const auto curr : pairs )
+    {
+        char first  = curr.first;
+        char second = curr.second;
+        std::string lnumber;
+        lnumber += first;
+        lnumber.append(number);
+        lnumber += second;
+        backtrace( lnumber,n,results);
+    }
+}
+
 
 std::vector<std::string> findStrobogrammatic(int n)
 {
-    std::vector<std::string> retval;
-    int start = pow(10,n-1);
-    if( n == 1 )
-        start = 0;
-    int end   = pow(10,( n ));
-    for(int index=start;index<end;index++)
+    std::vector<std::string> results;
+    if( n % 2 )
     {
-        std::string candidate = std::to_string(index);
-        if( isStrobogrammatic( candidate ) )
-        {
-            retval.push_back( candidate );
-        }
+        backtrace( "0", n, results );
+        backtrace( "1", n, results );
+        backtrace( "8", n, results );
     }
-    return retval;
+    else
+    {
+        backtrace("",n,results);
+    }
+    return results;
 }
 
 int main(int argc, char **argv)
