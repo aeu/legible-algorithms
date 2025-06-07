@@ -391,6 +391,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1448-count-good-nodes-in-binary-tree">Leetcode &numero; 1448 (Medium) &mdash; Count Good Nodes in Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1456-maximum-number-of-vowels-in-a-subtring-of-given-length">Leetcode &numero; 1456 (Medium) &mdash; Maximum Number of Vowels in a Substring of Given Length (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1466-reorder-routes-to-make-all-paths-lead-to-the-city-zero">Leetcode &numero; 1466 (Medium) &mdash; Re-order routes to make all paths lead to the city zero (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1482-minumum-number-of-days-to-make-m-bouquets">Leetcode &numero; 1482 (Medium) &mdash; Minimum Number of Days to Make m Bouquets (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1493-longest-subarray-of-1s-after-deleting-one-element">Leetcode &numero; 1493 (Medium) &mdash; Longest Subarray of 1's after Deleting One Element (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1570-dot-product-of-two-sparse-vectors">Leetcode &numero; 1570 (Medium) &mdash; Dot Product of Two Sparse Vectors (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1584-min-cost-to-connect-all-points">Leetcode &numero; 1584 (Medium) &mdash; Min Cost to Connect All Points (C++)</a>  
