@@ -232,6 +232,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 
 #### Medium
 
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -398,6 +399,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1679-max-number-of-k-sum-pairs">Leetcode &numero; 1679 (Medium) &mdash; Max Numbef of K-Sum Pairs(C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1762-buildings-with-an-ocean-view">Leetcode &numero; 1762 (Medium) &mdash; Buildings with an Ocean View (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1868-product-of-two-run-length-encoded-arrays">Leetcode &numero; 1868 (Medium) &mdash; Product of Two Run Length Encoded Arrays (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1891-cutting-ribbons">Leetcode &numero; 1891 (Medium) &mdash; Cutting Ribbons (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1926-nearest-exit-from-entrance-in-maze">Leetcode &numero; 1926 (Medium) &mdash; Nearest Exit From Entrance In Maze (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2095-delete-the-middle-node-of-a-linked-list">Leetcode &numero; 2095 (Medium) &mdash; Delete the Middle Node of a Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2104-sum-of-subarray-ranges">Leetcode &numero; 2104 (Medium) &mdash; Sum of Subarray Ranges (Obj-C)</a>  
