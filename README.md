@@ -346,6 +346,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0636-exclusive-time-of-functions">Leetcode &numero; 636 (Medium) &mdash; Exclusive Time of Functions (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0647-palindromic-substrings">Leetcode &numero; 647 (Medium) &mdash; Palindromic Substrings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0649-dota2-senate">Leetcode &numero; 649 (Medium) &mdash; Dota2 Senate (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0658-find-k-closest-elements">Leetcode &numero; 658 (Medium) &mdash; Find K Closest Elements (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0670-maximum-swap">Leetcode &numero; 670 (Medium) &mdash; Maximum Swap (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0684-redundant-connection">Leetcode &numero; 684 (Medium) &mdash; Redundant Connection (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0695-max-area-of-island">Leetcode &numero; 695 (Medium) &mdash; Max Area of Island (C++)</a>  
