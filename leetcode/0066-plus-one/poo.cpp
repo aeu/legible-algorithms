@@ -22,22 +22,23 @@ std::vector<int> plusOne(std::vector<int>& digits)
         return digits;
     
     std::vector<int> retval = digits;
-    std::reverse(retval.begin(),retval.end());
     int carry = 1;
-    for(int index=0;index<retval.size();index++)
+    for(int index=retval.size()-1;index>=0;index--)
     {
         retval[index] += carry;
-        carry = 0;
         if( retval[index] == 10 )
         {
             carry = 1;
             retval[index] = 0;
         }
+        else
+        {
+            carry = 0;
+            break;
+        }
     }
     if( carry == 1 )
-        retval.push_back(1);
-    
-    std::reverse(retval.begin(),retval.end());
+        retval.insert(retval.begin(),1);
     return retval;
 }
 
@@ -67,6 +68,15 @@ int main(int argc, char **argv)
     {
         std::vector<int> digits  = {9};
         std::vector<int> expected = {1,0};
+        std::vector<int> result = plusOne(digits);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+    }
+    {
+        std::vector<int> digits  = {9,9,9};
+        std::vector<int> expected = {1,0,0,0};
         std::vector<int> result = plusOne(digits);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
