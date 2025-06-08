@@ -65,7 +65,6 @@ void dfs(TreeNode *root,
         return;
     current_path.push_back(root);
     sum += root->val;
-    dfs(root->left,paths,current_path,sum,target_sum);
     if(( root->left == nullptr ) && ( root->right == nullptr ))
     {
         if( sum == target_sum )
@@ -78,8 +77,11 @@ void dfs(TreeNode *root,
             paths.push_back(sumpath);
         }
     }
-
-    dfs(root->right,paths,current_path,sum,target_sum);
+    else
+    {
+        dfs(root->left,paths,current_path,sum,target_sum);
+        dfs(root->right,paths,current_path,sum,target_sum);
+    }
     current_path.pop_back();
 }
 
