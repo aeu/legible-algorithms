@@ -375,6 +375,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0921-minimum-add-to-make-parentheses-valid">Leetcode &numero; 921 (Medium) &mdash; Minimum add to make Parentheses Valid (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0930-binary-subarrays-with-sum">Leetcode &numero; 930 (Medium) &mdash; Binary Subarrays With Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0934-shortest-bridge">Leetcode &numero; 934 (Medium) &mdash; Shortest Bridge (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0946-validate-stack-sequences">Leetcode &numero; 946 (Medium) &mdash; Validate Stack Sequences (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0958-check-completeness-of-a-binary-tree">Leetcode &numero; 958 (Medium) &mdash; Check completeness of a Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0973-k-closest-points-to-origin">Leetcode &numero; 973 (Medium) &mdash; K closest points to origin (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0974-subarray-sums-divisible-by-k">Leetcode &numero; 974 (Medium) &mdash; Subarray Sums Divisible by K (C++)</a>  
