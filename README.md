@@ -336,6 +336,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0450-delete-node-in-a-bst">Leetcode &numero; 450 (Medium) &mdash; Delete Node in a BST (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0451-sort-characters-by-frequeny">Leetcode &numero; 451 (Medium) &mdash; Sort characters by Frequency (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0452-minimum-number-of-arrows-to-burst-balloons">Leetcode &numero; 452 (Medium) &mdash; Minimum number of arrows to burst balloons (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0494-target-sum">Leetcode &numero; 494 (Medium) &mdash; Target Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0498-diagonal-traverse">Leetcode &numero; 498 (Medium) &mdash; Diagonal Traverse (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0523-continuous-subarray-sum">Leetcode &numero; 523 (Medium) &mdash; Continuous Subarray Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0525-contiguous-array">Leetcode &numero; 525 (Medium) &mdash; Contiguous Array (C++)</a>  
