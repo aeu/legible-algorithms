@@ -68,26 +68,29 @@ TreeNode *buildTree(std::vector<std::optional<int>> tree_values)
     return root;
 }
 
-void inOrder(TreeNode *root, int k, int &count, int &retval )
+void inOrder(TreeNode *root,
+             int k,
+             std::vector<int> &walk)
 {
+    if( walk.size() >= k )
+        return;
+
     if( root == nullptr )
         return;
-    inOrder(root->left, k, count,retval );
-    count++;
 
-    if( count == k )
-        retval = root->val;
+    inOrder(root->left, k, walk);
 
-    inOrder(root->right,k,count,retval);
+    walk.push_back( root->val );
+
+    inOrder(root->right,k,walk);
 }
 
 
 int kthSmallest(TreeNode* root, int k)
 {
-    int retval;
-    int count = 0;
-    inOrder(root,k,count,retval);
-    return retval;
+    std::vector<int> walk;
+    inOrder(root,k,walk);
+    return walk[k-1];
 }
 
 int main(int argc, char **argv)
