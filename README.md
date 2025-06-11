@@ -241,6 +241,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 #### Medium
 
 
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -333,6 +334,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0347-top-k-frequent-elements">Leetcode &numero; 347 (Medium) &mdash; Top K Frequent Elements (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0348-design-tic-tac-toe">Leetcode &numero; 348 (Medium) &mdash; Design Tic-Tac-Toe (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0394-decode-string">Leetcode &numero; 394 (Medium) &mdash; Decode String (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0398-random-pick-index">Leetcode &numero; 398 (Medium) &mdash; Random Pick Index (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0399-evaluate-division">Leetcode &numero; 399 (Medium) &mdash; Evaluate Division (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0406-queue-reconstruction-by-height">Leetcode &numero; 406 (Medium) &mdash; Queue Reconstruction by Height (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0417-pacific-island-water-flow">Leetcode &numero; 417 (Medium) &mdash; Pacific Island Water Flow (C++)</a>  
