@@ -218,6 +218,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0836-rectangle-overlap">Leetcode &numero; 836 (Easy) &mdash; Rectangle Overlap (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0844-backspace-string-compare/">Leetcode &numero; 844 (Easy) &mdash; Backspace String Compare (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0872-leaf-similar-trees/">Leetcode &numero; 872 (Easy) &mdash; Leav Similar Trees (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0896-monotonic-array">Leetcode &numero; 896 (Easy) &mdash; Monotonic Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0933-number-of-recent-calls">Leetcode &numero; 933 (Easy) &mdash; Number of Recent Calls (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0938-range-sum-of-bst">Leetcode &numero; 938 (Easy) &mdash; Range Sum of BST (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0977-squares-of-a-sorted-array">Leetcode &numero; 977 (Easy) &mdash; Squares of a Sorted Array (C++)</a>  
@@ -234,8 +235,8 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2094-finding-3-digit-even-numbers">Leetcode &numero; 2094 (Easy) &mdash; Finding 3 Digit Even Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2119-a-number-after-a-double-reversal">Leetcode &numero; 2119 (Easy) &mdash; A Number After a Double Reversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2215-find-the-difference-of-two-arrays/">Leetcode &numero; 2215 (Easy) &mdash; Find the Difference of Two Arrays (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/3545-minimum-deletions-for-at-most-k-distinct-characters">Leetcode &numero; 3345 (Easy) &mdash; Minimum Deletions for at most K Distinct Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/3396-minimum-number-of-operations-to-make-elements-in-array-distinct">Leetcode &numero; 3396 (Easy) &mdash; Minimum Number of Operations to Make Elements in Array Distinct (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/3545-minimum-deletions-for-at-most-k-distinct-characters">Leetcode &numero; 3345 (Easy) &mdash; Minimum Deletions for at most K Distinct Characters (C++)</a>  
 
 
 #### Medium
