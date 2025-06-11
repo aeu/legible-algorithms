@@ -335,6 +335,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0399-evaluate-division">Leetcode &numero; 399 (Medium) &mdash; Evaluate Division (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0406-queue-reconstruction-by-height">Leetcode &numero; 406 (Medium) &mdash; Queue Reconstruction by Height (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0417-pacific-island-water-flow">Leetcode &numero; 417 (Medium) &mdash; Pacific Island Water Flow (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0424-longest-repeating-character-replacement">Leetcode &numero; 424 (Medium) &mdash; Longest Repeating Character Replacement (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0426-convert-binary-search-tree-to-sorted-doubly-linked-list">Leetcode &numero; 426 (Medium) &mdash; Convert Binary Search Tree to Sorted Doubly Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0433-minimum-genetic-mutation">Leetcode &numero; 433 (Medium) &mdash; Minimum Genetic Mutation (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0435-non-overlapping-intervals">Leetcode &numero; 435 (Medium) &mdash; Non Overlapping Intervals (C++)</a>  
