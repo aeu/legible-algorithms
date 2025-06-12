@@ -18,44 +18,17 @@
 #include <queue>
 
 
-int partition(std::vector<int> &nums, int left, int right)
-{
-    int pivot = nums[right];
-    int i = left;
-    int j;
-
-    for(j = left; j < right; j++ )
-    {
-        if( nums[j] <= pivot )
-        {
-            std::swap( nums[i], nums[j] );
-            i++;
-        }
-    }       
-    std::swap( nums[i], nums[j] );
-    return i;
-}
-
-
-int quickSelect(std::vector<int> &nums, int left, int right, int k )
-{
-    if( left == right )
-        return nums[left];
-
-    int pivot_index = partition(nums,left,right);
-
-    if( pivot_index == k )
-        return nums[k];
-    
-    if ( k < pivot_index )
-        return quickSelect(nums,left,pivot_index-1,k);
-    
-    return quickSelect(nums,pivot_index+1,right,k);
-}
-
 int findKthLargest(std::vector<int>& nums, int k)
 {
-    return quickSelect(nums,0,nums.size()-1,nums.size()-k);
+    std::priority_queue<int,std::vector<int>,std::greater<int>> pqueue;
+    for(const auto &current_number : nums )
+    {
+        pqueue.push(current_number);
+        if( pqueue.size() > k )
+            pqueue.pop();
+    }
+
+    return pqueue.top();
 }
 
 int main(int argc, char **argv)
