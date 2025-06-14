@@ -217,6 +217,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0836-rectangle-overlap">Leetcode &numero; 836 (Easy) &mdash; Rectangle Overlap (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0844-backspace-string-compare/">Leetcode &numero; 844 (Easy) &mdash; Backspace String Compare (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0872-leaf-similar-trees/">Leetcode &numero; 872 (Easy) &mdash; Leav Similar Trees (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0876-middle-of-the-linked-list">Leetcode &numero; 876 (Easy) &mdash; Middle of the Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0896-monotonic-array">Leetcode &numero; 896 (Easy) &mdash; Monotonic Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0897-increasing-order-search-tree">Leetcode &numero; 897 (Easy) &mdash; Increasing Order Search Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0933-number-of-recent-calls">Leetcode &numero; 933 (Easy) &mdash; Number of Recent Calls (C++)</a>  
