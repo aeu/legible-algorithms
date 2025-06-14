@@ -363,6 +363,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0547-number-of-provinces">Leetcode &numero; 547 (Medium) &mdash; Number of Provinces (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0560-subarray-sum-equals-k">Leetcode &numero; 560 (Medium) &mdash; Subarray Sum Equals K (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0621-task-scheduler">Leetcode &numero; 621 (Medium) &mdash; Task Scheduler (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0622-design-circular-queue">Leetcode &numero; 622 (Medium) &mdash; Design Circular Queue (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0636-exclusive-time-of-functions">Leetcode &numero; 636 (Medium) &mdash; Exclusive Time of Functions (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0647-palindromic-substrings">Leetcode &numero; 647 (Medium) &mdash; Palindromic Substrings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0649-dota2-senate">Leetcode &numero; 649 (Medium) &mdash; Dota2 Senate (C++)</a>  
