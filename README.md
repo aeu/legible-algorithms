@@ -147,7 +147,6 @@ As of right now I am in the top 4% of Leetcode rankings!
 
 
 
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0009-palindrome-number">Leetcode &numero; 9 (Easy) &mdash; Palindrome Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0013-roman-to-integer">Leetcode &numero; 13 (Easy) &mdash; Roman To Integer (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0014-longest-common-prefix">Leetcode &numero; 14 (Easy) &mdash; Longest Common Prefix (C++)</a>  
@@ -158,6 +157,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0035-search-insert-position">Leetcode &numero; 35 (Easy) &mdash; Search Insert Position (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0066-plus-one">Leetcode &numero; 66 (Easy) &mdash; Plus One (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0067-add-binary">Leetcode &numero; 67 (Easy) &mdash; Add Binary (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0069-sqrt">Leetcode &numero; 69 (Easy) &mdash; Sqrt (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0070-climbing-stairs">Leetcode &numero; 70 (Easy) &mdash; Climbing Stairs (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0088-merge-sorted-array">Leetcode &numero; 88 (Easy) &mdash; Merge Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0094-binary-tree-inorder-traversal">Leetcode &numero; 94 (Easy) &mdash; Binary Tree Inorder Traversal (C++)</a>  
