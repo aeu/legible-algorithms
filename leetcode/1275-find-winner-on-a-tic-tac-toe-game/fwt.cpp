@@ -39,24 +39,9 @@ std::string tictactoe(std::vector<std::vector<int>>& moves)
         if(( row + col ) == 2 )
             up += flipper;
 
-        for( const auto current_row : rows )
-        {
-            if( current_row == 3 )
-                return "A";
-            if( current_row == -3 )
-                return "B";
-        }
-        
-        for( const auto current_col : cols )
-        {
-            if( current_col == 3 )
-                return "A";
-            if( current_col == -3 )
-                return "B";
-        }
-        if(( down == 3 ) || ( up == 3 ))
+        if (rows[row] == 3 || cols[col] == 3 || down == 3 || up == 3)
             return "A";
-        if(( down == -3 ) || ( up == -3 ))
+        if (rows[row] == -3 || cols[col] == -3 || down == -3 || up == -3)
             return "B";
         flipper *= -1;
     }
