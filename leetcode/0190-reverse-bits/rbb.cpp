@@ -22,8 +22,6 @@ uint32_t reverseBits(uint32_t n )
     uint32_t retval = 0;
     uint32_t nmask  = 1;
     uint32_t rmask  = 1 << 31;
-    std::cout << "nmask : " << nmask << std::endl;
-    std::cout << "rmask : " << rmask << std::endl;
     for(int index=0;index<32;index++)
     {
         if( n & nmask )

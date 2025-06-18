@@ -148,6 +148,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 
 
 
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0009-palindrome-number">Leetcode &numero; 9 (Easy) &mdash; Palindrome Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0013-roman-to-integer">Leetcode &numero; 13 (Easy) &mdash; Roman To Integer (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0014-longest-common-prefix">Leetcode &numero; 14 (Easy) &mdash; Longest Common Prefix (C++)</a>  
@@ -175,6 +176,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0144-binary-tree-preorder-traversal">Leetcode &numero; 144 (Easy) &mdash; Binary Tree Preorder Traversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0163-missing-ranges">Leetcode &numero; 163 (Easy) &mdash; Missing Ranges (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0169-majority-element">Leetcode &numero; 169 (Easy) &mdash; Majority Element (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0190-reverse-bits">Leetcode &numero; 190 (Easy) &mdash; Reverse Bits (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0202-happy-number">Leetcode &numero; 202 (Easy) &mdash; Happy Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0202-happy-number">Leetcode &numero; 202 (Easy) &mdash; Happy Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0205-isomorphic-strings">Leetcode &numero; 205 (Easy) &mdash; Isomorphic Strings (C++)</a>  
