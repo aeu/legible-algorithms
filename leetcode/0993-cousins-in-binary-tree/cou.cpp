@@ -70,45 +70,49 @@ TreeNode *buildTree(std::vector<std::optional<int>> tree_values)
 struct BfsInfo
 {
     int current_depth;
-    TreeNode *current_node;
+    TreeNode *parent;
+    TreeNode *node;
 };
 
 bool isCousins(TreeNode *root, int x, int y )
 {
-    BfsInfo b_info;
+    if( root == nullptr )
+        return false;
+    
     int x_depth = INT_MIN;
     int y_depth = INT_MIN;
-    b_info.current_depth = 0;
-    b_info.current_node = root;
+    TreeNode *x_parent = nullptr;
+    TreeNode *y_parent = nullptr;
     std::queue<BfsInfo> bfs_queue;
-    bfs_queue.push( b_info );
-    BfsInfo curr;
+    bfs_queue.push( { 0, nullptr, root } );
     while( ! bfs_queue.empty() )
     {
-        curr = bfs_queue.front();
+        BfsInfo curr = bfs_queue.front();
         bfs_queue.pop();
-        if( curr.current_node->val == x )
+        if( curr.node->val == x )
         {
+            x_parent = curr.parent;
             x_depth = curr.current_depth;
         }
-        else if( curr.current_node->val == y )
+        else if( curr.node->val == y )
         {
+            y_parent = curr.parent;
             y_depth = curr.current_depth;
         }
-        if( ( x_depth != INT_MIN ) && ( y_depth != INT_MIN ) && ( y_depth == x_depth ))
+        if( ( x_parent != nullptr ) && ( y_parent != nullptr ) && ( x_parent != y_parent ) && ( y_depth == x_depth ))
         {
             return true;
         }
-        if( curr.current_node->left != nullptr )
+        if( curr.node->left != nullptr )
         {
-            bfs_queue.push( { curr.current_depth+1, curr.current_node->left } );
+            bfs_queue.push( { curr.current_depth+1, curr.node, curr.node->left } );
         }
-        if( curr.current_node->right != nullptr )
+        if( curr.node->right != nullptr )
         {
-            bfs_queue.push( { curr.current_depth+1, curr.current_node->right } );
+            bfs_queue.push( { curr.current_depth+1, curr.node, curr.node->right } );
         }
     }
-    if(( x_depth != INT_MIN ) && ( y_depth != INT_MIN ) && ( y_depth == x_depth ))
+    if( ( x_parent != nullptr ) && ( y_parent != nullptr ) && ( x_parent != y_parent ) && ( y_depth == x_depth ))
     {
         return true;
     }
@@ -137,6 +141,19 @@ int main(int argc, char **argv)
         int x = 5;
         int y = 4;
         bool expected = true;
+        TreeNode *root = buildTree(nums);
+        bool result = isCousins(root,x,y);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl;
+        std::cout << std::endl;
+    }
+    {
+        std::vector<std::optional<int>> nums  = {1,2,3,std::nullopt,4};
+        int x = 2;
+        int y = 3;
+        bool expected = false;
         TreeNode *root = buildTree(nums);
         bool result = isCousins(root,x,y);
         std::cout << std::endl;
