@@ -112,10 +112,6 @@ bool isCousins(TreeNode *root, int x, int y )
             bfs_queue.push( { curr.current_depth+1, curr.node, curr.node->right } );
         }
     }
-    if( ( x_parent != nullptr ) && ( y_parent != nullptr ) && ( x_parent != y_parent ) && ( y_depth == x_depth ))
-    {
-        return true;
-    }
     return false;
 }
 
