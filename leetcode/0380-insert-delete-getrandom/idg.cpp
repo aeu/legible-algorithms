@@ -56,7 +56,7 @@ public:
     
     int getRandom()
     {
-        return 0;
+        return data[ rand() % data.size() ];
     }
 };
 
