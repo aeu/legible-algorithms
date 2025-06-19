@@ -19,19 +19,27 @@
 
 bool detectCapitalUse(std::string word)
 {
+    bool first_time = true;
     int capital_count = 0;
+    int first_capital_index = -1;
     for(int index = 0; index<word.length();index++)
     {
         char curr = word[index];
         if( isupper( curr ) )
+        {
             capital_count++;
+            if( first_capital_index == -1 )
+            {
+                first_capital_index = index;
+            }
+        }
         // early exit for strings like FROggDID
         if(( capital_count > 1 ) && ( index - capital_count > 1 ))
             return false;
     }
     if( capital_count == word.length() )
         return true;
-    if( capital_count == 1 )
+    if(( capital_count == 1 ) && ( first_capital_index == 0 ))
         return true;
     if( capital_count == 0 )
         return true;
@@ -55,6 +63,16 @@ int main(int argc, char **argv)
     }
     {
         std::string word = "NAchOs";
+        bool expected = false;
+        bool result = detectCapitalUse(word);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl;
+        std::cout << std::endl;
+    }
+    {
+        std::string word = "nachOs";
         bool expected = false;
         bool result = detectCapitalUse(word);
         std::cout << std::endl;
