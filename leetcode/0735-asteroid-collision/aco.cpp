@@ -30,60 +30,6 @@ void dumpNumbers(const std::vector<int> &numbers )
     std::cout << "]" << std::endl;
 }   
 
-std::vector<int> aasteroidCollision(std::vector<int>& asteroids)
-{
-    std::vector<int> retval;
-    bool done = false;
-    for(int current : asteroids )
-    {
-        if( retval.size() == 0 )
-        {
-            retval.push_back(current);
-            continue;
-        }
-        int previous = retval.back();
-        if(( previous < 0 ) || (( previous * current ) > 0 ))
-        {
-            retval.push_back(current);
-        }
-        else
-        {
-            done = false;
-            while( ! done )
-            {
-                if( previous < 0 )
-                {
-                    retval.push_back(current);
-                    done = true;
-                }
-                else if( abs(previous) == abs(current))
-                {
-                    retval.pop_back();
-                    done = true;
-                }
-                else if( abs(previous) > abs(current))
-                {
-                    done = true;
-                }
-                else
-                {
-                    retval.pop_back();
-                    if( retval.size() == 0 )
-                    {
-                        retval.push_back(current);
-                        done = true;
-                    }
-                    else
-                    {
-                        previous = retval.back();
-                    }
-                }
-            }
-        }
-    }
-    return retval;
-}
-
 bool oppositeSigns(int x, int y)
 {
     if(( x < 0 ) && ( y > 0 ))
@@ -110,7 +56,12 @@ std::vector<int> asteroidCollision(std::vector<int>& asteroids)
             else
             {
                 int curfront = belt.top();
-                if( oppositeSigns( curfront, candidate ) )
+                if( curfront < 0 )
+                {
+                    belt.push( candidate );
+                    complete = true;
+                }
+                else if( oppositeSigns( curfront, candidate ) )
                 {
                     if( abs(candidate) == abs(curfront) )
                     {
@@ -149,6 +100,15 @@ int main(int argc, char **argv)
 {
     std::cout << std::endl << "Leetcode 0735 - Asteroid Collision" << std::endl << std::endl;
     int test_case = 1;
+    {
+        std::vector<int> asteroids = { -2,-1,1,2 };
+        std::vector<int> expected = { -2, -1, 1, 2 };
+        std::vector<int> result = asteroidCollision(asteroids);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+    }
     {
         std::vector<int> asteroids = { 5,10,-5 };
         std::vector<int> expected = { 5,10 };
