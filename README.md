@@ -140,14 +140,9 @@ As I go over these I have to keep reminding myself that this is a good
 thing.  If I didn't look back at my code years later and see that it
 was bad, then that means that I haven't improved since I wrote it.
 
-As of right now I am in the top 4% of Leetcode rankings!
-
+As of right now I am in the top 3% of Leetcode rankings!
 
 #### Easy
-
-
-
-
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0009-palindrome-number">Leetcode &numero; 9 (Easy) &mdash; Palindrome Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0013-roman-to-integer">Leetcode &numero; 13 (Easy) &mdash; Roman To Integer (C++)</a>  
@@ -248,8 +243,6 @@ As of right now I am in the top 4% of Leetcode rankings!
 #### Medium
 
 
-
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -342,6 +335,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0339-nested-list-weight-sum">Leetcode &numero; 339 (Medium) &mdash; Nested List Weight Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0347-top-k-frequent-elements">Leetcode &numero; 347 (Medium) &mdash; Top K Frequent Elements (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0348-design-tic-tac-toe">Leetcode &numero; 348 (Medium) &mdash; Design Tic-Tac-Toe (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0380-insert-delete-getrandom">Leetcode &numero; 380 (Medium) &mdash; Insert Delete GetRandom O(1) (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0394-decode-string">Leetcode &numero; 394 (Medium) &mdash; Decode String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0398-random-pick-index">Leetcode &numero; 398 (Medium) &mdash; Random Pick Index (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0399-evaluate-division">Leetcode &numero; 399 (Medium) &mdash; Evaluate Division (C++)</a>  
