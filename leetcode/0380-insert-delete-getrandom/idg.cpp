@@ -43,11 +43,14 @@ public:
         auto mit = metadata.find( val );
         if( mit != metadata.end() )
         {
-            int vals_current_location = mit->second;
-            int current_last_element = data.back();
+            if( data.size() > 1 )
+            {
+                int vals_current_location = mit->second;
+                int current_last_element = data.back();
+                data[vals_current_location] = current_last_element;
+                metadata[current_last_element] = vals_current_location;
+            }
             metadata.erase(mit);
-            data[vals_current_location] = current_last_element;
-            metadata[current_last_element] = vals_current_location;
             data.pop_back();
             retval = true;
         }
@@ -66,14 +69,14 @@ int main(int argc, char **argv)
     std::cout << std::endl << "0380-insert-delete-getrandom" << std::endl << std::endl;
     int test_case = 1;
     {
-        std::vector<int> nums  = {1,2,3};
-        int expected = 0;
-        int result = 0;
-        std::cout << std::endl;
-        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
-        std::cout << " (expected " << expected << ", got " << result << ")\n";
-        std::cout << std::endl;
-        std::cout << std::endl;
+        RandomizedSet rset;
+        std::cout << rset.remove(0) << std::endl;
+        std::cout << rset.remove(0) << std::endl;
+        std::cout << rset.insert(0) << std::endl;
+        std::cout << rset.getRandom() << std::endl;
+        std::cout << rset.remove(0) << std::endl;
+        std::cout << rset.insert(0) << std::endl;
+        
     }
     return 0;
 }
