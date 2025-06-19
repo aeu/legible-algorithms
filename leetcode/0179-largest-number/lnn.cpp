@@ -20,17 +20,7 @@ struct scomp
 {
     bool operator()(const std::string &lhs, const std::string &rhs)
     {
-        int loop_end = std::min( lhs.length(), rhs.length() );
-        for(int index = 0;index<loop_end;index++)
-        {
-            char lchar = lhs[index];
-            char rchar = rhs[index];
-            if( lchar < rchar )
-                return true;
-            else if( lchar > rchar )
-                return false;
-        }
-        return false;
+        return lhs + rhs < rhs + lhs;
     }
 };
 
@@ -53,15 +43,6 @@ std::string largestNumber(std::vector<int> &nums)
     return retval;
 }
 
-
-// 9
-// 97
-// 6
-// 4
-
-
-// 99764
-
 int main(int argc, char **argv)
 {
     std::cout << std::endl << "0179-largest-number" << std::endl << std::endl;
@@ -78,7 +59,7 @@ int main(int argc, char **argv)
     }
     {
         std::vector<int> nums  = {3,30,34,5,9};
-        std::string expected = "9534303";
+        std::string expected = "9534330";
         std::string result = largestNumber(nums);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
