@@ -26,6 +26,19 @@ void dumpStrings(std::vector<std::string> retval)
 }
 
 
+// this follows the standard backtrack pattern, which is as follows
+// setupFunction
+//
+// backtrack
+//    exit condition
+//    push
+//    advance + backtrack
+//    pop
+//
+// in this case if I have less opens than what is possible, I push an
+// open.  if I have less closes than opens and less closes than n, I
+// push a close
+
 void backtrack(int n,
                int open,
                int close,
