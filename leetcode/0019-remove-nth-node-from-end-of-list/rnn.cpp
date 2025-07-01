@@ -39,6 +39,12 @@ void dumpNodes(ListNode *head)
     std::cout << std::endl;
 }
 
+// create two pointsers, a lead and a follow and have them advance
+// down the linked list.  only increment the follow pointer after the
+// lead one has gone N steps.  then when the lead one gets to the end,
+// the follow one will be at the Nth from the end.  By also tracking
+// the previous list element to it, we can now delete the Nth element.
+
 ListNode* removeNthFromEnd(ListNode* head, int n)
 {
     ListNode *dummy = new ListNode(0);
