@@ -20,16 +20,40 @@ int doWork()
     return 1;
 }
 
+
+bool palindromicString(const std::string &candidate)
+{
+    if(( candidate.length() == 0 ) || ( candidate.length() == 1 ))
+        return true;
+
+    int left = 0;
+    int right = candidate.length() - 1;
+
+    while( left <= right )
+    {
+        if( candidate[left] != candidate[right] )
+            return false;
+        left++;
+        right--;
+    }
+    return true;
+}
+
 bool isPalindrome(int x)
 {
     if( x < 0 )
         return false;
-    std::string before = std::to_string(x);
-    std::string rever = std::to_string(x);
-    std::reverse(rever.begin(),rever.end());
-    if( before == rever )
-        return true;
-    return false;
+
+    int local = x;
+    std::string converted = "";
+    while( local != 0 )
+    {
+        int digit = local % 10;
+        converted.append( std::to_string( digit ));
+        local /= 10;
+        
+    }
+    return palindromicString( converted );
 }
 
 int main(int argc, char **argv)
