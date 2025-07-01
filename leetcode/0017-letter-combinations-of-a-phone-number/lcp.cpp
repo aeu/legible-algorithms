@@ -29,39 +29,55 @@ std::vector<std::vector<char>> lookups =
      {'w','x','y','z'}};
 
 
+
+// this follows the standard backtrace pattern, which is as follows:
+//
+// backtrace
+//    exit condition
+//    advance input data
+//    push
+//    backtrace
+//    pop
+//
+// ion this case we are converting each digit to a number, then
+// checking a lookup table for all the letters that go with that
+// number.  each letter is in turn pushed on to the backtrace stack
+// and popped.  When we have them all processed, push the resulting
+// string on to the return stack
+
 void backtrace(std::string digits,
-               int index,
+               int start_point,
                std::vector<char> &path,
                std::vector<std::string> &retval)
 {
-    if( index == digits.length() )
+    if( start_point == digits.length() )
     {
         if( path.size() > 0 )
             retval.push_back(std::string(path.begin(),path.end()));
         return;
     }
-    long num = std::stol(digits.substr(index,1));
+    long num = std::stol(digits.substr(start_point,1));
     for( auto current : lookups[num] )
     {
         path.push_back(current);
-        backtrace(digits,index+1,path,retval);
+        backtrace(digits,start_point+1,path,retval);
         path.pop_back();
     }
 }
 
 std::vector<std::string> letterCombinations(std::string digits)
 {
-    int index = 0;
+    int start_point = 0;
     std::vector<char> path;
     std::vector<std::string> retval;
-    backtrace(digits,index,path,retval);
+    backtrace(digits,start_point,path,retval);
     return retval;
 }
 
 
 int main(int argc, char **argv)
 {
-    std::cout << std::endl << "" << std::endl << std::endl;
+    std::cout << std::endl << "0017-letter-combinations-of-a-phone-number" << std::endl << std::endl;
     int test_case = 1;
     {
         std::string digits = "23";

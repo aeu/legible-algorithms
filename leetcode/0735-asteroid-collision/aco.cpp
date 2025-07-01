@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <iostream>
 #include <map>
+#include <stack>
 #include <unordered_set>
 
 void dumpNumbers(const std::vector<int> &numbers )
@@ -29,78 +30,111 @@ void dumpNumbers(const std::vector<int> &numbers )
     std::cout << "]" << std::endl;
 }   
 
+bool oppositeSigns(int x, int y)
+{
+    if(( x < 0 ) && ( y > 0 ))
+        return true;
+    if(( y < 0 ) && ( x > 0 ))
+        return true;
+    return false;
+}
+
 std::vector<int> asteroidCollision(std::vector<int>& asteroids)
 {
-    std::vector<int> retval;
-    bool done = false;
-    for(int current : asteroids )
+    std::stack<int> belt;
+    for(const auto curr : asteroids )
     {
-        if( retval.size() == 0 )
+        int candidate = curr;
+        bool complete = false;
+        while( ! complete )
         {
-            retval.push_back(current);
-            continue;
-        }
-        int previous = retval.back();
-        if(( previous < 0 ) || (( previous * current ) > 0 ))
-        {
-            retval.push_back(current);
-        }
-        else
-        {
-            done = false;
-            while( ! done )
+            if( belt.empty() )
             {
-                if( previous < 0 )
+                belt.push( candidate );
+                complete = true;
+            }
+            else
+            {
+                int curfront = belt.top();
+                if( curfront < 0 )
                 {
-                    retval.push_back(current);
-                    done = true;
+                    belt.push( candidate );
+                    complete = true;
                 }
-                else if( abs(previous) == abs(current))
+                else if( oppositeSigns( curfront, candidate ) )
                 {
-                    retval.pop_back();
-                    done = true;
-                }
-                else if( abs(previous) > abs(current))
-                {
-                    done = true;
-                }
-                else
-                {
-                    retval.pop_back();
-                    if( retval.size() == 0 )
+                    if( abs(candidate) == abs(curfront) )
                     {
-                        retval.push_back(current);
-                        done = true;
+                        belt.pop();
+                        complete = true;
+                    }
+                    else if( abs (candidate) > abs ( curfront ) )
+                    {
+                        belt.pop();
                     }
                     else
                     {
-                        previous = retval.back();
+                        candidate = curfront;
+                        belt.pop();
                     }
+                }
+                else
+                {
+                    belt.push( candidate );
+                    complete = true;
                 }
             }
         }
     }
+    std::vector<int> retval;
+    while( ! belt.empty() )
+    {
+        retval.push_back( belt.top() );
+        belt.pop();
+    }
+    std::reverse(retval.begin(),retval.end());
     return retval;
 }
+
 int main(int argc, char **argv)
 {
-    std::cout << "Leetcode 0735 - Asteroid Collision" << std::endl;
+    std::cout << std::endl << "Leetcode 0735 - Asteroid Collision" << std::endl << std::endl;
+    int test_case = 1;
+    {
+        std::vector<int> asteroids = { -2,-1,1,2 };
+        std::vector<int> expected = { -2, -1, 1, 2 };
+        std::vector<int> result = asteroidCollision(asteroids);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+    }
     {
         std::vector<int> asteroids = { 5,10,-5 };
-        std::vector<int> after = asteroidCollision(asteroids);
-        dumpNumbers(asteroids);
-        dumpNumbers(after);
+        std::vector<int> expected = { 5,10 };
+        std::vector<int> result = asteroidCollision(asteroids);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
     }
     {
         std::vector<int> asteroids = { 8,-8 };
-        std::vector<int> after = asteroidCollision(asteroids);
-        dumpNumbers(asteroids);
-        dumpNumbers(after);
+        std::vector<int> expected = { };
+        std::vector<int> result = asteroidCollision(asteroids);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
     }
     {
         std::vector<int> asteroids = { 10,2,-5 };
-        std::vector<int> after = asteroidCollision(asteroids);
-        dumpNumbers(asteroids);
-        dumpNumbers(after);
+        std::vector<int> expected = { 10 };
+        std::vector<int> result = asteroidCollision(asteroids);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
     }
+    return 0;
 }

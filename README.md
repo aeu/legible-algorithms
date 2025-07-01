@@ -140,11 +140,9 @@ As I go over these I have to keep reminding myself that this is a good
 thing.  If I didn't look back at my code years later and see that it
 was bad, then that means that I haven't improved since I wrote it.
 
-As of right now I am in the top 4% of Leetcode rankings!
-
+As of right now I am in the top 3% of Leetcode rankings!
 
 #### Easy
-
 
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0009-palindrome-number">Leetcode &numero; 9 (Easy) &mdash; Palindrome Number (C++)</a>  
@@ -174,6 +172,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0144-binary-tree-preorder-traversal">Leetcode &numero; 144 (Easy) &mdash; Binary Tree Preorder Traversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0163-missing-ranges">Leetcode &numero; 163 (Easy) &mdash; Missing Ranges (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0169-majority-element">Leetcode &numero; 169 (Easy) &mdash; Majority Element (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0190-reverse-bits">Leetcode &numero; 190 (Easy) &mdash; Reverse Bits (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0202-happy-number">Leetcode &numero; 202 (Easy) &mdash; Happy Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0202-happy-number">Leetcode &numero; 202 (Easy) &mdash; Happy Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0205-isomorphic-strings">Leetcode &numero; 205 (Easy) &mdash; Isomorphic Strings (C++)</a>  
@@ -203,6 +202,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0485-max-consecutive-ones">Leetcode &numero; 485 (Easy) &mdash; Max Consecutive Ones (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0496-next-greater-element-i">Leetcode &numero; 496 (Easy) &mdash; Next Greater Element I (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0509-fibonacci-number">Leetcode &numero; 509 (Easy) &mdash; Fibonacci Number (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0520-detect-capital">Leetcode &numero; 520 (Easy) &mdash; Detect Capital (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0543-diameter-of-binary-tree">Leetcode &numero; 543 (Easy) &mdash; Diameter of Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0605-can-place-flowers">Leetcode &numero; 605 (Easy) &mdash; Can Place Flowers(C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0637-average-of-levels-in-binary-tree">Leetcode &numero; 637 (Easy) &mdash; Average of Levels in Binary Tree (C++)</a>  
@@ -223,6 +223,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0933-number-of-recent-calls">Leetcode &numero; 933 (Easy) &mdash; Number of Recent Calls (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0938-range-sum-of-bst">Leetcode &numero; 938 (Easy) &mdash; Range Sum of BST (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0977-squares-of-a-sorted-array">Leetcode &numero; 977 (Easy) &mdash; Squares of a Sorted Array (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0993-cousins-in-binary-tree">Leetcode &numero; 993 (Easy) &mdash; Cousins in Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1071-greatest-common-divisor-of-strings/">Leetcode &numero; 1071 (Easy) &mdash; Greatest Common Divisor of Strings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1207-unique-number-of-occurrences/">Leetcode &numero; 1207 (Easy) &mdash; Unique Number of Occurrences (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1295-find-numbers-with-even-number-of-digits">Leetcode &numero; 1295 (Easy) &mdash; Find Numbers With Even Number of Digits (C++)</a>  
@@ -242,8 +243,6 @@ As of right now I am in the top 4% of Leetcode rankings!
 
 
 #### Medium
-
-
 
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
@@ -313,6 +312,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0162-find-peak-element">Leetcode &numero; 162 (Medium) &mdash; Find Peak Element (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0167-two-sum-ii">Leetcode &numero; 167 (Medium) &mdash; Two Sum II - Input Array is Sorted (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0173-binary-search-tree-iterator">Leetcode &numero; 173 (Medium) &mdash; Binary Search Tree Iterator (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0179-largest-number">Leetcode &numero; 179 (Medium) &mdash; Largest Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0189-rotate-array">Leetcode &numero; 189 (Medium) &mdash; Rotate Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0198-house-robber">Leetcode &numero; 198 (Medium) &mdash; House Robber (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0199-binary-tree-right-side-view">Leetcode &numero; 199 (Medium) &mdash; Binary Tree Right Side View (C++)</a>  
@@ -338,6 +338,7 @@ As of right now I am in the top 4% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0339-nested-list-weight-sum">Leetcode &numero; 339 (Medium) &mdash; Nested List Weight Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0347-top-k-frequent-elements">Leetcode &numero; 347 (Medium) &mdash; Top K Frequent Elements (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0348-design-tic-tac-toe">Leetcode &numero; 348 (Medium) &mdash; Design Tic-Tac-Toe (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0380-insert-delete-getrandom">Leetcode &numero; 380 (Medium) &mdash; Insert Delete GetRandom O(1) (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0394-decode-string">Leetcode &numero; 394 (Medium) &mdash; Decode String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0398-random-pick-index">Leetcode &numero; 398 (Medium) &mdash; Random Pick Index (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0399-evaluate-division">Leetcode &numero; 399 (Medium) &mdash; Evaluate Division (C++)</a>  

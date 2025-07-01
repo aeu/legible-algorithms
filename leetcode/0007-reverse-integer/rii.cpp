@@ -18,11 +18,10 @@
 
 int reverse(int x)
 {
-    long local = x;
-    local = abs(x);
+    int local = x;
     bool first = true;
-    long retval = 0;
-    while( local > 0 )
+    int retval = 0;
+    while( local != 0 )
     {
         int digit = local % 10;
         if( first == true )
@@ -32,16 +31,23 @@ int reverse(int x)
         }
         else
         {
+            if( retval != 0 )
+            {
+                // we are going to mutitply retval * 10 and add the digit,
+                // which may cause an overflow, so check for that first
+
+                if(( retval > INT_MAX / 10 ) || ( retval == ( INT_MAX / 10 ) && ( digit > ( INT_MAX % 10 ) )))
+                    return 0;
+                
+                if(( retval < INT_MIN / 10 ) || ( retval == ( INT_MIN / 10 ) && ( digit < ( INT_MIN % 10 ) )))
+                    return 0;
+            }
             retval *= 10;
             retval += digit;
         }
         local /= 10;
     }
-    if( x < 0 )
-        retval *= -1;
-    if( ( retval < INT_MIN ) || ( retval > INT_MAX ))
-        return 0;
-    return (int)retval;
+    return retval;
 }
 
 
@@ -50,12 +56,22 @@ int main(int argc, char **argv)
     std::cout << std::endl << "" << std::endl << std::endl;
     int test_case = 1;
     {
+        int x = 901000;
+        int expected = 109;
+        int result = reverse(x);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl << std::endl << std::endl;
+    }
+    {
         int x = 123;
         int expected = 321;
         int result = reverse(x);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
         std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl << std::endl << std::endl;
     }
     {
         int x = -123;
@@ -64,6 +80,7 @@ int main(int argc, char **argv)
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
         std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl << std::endl << std::endl;
     }
     {
         int x = 120;
@@ -72,6 +89,7 @@ int main(int argc, char **argv)
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
         std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl << std::endl << std::endl;
     }
     return 0;
 }

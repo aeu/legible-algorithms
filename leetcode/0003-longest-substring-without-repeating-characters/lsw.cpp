@@ -43,7 +43,10 @@ int lengthOfLongestSubstring(std::string s) {
                 seen.erase( s[left] );
                 left++;
             }
-            // and then go one more to remove the duplicate.
+            // and then go one more to remove the duplicate.  The next
+            // time the loop goes around the current right will be
+            // added to the seen list so remove it now (or else we
+            // will hit the duplication again.
             seen.erase( s[left] );
             left++;
         }

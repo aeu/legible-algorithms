@@ -15,6 +15,12 @@
 #include <unordered_set>
 #include <unordered_map>
 
+// sort the input array immediately.  then that gives us an
+// increaseing array to work with.  Starting with the first number, we
+// can now left/right the remaining numbers, and if the sum is less
+// than 0 increase left and if its greater than 0 decrease right.
+// There's some extra logic in there for duplicates as well.
+
 std::vector<std::vector<int>> threeSum(std::vector<int>& nums)
 {
     std::vector<std::vector<int>> retval;

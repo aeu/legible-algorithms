@@ -88,22 +88,15 @@ class Solution
 
         while(( node_one != nullptr ) || ( node_two != nullptr ))
         {
+            val_one = 0;
+            val_two = 0;
             if( node_one != nullptr )
             {
                 val_one = node_one->val;
             }
-            else
-            {
-                val_one = 0;
-            }
-            
             if( node_two != nullptr )
             {
                 val_two = node_two->val;
-            }
-            else
-            {
-                val_two = 0;
             }
 
             int sum = val_one + val_two + carry;

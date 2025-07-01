@@ -11,10 +11,10 @@
 #include <sstream>
 
 
-void dumpHeights(const std::vector<int> &heights)
+void dumpHeight(const std::vector<int> &height)
 {
     bool first_time = true;
-    for(int current : heights )
+    for(int current : height )
     {
         if( ! first_time )
             std::cout << ", ";
@@ -24,19 +24,19 @@ void dumpHeights(const std::vector<int> &heights)
     std::cout << std::endl;
 }
 
-int calculateMostWater(const std::vector<int> &heights)
+int maxArea(const std::vector<int> &height)
 {
-    if( heights.size() < 2 )
+    if( height.size() < 2 )
         return 0;
 
     int max_volume = 0;
     int left = 0;
-    int right = heights.size() - 1;
+    int right = height.size() - 1;
     while(left < right )
     {
-        int current_volume = std::min( heights[left], heights[right] ) * ( right - left  );
+        int current_volume = std::min( height[left], height[right] ) * ( right - left  );
         max_volume = std::max( max_volume, current_volume );
-        if( heights[left] < heights[right] )
+        if( height[left] < height[right] )
             left++;
         else
             right--;
@@ -48,15 +48,15 @@ int main(int argc, char **argv)
 {
     std::cout << "Leetcode #11 - Container with Most Waters" << std::endl << std::endl;
     {
-        std::vector<int> heights = { 1,8,6,2,5,4,8,3,7 };
-        dumpHeights(heights);
-        int most_water = calculateMostWater(heights);
+        std::vector<int> height = { 1,8,6,2,5,4,8,3,7 };
+        dumpHeight(height);
+        int most_water = maxArea(height);
         std::cout << "Most water is " << most_water << std::endl;
     }
     {
-        std::vector<int> heights = { 1,1 };
-        dumpHeights(heights);
-        int most_water = calculateMostWater(heights);
+        std::vector<int> height = { 1,1 };
+        dumpHeight(height);
+        int most_water = maxArea(height);
         std::cout << "Most water is " << most_water << std::endl;
     }
 }
