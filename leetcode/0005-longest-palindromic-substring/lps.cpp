@@ -75,7 +75,7 @@ std::pair<int,std::string> palindromeAtStartIndex(std::string s,
 
     // now check for the non-isolated middle
     // Example:  cbaabc
-    //
+
     left = start_index;
     right = start_index+1;
     int start_point = start_index;
@@ -93,7 +93,8 @@ std::pair<int,std::string> palindromeAtStartIndex(std::string s,
         {
             break;
         }
-    }    
+    }
+    // if the non-isolated middle length is greater, replace it.
     if( nimlen > max_length )
     {
         max_length = nimlen;
