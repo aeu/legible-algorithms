@@ -1,4 +1,3 @@
 ### Solution
 
-This wasn't too bad, it is mostly a bookkeeping problem, you have to
-keep track of the pointers during the math.
+ Bookkeeping / pointers / math.  No major tricks, you just have to keep track of things while doing the calculation.
