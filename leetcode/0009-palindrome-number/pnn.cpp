@@ -20,7 +20,6 @@ int doWork()
     return 1;
 }
 
-
 bool palindromicString(const std::string &candidate)
 {
     if(( candidate.length() == 0 ) || ( candidate.length() == 1 ))
