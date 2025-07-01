@@ -37,6 +37,15 @@ bool isOpener(const char candidate)
     return false;
 }
 
+// walk through all the characters in the string.  If it's a opener,
+// blindly push it on to the stack and continue (as they can be
+// nested).  If it's not an opener and the stack is empty, return
+// false (as you can't have a closer without an opener).  finally,
+// compare the closer with the current top of the stack.  if they are
+// a matching pair, keep going.  otherwise false out finally at the
+// end return false if the stack isn't empty, as this means there's
+// unclosed openers.
+
 bool isValid(std::string s)
 {
     std::stack<char> cstack;
