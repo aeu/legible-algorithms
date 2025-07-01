@@ -33,6 +33,11 @@ struct Higher {
 
 
 
+// I did this the same way as I did the merge K lists, which is
+// actually overkill for this problem.  use a priority queue and
+// insert all the lists in them.  pick the higiest, remove and insert
+// it's next, and keep going until the queue is empty.
+
 ListNode* mergeTwoLists(ListNode* list1, ListNode* list2)
 {
     std::priority_queue<ListNode *, std::vector<ListNode *>, Higher> pqueue;
