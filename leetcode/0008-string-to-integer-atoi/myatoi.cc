@@ -14,7 +14,7 @@ int myAtoi(std::string s)
     long retval = 0;
     const char *current = s.c_str();
     int sign = 1;
-    int started_number = 0;
+    bool started_number = false;
     int was_digit = 0;
     int done = 0;
     char previous;
@@ -41,70 +41,70 @@ int myAtoi(std::string s)
         case '0':
             if( ! started_number && previous == '-' )
                 sign = -1;
-            started_number = 1;
+            started_number = true;
             was_digit = 1;
             retval *= 10;
             break;
         case '1':
             if( ! started_number && previous == '-' )
                 sign = -1;
-            started_number = 1;
+            started_number = true;
             retval *= 10;
             retval += 1;
             break;
         case '2':
             if( ! started_number && previous == '-' )
                 sign = -1;
-            started_number = 1;
+            started_number = true;
             retval *= 10;
             retval += 2;
             break;
         case '3':
             if( ! started_number && previous == '-' )
                 sign = -1;
-            started_number = 1;
+            started_number = true;
             retval *= 10;
             retval += 3;
             break;
         case '4':
             if( ! started_number && previous == '-' )
                 sign = -1;
-            started_number = 1;
+            started_number = true;
             retval *= 10;
             retval += 4;
             break;
         case '5':
             if( ! started_number && previous == '-' )
                 sign = -1;
-            started_number = 1;
+            started_number = true;
             retval *= 10;
             retval += 5;
             break;
         case '6':
             if( ! started_number && previous == '-' )
                 sign = -1;
-            started_number = 1;
+            started_number = true;
             retval *= 10;
             retval += 6;
             break;
         case '7':
             if( ! started_number && previous == '-' )
                 sign = -1;
-            started_number = 1;
+            started_number = true;
             retval *= 10;
             retval += 7;
             break;
         case '8':
             if( ! started_number && previous == '-' )
                 sign = -1;
-            started_number = 1;
+            started_number = true;
             retval *= 10;
             retval += 8;
             break;
         case '9':
             if( ! started_number && previous == '-' )
                 sign = -1;
-            started_number = 1;
+            started_number = true;
             retval *= 10;
             retval += 9;
             break;
