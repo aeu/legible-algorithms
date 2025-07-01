@@ -39,6 +39,13 @@ void dumpNodeList(std::vector<TreeNode *> values)
     std::cout << std::endl;
 }
 
+TreeNode *getSuccessor(TreeNode *root)
+{
+    TreeNode *retval = root->right;
+    while(( retval != nullptr ) && ( retval->left != nullptr ))
+        retval = retval->left;
+    return retval;
+}
 
 TreeNode *buildTree(std::vector<std::optional<int>> tree_values)
 {
