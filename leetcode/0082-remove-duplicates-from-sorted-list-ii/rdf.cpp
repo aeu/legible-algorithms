@@ -50,92 +50,34 @@ ListNode *deleteDuplicates(ListNode *head)
     dummy->next = head;
 
     ListNode *curr;
-    ListNode *prev;
+    ListNode *insertion_point;
 
-    prev = dummy;
+    insertion_point = dummy;
     curr = head;
 
     while( curr != nullptr )
     {
+        // the next node is the same as the current one
         if(( curr->next != nullptr ) && ( curr->val == curr->next->val ))
         {
+            // keep going until there next node is different (there
+            // may be more than one dupe)
             while(( curr->next != nullptr ) && ( curr->next->val == curr->val ))
             {
                 curr = curr->next;
             }
-            prev->next = curr->next;
+            insertion_point->next = curr->next;
         }
+        // not a duplicate, so just advance the insertion point
         else
         {
-            prev = prev->next;
+            insertion_point = insertion_point->next;
         }
         curr = curr->next;
     }
     ListNode *new_head = dummy->next;
     delete dummy;
     return new_head;
-}
-
-
-
-ListNode* olddeleteDuplicates(ListNode* head)
-{
-    if( head == nullptr )
-        return nullptr;
-
-    if( head->next == nullptr )
-        return head;
-
-    if(( head->val == head->next->val )
-       && ( head->next->next == nullptr ))
-        return nullptr;
-
-    
-    ListNode *dummy = new ListNode(0);
-    std::map<int,int> skips;
-    
-    ListNode *lead;
-    ListNode *prev;
-    ListNode *tail;
-
-    prev = head;
-    lead = head->next;
-    tail = dummy;
-    tail->next = nullptr;
-
-    while( lead != nullptr )
-    {
-        if( lead->val == prev->val )
-        {
-            skips[ lead->val ] = 1;
-        }
-        if( skips.empty() )
-        {
-            tail->next = prev;
-            tail = tail->next;
-        }
-        else
-        {
-            if( skips.find( prev->val ) == skips.end() )
-            {
-                tail->next = prev;
-                tail = tail->next;
-            }
-            if( prev->val > skips.begin()->first )
-            {
-                skips.erase( skips.begin() );
-            }
-        }
-        lead = lead->next;
-        prev = prev->next;
-    }
-    if( skips.find( prev->val ) == skips.end() )
-    {
-        tail->next = prev;
-        tail = tail->next;
-    }
-    tail->next = nullptr;
-    return dummy->next;
 }
 
 
