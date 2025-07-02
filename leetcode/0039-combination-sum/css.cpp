@@ -15,6 +15,18 @@
 #include <stack>
 #include <limits.h>
 
+
+// this follows the standard backtracking pattern which is
+// setup function
+//
+// backtrack
+//    exit condition
+//
+//    push next candidate (if it won't go over target)
+//    backtrack updated target and starting positon
+//    pop
+//
+
 void backtrack(std::vector<int>& candidates,
                int target,
                int starting_candidate,
