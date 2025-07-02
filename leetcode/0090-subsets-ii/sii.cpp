@@ -27,6 +27,19 @@ void dumpValues(std::vector<int> values)
     std::cout << "]" << std::endl;
 }
 
+// standard backtrack pattern
+//
+// setup the return array and the solution
+//
+// backtrack
+//    loop through the numbers.  if the number is different from the
+//    one that preceedded it, push to the solution
+//
+//    push the current index / start point
+//    backtrack
+//    pop the current from the solution
+//
+
 void backtrack(std::vector<int> &nums,
                int start_index,
                std::vector<int> &path,
