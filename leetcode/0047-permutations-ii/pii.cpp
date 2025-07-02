@@ -16,6 +16,19 @@
 #include <limits.h>
 
 
+// standard backtrack solution
+//
+// setup
+//   sort numbers
+//   create a seen
+//
+// backtrack
+//   check for exit
+//   push next possible candidate
+//   backtrack
+//   pop
+
+
 void backtrack(std::vector<int>& nums,
                std::vector<int> &used,
                std::vector<int> &path,
@@ -30,7 +43,13 @@ void backtrack(std::vector<int>& nums,
     {
         if( used[index] )
             continue;
-        
+
+        // make sure I'm
+        // past the first number
+        // if my current number is the same as the previous one
+        // AND the previous one has not been used (its been skipped)
+        // then I can skip this one too.
+
         if(( index > 0 ) && ( nums[index] == nums[index-1] ) && ( ! used[index-1] ))
             continue;
 
