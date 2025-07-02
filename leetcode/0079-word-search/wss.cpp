@@ -41,10 +41,12 @@ std::vector<std::vector<int>> directions =
 // backtrack
 //     exit out if the current char isn't the next char in the word
 //
+//     add to seen the current position
 //     pick the next char based on cardinals, if not seen
 //     backtrack, updating the candidate to the next char in the word
 //        if found, return out
 //     pop
+//     remove from seen
 
 bool backtrack(std::vector<std::vector<char>>& board,
                std::vector<std::vector<int>>& seen,
