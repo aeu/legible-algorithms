@@ -1,22 +1,3 @@
-// -*- Mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; -*-
-//
-//  red82 // software
-//
-//  This software may not be used or reproduced, in whole or in part,
-//  without the express written permission of red82
-
-#include <iostream>
-#include <optional>
-#include <vector>
-#include <queue>
-#include <map>
-#include <unordered_set>
-#include <unordered_map>
-#include <stack>
-#include <cstdlib>
-#include <limits.h>
-
-
 bool isValidIp(const std::string candidate)
 {
     if( candidate.length() <= 0 )
@@ -34,18 +15,36 @@ bool isValidIp(const std::string candidate)
 }
 
 
+// standard backtrack pattern
+// setup
+//    solution vector
+//    return vecbtor
+//    initial call to backtrack
+//
+// backtrack
+//    check if the solution is valid
+//    loop through the string starting at the current position
+//       next is valid
+//       push to solution
+//       backtrack, increment start point on string
+//       pop from solution
+//
+
 void backtrace(int start_index,
                std::string s,
-               std::vector<std::string> &path,
+               std::vector<std::string> &solution,
                std::vector<std::string> &retval)
 {
     // all characters have been used
     if( start_index == s.length() )
     {
         // is comprised of 4 strings, so a valid IP
-        if( path.size() == 4 )
+        if( solution.size() == 4 )
         {
-            std::string ip = path[0] + "." + path[1] + "." + path[2] + "." + path[3];
+            std::string ip = solution[0] + "."
+                + solution[1] + "."
+                + solution[2] + "."
+                + solution[3];
             retval.push_back(ip);
         }
     }
@@ -56,9 +55,9 @@ void backtrace(int start_index,
 
         if(isValidIp(curr ))
         {
-            path.push_back(curr);
-            backtrace(index+1,s,path,retval);
-            path.pop_back();
+            solution.push_back(curr);
+            backtrace(index+1,s,solution,retval);
+            solution.pop_back();
         }
     }
 }
@@ -67,8 +66,8 @@ void backtrace(int start_index,
 std::vector<std::string> restoreIpAddresses(std::string s)
 {
     std::vector<std::string> retval;
-    std::vector<std::string> path;
-    backtrace(0,s,path,retval);
+    std::vector<std::string> solution;
+    backtrace(0,s,solution,retval);
     return retval;
 }
 
