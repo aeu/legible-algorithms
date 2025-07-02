@@ -14,6 +14,11 @@
 #include <stack>
 #include <limits.h>
 
+// walk through the numbers and keep track of the biggest sum as we
+// go.  if the current sum ever goes negative, restart the sum at
+// where we are at now (because everything that has come before has
+// already been captured) and keep going
+
 int maxSubArray(std::vector<int> &nums )
 {
     int max_sum = nums[0];
