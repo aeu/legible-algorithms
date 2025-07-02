@@ -15,6 +15,9 @@
 #include <limits.h>
 
 
+// do two binary searchines, one for the first occurrence, one for the
+// last
+
 std::vector<int> searchRange(std::vector<int> nums, int target)
 {
     if( nums.size() == 0 )
