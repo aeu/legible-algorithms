@@ -14,6 +14,9 @@
 #include <unordered_set>
 
 
+// anagrams will all sort to the same, so create a vector in a map
+// using the sorted as the key
+
 std::vector<std::vector<std::string>> groupAnagrams(std::vector<std::string> &strs)
 {
     std::unordered_map<std::string,std::vector<std::string>> gas;
