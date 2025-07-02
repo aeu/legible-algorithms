@@ -25,6 +25,19 @@ void dumpValues(std::vector<int> values)
     std::cout << std::endl;
 }
 
+// standard backtracking pattern
+//
+// setup
+//    retval which will contain all possible subsets
+//    the current path (solution) being built
+//
+// backtrack
+//    no exit condition, just add the current path as we are taking all
+//    push the next possible
+//    backtrack, but increment the start point
+//    pop
+
+
 void backtrack(std::vector<int> &nums,
                int start_index,
                std::vector<int> &path,
