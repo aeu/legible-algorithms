@@ -15,6 +15,12 @@
 #include <stack>
 #include <limits.h>
 
+
+// keep track of the furthest we can jump from any position.  as we
+// walk through the numbers if we ever get to a loop index that is
+// past the furthest we would have been able to jump to in the past,
+// exit out false
+
 bool canJump(std::vector<int>& nums)
 {
     int furthest = 0;
