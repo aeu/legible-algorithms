@@ -15,27 +15,34 @@
 #include <stack>
 #include <limits.h>
 
+
+// define a low and high pointer to point to the start and the end of
+// the array, and a seeker to walk through the array left to right if
+// the seeker finds a low push it low if it finds a high, push it high
+// (and adjust output pointers appropriately).  if its middle, leave
+// as is.
+
 void sortColors(std::vector<int>& nums)
 {
-    int low = 0;
-    int mid = 0;
-    int high = nums.size()-1;
+    int low_insertion_point = 0;
+    int seeker = 0;
+    int high_insertion_point = nums.size()-1;
 
-    while( mid <= high )
+    while( seeker <= high_insertion_point )
     {
-        if( nums[mid] == 0 )
+        if( nums[seeker] == 0 )
         {
-            std::swap( nums[mid], nums[low] );
-            low++;mid++;
+            std::swap( nums[seeker], nums[low_insertion_point] );
+            low_insertion_point++;seeker++;
         }
-        else if ( nums[mid] == 1 )
+        else if ( nums[seeker] == 1 )
         {
-            mid++;
+            seeker++;
         }
         else
         {
-            std::swap( nums[mid], nums[high] );
-            high--;
+            std::swap( nums[seeker], nums[high_insertion_point] );
+            high_insertion_point--;
         }
     }
 }
