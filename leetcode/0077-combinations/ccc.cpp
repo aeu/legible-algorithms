@@ -24,6 +24,23 @@ void dumpValues(std::vector<int> values)
     std::cout << std::endl;
 }
 
+// this is a standard backtracking problem.  in this case we don't
+// have an array of input elements, we just have a end point N which
+// represents the highest number we can use.  At each step of the way
+// add the next possible number.  our exit condition is when the path
+// is of the right length
+//
+// setup
+//    path being built
+//    retval where the solutions are going
+//
+// backtrack
+//    exit condition, are we the light length, if so, add to path
+//    loop through remaining possible numbers
+//    push next possible
+//    backtrack
+//    pop what we just added
+
 void backtrack(int n,
                int k,
                int start,
