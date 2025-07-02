@@ -35,6 +35,16 @@ std::vector<std::vector<int>> directions =
         {  0, -1 }  // west
     };
 
+// standard backtrack.  we build a seen and pass it in, along with the word and the current
+// index into the word
+//
+// backtrack
+//     exit out if the current char isn't the next char in the word
+//
+//     pick the next char based on cardinals, if not seen
+//     backtrack, updating the candidate to the next char in the word
+//        if found, return out
+//     pop
 
 bool backtrack(std::vector<std::vector<char>>& board,
                std::vector<std::vector<int>>& seen,
