@@ -41,8 +41,12 @@ through it.
 I once had dreams of getting a cheque.  Now I think I'll be lucky to
 make it through one of the books. (If you know, you know).
 
-This Leetcode solution is actually is Knuth's "Algorithm L" for
-generating the next permutation of elements, in lexicographical order, in place.
+This Leetcode solution is actually Knuth's "Algorithm L" for
+generating the next permutation of elements, in lexicographical order,
+in place.  I don't think it's quite fair that this is a leetcode
+problem - especially categorized as "Medium", as it's a pretty obscure
+implementatation that (allegedly) took the greatest programmer of all
+time a day to solve!
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0031-next-permutation">Leetcode &numero; 31 (Medium) &mdash; Next Permutation (C++)</a>  
 
