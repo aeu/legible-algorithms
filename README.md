@@ -41,8 +41,12 @@ through it.
 I once had dreams of getting a cheque.  Now I think I'll be lucky to
 make it through one of the books. (If you know, you know).
 
-This Leetcode solution is actually is Knuth's "Algorithm L" for
-generating the next permutation of elements, in lexicographical order, in place.
+This Leetcode solution is actually Knuth's "Algorithm L" for
+generating the next permutation of elements, in lexicographical order,
+in place.  I don't think it's quite fair that this is a leetcode
+problem - especially categorized as "Medium", as it's a pretty obscure
+implementatation that (allegedly) took the greatest programmer of all
+time a day to solve!
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0031-next-permutation">Leetcode &numero; 31 (Medium) &mdash; Next Permutation (C++)</a>  
 
@@ -177,6 +181,7 @@ As of right now I am in the top 3% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0202-happy-number">Leetcode &numero; 202 (Easy) &mdash; Happy Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0205-isomorphic-strings">Leetcode &numero; 205 (Easy) &mdash; Isomorphic Strings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0206-reverse-linked-list">Leetcode &numero; 206 (Easy) &mdash; Reverse Linked List (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0217-contains-duplicate">Leetcode &numero; 217 (Easy) &mdash; Contains Duplicate (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0219-contains-duplicate-ii">Leetcode &numero; 219 (Easy) &mdash; Contains Duplicate (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0222-count-complete-tree-nodes">Leetcode &numero; 222 (Easy) &mdash; Count Complete Tree Nodes (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0226-invert-binary-tree">Leetcode &numero; 226 (Easy) &mdash; Invert Binary Tree (C++)</a>  
