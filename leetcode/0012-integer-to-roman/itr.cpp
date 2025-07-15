@@ -27,36 +27,20 @@
 
 
 std::vector<std::pair<std::string, int>> lookups = {
-    { "M", 1000 },
-    { "D", 500  },
-    { "C", 100  },
-    { "L", 50   },
-    { "X", 10   },
-    { "V", 5    },
-    { "I", 1    }
+    { "M",  1000 },
+    { "CM",  900 },
+    { "D",   500 },
+    { "CD",  400 },
+    { "C",   100 },
+    { "XC",   90 },
+    { "L",    50 },
+    { "XL",   40 },
+    { "X",    10 },
+    { "IX",    9 },
+    { "V",     5 },
+    { "IV",    4 },
+    { "I",     1 }
 };
-
-int getFirstDigit(int num)
-{
-    int digit = 0;
-    if( num >= 100 )
-    {
-        int remainder = num / 1000;
-        int thousands = num - remainder;
-        digit = thousands / 100;
-    }
-    else if ( num >= 10 )
-    {
-        int remainder = num / 100;
-        int hundreds = num - remainder;
-        digit = hundreds / 10;
-    }
-    else
-    {
-        digit = num;
-    }
-    return digit;
-}
 
 std::string intToRoman(int num)
 {
@@ -66,70 +50,12 @@ std::string intToRoman(int num)
 
     for( auto curr_pair : lookups )
     {
-        if( num == curr_pair.second)
-            return curr_pair.first;
-    }
-    
-    int local = num;
-    int lindex = 0;
-
-    while( local > 0 )
-    {
-        int first_digit = getFirstDigit( local );
-        if( ( first_digit == 4 ) || ( first_digit == 9 ))
+        while ( num >= curr_pair.second )
         {
-            if( local >= 900 )
-            {
-                retval += "CM";
-                local -= 900;
-            }
-            else if ( local >= 400 )
-            {
-                retval += "CD";
-                local -= 400;
-            }
-            else if ( local >= 90 )
-            {
-                retval += "XC";
-                local -= 90;
-            }
-            else if ( local >= 40 )
-            {
-                retval += "XL";
-                local -= 40;
-            }
-            else if ( local == 9 )
-            {
-                retval += "IX";
-                local -= 9;
-            }
-            else if ( local == 4 )
-            {
-                retval += "IV";
-                local -= 4;
-            }
+            num -= curr_pair.second;
+            retval += curr_pair.first;
         }
-        else if( local >= lookups[lindex].second )
-        {
-            int count = local / lookups[lindex].second;
-            local = local - ( count * lookups[lindex].second );
-            if( count == 4 )
-            {
-                retval += lookups[lindex].first;
-                retval += lookups[lindex-1].first;
-            }
-            else
-            {
-                while( count > 0 )
-                {
-                    retval += lookups[lindex].first;
-                    count--;
-                }
-            }
-        }
-        lindex++;
     }
-    
     return retval;
 }
 
