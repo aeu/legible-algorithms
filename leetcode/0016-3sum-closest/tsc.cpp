@@ -31,30 +31,32 @@ int threeSumClosest(std::vector<int> &nums, int target)
         }
         return retval;
     }
-
+    //    std::cout << "Target: " << target << std::endl;
     std::sort( nums.begin(), nums.end() );
-    for(int lowest = 0; lowest<nums.size()-3;lowest++)
+    // -4, -1, 1, 2
+    for(int lowest = 0; lowest<nums.size()-2;lowest++)
     {
-        for(int second = lowest+1; second<nums.size()-2;second++)
+        for(int second = lowest+1; second<nums.size()-1;second++)
         {
+            //            std::cout << "nums[lowest] : " << nums[lowest] << "  nums[second]: " << nums[second] << std::endl;
+            int base = nums[lowest] + nums[second];
             int low = second+1;
             int high = nums.size()-1;
-            int base = nums[lowest] + nums[second];
             while( low <= high )
             {
-                int mid = low + ((high - low ) / 2);
-                std::cout << nums[lowest] << " " << nums[second] << " " << nums[mid] << std::endl;
-                int sum = base + nums[mid];
-                std::cout << "sum " << sum << std::endl;
-                int delta = abs( target - sum );
-                best_delta_so_far = std::min( best_delta_so_far, delta );
-                if( best_delta_so_far == delta )
-                    closest_to_date = sum;
-                
-                if( sum >= target )
-                    high = mid;
-                else
-                    low = mid+1;
+                 int mid = low + ((high - low ) / 2);
+                 //                 std::cout << nums[lowest] << " " << nums[second] << " " << nums[mid] << std::endl;
+                 int sum = base + nums[mid];
+                 //                 std::cout << "sum " << sum << std::endl;
+                 int delta = abs( target - sum );
+                 best_delta_so_far = std::min( best_delta_so_far, delta );
+                 if( best_delta_so_far == delta )
+                     closest_to_date = sum;
+              
+                 if( sum >= target )
+                     high = mid-1;
+                 else
+                     low = mid+1;
             }
         }
     }
