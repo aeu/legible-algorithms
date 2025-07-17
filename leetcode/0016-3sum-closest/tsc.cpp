@@ -18,7 +18,7 @@
 #include <limits.h>
 
 
-int threeSumClosest(std::vector<int> &nums, int target)
+int threeSumClosestBinary(std::vector<int> &nums, int target)
 {
     int best_delta_so_far = INT_MAX;
     int closest_to_date = 0;
@@ -31,27 +31,27 @@ int threeSumClosest(std::vector<int> &nums, int target)
         }
         return retval;
     }
-    //    std::cout << "Target: " << target << std::endl;
     std::sort( nums.begin(), nums.end() );
-    // -4, -1, 1, 2
     for(int lowest = 0; lowest<nums.size()-2;lowest++)
     {
         for(int second = lowest+1; second<nums.size()-1;second++)
         {
-            //            std::cout << "nums[lowest] : " << nums[lowest] << "  nums[second]: " << nums[second] << std::endl;
             int base = nums[lowest] + nums[second];
             int low = second+1;
             int high = nums.size()-1;
             while( low <= high )
             {
                  int mid = low + ((high - low ) / 2);
-                 //                 std::cout << nums[lowest] << " " << nums[second] << " " << nums[mid] << std::endl;
                  int sum = base + nums[mid];
-                 //                 std::cout << "sum " << sum << std::endl;
                  int delta = abs( target - sum );
-                 best_delta_so_far = std::min( best_delta_so_far, delta );
-                 if( best_delta_so_far == delta )
+                 if( sum == target )
+                     return sum;
+                 
+                 if( delta < best_delta_so_far )
+                 {
+                     best_delta_so_far = delta;
                      closest_to_date = sum;
+                 }
               
                  if( sum >= target )
                      high = mid-1;
@@ -63,8 +63,47 @@ int threeSumClosest(std::vector<int> &nums, int target)
     return closest_to_date;
 }
 
-// -4 -1 1 2
+int threeSumClosest(std::vector<int> &nums, int target)
+{
+    int best_delta_so_far = INT_MAX;
+    int closest_to_date = 0;
+    if( nums.size() == 3 )
+    {
+        int sum = 0;
+        for(const auto curr : nums )
+        {
+            sum += curr;
+        }
+        return sum;
+    }
+    std::sort( nums.begin(), nums.end() );
+    for(int index = 0; index<nums.size()-2;index++)
+    {
+        int low = index+1;
+        int high = nums.size()-1;
+        while( low < high )
+        {
+            int sum= nums[index] + nums[low] + nums[high];
+            if( sum == target )
+                return sum;
 
+            int delta = abs( target - sum );
+            if( delta < best_delta_so_far )
+            {
+                best_delta_so_far = delta;
+                closest_to_date = sum;
+            }
+            
+            if( sum >= target )
+                high--;
+            else
+                low++;
+        }
+    }
+    return closest_to_date;
+}
+
+// -4 -1 1 2
 int main(int argc, char **argv)
 {
     std::cout << std::endl << "0016-3sum-closest" << std::endl << std::endl;
