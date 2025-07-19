@@ -262,6 +262,7 @@ As of right now I am in the top 3% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0019-remove-nth-node-from-end-of-list">Leetcode &numero; 19 (Medium) &mdash; Remove Nth Node From End of List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0022-generate-parentheses">Leetcode &numero; 22 (Medium) &mdash; Generate Prentheses (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0024-swap-nodes-in-pairs">Leetcode &numero; 24 (Medium) &mdash; Swap Nodes in Pairs (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0029-divide-two-integers">Leetcode &numero; 29 (Medium) &mdash; Divide two Integers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0031-next-permutation">Leetcode &numero; 31 (Medium) &mdash; Next Permutation (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0033-search-in-rotated-sorted-array">Leetcode &numero; 33 (Medium) &mdash; Search in Rotated Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0034-find-first-and-last-position-of-element-in-sorted-array">Leetcode &numero; 34 (Medium) &mdash; Find First an Last Position of Element in Sorted Array (C++)</a>  
