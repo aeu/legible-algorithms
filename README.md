@@ -156,6 +156,7 @@ As of right now I am in the top 3% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0021-merge-two-sorted-lists">Leetcode &numero; 21 (Easy) &mdash; Merge Two Sorted Lists (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0026-remove-duplicates-from-sorted-array">Leetcode &numero; 26 (Easy) &mdash; Remove Duplicates from Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0027-remove-element">Leetcode &numero; 27 (Easy) &mdash; Remove Element (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0028-find-the-index-of-the-first-occurrence-in-a-string">Leetcode &numero; 28 (Easy) &mdash; Find the index of the first occurrence in a string (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0035-search-insert-position">Leetcode &numero; 35 (Easy) &mdash; Search Insert Position (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0066-plus-one">Leetcode &numero; 66 (Easy) &mdash; Plus One (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0067-add-binary">Leetcode &numero; 67 (Easy) &mdash; Add Binary (C++)</a>  
