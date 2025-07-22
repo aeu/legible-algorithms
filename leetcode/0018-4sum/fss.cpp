@@ -29,14 +29,14 @@ std::vector<std::vector<int>> fourSum(std::vector<int>& nums, int target)
     int N = nums.size();
     for(int first = 0;first< (N-3) ;first++)
     {
-        for(int second = 1; second<(N-2);second++)
+        for(int second = first+1; second<(N-2);second++)
         {
             int base = nums[first] + nums[second];
             int low = second+1;
             int high = N-1;
             while( low < high )
             {
-                int sum = base + nums[low] + nums[high];
+                long sum = (long)base + (long)nums[low] + (long)nums[high];
                 if( sum < target )
                 {
                     low++;
