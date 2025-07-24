@@ -46,8 +46,14 @@ std::vector<int> merge(std::vector<int> first,
 std::vector<std::vector<int>> insert(std::vector<std::vector<int>>& intervals, 
                                      std::vector<int>& newInterval) 
 {
-    bool new_was_inserted = false;
     std::vector<std::vector<int>> retval;
+    if( intervals.size() == 0 )
+    {
+        retval.push_back( newInterval );
+        return retval;
+    }
+    
+    bool new_was_inserted = false;
     int index = 0;
     while( index < intervals.size() )
     {
