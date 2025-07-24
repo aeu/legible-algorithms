@@ -68,6 +68,8 @@ std::vector<std::vector<int>> insert(std::vector<std::vector<int>>& intervals,
             insertion_candidate = &(intervals[index]);
             index++;
         }
+        //        std::cout << "insertion candidate is " ;
+        // dumpPair( *insertion_candidate );
         if( retval.empty())
         {
             retval.push_back( *insertion_candidate );
@@ -77,6 +79,7 @@ std::vector<std::vector<int>> insert(std::vector<std::vector<int>>& intervals,
             std::vector<int> &last = retval.back();
             if( overlaps( last, *insertion_candidate ))
             {
+                //                std::cout << "is overlap" << std::endl;
                 std::vector<int> merged = merge( last, *insertion_candidate );
                 retval.pop_back();
                 retval.push_back( merged );
@@ -87,6 +90,20 @@ std::vector<std::vector<int>> insert(std::vector<std::vector<int>>& intervals,
             }
         }
     }
+    if( new_was_inserted == false )
+    {
+        std::vector<int> &last = retval.back();
+        if( overlaps( last, newInterval ))
+        {
+            std::vector<int> merged = merge( last, newInterval );
+            retval.pop_back();
+            retval.push_back( merged );
+        }
+        else
+        {
+            retval.push_back( newInterval );
+        }
+    }
     return retval;
 }
 
@@ -94,6 +111,28 @@ int main(int argc, char **argv)
 {
     std::cout << std::endl << "0057-insert-interval" << std::endl << std::endl;
     int test_case = 1;
+    {
+        std::vector<std::vector<int>> intervals = {{1,5}};
+        std::vector<int> newInterval = { 2, 7 };
+        std::vector<std::vector<int>> mints = insert( intervals, newInterval );
+        std::cout << "[" ;
+        bool first_time = true;
+        for(const auto &curr : mints )
+        {
+            if( ! first_time )
+                std::cout << std::endl;
+            first_time = false;
+            dumpPair(curr);
+        }
+        std::cout << "]" ;
+        int result = 0;
+        int expected = 0;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+    }
+    return 0;
     {
         std::vector<std::vector<int>> intervals = {{1,3},{6,9}};
         std::vector<int> newInterval = { 2,5 };
