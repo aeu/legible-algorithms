@@ -43,14 +43,12 @@ std::vector<std::vector<int>> generateMatrix(int n)
     int current = 1;
     int row = 0;
     int col = -1;
-    int nrow = 0;
-    int ncol = 0;
     int cindex = 0;
     while( current <= total )
     {
         int current_cardinal = cindex % 4; cindex++;
-        nrow = row + cardinals[current_cardinal][0];
-        ncol = col + cardinals[current_cardinal][1];
+        int nrow = row + cardinals[current_cardinal][0];
+        int ncol = col + cardinals[current_cardinal][1];
         while( ( isValid ( nrow,ncol,n )) && ( retval[nrow][ncol] == 0 ))
         {
             retval[nrow][ncol] = current++;
@@ -58,9 +56,6 @@ std::vector<std::vector<int>> generateMatrix(int n)
             nrow = row + cardinals[current_cardinal][0];
             ncol = col + cardinals[current_cardinal][1];
         }
-        // unset because we went invalide.
-        nrow = row;
-        ncol = col;
     }
     return retval;
 }

@@ -250,8 +250,6 @@ As of right now I am in the top 3% of Leetcode rankings!
 
 #### Medium
 
-
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -285,6 +283,7 @@ As of right now I am in the top 3% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0055-jump-game">Leetcode &numero; 55 (Medium) &mdash; Jump Game (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0056-merge-intervals">Leetcode &numero; 56 (Medium) &mdash; Merge Intervals (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0057-insert-interval">Leetcode &numero; 57 (Medium) &mdash; Insert Interval (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0059-spiral-matrix-ii">Leetcode &numero; 59 (Medium) &mdash; Spiral Matrix II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0061-rotate-list">Leetcode &numero; 61 (Medium) &mdash; Rotate List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0071-simplify-path">Leetcode &numero; 71 (Medium) &mdash; Simplify Path (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0073-set-matrix-zeroes">Leetcode &numero; 73 (Medium) &mdash; Set Matrix Zeroes (C++)</a>  
