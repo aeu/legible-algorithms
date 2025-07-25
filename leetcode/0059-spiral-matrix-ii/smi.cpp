@@ -46,14 +46,13 @@ std::vector<std::vector<int>> generateMatrix(int n)
     int nrow = 0;
     int ncol = 0;
     int cindex = 0;
-    while( current < total )
+    while( current <= total )
     {
         nrow = row + cardinals[0][0];
         ncol = col + cardinals[0][1];
         while( ( isValid ( nrow,ncol,n )) && ( retval[nrow][ncol] == 0 ))
         {
             retval[nrow][ncol] = current++;
-            std::cout << "setting : " << nrow << "," << ncol << " to : " << (current-1) << std::endl;
             row =  nrow; col = ncol;
             nrow = row + cardinals[0][0];
             ncol = col + cardinals[0][1];
@@ -67,7 +66,6 @@ std::vector<std::vector<int>> generateMatrix(int n)
         while( ( isValid ( nrow,ncol,n )) && ( retval[nrow][ncol] == 0 ))
         {
             retval[nrow][ncol] = current++;
-            std::cout << "setting : " << nrow << "," << ncol << " to : " << (current-1) << std::endl;
             row =  nrow; col = ncol;
             nrow = row + cardinals[1][0];
             ncol = col + cardinals[1][1];
@@ -81,10 +79,9 @@ std::vector<std::vector<int>> generateMatrix(int n)
         while( ( isValid ( nrow,ncol,n )) && ( retval[nrow][ncol] == 0 ))
         {
             retval[nrow][ncol] = current++;
-            std::cout << "setting : " << nrow << "," << ncol << " to : " << (current-1) << std::endl;
             row =  nrow; col = ncol;
-            nrow = row + cardinals[1][0];
-            ncol = col + cardinals[1][1];
+            nrow = row + cardinals[2][0];
+            ncol = col + cardinals[2][1];
         }
 
         // unset because we went invalide.
@@ -96,10 +93,9 @@ std::vector<std::vector<int>> generateMatrix(int n)
         while( ( isValid ( nrow,ncol,n )) && ( retval[nrow][ncol] == 0 ))
         {
             retval[nrow][ncol] = current++;
-            std::cout << "setting : " << nrow << "," << ncol << " to : " << (current-1) << std::endl;
             row =  nrow; col = ncol;
-            nrow = row + cardinals[1][0];
-            ncol = col + cardinals[1][1];
+            nrow = row + cardinals[3][0];
+            ncol = col + cardinals[3][1];
         }
     }
     return retval;
@@ -112,7 +108,27 @@ int main(int argc, char **argv)
     {
         int n = 3;
         std::vector<std::vector<int>> rmat = generateMatrix(n);
-        return 0;
+        for(const auto &curr : rmat )
+        {
+            std::cout << "[";
+            for(const auto inner : curr )
+            {
+                std::cout << inner << " " ;
+            }
+            std::cout << "]";
+        }
+        std::cout << std::endl;
+        int expected = 0;
+        int result = 0;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl;
+        std::cout << std::endl;
+    }
+    {
+        int n = 1;
+        std::vector<std::vector<int>> rmat = generateMatrix(n);
         for(const auto &curr : rmat )
         {
             std::cout << "[";
