@@ -48,55 +48,19 @@ std::vector<std::vector<int>> generateMatrix(int n)
     int cindex = 0;
     while( current <= total )
     {
-        nrow = row + cardinals[0][0];
-        ncol = col + cardinals[0][1];
+        int current_cardinal = cindex % 4; cindex++;
+        nrow = row + cardinals[current_cardinal][0];
+        ncol = col + cardinals[current_cardinal][1];
         while( ( isValid ( nrow,ncol,n )) && ( retval[nrow][ncol] == 0 ))
         {
             retval[nrow][ncol] = current++;
             row =  nrow; col = ncol;
-            nrow = row + cardinals[0][0];
-            ncol = col + cardinals[0][1];
+            nrow = row + cardinals[current_cardinal][0];
+            ncol = col + cardinals[current_cardinal][1];
         }
         // unset because we went invalide.
         nrow = row;
         ncol = col;
-
-        nrow = row + cardinals[1][0];
-        ncol = col + cardinals[1][1];
-        while( ( isValid ( nrow,ncol,n )) && ( retval[nrow][ncol] == 0 ))
-        {
-            retval[nrow][ncol] = current++;
-            row =  nrow; col = ncol;
-            nrow = row + cardinals[1][0];
-            ncol = col + cardinals[1][1];
-        }
-
-        nrow = row;
-        ncol = col;
-
-        nrow = row + cardinals[2][0];
-        ncol = col + cardinals[2][1];
-        while( ( isValid ( nrow,ncol,n )) && ( retval[nrow][ncol] == 0 ))
-        {
-            retval[nrow][ncol] = current++;
-            row =  nrow; col = ncol;
-            nrow = row + cardinals[2][0];
-            ncol = col + cardinals[2][1];
-        }
-
-        // unset because we went invalide.
-        nrow = row;
-        ncol = col;
-
-        nrow = row + cardinals[3][0];
-        ncol = col + cardinals[3][1];
-        while( ( isValid ( nrow,ncol,n )) && ( retval[nrow][ncol] == 0 ))
-        {
-            retval[nrow][ncol] = current++;
-            row =  nrow; col = ncol;
-            nrow = row + cardinals[3][0];
-            ncol = col + cardinals[3][1];
-        }
     }
     return retval;
 }
