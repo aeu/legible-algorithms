@@ -251,7 +251,6 @@ As of right now I am in the top 3% of Leetcode rankings!
 #### Medium
 
 
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -289,6 +288,7 @@ As of right now I am in the top 3% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0061-rotate-list">Leetcode &numero; 61 (Medium) &mdash; Rotate List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0062-unique-paths">Leetcode &numero; 62 (Medium) &mdash; Unique Paths (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0063-unique-paths-ii">Leetcode &numero; 63 (Medium) &mdash; Unique Paths II (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0064-minimum-path-sum">Leetcode &numero; 64 (Medium) &mdash; Minimum Path Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0071-simplify-path">Leetcode &numero; 71 (Medium) &mdash; Simplify Path (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0073-set-matrix-zeroes">Leetcode &numero; 73 (Medium) &mdash; Set Matrix Zeroes (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0074-search-a-2d-matrix">Leetcode &numero; 74 (Medium) &mdash; Search a 2D Matrix (C++)</a>  
