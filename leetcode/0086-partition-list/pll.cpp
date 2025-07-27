@@ -72,7 +72,10 @@ ListNode* partition(ListNode* head, int x)
     }
     btail->next = after->next;
     atail->next = nullptr;
-    return before->next;
+    ListNode *ret = before->next;
+    delete before;
+    delete after;
+    return ret;
 }
 
 
