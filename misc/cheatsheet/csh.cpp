@@ -121,17 +121,25 @@ void dumpList(ListNode *list)
 {
     ListNode *curr = list;
     ListNode *original = list;
+    ListNode *slow = list;
+    int flipper = 0;
+    
     while(curr != nullptr )
     {
         std::cout << curr->val;
         if( curr->next != nullptr )
             std::cout << " -> ";
         curr = curr->next;
-        if( curr == original )
+        if( flipper % 2 )
+        {
+            slow = slow->next;
+        }
+        if( curr == slow )
         {
             std::cout << "endless loop, breaking" << std::endl;
             break;
         }
+        flipper++;
     }
     std::cout << std::endl;
 }
