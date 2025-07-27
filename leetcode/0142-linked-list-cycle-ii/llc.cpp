@@ -61,7 +61,6 @@ ListNode *detectCycle(ListNode *head)
     ListNode *slow = head;
     ListNode *fast = head;
     int flipper = 0;
-    int cycle_found = 0;
     while( fast != nullptr )
     {
         if( flipper % 2 )
@@ -71,15 +70,14 @@ ListNode *detectCycle(ListNode *head)
         fast = fast->next;
         if( slow == fast )
         {
-            if( cycle_found )
+            slow = head;
+            while( slow != fast )
             {
-                return slow;
+                std::cout << "asdf" << std::endl;
+                slow = slow->next;
+                fast = fast->next;
             }
-            else
-            {
-                cycle_found = true;
-                slow = head;
-            }
+            return slow;
         }
         flipper++;
     }
