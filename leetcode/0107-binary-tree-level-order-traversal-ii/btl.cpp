@@ -65,13 +65,14 @@ std::vector<std::vector<int>> levelOrderBottom(TreeNode* root)
     if( root == nullptr )
         return retval;
     std::queue<BfsInfo> bqueue;
-    std::unordered_map<int,std::vector<int>> levels;
     bqueue.push({0,root});
     while( ! bqueue.empty())
     {
         BfsInfo curr = bqueue.front();
         bqueue.pop();
-        levels[ curr.level ].push_back( curr.node->val );
+        if( curr.level == retval.size())
+            retval.push_back({});
+        retval[ curr.level ].push_back( curr.node->val );
         if( curr.node->left != nullptr )
         {
             bqueue.push({curr.level+1,curr.node->left});
@@ -81,15 +82,7 @@ std::vector<std::vector<int>> levelOrderBottom(TreeNode* root)
             bqueue.push({curr.level+1,curr.node->right});
         }
     }
-    for(int index = levels.size()-1;index>=0;index--)
-    {
-        std::vector<int> current_level;
-        for(const auto curr : levels[index] )
-        {
-            current_level.push_back( curr );
-        }
-        retval.push_back(current_level);
-    }
+    std::reverse(retval.begin(),retval.end());
     return retval;
 }
 
