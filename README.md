@@ -306,6 +306,7 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0092-reverse-linked-list-ii">Leetcode &numero; 92 (Medium) &mdash; Reverse Linked List II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0093-restore-ip-addresses">Leetcode &numero; 93 (Medium) &mdash; Restore IP Addresses (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0098-validate-binary-search-tree">Leetcode &numero; 98 (Medium) &mdash; Validate Binary Search Tree (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0099-recover-binary-search-tree">Leetcode &numero; 99 (Medium) &mdash; Recover Binary Search Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0102-binary-tree-level-order-traversal">Leetcode &numero; 102 (Medium) &mdash; Binary Tree Level Order Traversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0103-binary-tree-zigzag-level-order-traversal">Leetcode &numero; 103 (Medium) &mdash; Binary Tree ZigZag Level Order Traversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0105-construct-binary-tree-from-preorder-and-inorder-traversal">Leetcode &numero; 105 (Medium) &mdash; Construct Binary Tree from Preorder and Inorder traversal (C++)</a>  

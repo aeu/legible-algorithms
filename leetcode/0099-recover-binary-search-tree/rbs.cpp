@@ -67,7 +67,6 @@ TreeNode *buildTree(std::vector<std::optional<int>> tree_values)
     return root;
 }
 
-
 void dfs(TreeNode *root,
          std::vector<TreeNode *> &inorder)
 {
@@ -94,29 +93,39 @@ void recoverTree(TreeNode *root)
     std::vector<TreeNode *> inorder;
     dfs(root,inorder);
     dumpNodeList(inorder);
-    std::vector<TreeNode *> invalids;
+
+    TreeNode *first = nullptr;
+    TreeNode *middle = nullptr;
+    TreeNode *last = nullptr;
+
     for(int index=0;index<inorder.size();index++)
     {
-        std::cout << "loop" << std::endl;
         if( index == 0 )
             continue;
-
-        TreeNode *curr = inorder[index];
-        TreeNode *prev = inorder[index-1];
-        if( prev->val > curr->val )
+        if( inorder[index-1]->val > inorder[index]->val )
         {
-            invalids.push_back(prev);
+            if( first == nullptr )
+            {
+                first = inorder[index-1];
+                middle = inorder[index];
+            }
+            else
+            {
+                last = inorder[index];
+            }
         }
-        if( invalids.size() == 2 )
-            break;
     }
-    if( invalids.size() == 2 )
+    if( last != nullptr )
     {
-        TreeNode *first  = invalids[0];
-        TreeNode *second = invalids[1];
-        int temp = first->val;
-        first->val = second->val;
-        second->val = temp;
+        auto temp = first->val;
+        first->val = last->val;
+        last->val = temp;
+    }
+    else
+    {
+        auto temp = first->val;
+        first->val = middle->val;
+        middle->val = temp;
     }
     dumpNodeList(inorder);
 }
@@ -127,6 +136,18 @@ int main(int argc, char **argv)
     int test_case = 1;
     {
         std::vector<std::optional<int>> nums = { 1,3, std::nullopt, std::nullopt, 2 };
+        TreeNode *root = buildTree(nums);
+        recoverTree(root);
+        int expected = 0;
+        int result = 0;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl;
+        std::cout << std::endl;
+    }
+    {
+        std::vector<std::optional<int>> nums = { 3,1,4,std::nullopt, std::nullopt, 2 };
         TreeNode *root = buildTree(nums);
         recoverTree(root);
         int expected = 0;
