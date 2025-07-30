@@ -149,7 +149,7 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 #### Easy
 
 
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0083-remove-duplicates-from-sorted-list">Leetcode &numero; 83 (Easy) &mdash; Remove Duplicates from Sorted List (C++)</a>  
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0009-palindrome-number">Leetcode &numero; 9 (Easy) &mdash; Palindrome Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0013-roman-to-integer">Leetcode &numero; 13 (Easy) &mdash; Roman To Integer (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0014-longest-common-prefix">Leetcode &numero; 14 (Easy) &mdash; Longest Common Prefix (C++)</a>  
@@ -164,11 +164,13 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0067-add-binary">Leetcode &numero; 67 (Easy) &mdash; Add Binary (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0069-sqrt">Leetcode &numero; 69 (Easy) &mdash; Sqrt (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0070-climbing-stairs">Leetcode &numero; 70 (Easy) &mdash; Climbing Stairs (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0083-remove-duplicates-from-sorted-list">Leetcode &numero; 83 (Easy) &mdash; Remove Duplicates from Sorted List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0088-merge-sorted-array">Leetcode &numero; 88 (Easy) &mdash; Merge Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0094-binary-tree-inorder-traversal">Leetcode &numero; 94 (Easy) &mdash; Binary Tree Inorder Traversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0100-same-tree">Leetcode &numero; 100 (Easy) &mdash; Same Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0101-symmetric-tree">Leetcode &numero; 101 (Easy) &mdash; Symmetric Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0104-maximum-depth-of-binary-tree">Leetcode &numero; 104 (Easy) &mdash; Maximum Depth of Binary Tree (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0108-convert-sorted-array-to-binary-search-tree">Leetcode &numero; 108 (Easy) &mdash; Convert Sorted Array to Binary Search Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0111-minimum-depth-of-binary-tree">Leetcode &numero; 0111 (Easy) &mdash; Minimum Depth of Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0112-path-sum">Leetcode &numero; 112 (Easy) &mdash; Path Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0118-pascals-triangle">Leetcode &numero; 118 (Easy) &mdash; Pascal's Triangle (C++)</a>  
