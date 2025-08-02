@@ -216,6 +216,34 @@ std::vector<int> nextGreaterIndices(std::vector<int> nums)
     return greaters;        
 }
 
+// heaps algorithm
+void generatePermutations(std::vector<int> &nums,
+                          int size,
+                          std::vector<std::vector<int>> &retval)
+{
+    if(size == 1 )
+    {
+        retval.push_back(nums);
+    }
+    else
+    {
+        for(int index=0;index<size;index++)
+        {
+            generatePermutations(nums,size-1,retval);
+            if( size & 1 )
+            {
+                std::swap(nums[0],nums[size-1]);
+            }
+            else
+            {
+                std::swap(nums[index],nums[size-1]);
+            }
+        }
+    }
+}
+    
+
+
 
 int main(int argc, char **argv)
 {
