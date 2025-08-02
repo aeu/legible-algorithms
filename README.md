@@ -256,6 +256,8 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 
 #### Medium
 
+
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -269,7 +271,6 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0018-4sum">Leetcode &numero; 18 (Medium) &mdash; 4Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0019-remove-nth-node-from-end-of-list">Leetcode &numero; 19 (Medium) &mdash; Remove Nth Node From End of List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0022-generate-parentheses">Leetcode &numero; 22 (Medium) &mdash; Generate Prentheses (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0114-flatten-binary-tree-to-linked-list">Leetcode &numero; 114 (Medium) &mdash; Flatten Binary Tree to Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0024-swap-nodes-in-pairs">Leetcode &numero; 24 (Medium) &mdash; Swap Nodes in Pairs (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0029-divide-two-integers">Leetcode &numero; 29 (Medium) &mdash; Divide two Integers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0031-next-permutation">Leetcode &numero; 31 (Medium) &mdash; Next Permutation (C++)</a>  
@@ -317,6 +318,7 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0107-binary-tree-level-order-traversal-ii">Leetcode &numero; 107 (Medium) &mdash; Binary Tree Level Order Traversal II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0109-convert-sorted-list-to-binary-search-tree">Leetcode &numero; 109 (Medium) &mdash; Convert Sorted List to Binary Search Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0113-path-sum-ii">Leetcode &numero; 113 (Medium) &mdash; Path Sum II (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0114-flatten-binary-tree-to-linked-list">Leetcode &numero; 114 (Medium) &mdash; Flatten Binary Tree to Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0116-populating-next-right-pointers-in-each-node">Leetcode &numero; 116 (Medium) &mdash; Populating Next Right Pointers in Each Node (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0117-populating-next-right-pointers-in-each-node-ii">Leetcode &numero; 117 (Medium) &mdash; Populating Next Right Pointers in Each Node II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0122-best-time-to-buy-and-sell-stock-ii">Leetcode &numero; 122 (Medium) &mdash; Best Time to Buy and Sell Stock II (C++)</a>  
@@ -329,6 +331,7 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0138-copy-list-with-random-pointer">Leetcode &numero; 138 (Medium) &mdash; Copy List with Random Pointer (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0139-word-break">Leetcode &numero; 139 (Medium) &mdash; Word Break (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0146-lru-cache">Leetcode &numero; 146 (Medium) &mdash; LRU Cache (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0147-insertion-sort-list">Leetcode &numero; 147 (Medium) &mdash; Insertion Sort List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0148-sort-list">Leetcode &numero; 148 (Medium) &mdash; Sort List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0150-evaluate-reverse-polish-notation">Leetcode &numero; 150 (Medium) &mdash; Evaluate Reverse Polish Notation (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0151-reverse-words-in-a-string">Leetcode &numero; 151 (Medium) &mdash; Reverse Words in a String (C++)</a>  
