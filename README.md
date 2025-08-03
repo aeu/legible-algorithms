@@ -257,7 +257,6 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 #### Medium
 
 
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -337,6 +336,7 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0151-reverse-words-in-a-string">Leetcode &numero; 151 (Medium) &mdash; Reverse Words in a String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0153-find-minimum-in-rotated-sorted-array">Leetcode &numero; 153 (Medium) &mdash; Find minimum in rotated sorted array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0155-min-stack">Leetcode &numero; 155 (Medium) &mdash; Min Stack (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0156-binary-tree-upside-down">Leetcode &numero; 156 (Medium) &mdash; Binary Tree Upside Down (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0159-longest-substring-with-at-most-two-distinct-characters">Leetcode &numero; 159 (Medium) &mdash; Longest Substring with At Most Two Distinct Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0162-find-peak-element">Leetcode &numero; 162 (Medium) &mdash; Find Peak Element (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0167-two-sum-ii">Leetcode &numero; 167 (Medium) &mdash; Two Sum II - Input Array is Sorted (C++)</a>  
