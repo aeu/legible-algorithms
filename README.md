@@ -329,6 +329,7 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0134-gas-station">Leetcode &numero; 134 (Medium) &mdash; Gas Station (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0138-copy-list-with-random-pointer">Leetcode &numero; 138 (Medium) &mdash; Copy List with Random Pointer (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0139-word-break">Leetcode &numero; 139 (Medium) &mdash; Word Break (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0142-linked-list-cycle-ii">Leetcode &numero; 142 (Medium) &mdash; Linked List Cycle II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0146-lru-cache">Leetcode &numero; 146 (Medium) &mdash; LRU Cache (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0147-insertion-sort-list">Leetcode &numero; 147 (Medium) &mdash; Insertion Sort List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0148-sort-list">Leetcode &numero; 148 (Medium) &mdash; Sort List (C++)</a>  
