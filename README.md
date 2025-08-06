@@ -339,6 +339,7 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0155-min-stack">Leetcode &numero; 155 (Medium) &mdash; Min Stack (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0156-binary-tree-upside-down">Leetcode &numero; 156 (Medium) &mdash; Binary Tree Upside Down (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0159-longest-substring-with-at-most-two-distinct-characters">Leetcode &numero; 159 (Medium) &mdash; Longest Substring with At Most Two Distinct Numbers (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0161-one-edit-distance">Leetcode &numero; 161 (Medium) &mdash; One Edit Distance (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0162-find-peak-element">Leetcode &numero; 162 (Medium) &mdash; Find Peak Element (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0167-two-sum-ii">Leetcode &numero; 167 (Medium) &mdash; Two Sum II - Input Array is Sorted (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0173-binary-search-tree-iterator">Leetcode &numero; 173 (Medium) &mdash; Binary Search Tree Iterator (C++)</a>  
