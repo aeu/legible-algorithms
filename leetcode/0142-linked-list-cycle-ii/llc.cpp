@@ -53,33 +53,26 @@ void dumpList(ListNode *list)
 
 ListNode *detectCycle(ListNode *head)
 {
-    if( head == nullptr )
-        return head;
-    if( head->next == nullptr )
-        return head;
+    if(( ! head ) || ( ! head->next ))
+        return nullptr;
 
     ListNode *slow = head;
     ListNode *fast = head;
-    int flipper = 0;
-    while( fast != nullptr )
+
+    while( fast && fast->next )
     {
-        if( flipper % 2 )
-        {
-            slow = slow->next;
-        }
-        fast = fast->next;
+        slow = slow->next;
+        fast = fast->next->next;
         if( slow == fast )
         {
             slow = head;
             while( slow != fast )
             {
-                std::cout << "asdf" << std::endl;
                 slow = slow->next;
                 fast = fast->next;
             }
             return slow;
         }
-        flipper++;
     }
     return nullptr;
 }
@@ -145,7 +138,7 @@ int main(int argc, char **argv)
         if( inter != nullptr )
             std::cout << "candidate : " << inter->val << std::endl;
         else
-            std::cout << "no hit : " << inter->val << std::endl;
+            std::cout << "no hit : " << std::endl;
         
         int expected = 0;
         int result = 0;
