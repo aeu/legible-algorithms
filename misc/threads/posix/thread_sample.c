@@ -12,11 +12,12 @@ typedef struct {
     int idx;
 } Task;
 
+
 typedef struct {
-    pthread_mutex_t print_mtx;
-    pthread_mutex_t work_mtx;
-    pthread_mutex_t state_mtx;
-    pthread_cond_t  state_cv;
+    pthread_mutex_t print_mutex;
+    pthread_mutex_t work_mutex;
+    pthread_mutex_t state_mutex;
+    pthread_cond_t  condition_variable;
     int work_units;
 
     // per-thread state
@@ -34,9 +35,9 @@ static double now_sec(void)
 
 static void safe_printf(SharedData *shared_data, const char *message) 
 {
-    pthread_mutex_lock(&shared_data->print_mtx);
+    pthread_mutex_lock(&shared_data->print_mutex);
     printf("%s", message);
-    pthread_mutex_unlock(&shared_data->print_mtx);
+    pthread_mutex_unlock(&shared_data->print_mutex);
 }
 
 void* worker(void *arg) 
@@ -52,10 +53,10 @@ void* worker(void *arg)
     for (int i = 0; i < task->seconds; i++) 
     {
         sleep(1);
-        pthread_mutex_lock(&shared_data->work_mtx);
+        pthread_mutex_lock(&shared_data->work_mutex);
         shared_data->work_units += 1;
         int total = shared_data->work_units;
-        pthread_mutex_unlock(&shared_data->work_mtx);
+        pthread_mutex_unlock(&shared_data->work_mutex);
         sprintf( &message[0], "[%.3f] %s: progress, total work units = %d\n", now_sec(), task->name, total);
         safe_printf(shared_data, message );
     }
@@ -64,10 +65,10 @@ void* worker(void *arg)
     safe_printf(shared_data, message );
 
     // Mark done and signal
-    pthread_mutex_lock(&shared_data->state_mtx);
+    pthread_mutex_lock(&shared_data->state_mutex);
     shared_data->done[task->idx] = 1;
-    pthread_cond_broadcast(&shared_data->state_cv);
-    pthread_mutex_unlock(&shared_data->state_mtx);
+    pthread_cond_broadcast(&shared_data->condition_variable);
+    pthread_mutex_unlock(&shared_data->state_mutex);
 
     return (void*)(uintptr_t)task->seconds; // return "work units"
 }
@@ -76,29 +77,31 @@ int main(void)
 {
     pthread_t threads[3];
     Task tasks[3] = {
-        { "Strawberry", 3, 0 },
-        { "Chocolate", 1, 1 },
-        { "Vanilla", 2, 2 }
+        { "T1", 3, 0 },
+        { "T2", 1, 1 },
+        { "T3", 2, 2 }
     };
     void *ret = NULL;
     char message[255];
 
-    SharedData S;
-    pthread_mutex_init(&S.print_mtx, NULL);
-    pthread_mutex_init(&S.work_mtx,  NULL);
-    pthread_mutex_init(&S.state_mtx, NULL);
-    pthread_cond_init (&S.state_cv,  NULL);
-    S.work_units = 0;
+    SharedData shared_data;
+    pthread_mutex_init(&shared_data.print_mutex, NULL);
+    pthread_mutex_init(&shared_data.work_mutex,  NULL);
+    pthread_mutex_init(&shared_data.state_mutex, NULL);
+    pthread_cond_init (&shared_data.condition_variable,  NULL);
+    shared_data.work_units = 0;
     for (int i = 0; i < 3; i++) 
     { 
-        S.done[i]=0; 
-        S.joined[i]=0; 
+        shared_data.done[i]   = 0; 
+        shared_data.joined[i] = 0; 
     }
-    S.remaining = 3;
+    shared_data.remaining = 3;
 
-    struct { Task *t; SharedData *S; } args[3] = 
+    struct { Task *t; SharedData *shared_data; } args[3] = 
     {
-        { &tasks[0], &S }, { &tasks[1], &S }, { &tasks[2], &S }
+        { &tasks[0], &shared_data }, 
+        { &tasks[1], &shared_data }, 
+        { &tasks[2], &shared_data }
     };
 
     double t0 = now_sec();
@@ -108,15 +111,15 @@ int main(void)
     }
 
     // Wait-and-join loop: wait until any thread marks itself done, then join it.
-    while (S.remaining > 0) 
+    while (shared_data.remaining > 0) 
     {
-        pthread_mutex_lock(&S.state_mtx);
+        pthread_mutex_lock(&shared_data.state_mutex);
 
         // Wait until at least one unjoined thread is marked done.
         int have_joinable = 0;
         for (int i = 0; i < 3; i++)
         {
-            if (S.done[i] && !S.joined[i]) 
+            if (shared_data.done[i] && !shared_data.joined[i]) 
             { 
                 have_joinable = 1; 
                 break; 
@@ -124,10 +127,10 @@ int main(void)
         }
         while (!have_joinable) 
         {
-            pthread_cond_wait(&S.state_cv, &S.state_mtx);
+            pthread_cond_wait(&shared_data.condition_variable, &shared_data.state_mutex);
             for (int i = 0; i < 3; i++)
             {
-                if (S.done[i] && !S.joined[i]) 
+                if( shared_data.done[i] && ! shared_data.joined[i] ) 
                 { 
                     have_joinable = 1; 
                     break; 
@@ -137,32 +140,32 @@ int main(void)
         // Join all that are done but not yet joined.
         for (int i = 0; i < 3; i++) 
         {
-            if (S.done[i] && !S.joined[i]) 
+            if (shared_data.done[i] && !shared_data.joined[i]) 
             {
-                S.joined[i] = 1;
-                pthread_mutex_unlock(&S.state_mtx);
+                shared_data.joined[i] = 1;
+                pthread_mutex_unlock(&shared_data.state_mutex);
 
                 pthread_join(threads[i], &ret);
-                sprintf( &message[0], "[%.3f] <main> %s - joined (ret=%ld)\n", now_sec(), tasks[i].name, (long)ret);
-                safe_printf(&S, message );
-                pthread_mutex_lock(&S.state_mtx);
-                S.remaining--;
+                sprintf(&message[0], "[%.3f] <main> %s - joined (ret=%ld)\n", now_sec(), tasks[i].name, (long)ret);
+                safe_printf(&shared_data, message );
+                pthread_mutex_lock(&shared_data.state_mutex);
+                shared_data.remaining--;
             }
         }
-        pthread_mutex_unlock(&S.state_mtx);
+        pthread_mutex_unlock(&shared_data.state_mutex);
     }
 
-    pthread_mutex_lock(&S.work_mtx);
-    int final_total = S.work_units;
-    pthread_mutex_unlock(&S.work_mtx);
+    pthread_mutex_lock(&shared_data.work_mutex);
+    int final_total = shared_data.work_units;
+    pthread_mutex_unlock(&shared_data.work_mutex);
 
     sprintf( &message[0], "[%.3f] <main> all joined, total=%d, elapsed ~%.3fs\n", now_sec(), final_total, now_sec() - t0);
-    safe_printf(&S, message );
+    safe_printf(&shared_data, message );
 
-    pthread_mutex_destroy(&S.print_mtx);
-    pthread_mutex_destroy(&S.work_mtx);
-    pthread_mutex_destroy(&S.state_mtx);
-    pthread_cond_destroy (&S.state_cv);
+    pthread_mutex_destroy(&shared_data.print_mutex);
+    pthread_mutex_destroy(&shared_data.work_mutex);
+    pthread_mutex_destroy(&shared_data.state_mutex);
+    pthread_cond_destroy (&shared_data.condition_variable);
 
     return 0;
 }
