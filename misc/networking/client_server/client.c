@@ -23,13 +23,22 @@ typedef struct {
     int port;
     char *address;
     char *task_name;
-
 } TaskDefinition;
+
+// This sample code is also meant to show mutliple clients connecting
+// to the same server, so I'm creating a structure for data that is
+// going to be shared between the threads, specifically the mutex and
+// the total message count that has been sent cumulatively across all
+// threads.
 
 typedef struct {
     int total_message_count;
     pthread_mutex_t count_mutex;
 } SharedData;
+
+// The runtime info that is sent to the worker thread on spawn.  It
+// contains the shared data structure (the mutex and the sent count)
+// as well as the information that the worker thread needs to run.
 
 typedef struct {
     SharedData *sd;
@@ -43,10 +52,12 @@ void *worker(void *work_args)
     SharedData     *sd = wa->sd;
     printf("In the worker, connectiong %s:%d\n", td->address, td->port);
 
+    // create the client socket
     int client_socket = socket(AF_INET,SOCK_STREAM,0);
     if( client_socket < 0 ) 
     {
         printf("error getting socket\n");
+        return;
     }
 
     struct sockaddr_in server_addr = {0};
@@ -55,7 +66,7 @@ void *worker(void *work_args)
     inet_pton(AF_INET, td->address, &server_addr.sin_addr);
     if (connect(client_socket, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) 
     {
-        printf("we had some kind of error\n");
+        printf("Error performing connect()\n");
     }
     else
     {
@@ -63,6 +74,13 @@ void *worker(void *work_args)
         for(;;)
         {
             int sleeptime = rand() % td->max_interval ; 
+            sleep( sleeptime );
+            // send the message to the server.
+            write( client_socket, buffer, strlen( buffer ));
+
+            // lock the shared mutex and update the count of total
+            // messages sent across all threads.
+
             pthread_mutex_lock(&sd->count_mutex);
             int total_messages = sd->total_message_count++;
             pthread_mutex_unlock(&sd->count_mutex);
@@ -71,18 +89,13 @@ void *worker(void *work_args)
                      sleeptime,
                      total_messages);
             printf("%s",buffer);
-            write( client_socket, buffer, strlen( buffer ));
-            sleep( sleeptime );
             
-            // fgets(buffer,sizeof(buffer), stdin);
-            // write( client_socket, buffer, sizeof( buffer));
-            // if( buffer[0] == 'q')
-            //     break; 
         }
         close( client_socket );
     }
     return 0;
 }
+
 #define NUM_THREADS 5
 
 int main(int argc, char **argv)
@@ -107,6 +120,8 @@ int main(int argc, char **argv)
     worker_args2->sd = &shared_data;
     worker_args2->td = &task_data2;
     pthread_create(&threads[1], NULL, worker, (void *)worker_args2);
+
+    // join the threads and destroy the shared mutex
     pthread_join(threads[0], NULL);
     pthread_join(threads[1], NULL);
     pthread_mutex_destroy(&shared_data.count_mutex);

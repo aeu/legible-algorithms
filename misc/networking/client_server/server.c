@@ -39,11 +39,16 @@ int main(int argc, char **argv)
     if( argc > 0 )
         printf("%s\n",argv[0]);
 
-    printf("server starting\n");
+    printf("Server starting\n");
 
+    // create the socket
     int server_socket = socket(AF_INET,SOCK_STREAM,0); // , bind(), listen(), accept(), read(), write()
 
-    struct sockaddr_in server_addr;
+    // define the server address as any address, and port 51000.  Note
+    // also that we 0 initialize the structure just because this is
+    // good practice to do anyway.
+
+    struct sockaddr_in server_addr = {0};
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(51000);
     server_addr.sin_addr.s_addr = INADDR_ANY;
@@ -55,9 +60,17 @@ int main(int argc, char **argv)
     }
     else
     {
-        printf("bind passed, lets listen now\n");
+        printf("bind() passed, start listening\n");
+        // start listening on the socket.  The second argument is the
+        // max number of connections we are allowing to be queued up,
+        // which (as of now) is a constant defined as 128
         listen(server_socket, SOMAXCONN);
 
+        // start our forever loop where we accept incoming
+        // connections.  When we get one, pass it off to a worker
+        // thread.  Note that this is not how we would do it in
+        // production systems as it doesn't scale very well.  For that
+        // we would use epoll or similar.
         for (;;) 
         {
             struct sockaddr client_addr;
@@ -69,9 +82,9 @@ int main(int argc, char **argv)
                 continue;
             }
 
+            // setup for the creation and spawning of the worker thread.
             int *pclient = malloc(sizeof(int));
             *pclient = client_fd;
-
             pthread_t tid;
             pthread_create(&tid, NULL, worker, pclient);
             pthread_detach(tid);
