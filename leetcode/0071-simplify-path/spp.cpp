@@ -13,6 +13,10 @@
 #include <unordered_set>
 #include <stack>
 
+// use a stack for all the path elements found to date.  At every step
+// of the way we can look at what is currently at the top of the stack
+// and then comine / pop stack as needed.
+
 std::string simplifyPath(std::string path)
 {
     std::stack<std::string> spath;
