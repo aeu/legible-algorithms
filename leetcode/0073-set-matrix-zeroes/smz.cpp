@@ -17,6 +17,8 @@
 #include <unordered_map>
 #include <queue>
 
+// the main trick here is to store the zeroes on the first pass so
+// that they don't trigger while being processed.
 
 void setZeroes(std::vector<std::vector<int>> &matrix)
 {

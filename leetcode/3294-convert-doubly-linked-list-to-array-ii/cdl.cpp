@@ -26,6 +26,12 @@ public:
     Node(int x, Node *prev, Node *next) : val(x), next(next), prev(prev) {}
 };
 
+// since its a doubly linked list and we can be given any arbitrary
+// node, solve using a deque.  Go forward and add to the end go
+// backward and add to the front and when you are done traverse the
+// whole deque and build the array.
+
+
 std::vector<int> toArray(Node *node)
 {
     std::vector<int> retval;
