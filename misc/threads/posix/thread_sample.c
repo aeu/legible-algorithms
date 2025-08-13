@@ -9,7 +9,7 @@
 typedef struct {
     const char *name;
     int seconds;
-    int idx;
+    int index;
 } Task;
 
 
@@ -33,22 +33,31 @@ static double now_sec(void)
     return ts.tv_sec + ts.tv_nsec / 1e9;
 }
 
-static void safe_printf(SharedData *shared_data, const char *message) 
+/**
+ * thread safe printing.  We pass in the shared data structure which
+ * contains the print mutex as well as the message being printed
+ *
+ */
+static void mutexed_printf(SharedData *shared_data, const char *message) 
 {
     pthread_mutex_lock(&shared_data->print_mutex);
     printf("%s", message);
     pthread_mutex_unlock(&shared_data->print_mutex);
 }
 
-void* worker(void *arg) 
+/**
+ * per posix threads model, this takes a void * pointer as argument data.  We are using an
+ * anonymous structure to pass in the Task definition as well as the shared data.
+ */
+void *worker(void *arg) 
 {
     struct { Task *task; SharedData *shared_data; } *in = arg;
-    Task   *task = in->task;
+    Task       *task = in->task;
     SharedData *shared_data = in->shared_data;
 
     char message[255];
     sprintf( &message[0], "[%2.3f] %s: start (work %ds)\n", now_sec(), task->name, task->seconds);
-    safe_printf(shared_data, message);
+    mutexed_printf(shared_data, message);
 
     for (int i = 0; i < task->seconds; i++) 
     {
@@ -58,15 +67,17 @@ void* worker(void *arg)
         int total = shared_data->work_units;
         pthread_mutex_unlock(&shared_data->work_mutex);
         sprintf( &message[0], "[%.3f] %s: progress, total work units = %d\n", now_sec(), task->name, total);
-        safe_printf(shared_data, message );
+        mutexed_printf(shared_data, message );
     }
 
     sprintf( &message[0], "[%.3f] %s: done\n", now_sec(), task->name);
-    safe_printf(shared_data, message );
+    mutexed_printf(shared_data, message );
 
-    // Mark done and signal
+    // Here we mark the task for this worker as being done, and we
+    // also do a broadcast on the condition variable to tell others
+
     pthread_mutex_lock(&shared_data->state_mutex);
-    shared_data->done[task->idx] = 1;
+    shared_data->done[task->index] = 1;
     pthread_cond_broadcast(&shared_data->condition_variable);
     pthread_mutex_unlock(&shared_data->state_mutex);
 
@@ -127,6 +138,8 @@ int main(void)
         }
         while (!have_joinable) 
         {
+	    // conditional wait on the condition variable, also pass
+	    // in the state mutex which is needed by cond wait
             pthread_cond_wait(&shared_data.condition_variable, &shared_data.state_mutex);
             for (int i = 0; i < 3; i++)
             {
@@ -147,7 +160,7 @@ int main(void)
 
                 pthread_join(threads[i], &ret);
                 sprintf(&message[0], "[%.3f] <main> %s - joined (ret=%ld)\n", now_sec(), tasks[i].name, (long)ret);
-                safe_printf(&shared_data, message );
+                mutexed_printf(&shared_data, message );
                 pthread_mutex_lock(&shared_data.state_mutex);
                 shared_data.remaining--;
             }
@@ -160,7 +173,7 @@ int main(void)
     pthread_mutex_unlock(&shared_data.work_mutex);
 
     sprintf( &message[0], "[%.3f] <main> all joined, total=%d, elapsed ~%.3fs\n", now_sec(), final_total, now_sec() - t0);
-    safe_printf(&shared_data, message );
+    mutexed_printf(&shared_data, message );
 
     pthread_mutex_destroy(&shared_data.print_mutex);
     pthread_mutex_destroy(&shared_data.work_mutex);
