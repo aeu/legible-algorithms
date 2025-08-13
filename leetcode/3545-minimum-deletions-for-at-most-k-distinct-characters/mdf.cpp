@@ -32,15 +32,31 @@ void dumpValues(std::vector<int> values)
 }
 
 
+// For this problem we have to find the minimum number of characters
+// that need to be deleted from the string such that we end up with at
+// most k distinct characters.
+//
 int minDeletion(std::string s, int k)
 {
+    // create an array with 26 slots initialized to 0.  Then walk
+    // through the string and count all occurrences of every
+    // character.
     std::vector<int> counts(26,0);
     for(const auto curr : s )
     {
         counts[ curr - 'a' ] ++;
     }
+    // we want to find the minimum number of deletions necessary to
+    // hit K, so we sort the array such that the low end has the
+    // characters that we have the least of.
     std::sort( counts.begin(),counts.end(), std::greater<int>() );
     int deletions = 0;
+
+    // walk through the array.  Once we get past k distinct
+    // characters, we can then start deleting characters until we hit
+    // the count.  As we go, increment the count of characters that
+    // were deleted.
+
     for(int index=25;index>=0;index--)
     {
         if( index >= k )
