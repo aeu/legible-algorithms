@@ -6,6 +6,8 @@
 #include <errno.h>
 #include <stdint.h>
 
+#define NUM_THREADS 3
+
 typedef struct {
     const char *name;
     int seconds;
@@ -21,8 +23,8 @@ typedef struct {
     int work_units;
 
     // per-thread state
-    int done[3];
-    int joined[3];
+    int done[NUM_THREADS];
+    int joined[NUM_THREADS];
     int remaining;
 } SharedData;
 
@@ -86,8 +88,8 @@ void *worker(void *arg)
 
 int main(void) 
 {
-    pthread_t threads[3];
-    Task tasks[3] = {
+    pthread_t threads[NUM_THREADS];
+    Task tasks[NUM_THREADS] = {
         { "T1", 3, 0 },
         { "T2", 1, 1 },
         { "T3", 2, 2 }
@@ -101,14 +103,14 @@ int main(void)
     pthread_mutex_init(&shared_data.state_mutex, NULL);
     pthread_cond_init (&shared_data.condition_variable,  NULL);
     shared_data.work_units = 0;
-    for (int i = 0; i < 3; i++) 
+    for (int i = 0; i < NUM_THREADS; i++) 
     { 
         shared_data.done[i]   = 0; 
         shared_data.joined[i] = 0; 
     }
-    shared_data.remaining = 3;
+    shared_data.remaining = NUM_THREADS;
 
-    struct { Task *t; SharedData *shared_data; } args[3] = 
+    struct { Task *t; SharedData *shared_data; } args[NUM_THREADS] = 
     {
         { &tasks[0], &shared_data }, 
         { &tasks[1], &shared_data }, 
@@ -116,7 +118,7 @@ int main(void)
     };
 
     double t0 = now_sec();
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < NUM_THREADS; i++)
     {
         pthread_create(&threads[i], NULL, worker, &args[i]);
     }
@@ -128,7 +130,7 @@ int main(void)
 
         // Wait until at least one unjoined thread is marked done.
         int have_joinable = 0;
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < NUM_THREADS; i++)
         {
             if (shared_data.done[i] && !shared_data.joined[i]) 
             { 
@@ -138,10 +140,14 @@ int main(void)
         }
         while (!have_joinable) 
         {
-	    // conditional wait on the condition variable, also pass
-	    // in the state mutex which is needed by cond wait
+	    // conditional wait on the condition variable, also pass in the state
+	    // mutex which is needed by cond wait.   At this point the state mutex
+	    // is released (because this thread is waiting).  When the condition
+	    // variable hits, the state mutex will be locked again and execution
+	    // will continue
+
             pthread_cond_wait(&shared_data.condition_variable, &shared_data.state_mutex);
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < NUM_THREADS; i++)
             {
                 if( shared_data.done[i] && ! shared_data.joined[i] ) 
                 { 
@@ -151,7 +157,7 @@ int main(void)
             }
         }
         // Join all that are done but not yet joined.
-        for (int i = 0; i < 3; i++) 
+        for (int i = 0; i < NUM_THREADS; i++) 
         {
             if (shared_data.done[i] && !shared_data.joined[i]) 
             {
