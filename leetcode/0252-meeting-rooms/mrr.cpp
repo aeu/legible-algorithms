@@ -24,7 +24,7 @@ struct IntervalComparer
         if( lhs[0] < rhs[0] )
             return true;
         if( lhs[0] == rhs[0] )
-            return lhs[1] < rhs[2];
+            return lhs[1] < rhs[1];
         return false;
     }
 };
