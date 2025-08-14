@@ -64,7 +64,7 @@ An example of implementing multhireading in POSIX.  Spawns a few
 threads that do some work, and which demonstrates the use of a
 condition variable to signal completion to a monitoring thread.
 
-< href="https://github.com/aeu/legible-algorithms/tree/master/misc/threads/posix">POSIX thread sample</a>
+<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/threads/posix">POSIX thread sample</a>
 
 
 ### Misc Snippets / Drop Ins
