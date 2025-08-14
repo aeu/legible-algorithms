@@ -1,3 +1,10 @@
+// -*- Mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; -*-
+//
+//  red82 // software
+//
+//  This software may not be used or reproduced, in whole or in part,
+//  without the express written permission of red82
+//
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -37,7 +44,8 @@ static double now_sec(void)
 
 /**
  * thread safe printing.  We pass in the shared data structure which
- * contains the print mutex as well as the message being printed
+ * contains the print mutex, and we pass in the message to be printed.
+ * Only sends to the output stream if it can get a lock on the mutex.
  *
  */
 static void mutexed_printf(SharedData *shared_data, const char *message) 
@@ -48,8 +56,9 @@ static void mutexed_printf(SharedData *shared_data, const char *message)
 }
 
 /**
- * per posix threads model, this takes a void * pointer as argument data.  We are using an
- * anonymous structure to pass in the Task definition as well as the shared data.
+ * per posix threads model, this takes a void * pointer as argument
+ * data.  We are using an anonymous structure to pass in the Task
+ * definition as well as the shared data.
  */
 void *worker(void *arg) 
 {
@@ -58,7 +67,7 @@ void *worker(void *arg)
     SharedData *shared_data = in->shared_data;
 
     char message[255];
-    sprintf( &message[0], "[%2.3f] %s: start (work %ds)\n", now_sec(), task->name, task->seconds);
+    snprintf( &message[0], sizeof message, "[%2.3f] %s: start (work %ds)\n", now_sec(), task->name, task->seconds);
     mutexed_printf(shared_data, message);
 
     for (int i = 0; i < task->seconds; i++) 
@@ -68,11 +77,14 @@ void *worker(void *arg)
         shared_data->work_units += 1;
         int total = shared_data->work_units;
         pthread_mutex_unlock(&shared_data->work_mutex);
-        sprintf( &message[0], "[%.3f] %s: progress, total work units = %d\n", now_sec(), task->name, total);
+        // notice that we took a copy of the total work units to be
+        // used later after we give up the mutex.  This is to make
+        // sure we block other threads as little as possible.
+        snprintf( &message[0], sizeof message, "[%.3f] %s: progress, total work units = %d\n", now_sec(), task->name, total);
         mutexed_printf(shared_data, message );
     }
 
-    sprintf( &message[0], "[%.3f] %s: done\n", now_sec(), task->name);
+    snprintf( &message[0], sizeof message, "[%.3f] %s: done\n", now_sec(), task->name);
     mutexed_printf(shared_data, message );
 
     // Here we mark the task for this worker as being done, and we
@@ -86,7 +98,7 @@ void *worker(void *arg)
     return (void*)(uintptr_t)task->seconds; // return "work units"
 }
 
-int main(void) 
+int main(int argc, char **argv) 
 {
     pthread_t threads[NUM_THREADS];
     Task tasks[NUM_THREADS] = {
@@ -110,7 +122,7 @@ int main(void)
     }
     shared_data.remaining = NUM_THREADS;
 
-    struct { Task *t; SharedData *shared_data; } args[NUM_THREADS] = 
+    struct { Task *task; SharedData *shared_data; } args[NUM_THREADS] = 
     {
         { &tasks[0], &shared_data }, 
         { &tasks[1], &shared_data }, 
@@ -165,7 +177,7 @@ int main(void)
                 pthread_mutex_unlock(&shared_data.state_mutex);
 
                 pthread_join(threads[i], &ret);
-                sprintf(&message[0], "[%.3f] <main> %s - joined (ret=%ld)\n", now_sec(), tasks[i].name, (long)ret);
+                snprintf(&message[0], sizeof message,  "[%.3f] <main> %s - joined (ret=%ld)\n", now_sec(), tasks[i].name, (long)ret);
                 mutexed_printf(&shared_data, message );
                 pthread_mutex_lock(&shared_data.state_mutex);
                 shared_data.remaining--;
@@ -178,7 +190,7 @@ int main(void)
     int final_total = shared_data.work_units;
     pthread_mutex_unlock(&shared_data.work_mutex);
 
-    sprintf( &message[0], "[%.3f] <main> all joined, total=%d, elapsed ~%.3fs\n", now_sec(), final_total, now_sec() - t0);
+    snprintf( &message[0], sizeof message, "[%.3f] <main> all joined, total=%d, elapsed ~%.3fs\n", now_sec(), final_total, now_sec() - t0);
     mutexed_printf(&shared_data, message );
 
     pthread_mutex_destroy(&shared_data.print_mutex);

@@ -58,6 +58,14 @@ time a day to solve!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/quicksort">Quicksort &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/sorting/improved-mergesort">Improved Mergesort (C++)</a>  
 
+### OS Specific
+
+An example of implementing multhireading in POSIX.  Spawns a few
+threads that do some work, and which demonstrates the use of a
+condition variable to signal completion to a monitoring thread.
+
+< href="https://github.com/aeu/legible-algorithms/tree/master/misc/threads/posix">POSIX thread sample</a>
+
 
 ### Misc Snippets / Drop Ins
 Random cool things as well as snippets that can be dropped in to other projects so you don't have to re-type the wheel every time.
