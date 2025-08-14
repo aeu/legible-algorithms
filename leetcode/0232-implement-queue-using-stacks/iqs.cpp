@@ -29,38 +29,46 @@ class MyQueue {
 
 protected:
     
- 
-    int pushed_count;
-    std::priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, FifoCompare> pqueue;
-    
-public :
-    MyQueue()
+    std::queue<int> inqueue;
+    std::queue<int> outqueue;
+
+    void xfer()
     {
-        pushed_count = 0;
+        while( ! inqueue.empty() )
+        {
+            int top = inqueue.front();
+            inqueue.pop();
+            outqueue.push(top);
+        }
     }
+
+public :
+    MyQueue(){}
 
     void push(int x)
     {
-        pqueue.push( { pushed_count, x } );
-        pushed_count++;
+        inqueue.push(x);
     }
 
     int pop()
     {
-        std::pair<int,int> top = pqueue.top();
-        pqueue.pop();
-        return top.second;
+        xfer();
+        int top = outqueue.front();
+        outqueue.pop();
+        return top;
     }
 
     int peek()
     {
-        std::pair<int,int> top = pqueue.top();
-        return top.second;
+        xfer();
+        int top = outqueue.front();
+        return top;
     }
 
     bool empty()
     {
-        return pqueue.empty();
+        xfer();
+        return outqueue.empty();
     }
 };
 

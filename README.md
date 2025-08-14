@@ -164,6 +164,8 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 #### Easy
 
 
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0232-implement-queue-using-stacks">Leetcode &numero; 232 (Easy) &mdash; Implement queue using stacks (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0009-palindrome-number">Leetcode &numero; 9 (Easy) &mdash; Palindrome Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0013-roman-to-integer">Leetcode &numero; 13 (Easy) &mdash; Roman To Integer (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0014-longest-common-prefix">Leetcode &numero; 14 (Easy) &mdash; Longest Common Prefix (C++)</a>  
