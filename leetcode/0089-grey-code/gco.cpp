@@ -21,11 +21,10 @@ std::vector<int> grayCode(int n)
 {
     std::vector<int> retval;
     int limit = 2 << (n-1);
-    std::cout << "limit is " << limit << std::endl;
     for(int index =0; index < limit; index++)
     {
         int gval = index ^ ( index >> 1 );
-        std::cout << "gval (" << index << ") " << gval << std::endl;
+        retval.push_back(gval);
     }
     return retval;
 }

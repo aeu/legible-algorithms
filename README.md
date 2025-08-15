@@ -323,6 +323,7 @@ As of right now I am in the top 2.2% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0081-search-in-rotated-sorted-array-ii">Leetcode &numero; 81 (Medium) &mdash; Search in Rotated Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0082-remove-duplicates-from-sorted-list-ii">Leetcode &numero; 82 (Medium) &mdash; Remove Duplicates from Sorted List II II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0086-partition-list">Leetcode &numero; 86 (Medium) &mdash; Partition List (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0089-grey-code">Leetcode &numero; 89 (Medium) &mdash; Grey Code (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0090-subsets-ii">Leetcode &numero; 90 (Medium) &mdash; Subsets II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0092-reverse-linked-list-ii">Leetcode &numero; 92 (Medium) &mdash; Reverse Linked List II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0093-restore-ip-addresses">Leetcode &numero; 93 (Medium) &mdash; Restore IP Addresses (C++)</a>  
