@@ -69,7 +69,7 @@ condition variable to signal completion to a monitoring thread.
 
 ### Networking
 A client and server simple demo, the client sends what you type to the server which prints it out.
-
+<a href="https://github.com/aeu/legible-algorithms/tree/master/misc/networking/client_server">Client / Server socket example (C)</a>  
 
 ### Misc Snippets / Drop Ins
 Random cool things as well as snippets that can be dropped in to other projects so you don't have to re-type the wheel every time.
