@@ -67,6 +67,10 @@ condition variable to signal completion to a monitoring thread.
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/threads/posix">POSIX thread sample</a>
 
 
+### Networking
+A client and server simple demo, the client sends what you type to the server which prints it out.
+
+
 ### Misc Snippets / Drop Ins
 Random cool things as well as snippets that can be dropped in to other projects so you don't have to re-type the wheel every time.
 
