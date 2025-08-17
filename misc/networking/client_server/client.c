@@ -12,6 +12,7 @@
 #include <netinet/in.h>
 #include <pthread.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 // This structure defines the task that the worker thread is going to perform.  
@@ -61,10 +62,22 @@ void *worker(void *work_args)
         char buffer[1024];
         for(;;)
         {
-            fgets(buffer,sizeof(buffer), stdin);
-            write( client_socket, buffer, sizeof( buffer));
-            if( buffer[0] == 'q')
-                break; 
+            int sleeptime = rand() % td->max_interval ; 
+            pthread_mutex_lock(&sd->count_mutex);
+            int total_messages = sd->total_message_count++;
+            pthread_mutex_unlock(&sd->count_mutex);
+            snprintf(buffer,1024,"[%s] - will sleep %d before next send.  Total sent %d\n", 
+                     td->task_name, 
+                     sleeptime,
+                     total_messages);
+            printf("%s",buffer);
+            write( client_socket, buffer, strlen( buffer ));
+            sleep( sleeptime );
+            
+            // fgets(buffer,sizeof(buffer), stdin);
+            // write( client_socket, buffer, sizeof( buffer));
+            // if( buffer[0] == 'q')
+            //     break; 
         }
         close( client_socket );
     }
@@ -83,16 +96,24 @@ int main(int argc, char **argv)
     SharedData shared_data = {0};
     pthread_mutex_init(&shared_data.count_mutex, NULL);
     shared_data.total_message_count = 0;
-
     TaskDefinition task_data = { 5, 51000, "127.0.0.1", "Client One" };
     WorkerArgs *worker_args = malloc( sizeof( WorkerArgs));
     worker_args->sd = &shared_data;
     worker_args->td = &task_data;
     pthread_create(&threads[0], NULL, worker, (void *)worker_args);
 
+    TaskDefinition task_data2 = { 10, 51000, "127.0.0.1", "Client Two" };
+    WorkerArgs *worker_args2 = malloc( sizeof( WorkerArgs));
+    worker_args2->sd = &shared_data;
+    worker_args2->td = &task_data2;
+    pthread_create(&threads[1], NULL, worker, (void *)worker_args2);
     pthread_join(threads[0], NULL);
+    pthread_join(threads[1], NULL);
     pthread_mutex_destroy(&shared_data.count_mutex);
 
     printf("exiting\n");
     return 0;
 }
+
+
+

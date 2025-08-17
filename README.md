@@ -68,7 +68,9 @@ condition variable to signal completion to a monitoring thread.
 
 
 ### Networking
-A client and server simple demo, the client sends what you type to the server which prints it out.
+A client and server simple demo, both the client and the server are multi-threaded.  The client spawns two threads that use a mutex to control access to a count of messages sent.
+
+The server spawns a worker thread every time a client connects, which receives the message sent from the client and outputs it to the console.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/misc/networking/client_server">Client / Server socket example (C)</a>  
 

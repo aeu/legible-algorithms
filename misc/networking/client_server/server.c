@@ -7,9 +7,32 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+
+
+void *worker(void *arg) 
+{
+    int client_fd = *(int *)arg;
+    free(arg);
+
+    char buffer[1024];
+    for (;;) {
+        int readres = read(client_fd, buffer, sizeof(buffer) - 1);
+        if (readres <= 0) {
+            printf("Client disconnected or error\n");
+            break;
+        }
+        buffer[readres] = '\0';
+        printf("%s", buffer);
+    }
+    close(client_fd);
+    return NULL;
+}
+
+
 
 int main(int argc, char **argv)
 {
@@ -34,34 +57,25 @@ int main(int argc, char **argv)
     {
         printf("bind passed, lets listen now\n");
         listen(server_socket, SOMAXCONN);
-        struct sockaddr client_addr;
-        unsigned int client_address_length = sizeof( client_addr );
-        int client_fd = accept(server_socket, (struct sockaddr *)&client_addr, &client_address_length);
-        if( client_fd != -1 )
+
+        for (;;) 
         {
-            for(;;)
-            {
-                char buffer[1024];
-                int readres = read(client_fd, buffer, sizeof(buffer));
-                if( readres == 0)
-                {
-                    printf("Client disconnected\n");
-                    break;
-                }
-                else if( readres > 0 )
-                {
-                    buffer[readres] = '\0';
-                    printf("%s", buffer);
-                }
-                else
-                {
-                    printf("read error\n");
-                }
+            struct sockaddr client_addr;
+            socklen_t client_address_length = sizeof(client_addr);
+            int client_fd = accept(server_socket, (struct sockaddr *)&client_addr, &client_address_length);
+
+            if (client_fd < 0) {
+                perror("accept");
+                continue;
             }
+
+            int *pclient = malloc(sizeof(int));
+            *pclient = client_fd;
+
+            pthread_t tid;
+            pthread_create(&tid, NULL, worker, pclient);
+            pthread_detach(tid);
         }
-        close( client_fd );
-        close( server_socket );
     }
     return 0;
 }
-        
