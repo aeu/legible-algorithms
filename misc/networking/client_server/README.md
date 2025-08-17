@@ -1,5 +1,8 @@
 
 Implementation of a client and server.  The server listens on port 51000, to all
-possible addresses.  The client connects to it.  Anything you type in the client
-window will be sent to the server, until you type "q" at which point the program
-will quit.
+possible addresses.  The client program spawns two thread that connect to the
+server and send a message to it which is echoed to the console.  The server
+spawns a worker thread per client.  Additionally the client keeps track of the
+count of messages sent.  Both client threads update the count, which is
+protected by a mutex.
+
