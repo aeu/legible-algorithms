@@ -386,6 +386,7 @@ As of right now I am in the top 2.6% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0328-odd-even-linked-list">Leetcode &numero; 328 (Medium) &mdash; Odd Even Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0334-increasing-triplet-subsequence">Leetcode &numero; 334 (Medium) &mdash; Increasing Triplet Subsequence (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0339-nested-list-weight-sum">Leetcode &numero; 339 (Medium) &mdash; Nested List Weight Sum (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0340-longest-substring-with-at-most-k-distinct-characters">Leetcode &numero; 340 (Medium) &mdash; Longest Substring with at most K distinct characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0347-top-k-frequent-elements">Leetcode &numero; 347 (Medium) &mdash; Top K Frequent Elements (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0348-design-tic-tac-toe">Leetcode &numero; 348 (Medium) &mdash; Design Tic-Tac-Toe (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0362-design-hit-counter">Leetcode &numero; 362 (Medium) &mdash; Design Hit Counter (C++)</a>  
