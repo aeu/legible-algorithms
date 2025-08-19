@@ -15,6 +15,18 @@
 #include <stack>
 #include <limits.h>
 
+
+// Fundamentally the key to this solution is the moveToHead function.  Our goal
+// here is to always have the most recently used entries at the front, so we do
+// this using a doubly linked list.  When a node is used in any way, we move it
+// to the head of the list.  If we do this every time any node is used, then the
+// linked list will always have all the nodes in order of most recently to not
+// recently used.
+
+// the class has two componenes.  The first is an unordered map, which is used
+// to actually store and find the nodes.  The second is the doubly linked list,
+// which is used to keep track of which nodes have been most recently used.
+
 class LRUCache
 {
 public:
