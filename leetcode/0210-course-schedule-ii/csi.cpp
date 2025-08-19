@@ -17,14 +17,20 @@
 
 std::vector<int> findOrder(int numCourses, std::vector<std::vector<int>>& prerequisites)
 {
-    // first initialize empty in-degree structure
+    // First initialize empty in-degree structure.   This is the list of all
+    // courses offered, with their dependencies.  Initialize to 0 because as of
+    // now all we know is the number of courses.
     std::unordered_map<int,int> in_degree;
     for(int index=0;index<numCourses;index++)
     {
         in_degree[index] = 0;
     }
 
-    // then build the graph
+    // Now we build the graph of the data.  This is a list of all courses, and
+    // for each course we have the classes that it is a pre-requisite for.
+    // Finally for each course in the in degree structure, we increment the
+    // number of prerequisites it has.
+
     std::unordered_map<int,std::vector<int>> graph;
     for(auto curr : prerequisites )
     {
@@ -33,7 +39,8 @@ std::vector<int> findOrder(int numCourses, std::vector<std::vector<int>>& prereq
         graph[prereq].push_back(course);
         in_degree[course]++;
     }
-    // queue up all the courses that don't have dependencies
+    // Now lets start up the BFS queue.  We first queue up all the courses that
+    // don't have any dependencies that can be immediately taken.
     std::queue<int> bfs_queue;
     for( auto it : in_degree )
     {
@@ -47,7 +54,10 @@ std::vector<int> findOrder(int numCourses, std::vector<std::vector<int>>& prereq
         int taken = bfs_queue.front();
         bfs_queue.pop();
         schedule.push_back(taken);
-        // free up whatever courses will be freed when we take this one.
+        // For each course we take, find all the courses that will now become
+        // available when this one is taken.  For each one, decrement the
+        // in-degree count. If the in degree count is 0 (meaning that it can now
+        // be taken freely) add it to the queue.
         auto it = graph.find(taken);
         if( it != graph.end() )
         {
@@ -59,6 +69,9 @@ std::vector<int> findOrder(int numCourses, std::vector<std::vector<int>>& prereq
             }
         }
     }
+    // if we have been able to take all the courses, return that list.
+    // Otherwise, return an empty vector.
+
     if( schedule.size() == numCourses )
         return schedule;
     std::vector<int> empty;
