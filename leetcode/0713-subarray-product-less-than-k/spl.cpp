@@ -19,6 +19,8 @@
 
 int numSubarrayProductLessThanK(std::vector<int>& nums, int k) 
 {
+    int left = 0;
+    int right = 0;
     int subarray_count = 0;
 
     for(int index=0;index<nums.size();index++)
