@@ -22,21 +22,25 @@ int numSubarrayProductLessThanK(std::vector<int>& nums, int k)
     int left = 0;
     int right = 0;
     int subarray_count = 0;
-
-    for(int index=0;index<nums.size();index++)
+    int product = nums[left];
+    while( left < nums.size())
     {
-        int inner = index;
-        int product = 1;
-        while( inner < nums.size())
+        if( product < k )
         {
-            product *= nums[inner];
-            if( product < k )
-                subarray_count++;
-            else
-                break;
-            inner++;
+            subarray_count++;
+            if( right < nums.size())
+            {
+                product *= nums[right];
+                right++;
+            }
+        }
+        else
+        {
+            product /= nums[left];
+            left++;
         }
     }
+
     return subarray_count;
 }
 
