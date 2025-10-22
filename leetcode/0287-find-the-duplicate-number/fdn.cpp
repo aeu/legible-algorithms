@@ -45,7 +45,7 @@ int main(int argc, char **argv)
     int test_case = 1;
     {
         std::vector<int> nums  = {3,1,5,4,2,3,6};
-        int expected = 2;
+        int expected = 3;
         int result = findDuplicate(nums);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
