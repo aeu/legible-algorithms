@@ -380,6 +380,7 @@ As of right now I am in the top 2.2% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0249-group-shifted-strings">Leetcode &numero; 249 (Medium) &mdash; Group Shifted Strings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0253-meeting-rooms-ii">Leetcode &numero; 253 (Medium) &mdash; Meeting Rooms II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0274-h-index">Leetcode &numero; 274 (Medium) &mdash; H-Index (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0287-find-the-duplicate-number">Leetcode &numero; 287 (Medium) &mdash; Find the duplicate number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0289-game-of-life">Leetcode &numero; 289 (Medium) &mdash; Game of Life (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0314-binary-tree-vertical-order-traversal">Leetcode &numero; 314 (Medium) &mdash; Binary Tree Vertical Order Traversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0325-maxium-size-subarray-sum-equals-k">Leetcode &numero; 325 (Medium) &mdash; Maximum Size Subarray Sum Equals K (C++)</a>  
