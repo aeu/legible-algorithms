@@ -274,6 +274,7 @@ As of right now I am in the top 2.2% of Leetcode rankings!
 #### Medium
 
 
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -359,6 +360,7 @@ As of right now I am in the top 2.2% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0159-longest-substring-with-at-most-two-distinct-characters">Leetcode &numero; 159 (Medium) &mdash; Longest Substring with At Most Two Distinct Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0161-one-edit-distance">Leetcode &numero; 161 (Medium) &mdash; One Edit Distance (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0162-find-peak-element">Leetcode &numero; 162 (Medium) &mdash; Find Peak Element (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0164-maximum-gap">Leetcode &numero; 164 (Medium) &mdash; Maximum Gap (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0165-compare-version-numbers">Leetcode &numero; 165 (Medium) &mdash; Compare Version Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0167-two-sum-ii">Leetcode &numero; 167 (Medium) &mdash; Two Sum II - Input Array is Sorted (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0168-excel-sheet-column-title ">Leetcode &numero; 168 (Medium) &mdash; Excel Sheet Column Title (C++)</a>  
