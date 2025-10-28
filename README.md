@@ -165,7 +165,6 @@ As of right now I am in the top 2.2% of Leetcode rankings!
 
 
 
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0232-implement-queue-using-stacks">Leetcode &numero; 232 (Easy) &mdash; Implement queue using stacks (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0009-palindrome-number">Leetcode &numero; 9 (Easy) &mdash; Palindrome Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0013-roman-to-integer">Leetcode &numero; 13 (Easy) &mdash; Roman To Integer (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0014-longest-common-prefix">Leetcode &numero; 14 (Easy) &mdash; Longest Common Prefix (C++)</a>  
@@ -209,6 +208,7 @@ As of right now I am in the top 2.2% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0219-contains-duplicate-ii">Leetcode &numero; 219 (Easy) &mdash; Contains Duplicate (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0222-count-complete-tree-nodes">Leetcode &numero; 222 (Easy) &mdash; Count Complete Tree Nodes (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0226-invert-binary-tree">Leetcode &numero; 226 (Easy) &mdash; Invert Binary Tree (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0232-implement-queue-using-stacks">Leetcode &numero; 232 (Easy) &mdash; Implement queue using stacks (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0234-palindrome-linked-list">Leetcode &numero; 234 (Easy) &mdash; Palindrome Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0242-valid-anagram">Leetcode &numero; 242 (Easy) &mdash; Valid Anagram (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0246-strobogrammatic-number">Leetcode &numero; 246 (Easy) &mdash; Strobogrammatic Number (C++)</a>  
@@ -220,6 +220,7 @@ As of right now I am in the top 2.2% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0338-counting-bits">Leetcode &numero; 338 (Easy) &mdash; Counting Bits (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0345-reverse-vowels-of-a-string">Leetcode &numero; 345 (Easy) &mdash; Reverse Vowels of a String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0346-moving-average-from-data-stream">Leetcode &numero; 346 (Easy) &mdash; Moving Average From Data Stream (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2942-find-words-containing-character">Leetcode &numero; 2942 (Easy) &mdash; Find words containing character (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0349-intersection-of-two-arrays">Leetcode &numero; 349 (Easy) &mdash; Intersection of Two Arrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0374-guess-number-higher-or-lower">Leetcode &numero; 374 (Easy) &mdash; Guess Number Higher or Lower (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0383-ransom-note">Leetcode &numero; 383 (Easy) &mdash; Ransom Note (C++)</a>  
