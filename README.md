@@ -148,6 +148,18 @@ get them working.
 
 ### Leetcode
 
+People love to hate leetcode because you almost never get a leetcode
+type problem in a real job.  In my experience, that is a true
+statement.
+
+Are they good interview questions?  Not really.  Once you do a certain
+number of them they just become memorization problems.
+
+But I also think that doing them does make you a better programmer.
+Also they are very good for learning new languages, because you
+already know the task and the solution, you just don't know the
+vocabulary.
+
 Recently I've started re-visiting my old solutions to see how they
 held up to the test of time and improving their implementations as
 I've learned more.
@@ -190,6 +202,7 @@ As of right now I am in the top 2.1% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0111-minimum-depth-of-binary-tree">Leetcode &numero; 0111 (Easy) &mdash; Minimum Depth of Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0112-path-sum">Leetcode &numero; 112 (Easy) &mdash; Path Sum (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0118-pascals-triangle">Leetcode &numero; 118 (Easy) &mdash; Pascal's Triangle (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0119-pascals-triangle-ii">Leetcode &numero; 119 (Easy) &mdash; Pascal's Triangle II (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0121-best-time-to-buy-and-sell-stock">Leetcode &numero; 121 (Easy) &mdash; Best Time to Buy and Sell Stock (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0125-valid-palindrome">Leetcode &numero; 125 (Easy) &mdash; Valid Palindrome (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0136-single-number">Leetcode &numero; 136 (Easy) &mdash; Single Number (C++)</a>  
