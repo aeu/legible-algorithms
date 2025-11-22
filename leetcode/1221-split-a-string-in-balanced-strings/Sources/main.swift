@@ -27,22 +27,21 @@ class Solution
     {
         print("##leetcode/1221-split-a-string-in-balanced-strings/")
         let sol = Solution()
-        
+
         var test_case = 0
         var expected = 4
         var result = sol.balancedStringSplit("RLRRLLRLRL")
-        print(String(format: "Test case %d : %@,", test_case, ((expected == result) ? "Pass" : "Fail")))
-
+        print("Test case \(test_case): \(expected == result ? "Pass" : "Fail")")
 
         test_case += 1
         expected = 2
         result = sol.balancedStringSplit("RLRRRLLRLL")
-        print(String(format: "Test case %d : %@,", test_case, ((expected == result) ? "Pass" : "Fail")))
+        print("Test case \(test_case): \(expected == result ? "Pass" : "Fail")")
 
         test_case += 1
         expected = 1
         result = sol.balancedStringSplit("LLLLRRRR")
-        print(String(format: "Test case %d : %@,", test_case, ((expected == result) ? "Pass" : "Fail")))
+        print("Test case \(test_case): \(expected == result ? "Pass" : "Fail")")
     }
 }
 
