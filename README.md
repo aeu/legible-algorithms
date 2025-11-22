@@ -233,7 +233,6 @@ As of right now I am in the top 2.1% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0338-counting-bits">Leetcode &numero; 338 (Easy) &mdash; Counting Bits (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0345-reverse-vowels-of-a-string">Leetcode &numero; 345 (Easy) &mdash; Reverse Vowels of a String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0346-moving-average-from-data-stream">Leetcode &numero; 346 (Easy) &mdash; Moving Average From Data Stream (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2942-find-words-containing-character">Leetcode &numero; 2942 (Easy) &mdash; Find words containing character (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0349-intersection-of-two-arrays">Leetcode &numero; 349 (Easy) &mdash; Intersection of Two Arrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0374-guess-number-higher-or-lower">Leetcode &numero; 374 (Easy) &mdash; Guess Number Higher or Lower (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0383-ransom-note">Leetcode &numero; 383 (Easy) &mdash; Ransom Note (C++)</a>  
@@ -269,6 +268,7 @@ As of right now I am in the top 2.1% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0993-cousins-in-binary-tree">Leetcode &numero; 993 (Easy) &mdash; Cousins in Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1071-greatest-common-divisor-of-strings/">Leetcode &numero; 1071 (Easy) &mdash; Greatest Common Divisor of Strings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1207-unique-number-of-occurrences/">Leetcode &numero; 1207 (Easy) &mdash; Unique Number of Occurrences (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1221-split-a-string-in-balanced-strings">Leetcode &numero; 1221 (Easy) &mdash; Split a string in balanced strings (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1295-find-numbers-with-even-number-of-digits">Leetcode &numero; 1295 (Easy) &mdash; Find Numbers With Even Number of Digits (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1399-count-largest-group">Leetcode &numero; 1399 (Easy) &mdash; Count Largest Group (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1446-consecutive-characters">Leetcode &numero; 1446 (Easy) &mdash; Consecutive Characters (C++)</a>  
@@ -281,6 +281,7 @@ As of right now I am in the top 2.1% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2094-finding-3-digit-even-numbers">Leetcode &numero; 2094 (Easy) &mdash; Finding 3 Digit Even Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2119-a-number-after-a-double-reversal">Leetcode &numero; 2119 (Easy) &mdash; A Number After a Double Reversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2215-find-the-difference-of-two-arrays/">Leetcode &numero; 2215 (Easy) &mdash; Find the Difference of Two Arrays (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2942-find-words-containing-character">Leetcode &numero; 2942 (Easy) &mdash; Find words containing character (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/3396-minimum-number-of-operations-to-make-elements-in-array-distinct">Leetcode &numero; 3396 (Easy) &mdash; Minimum Number of Operations to Make Elements in Array Distinct (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/3545-minimum-deletions-for-at-most-k-distinct-characters">Leetcode &numero; 3345 (Easy) &mdash; Minimum Deletions for at most K Distinct Characters (C++)</a>  
 
