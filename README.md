@@ -8,6 +8,8 @@ wrote to pass the time.  They are in C++ and Obj-C because I enjoy
 working on those languages, but it's mostly C++ these days as I
 haven't done any iOS work in a while.
 
+Recently I have started solving puzzles in Swift.  I've only done a few to date, it's a pretty fun language so far!
+
 ## Data Structures
 The data structures we take for granted.
 
