@@ -9,8 +9,12 @@ working on those languages, but it's mostly C++ these days as I
 haven't done any iOS work in a while.
 
 I've recently started to get interested in Swift as I have a pet
-project that I'm working on for osX that I want to do in Swift.  I've
-also started working on the actual swift compiler itself.
+project that I'm working on for osX that I want to do in Swift.  As
+part of forcing myself to get up to speed on the Swift programming
+language I've started implementing puzzles in Swift.
+
+I've also started working on the actual swift compiler itself, because
+why not :)
 
 The swift puzzles are mixed in with the C++ below and my (slowly
 growing in number) Swift compiler pull requests can be seen at
