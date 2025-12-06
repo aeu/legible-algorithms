@@ -23,7 +23,7 @@ class Solution
         guard let rootVal = values[0] else {
             return nil
         }
-        var root_node = TreeNode.init(rootVal);
+        let root_node = TreeNode.init(rootVal);
         var nodes : [TreeNode] = []
         nodes.append(root_node)
         var index = 1
@@ -50,48 +50,78 @@ class Solution
      
 
     func dfs(root node: TreeNode,
-             depth currentDepth : Int ) {
+             depth currentDepth : Int,
+             maxDepth maxDepth : inout Int) {
 
-        print("\(currentDepth) : \( node.val  )")
+        maxDepth = max(maxDepth,currentDepth)
+        
         if let left = node.left {
-            dfs( root: left,
-                 depth: currentDepth + 1 )
+            var newDepth = 1
+            if left.val == ( node.val + 1 ) {
+                newDepth = currentDepth + 1
+            }
+            dfs( root: left, depth: newDepth, maxDepth: &maxDepth )
         }
         if let right = node.right {
-            dfs( root: right,
-                 depth: currentDepth + 1 )
-        }
-
-        if node.left == nil && node.right == nil {
-            print("end of the line \(node.val)")
+            var newDepth = 1
+            if right.val == ( node.val + 1 ) {
+                newDepth = currentDepth + 1
+            }
+            dfs( root: right, depth: newDepth, maxDepth: &maxDepth )
         }
     }
     
     func longestConsecutive(_ root: TreeNode?) -> Int {
-        return 0
+        var maxDepth = 1
+        if let node = root {
+            dfs( root:node, depth:1, maxDepth:&maxDepth );
+        }
+        return maxDepth
     }
     
     static func main()
     {
+        var test_case = 1
         print("### leetcode/0298-binary-tree-longest-consecutive-sequence")
         let sol = Solution()
 
 
+        print("```")
         var value_list : [Int?] = [1,nil,3,2,4,nil,nil,nil,5]
         var expected = 3
-        var tree_root = sol.buildTree(values:value_list);
+        var max = 1
+        var tree_root = sol.buildTree(values:value_list)
         if let root = tree_root {
-            sol.dfs(root:root, depth: 0 )
+            max = sol.longestConsecutive(root)
         }
-        var test_case = 0
 
+        print("Test Case \(test_case) : ")
+        if max == expected {
+            print("pass")
+        } else {
+            print("fail")
+        }
         print("```")
+
+
+        test_case += 1
+        value_list = [2,nil,3,2,nil,1]
+        expected = 2
+        max = 1
+        tree_root = sol.buildTree(values:value_list)
+        if let root = tree_root {
+            max = sol.longestConsecutive(root)
+        }
+        print("Test Case \(test_case) : ")
+        if max == expected {
+            print("pass")
+        } else {
+            print("fail")
+        }
         print("```")
+        
     }
 }
 
 Solution.main()
 
-
-
-print("Hello, world!")
