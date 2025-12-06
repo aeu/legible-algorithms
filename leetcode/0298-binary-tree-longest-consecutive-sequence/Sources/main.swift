@@ -1,5 +1,9 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+// -- Mode: swift; tab-width: 4; indent-tabs-mode: nil; --
+//
+// red82 // software
+//
+// This software may not be used or reproduced, in whole or in part,
+// without the express written permission of red82
 
 
 public class TreeNode {
@@ -112,6 +116,7 @@ class Solution
         if let root = tree_root {
             max = sol.longestConsecutive(root)
         }
+        print("```")
         print("Test Case \(test_case) : ")
         if max == expected {
             print("pass")
