@@ -27,8 +27,9 @@ The data structures we take for granted.
 
 The Red-Black tree especially was a lot of typing.  You typically see
 it represented in books as about 20-30 lines of pseudocode, but when
-you actually code it its waaaaay more than that, especially if you are
-making it robust.  This one was definitely more work than I expected.
+you actually type the code it its waaaaaaay more than that, especially
+if you are making it robust.  This was a lot more work than I
+anticipated.
 
 <a href="https://github.com/aeu/legible-algorithms/tree/master/data_structures/red-black-tree">Red Black Tree &mdash; Intruduction to Algorithms. Cormen, Leiserson, Rivest and Stein, MIT Press. (C++)</a>  
 
