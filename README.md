@@ -8,7 +8,13 @@ wrote to pass the time.  They are in C++ and Obj-C because I enjoy
 working on those languages, but it's mostly C++ these days as I
 haven't done any iOS work in a while.
 
-Recently I have started solving puzzles in Swift.  I've only done a few to date, it's a pretty fun language so far!
+I've recently started to get interested in Swift as I have a pet
+project that I'm working on for osX that I want to do in Swift.  I've
+also started working on the actual swift compiler itself.
+
+The swift puzzles are mixed in with the C++ below and my (slowly
+growing in number) Swift compiler pull requests can be seen at
+https://github.com/swiftlang/swift/pulls/aeu
 
 ## Data Structures
 The data structures we take for granted.
