@@ -19,12 +19,7 @@ class Solution
                 word2_index = index
             }
             if word1_index != -1 && word2_index != -1 {
-                var distance = min_distance
-                if word1_index > word2_index {
-                    distance = word1_index - word2_index
-                } else {
-                    distance = word2_index - word1_index
-                }
+                let distance = abs(word1_index - word2_index)
                 min_distance = min( distance, min_distance )
             }
         }
