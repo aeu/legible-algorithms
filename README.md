@@ -239,6 +239,7 @@ As of right now I am in the top 2.1% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0232-implement-queue-using-stacks">Leetcode &numero; 232 (Easy) &mdash; Implement queue using stacks (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0234-palindrome-linked-list">Leetcode &numero; 234 (Easy) &mdash; Palindrome Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0242-valid-anagram">Leetcode &numero; 242 (Easy) &mdash; Valid Anagram (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0243-shortest-word-distance">Leetcode &numero; 243 (Easy) &mdash; Shortest Word Distance (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0246-strobogrammatic-number">Leetcode &numero; 246 (Easy) &mdash; Strobogrammatic Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0257-binary-tree-paths">Leetcode &numero; 257 (Easy) &mdash; Binary Tree Paths (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0258-add-digits">Leetcode &numero; 258 (Easy) &mdash; Add Digits (Swift)</a>  
