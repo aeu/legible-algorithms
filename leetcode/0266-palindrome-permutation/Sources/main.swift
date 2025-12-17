@@ -14,7 +14,6 @@ class Solution
             counts[index] = counts[index] + 1
         }
         var num_odds = 0
-        var num_letters = 0
         for current_count in counts {
             if ( current_count & 1 ) != 0 {
                 num_odds += 1

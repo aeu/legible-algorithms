@@ -243,6 +243,7 @@ As of right now I am in the top 2.1% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0246-strobogrammatic-number">Leetcode &numero; 246 (Easy) &mdash; Strobogrammatic Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0257-binary-tree-paths">Leetcode &numero; 257 (Easy) &mdash; Binary Tree Paths (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0258-add-digits">Leetcode &numero; 258 (Easy) &mdash; Add Digits (Swift)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0266-palindrome-permutation">Leetcode &numero; 266 (Easy) &mdash; Palindrome Permutation (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0270-closest-binary-search-tree-value">Leetcode &numero; 270 (Easy) &mdash; Closest Binary Search Tree Value (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0283-move-zeroes">Leetcode &numero; 283 (Easy) &mdash; Move Zeroes (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0290-word-pattern">Leetcode &numero; 290 (Easy) &mdash; Word Pattern (C++)</a>  
