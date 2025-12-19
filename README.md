@@ -221,6 +221,7 @@ As of right now I am in the top 2.1% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0141-linked-list-cycle">Leetcode &numero; 141 (Easy) &mdash; Linked List Cycle (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0144-binary-tree-preorder-traversal">Leetcode &numero; 144 (Easy) &mdash; Binary Tree Preorder Traversal (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0145-binary-tree-postorder-traversal">Leetcode &numero; 145 (Easy) &mdash; Binary Tree Postorder Traversal (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0157-read-n-characters-given-read4">Leetcode &numero; 157 (Easy) &mdash; Read N characters given read4 (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0160-intersection-of-two-linked-lists">Leetcode &numero; 160 (Easy) &mdash; Intersection of Two Linked Lists (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0163-missing-ranges">Leetcode &numero; 163 (Easy) &mdash; Missing Ranges (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0169-majority-element">Leetcode &numero; 169 (Easy) &mdash; Majority Element (C++)</a>  
