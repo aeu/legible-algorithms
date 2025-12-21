@@ -163,12 +163,9 @@ get them working.
 
 People love to hate leetcode because you almost never get a leetcode
 type problem in a real job.  In my experience, that is a true
-statement.
+statement. But I also think that doing them does make you a better
+programmer.
 
-Are they good interview questions?  Not really.  Once you do a certain
-number of them they just become memorization problems.
-
-But I also think that doing them does make you a better programmer.
 Also they are very good for learning new languages, because you
 already know the task and the solution, you just don't know the
 vocabulary.
@@ -184,7 +181,7 @@ As I go over these I have to keep reminding myself that this is a good
 thing.  If I didn't look back at my code years later and see that it
 was bad, then that means that I haven't improved since I wrote it.
 
-As of right now I am in the top 2.1% of Leetcode rankings!
+As of right now I am in the top 1.9% of Leetcode global rankings!
 
 #### Easy
 
@@ -245,6 +242,7 @@ As of right now I am in the top 2.1% of Leetcode rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0257-binary-tree-paths">Leetcode &numero; 257 (Easy) &mdash; Binary Tree Paths (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0258-add-digits">Leetcode &numero; 258 (Easy) &mdash; Add Digits (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0266-palindrome-permutation">Leetcode &numero; 266 (Easy) &mdash; Palindrome Permutation (Swift)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0268-missing-number">Leetcode &numero; 268 (Easy) &mdash; Missing Number (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0270-closest-binary-search-tree-value">Leetcode &numero; 270 (Easy) &mdash; Closest Binary Search Tree Value (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0283-move-zeroes">Leetcode &numero; 283 (Easy) &mdash; Move Zeroes (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0290-word-pattern">Leetcode &numero; 290 (Easy) &mdash; Word Pattern (C++)</a>  
