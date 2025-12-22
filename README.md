@@ -307,7 +307,6 @@ As of right now I am in the top 1.9% of Leetcode global rankings!
 #### Medium
 
 
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -400,6 +399,7 @@ As of right now I am in the top 1.9% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0173-binary-search-tree-iterator">Leetcode &numero; 173 (Medium) &mdash; Binary Search Tree Iterator (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0179-largest-number">Leetcode &numero; 179 (Medium) &mdash; Largest Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0186-reverse-words-in-a-string-ii">Leetcode &numero; 186 (Medium) &mdash; Reverse Words in a String II (Swift)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0187-repeated-dna-sequences">Leetcode &numero; 187 (Medium) &mdash; Repeated DNS Sequences (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0189-rotate-array">Leetcode &numero; 189 (Medium) &mdash; Rotate Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0198-house-robber">Leetcode &numero; 198 (Medium) &mdash; House Robber (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0199-binary-tree-right-side-view">Leetcode &numero; 199 (Medium) &mdash; Binary Tree Right Side View (C++)</a>  
