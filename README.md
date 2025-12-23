@@ -306,7 +306,6 @@ As of right now I am in the top 1.9% of Leetcode global rankings!
 
 #### Medium
 
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -429,6 +428,7 @@ As of right now I am in the top 1.9% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0340-longest-substring-with-at-most-k-distinct-characters">Leetcode &numero; 340 (Medium) &mdash; Longest Substring with at most K distinct characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0347-top-k-frequent-elements">Leetcode &numero; 347 (Medium) &mdash; Top K Frequent Elements (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0348-design-tic-tac-toe">Leetcode &numero; 348 (Medium) &mdash; Design Tic-Tac-Toe (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0356-line-reflection">Leetcode &numero; 356 (Medium) &mdash; Line Reflection (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0362-design-hit-counter">Leetcode &numero; 362 (Medium) &mdash; Design Hit Counter (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0380-insert-delete-getrandom">Leetcode &numero; 380 (Medium) &mdash; Insert Delete GetRandom O(1) (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0394-decode-string">Leetcode &numero; 394 (Medium) &mdash; Decode String (C++)</a>  
