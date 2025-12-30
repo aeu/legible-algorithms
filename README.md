@@ -306,6 +306,7 @@ As of right now I am in the top 1.9% of Leetcode global rankings!
 
 #### Medium
 
+
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0002-add-two-numbers">Leetcode &numero; 2 (Medium) &mdash; Add two Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0003-longest-substring-without-repeating-characters">Leetcode &numero; 3 (Medium) &mdash; Longest Substring Without Repeating Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0005-longest-palindromic-substring">Leetcode &numero; 5 (Medium) &mdash; Longest Palindromic Substring (C++)</a>  
@@ -412,6 +413,7 @@ As of right now I am in the top 1.9% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0225-implement-stack-using-queues">Leetcode &numero; 225 (Medium) &mdash; Implement Stack Using Queue (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0230-kth-smallest-element-in-a-bst">Leetcode &numero; 230 (Medium) &mdash; Kth smallest element in a BST (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0236-lowest-common-ancestor-of-a-binary-tree">Leetcode &numero; 236 (Medium) &mdash; Lowest Commong Ancestor of a Binary Tree (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0237-delete-node-in-a-linked-list">Leetcode &numero; 237 (Medium) &mdash; Delete Node in a Linked List (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0238-product-of-array-except-self">Leetcode &numero; 238 (Medium) &mdash; Product of Array except Self (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0240-search-a-2d-matrix-ii">Leetcode &numero; 240 (Medium) &mdash; Search a 2D Matrix II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0247-strobogrammatic-number-ii">Leetcode &numero; 247 (Medium) &mdash; Strobogrammatic Number (C++)</a>  

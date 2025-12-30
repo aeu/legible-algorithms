@@ -76,7 +76,7 @@ class Solution
     
     static func main()
     {
-        print("Leetcode 0243-shortest-word-distance")
+        print("Leetcode #")
         let solution = Solution()
         Solution.TestCaseOne.run(1,   with: solution);
         Solution.TestCaseTwo.run(2 ,  with: solution);
