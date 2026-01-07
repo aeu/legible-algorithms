@@ -181,7 +181,7 @@ As I go over these I have to keep reminding myself that this is a good
 thing.  If I didn't look back at my code years later and see that it
 was bad, then that means that I haven't improved since I wrote it.
 
-As of right now I am in the top 1.9% of Leetcode global rankings!
+As of right now I am in the top 1.8% of Leetcode global rankings!
 
 #### Easy
 
