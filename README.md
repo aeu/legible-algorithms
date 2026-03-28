@@ -426,6 +426,7 @@ As of right now I am in the top 1.9% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0253-meeting-rooms-ii">Leetcode &numero; 253 (Medium) &mdash; Meeting Rooms II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0267-palindrome-parmutation-ii">Leetcode &numero; 267 (Medium) &mdash; Palindrome Permutation II (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0274-h-index">Leetcode &numero; 274 (Medium) &mdash; H-Index (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0277-find-the-celebrity">Leetcode &numero; 277 (Medium) &mdash; Find the celebrity (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0287-find-the-duplicate-number">Leetcode &numero; 287 (Medium) &mdash; Find the duplicate number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0289-game-of-life">Leetcode &numero; 289 (Medium) &mdash; Game of Life (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0298-binary-tree-longest-consecutive-sequence">Leetcode &numero; 298 (Medium) &mdash; Binary Tree Longest Consecutive Sequence (Swift)</a>  
