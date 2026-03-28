@@ -424,6 +424,7 @@ As of right now I am in the top 1.9% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0249-group-shifted-strings">Leetcode &numero; 249 (Medium) &mdash; Group Shifted Strings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0250-count-univalue-subtrees">Leetcode &numero; 250 (Medium) &mdash; Count Univalue Subtrees (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0253-meeting-rooms-ii">Leetcode &numero; 253 (Medium) &mdash; Meeting Rooms II (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0261-graph-valid-tree">Leetcode &numero; 261 (Medium) &mdash; Graph Valid Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0267-palindrome-parmutation-ii">Leetcode &numero; 267 (Medium) &mdash; Palindrome Permutation II (Swift)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0274-h-index">Leetcode &numero; 274 (Medium) &mdash; H-Index (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0277-find-the-celebrity">Leetcode &numero; 277 (Medium) &mdash; Find the celebrity (C++)</a>  
