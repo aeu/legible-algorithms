@@ -185,7 +185,6 @@ As of right now I am in the top 1.9% of Leetcode global rankings!
 
 #### Easy
 
-
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0009-palindrome-number">Leetcode &numero; 9 (Easy) &mdash; Palindrome Number (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0013-roman-to-integer">Leetcode &numero; 13 (Easy) &mdash; Roman To Integer (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0014-longest-common-prefix">Leetcode &numero; 14 (Easy) &mdash; Longest Common Prefix (C++)</a>  
@@ -258,6 +257,7 @@ As of right now I am in the top 1.9% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0401-binary-watch">Leetcode &numero; 401 (Easy) &mdash; Binary Watch (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0408-valid-word-abbreviation">Leetcode &numero; 408 (Easy) &mdash; Valid Word Abbreviation (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0409-longest-palindrome">Leetcode &numero; 409 (Easy) &mdash; Longest Palindrome (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0412-fizz-buzz">Leetcode &numero; 412 (Easy) &mdash; Fizz-Buzz (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0415-add-strings">Leetcode &numero; 415 (Easy) &mdash; Add Strings (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0463-island-perimeter">Leetcode &numero; 463 (Easy) &mdash; Island Perimeter (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0485-max-consecutive-ones">Leetcode &numero; 485 (Easy) &mdash; Max Consecutive Ones (C++)</a>  
