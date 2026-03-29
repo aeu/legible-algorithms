@@ -1,11 +1,19 @@
 ## 2352. Equal Row and Column Pairs
 
-# Problem Statement
+### Problem Statement
 Given a 0-indexed n x n integer matrix grid, return the number of pairs (ri, cj) such that row ri and column cj are equal.
 
 A row and column pair is considered equal if they contain the same elements in the same order (i.e., an equal array).
 
-# Examples 
+
+### Solution
+Use a map (or unordered map) using the individual rows and columns as
+keys and an integer as the count.  Traverse through the matrix and
+increment the count by one per hit and then aftewards count the
+matching rows.  An unordered map would be faster probably, but then
+you need to make a hash function.
+
+### Examples 
 
       Example 1:
       Input: grid = [[3,2,1],[1,7,6],[2,7,7]]
@@ -23,13 +31,13 @@ A row and column pair is considered equal if they contain the same elements in t
       - (Row 3, Column 2): [2,4,2,2]
  
 
-# Constraints:
+### Constraints:
 
       n == grid.length == grid[i].length
       1 <= n <= 200
       1 <= grid[i][j] <= 105
 
-# Output
+### Output
 
       balandra:2352-equal-row-and-column-pairs alfonso$ ./erc 
       Leetcode 2352 - Equal Row and Column Pairs

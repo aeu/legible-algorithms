@@ -255,6 +255,7 @@ As of right now I am in the top 1.7% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1929-concatenation-of-array">Leetcode &numero; 1929 (Easy) &mdash; Concatenation of Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2094-finding-3-digit-even-numbers">Leetcode &numero; 2094 (Easy) &mdash; Finding 3 Digit Even Numbers (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2119-a-number-after-a-double-reversal">Leetcode &numero; 2119 (Easy) &mdash; A Number After a Double Reversal (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2176-count-equal-and-divisible-pairs-in-an-array">Leetcode &numero; 2176 (Easy) &mdash; Count Equal and Divisible Pairs in an Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2215-find-the-difference-of-two-arrays/">Leetcode &numero; 2215 (Easy) &mdash; Find the Difference of Two Arrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2942-find-words-containing-character">Leetcode &numero; 2942 (Easy) &mdash; Find words containing character (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/3396-minimum-number-of-operations-to-make-elements-in-array-distinct">Leetcode &numero; 3396 (Easy) &mdash; Minimum Number of Operations to Make Elements in Array Distinct (C++)</a>  
@@ -497,7 +498,6 @@ As of right now I am in the top 1.7% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2095-delete-the-middle-node-of-a-linked-list">Leetcode &numero; 2095 (Medium) &mdash; Delete the Middle Node of a Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2104-sum-of-subarray-ranges">Leetcode &numero; 2104 (Medium) &mdash; Sum of Subarray Ranges (Obj-C)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2130-maximum-twin-sum-of-a-linked-list">Leetcode &numero; 2130 (Medium) &mdash; Maximum Twin Sum of a Linked List (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2176-count-equal-and-divisible-pairs-in-an-array">Leetcode &numero; 2176 (Medium) &mdash; Count Equal and Divisible Pairs in an Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2192-all-ancestors-of-a-node-in-a-directed-acyclic-graph">Leetcode &numero; 2192 (Medium) &mdash; All ancestors of a node in a directed acyclic graph (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2265-count-nodes-equal-to-average-of-subtree">Leetcode &numero; 2265 (Medium) &mdash; Count Nodes Equal to Average of Subtree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2300-successful-pairs-of-spells-and-potions">Leetcode &numero; 2300 (Medium) &mdash; Successful Pairs of Spells and Potions (C++)</a>  
