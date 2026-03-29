@@ -115,50 +115,6 @@ I made a little cheatsheet (C++) that I can pull from.
 
 ## Puzzles & Problems
 
-### Meta
-
-Puzzles and problems from the meta careers interview preparation
-portal.  These are sometimes annoying, because they often seem to be
-more word puzzles than software puzzles, but still rewarding when you
-get them working.
-
-#### Warmup
-
-#### Level 1
-
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/cafeteria">Cafeteria (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/director-of-photography">Director of Photography (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/kaitenzushi">Kaitenzushi (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/rotary-lock">Rotary Lock (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/scoreboard-inference">Scoreboard Inference (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/stack-stabilization">Stack Stabilization (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/uniform-integers">Uniform Integers (C++)</a>   
-
-#### Level 2
-
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/director-of-photography-chap-2">Director of Photography, Chapter 2 (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/portals">Portals (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/rotary-lock-chapter-2">Rotary Lock Chapter 2 (C++)</a>   
-
-#### Preparation Hub
-
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/balance-brackets">Balance Brackets (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/balanced-split">Balanced Split (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/change-in-a-foreign-currency">Change in a Foreign Currency (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/contiguous-subarrays">Contiguous Subarrays (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/counting-triangles">Counting Triangles (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/encrypted-words">Encrypted Words (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/matching-pairs">Matching Pairs (C++)</a>    
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/minimum-length-substrings">Minimum Length Substrings (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/number-of-visible-nodes">Number of Visible Nodes (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/one-billion-users">One Billion Users (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/pair-sums">Pair Sums (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/revenue-milestones">Revenue Milestones (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/reverse-to-make-equal">Reverse To Make Equal (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/rotational-cipher">Rotational Cipher (C++)</a>   
-<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/slow-sums">slow-sums (C++)</a>   
-
-
 ### Leetcode
 
 People love to hate leetcode because you almost never get a leetcode
@@ -181,7 +137,7 @@ As I go over these I have to keep reminding myself that this is a good
 thing.  If I didn't look back at my code years later and see that it
 was bad, then that means that I haven't improved since I wrote it.
 
-As of right now I am in the top 1.9% of Leetcode global rankings!
+As of right now I am in the top 1.7% of Leetcode global rankings!
 
 #### Easy
 
@@ -565,6 +521,49 @@ As of right now I am in the top 1.9% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0329-longest-increasing-path-in-a-matrix">Leetcode &numero; 329 (Hard) &mdash; Longest Increasing Path in a Matrix (C++)</a>.  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0827-making-a-large-island">Leetcode &numero; 827 (Hard) &mdash; Making a Large Island (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0987-vertical-order-traversal-of-a-binary-tree">Leetcode &numero; 987 (Hard) &mdash; Vertical Order Traversal of a Binary Tree (C++)</a>  
+
+### Meta
+
+Puzzles and problems from the meta careers interview preparation
+portal.  These are sometimes annoying, because they often seem to be
+more word puzzles than software puzzles, but still rewarding when you
+get them working.
+
+#### Warmup
+
+#### Level 1
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/cafeteria">Cafeteria (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/director-of-photography">Director of Photography (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/kaitenzushi">Kaitenzushi (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/rotary-lock">Rotary Lock (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/scoreboard-inference">Scoreboard Inference (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/stack-stabilization">Stack Stabilization (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/uniform-integers">Uniform Integers (C++)</a>   
+
+#### Level 2
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/director-of-photography-chap-2">Director of Photography, Chapter 2 (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/portals">Portals (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/rotary-lock-chapter-2">Rotary Lock Chapter 2 (C++)</a>   
+
+#### Preparation Hub
+
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/balance-brackets">Balance Brackets (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/balanced-split">Balanced Split (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/change-in-a-foreign-currency">Change in a Foreign Currency (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/contiguous-subarrays">Contiguous Subarrays (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/counting-triangles">Counting Triangles (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/encrypted-words">Encrypted Words (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/matching-pairs">Matching Pairs (C++)</a>    
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/minimum-length-substrings">Minimum Length Substrings (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/number-of-visible-nodes">Number of Visible Nodes (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/one-billion-users">One Billion Users (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/pair-sums">Pair Sums (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/revenue-milestones">Revenue Milestones (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/reverse-to-make-equal">Reverse To Make Equal (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/rotational-cipher">Rotational Cipher (C++)</a>   
+<a href="https://github.com/aeu/legible-algorithms/tree/master/meta/slow-sums">slow-sums (C++)</a>   
 
 
 ### Beyond Cracking The Coding Interview
