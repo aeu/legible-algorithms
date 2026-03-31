@@ -3,25 +3,21 @@
 # Alfonso E. Urdaneta
 # alfonso@red82.com
 #
-CC=gcc
+CC=g++
+CPPFLAGS=-g -Wall -std=c++17 -I.
 
-FRAMEWORKS:= -framework Foundation
-LIBRARIES:= -lobjc
+OBJS = ssr.o
+#	other.o
 
-SOURCE=subarraysums.m
+%.o: %.c
+	$(CC) -o $@
 
-OBJECTS = 	Ranges.o	\
-		subarraysums.o
+ssr: $(OBJS)
+	$(CC) $(CPPFLAGS) -o $@ $^
 
-CFLAGS=-g -v
-LDFLAGS=$(LIBRARIES) $(FRAMEWORKS)
-OUT=subarraysums
 
-subarraysums	: $(OBJECTS)
-	$(CC) -o subarraysums $(OBJECTS) $(LDFLAGS)
-
-Ranges.o	: Ranges.m Ranges.h
-	$(CC) -c Ranges.m
-
-clean	:
-	rm subarraysums $(OBJECTS)
+clean:
+	rm -f *.o
+	rm -f *~
+	rm -f *.*~
+	rm -f ssr
