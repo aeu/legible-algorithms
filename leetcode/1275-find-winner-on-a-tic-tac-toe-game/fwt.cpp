@@ -17,6 +17,20 @@
 #include <limits.h>
 
 
+// so what we are doing here is simplifying the tictactoe board.
+// There are 3 rows, 3 columns and two diagonals, one diagonal up and
+// another diagonal down.
+//
+// We don't actually have to track the matrix, just the sum of the
+// values on a per col and per row basis as we go.  We either add or
+// reduce by one the total for the row or column as we advance.  When
+// we are done, if the row count is 3 (or -3) then we have 3 of that
+// particular symbol, so that player won.
+//
+// For the down diagonals, if row & col are equal then they are on the
+// NW->SE diagonal.  If the row and column add up to 2, then they are
+// on the NE->SW diagonal.
+
 std::string tictactoe(std::vector<std::vector<int>>& moves)
 {
     std::string retval = "Draw";
