@@ -42,7 +42,7 @@ std::string tictactoe(std::vector<std::vector<int>>& moves)
 
     int flipper = 1;
     
-    for(const auto current_move : moves )
+    for(const auto &current_move : moves )
     {
         int row = current_move[0];
         int col = current_move[1];
