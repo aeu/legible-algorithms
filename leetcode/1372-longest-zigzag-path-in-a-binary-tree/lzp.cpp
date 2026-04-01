@@ -67,74 +67,43 @@ TreeNode *buildTree(std::vector<std::optional<int>> tree_values)
     return root;
 }
 
-int findLongestZigZagSegment(std::vector<TreeNode *> &path, int &max_zags)
-{
-    if( path.size() == 0 )
-        return 0;
-    if( path.size() == 1 )
-        return 0;
-    int zag_count = 1;
-    int last_direction = 0;
-    int next_direction;
-    
-    for(int index=0;index<path.size()-1;index++)
-    {
-        TreeNode * previous = ( index > 1 ) ? path[index-1] : nullptr;
-        TreeNode * current = path[index];
-        TreeNode * next = path[index+1];
-        
-        if( next == current->left )
-        {
-            next_direction = -1;
-        }
-        else
-        {
-            next_direction = 1;
-        }
-            
-        if( last_direction == 0 )
-        {
-            last_direction = next_direction;
-        }
-        else if( next_direction == last_direction )
-        {
-            max_zags = std::max(max_zags,zag_count);
-            zag_count = 1;
-        }
-        else
-        {
-            zag_count++;
-        }
-        last_direction = next_direction;
-    }
-    max_zags = std::max(max_zags,zag_count);
-    return max_zags;
-}
 
-
+// walk down the tree, passing down the direction we came in from.  If
+// we go down the opposite direction with the next step, increment the
+// length of the zag.  otherwise reset it to 0.
 int dfs(TreeNode * root,
-        std::vector<TreeNode *> &path,
+        int direction,
+        int zag_count,
         int &max_zags)
 {
     if( root == nullptr )
         return 0;
+    int next_zag_count;
 
-    path.push_back(root);
-    if(( root->left == nullptr ) && ( root->right == nullptr ))
-    {
-        findLongestZigZagSegment(path,max_zags);
-    }
-    dfs(root->left,path,max_zags);
-    dfs(root->right,path,max_zags);
-    path.pop_back();
+    max_zags = std::max(max_zags, zag_count);
+    next_zag_count = zag_count;
+    // we came from either the right or tree root, and are about to go
+    // left, increment zag count
+    if( ( direction == 0 ) || ( direction == 1 ) )
+        next_zag_count++;
+    dfs(root->left,-1,next_zag_count, max_zags);
+
+    next_zag_count = zag_count;
+    // we came from either the left or tree root, and are about to go
+    // right, increment zag count
+    if( ( direction == 0 ) || ( direction == -1 ) )
+        next_zag_count++;
+    dfs(root->right,1,next_zag_count, max_zags);
+
     return max_zags;
 }
 
 int longestZigZag(TreeNode * root )
 {
-    int max_zags = 0;
-    std::vector<TreeNode *> path;
-    dfs(root,path,max_zags);
+    int max_zags  = 0;
+    int direction = 0;
+    int zag_count = 0;
+    dfs(root,direction,zag_count,max_zags);
     return max_zags;
 }
 
