@@ -31,33 +31,32 @@ void dumpValues(std::vector<int> values)
 }
 
 
+// the trick here is that we know that on any diagonal in a matrix
+// (going SW<->NE ), the sum of the row and column are equal.  So we
+// walk through all the inputs and group the points by that sum, then
+// traverse them out at the end.  A map would also have worked, but
+// that would have been slower.
+
 std::vector<int> findDiagonalOrder(std::vector<std::vector<int>>& nums)
 {
-    int nrows = nums.size();
-    int ncols = 0;
-    for(const auto &crow : nums )
-    {
-        int ccols = crow.size();
-        ncols = std::max( ncols, ccols );
-    }
-    int max_index = 0;
-    std::vector<std::vector<int>> list(100001,std::vector<int>());
-    for(int row = 0; row<nrows;row++)
+    std::vector<std::vector<int>> grouped_values;
+    grouped_values.resize(1);
+    for(int row = 0; row<nums.size();row++)
     {
         for(int col = 0; col<nums[row].size();col++)
         {
             int index = row + col;
-            max_index = std::max(max_index,index);
-            list[index].push_back( nums[row][col] );
+            if( index >= grouped_values.size() )
+                grouped_values.resize(index+1);
+            grouped_values[index].push_back( nums[row][col] );
         }
     }
     std::vector<int> retval;
-    for(int lindex=0;lindex<=max_index;lindex++)
+    for(const auto &current_grouping : grouped_values )
     {
-        const std::vector<int> &values = list[lindex];
-        for(int index = values.size()-1;index>=0;index--)
+        for(int index = current_grouping.size()-1;index>=0;index--)
         {
-            auto curr = values[index]; 
+            auto curr = current_grouping[index]; 
             retval.push_back( curr );
         }
     }
