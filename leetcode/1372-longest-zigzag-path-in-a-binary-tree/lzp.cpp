@@ -86,6 +86,8 @@ int dfs(TreeNode * root,
     // left, increment zag count
     if( ( direction == 0 ) || ( direction == 1 ) )
         next_zag_count++;
+    else
+        next_zag_count = 1;
     dfs(root->left,-1,next_zag_count, max_zags);
 
     next_zag_count = zag_count;
@@ -93,6 +95,8 @@ int dfs(TreeNode * root,
     // right, increment zag count
     if( ( direction == 0 ) || ( direction == -1 ) )
         next_zag_count++;
+    else
+        next_zag_count = 1;
     dfs(root->right,1,next_zag_count, max_zags);
 
     return max_zags;
