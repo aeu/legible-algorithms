@@ -474,7 +474,7 @@ As of right now I am in the top 1.7% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1161-maximum-level-sum-of-binary-tree">Leetcode &numero; 1161 (Medium) &mdash; Maximum Level Sum of Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1209-remove-all-adjacent-duplicates-in-string-ii">Leetcode &numero; 1209 (Medium) &mdash; Remove All Adjacent Duplicates In String II (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1248-count-number-of-nice-subarrays">Leetcode &numero; 1248 (Medium) &mdash; Count Number of Nice Subarrays (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1249-minimum-remove-to-make-valid-parentheses">Leetcode &numero; 1249 (Medium) &mdash; Minimum Remove to Make Valide Parentheses (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1249-minimum-remove-to-make-valid-parentheses">Leetcode &numero; 1249 (Medium) &mdash; Minimum Remove to Make Valid Parentheses (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1275-find-winner-on-a-tic-tac-toe-game">Leetcode &numero; 1275 (Medium) &mdash; Find Winner on a Tic Tac Toe Game (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1372-longest-zigzag-path-in-a-binary-tree">Leetcode &numero; 1372 (Medium) &mdash; Longest ZigZag Path in a Binary Tree (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1396-design-underground-system">Leetcode &numero; 1396 (Medium) &mdash; Design Underground System (C++)</a>  
