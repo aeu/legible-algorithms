@@ -68,76 +68,36 @@ TreeNode *buildTree(std::vector<std::optional<int>> tree_values)
 }
 
 
-
-struct BfsInfo
-{
-    TreeNode *node;
-    int level;
-};
-
 bool isCompleteTree(TreeNode *root)
 {
     if( root == nullptr )
         return false;
 
-    std::queue<BfsInfo> bqueue;
-    bqueue.push({root,0});
-    BfsInfo prev({nullptr,0});
-    while( ! bqueue.empty() )
+    std::queue<TreeNode *> bfs_queue;
+    bfs_queue.push(root);
+    bool null_seen = false;
+    while( ! bfs_queue.empty() )
     {
-        BfsInfo curr = bqueue.front();
-        bqueue.pop();
-
-        // curr's left was null and right wasn't, returning false"
-        if(( curr.node->left == nullptr ) && (curr.node->right != nullptr ))
+        TreeNode *current_node = bfs_queue.front();
+        bfs_queue.pop();
+        if( current_node == nullptr )
         {
-            return false;
+            // if we see a null, flag that we've seen a null and continue.
+            null_seen = true;
         }
-
-        // The previous node had a level below us, so we are the first
-        // node on a new row.  So make sure that node has a left node
-        // set.
-        if((prev.node != nullptr ) && ( prev.level == curr.level - 1 ))
+        else
         {
-            // curr is first of a new row, it has a left, but the last
-            // on the previous row didn't have a right
-            if( ( curr.node->left != nullptr ) && ( prev.node->right == nullptr ))
-            {
+            // we got a node, but we've already seen a null before,
+            // that means that somewhere there's a dangling non-null
+            // node, so the tree isn't complete
+            if( null_seen )
                 return false;
-            }
-            // curr is first of a new row, but the last of the
-            // previous row had nulls for both left and right
-            if(( prev.node->left == nullptr ) && ( prev.node->right != nullptr))
-            {
-                return false;
-            }
+            // note that unlike most bfs we don't check for nulls
+            // before pushing, because the search actually depends on
+            // the nulls
+            bfs_queue.push( current_node->left );
+            bfs_queue.push( current_node->right );
         }
-
-        // if the previous node existed, and was the same level as the
-        // current node, and had a gap on the right, then this tree is
-        // not complete
-        
-        if((prev.node != nullptr ) && ( prev.level == curr.level ))
-        {
-            // the right node of the previous node at our level was null but our left isn't" << std::endl;
-            if(( prev.node->right == nullptr ) && ( prev.node->left != nullptr) && (curr.node->left != nullptr))
-            {
-                return false;
-            }
-            // curr has a left, but the previous node at our level has either a left or a right of null
-            if( ( curr.node->left != nullptr )
-                && (( prev.node->right == nullptr ) || ( prev.node->left == nullptr)))
-            {
-                return false;
-            }
-        }
-
-        
-        if( curr.node->left != nullptr )
-            bqueue.push({ curr.node->left, curr.level+1 });
-        if( curr.node->right != nullptr )
-            bqueue.push({ curr.node->right, curr.level+1 });
-        prev = curr;
     }
     return true;
 }
