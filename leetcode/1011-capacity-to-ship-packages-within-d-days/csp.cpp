@@ -67,7 +67,6 @@ int shipWithinDays(std::vector<int>& weights, int days)
         else
         {
             low = mid+1;
-            high = high * 2;
         }
     }
     return low;
