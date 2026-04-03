@@ -22,15 +22,23 @@ bool validateStackSequences(std::vector<int>& pushed,
     std::stack<int> pustack;
     int popped_index = 0;
     
+    // by definition the pushed array has to be pushed on to a stack and the popped array
+    // has to be formed by popping from the stack.  So we
+
     for(const auto &curr : pushed )
     {
+        // iterate over the pushed array and push them on to the stack.
         pustack.push(curr);
         while( ( ! pustack.empty() ) && ( pustack.top() == popped[popped_index] ))
         {
+            // if the item at the top of the stack matches the item in
+            // the popped sequence go aheand pop it, and advance to
+            // the next item in the popped sequence.
             pustack.pop();
             popped_index++;
         }
     }
+    // the push stack will only be empty if we were actually able to pop everything.
     return pustack.empty();
 }
 
