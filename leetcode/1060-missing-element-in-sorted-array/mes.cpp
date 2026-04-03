@@ -16,30 +16,6 @@
 #include <stack>
 #include <limits.h>
 
-int mmissingElement(std::vector<int>& nums, int k)
-{
-    int current = nums[0];
-    int missing = k;
-    int index = 1;
-
-    while(( missing > 0 ) && ( index < nums.size()))
-    {
-        current += 1;
-        if( current < nums[index] )
-        {
-            missing--;
-        }
-        else
-        {
-            index++;
-        }
-    }
-    if( missing > 0 )
-        current += missing;
-    return current;
-}
-
-
 void dumpValues(std::vector<int> values)
 {
     bool first = true;
@@ -61,17 +37,36 @@ int missingElement(std::vector<int>& nums, int k)
     int high = N-1;
     int mid = 0; 
 
-    int missing = nums[N - 1] - nums[0] - (N - 1);
+    // first figure out how many numbers are missing in general.
+    // Since the input is sorted, we can just subtract the first
+    // number from the last one and then subtract how many actual
+    // numbers there are.
+    // For example: Given the array [4,7,9,10] we can see that 5, 6
+    // and 8 are missing.  10 - 4 - ( 4 - 1 ) = 3.
     
-    if (k > missing )
-        return nums[N - 1] + (k - missing);
+    int missing_number_count = nums[N - 1] - nums[0] - (N - 1);
     
+    if (k > missing_number_count )
+        // we want the kth missing number, but that is higher than
+        // the number of numbers that are actually missing, so return
+        // whatever number is after the last by that many.
+        //
+        // For example: Given the array [4,7,9,10] if we ask for the
+        // 5th missing number, but we can see that 5, 6 and 8 are
+        // missing, so the 5 missing number is 2 past the last, or 12.
+        // (I think this is weird but it's what LC is asking for).
+        return nums[N - 1] + (k - missing_number_count);
+
+
+    // now do a binary search.  at each step, we calculate the number
+    // of numbers missing between the 0th element and the current mid
+    // in our binary search.
     while( low < high )
     {
         mid = low + ( high - low ) / 2;
-        missing = nums[mid] - nums[0] - mid ;
+        missing_number_count = nums[mid] - nums[0] - mid ;
 
-        if( missing >= k )
+        if( missing_number_count >= k )
         {
             high = mid;
         }
@@ -80,12 +75,20 @@ int missingElement(std::vector<int>& nums, int k)
             low = mid+1;
         }
     }
-    // at this point, we know that the missing number is after
-    // nums[low-1].  so first lets calculate how many numbers are
-    // missing between nums[0] and nums[low-1]
-
-    missing = nums[low - 1] - nums[0] - (low - 1);
-    return nums[low - 1] + k - missing;
+    // at this point, we know that the kth missing number is greater
+    // than nums[low-1] and less than or equal to nums[low], so first
+    // lets calculate how many numbers are missing between nums[0] and
+    // nums[low-1].  Then we add k to that number and subtract the
+    // amount of numbers that were missing before nums[low-1] and that
+    // will give us the actual missing number.
+    //
+    // Given the follwing
+    // [5 6 8 9 12 13], k = 2
+    // At the end of our search low would be 4
+    // so we would be returning
+    // 9 + 2 - 1 = 10
+    missing_number_count = nums[low - 1] - nums[0] - (low - 1);
+    return nums[low - 1] + k - missing_number_count;
 }
 
 int main(int argc, char **argv)
