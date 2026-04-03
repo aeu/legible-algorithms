@@ -25,22 +25,34 @@ int charToIndex(char candidate)
 
 std::string smallestSubsequence(std::string s)
 {
+
+    // first create two arrays.  one to count the occurrences of all
+    // the characters, the other to keep track of what characters are
+    // currently in the string already.
+
     std::array<int,26> counts;
     std::array<bool,26> in_stack;
     counts.fill(0);
     in_stack.fill(false);
     std::stack<char> subsequence;
+
+    // loop through and count them alll
     for(auto curr : s )
     {
         int index = charToIndex(curr);
         counts[index]++;
     }
 
+    // now go through the input string again.
     for(auto curr : s )
     {
         int index = charToIndex(curr);
         if( subsequence.size() == 0 )
         {
+            // if the subsequence is empty, push it and keep going.
+            // decrement the count (so we can keep track of how many
+            // more of that char are coming) and mark it as currently
+            // in the stack
             subsequence.push(curr);
             in_stack[index] = true;
             counts[index]--;
@@ -48,27 +60,46 @@ std::string smallestSubsequence(std::string s)
         }
         if( in_stack[index] )
         {
+            // its in the stack already, so we are presumably cool
+            // with how its in there, so decrement the count and keep
+            // going
             counts[index]--;
             continue;
         }
         auto curtop = subsequence.top();
         if( curr == curtop )
         {
+            // its the same as the one on the top of the stack, so
+            // decrement the coming count and keep goign
             counts[index]--;
             continue;
         }
+        // now for the monotonic stack
         while( ! subsequence.empty() )
         {
             auto curtop = subsequence.top();
             int top_index = charToIndex(curtop);
             if( counts[top_index] == 0 )
+                // there's no more of these characters coming, so we
+                // can't do anything.
                 break;
             if( curtop < curr )
+                // the current top one is earlier in the alphabet than
+                // the one we have in hand.  Remember we want the
+                // string to be in lexicographic order, so we want
+                // lower letters at the top of the stack
                 break;
             
+            // we made it this far, which means that the top of the stack is
+            // a letter that is
+            // 1. after the one we have in hand (like B is after A)
+            // 2. we have more of them available in the source string
+            //
+            // pop it off, and mark it as not in the stack
             subsequence.pop();
             in_stack[top_index] = false;
         }
+        // now push the one we have in hand onto the stack.
         subsequence.push(curr);
         in_stack[index] = true;
         counts[index]--;
@@ -80,6 +111,9 @@ std::string smallestSubsequence(std::string s)
         subsequence.pop();
         retval += top;
     }
+    // builld the string from the stack and reverse it.  The reason we
+    // are reversing it is because we are popping off, which would put
+    // the lower letters at the end.
     std::reverse(retval.begin(),retval.end());
     return retval;
 }
