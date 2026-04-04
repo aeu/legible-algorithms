@@ -26,9 +26,10 @@ void dumpValues(std::vector<int> vals )
 }
 
 enum Status {
-    UNVISITED = 0,
-    PROCESSING = 1,
-    KNOWN_SAFE = 2
+    UNVISITED,
+    PROCESSING,
+    KNOWN_SAFE,
+    KNOWN_UNSAFE
 };
 
 bool dfs(int current_node,
@@ -38,37 +39,44 @@ bool dfs(int current_node,
     if( graph_state[current_node] == Status::PROCESSING )
         return false;
     
+    if( graph_state[current_node] == Status::KNOWN_UNSAFE )
+        return false;
+
     if( graph_state[current_node] == Status::KNOWN_SAFE )
         return true;
 
     graph_state[current_node] = Status::PROCESSING;
-    
-    for(auto neighbour : graph[current_node] )
+
+    for(const auto neighbouring_node : graph[current_node] )
     {
-        bool safe = dfs( neighbour, graph, graph_state );
-        if( ! safe )
+        auto neighbour_was_safe = dfs( neighbouring_node, graph, graph_state );
+        if( neighbour_was_safe == false )
+        {
+            graph_state[neighbouring_node] = Status::KNOWN_UNSAFE;
             return false;
+        }
     }
     graph_state[current_node] = Status::KNOWN_SAFE;
     return true;
+
 }
 
 std::vector<int> eventualSafeNodes(std::vector<std::vector<int>>& graph)
 {
-    std::vector<int> graph_state( graph.size(), 0 );
+    int num_nodes = graph.size();
+    std::vector<int> safe_nodes;
+    std::vector<int> graph_state(num_nodes, Status::UNVISITED);
 
-    for(int index=0;index<graph.size();index++)
+    for(int current_node = 0; current_node<num_nodes;current_node++)
     {
-        dfs( index, graph, graph_state );
+        dfs(current_node,graph,graph_state);
     }
-    std::vector<int> retval;
-    for(int index=0;index<graph_state.size();index++)
+    for(int index=0;index<num_nodes;index++)
     {
         if( graph_state[index] == Status::KNOWN_SAFE )
-            retval.push_back(index);
+            safe_nodes.push_back(index);
     }
-    std::sort( retval.begin(), retval.end());
-    return retval;
+    return safe_nodes;
 }
 
 int main(int argc, char **argv)
