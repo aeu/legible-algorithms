@@ -27,7 +27,7 @@ void dumpStrings(std::vector<std::string> strings)
 }
 
 
-void backtrack(std::string s,
+void backtrack(std::string &s,
                int start,
                std::unordered_set<std::string> &seen)
 {
@@ -36,23 +36,19 @@ void backtrack(std::string s,
         seen.insert(s);
         return;
     }
-
-    for(int index=start;index<s.length();index++)
+    char curr = s[start];
+    if( std::isalpha( curr ) )
     {
-        char curr = s[index];
-        if( std::isalpha( curr ) )
-        {
-            char upper = toupper(curr);
-            char lower = tolower(curr);
-            s[index] = upper;
-            backtrack(s,index+1,seen);
-            s[index] = lower;
-            backtrack(s,index+1,seen);
-        }
-        else
-        {
-            backtrack(s,index+1,seen);
-        }
+        char upper = toupper(curr);
+        char lower = tolower(curr);
+        s[start] = upper;
+        backtrack(s,start+1,seen);
+        s[start] = lower;
+        backtrack(s,start+1,seen);
+    }
+    else
+    {
+        backtrack(s,start+1,seen);
     }
 }
 
