@@ -25,33 +25,33 @@ void dumpValues(std::vector<int> values)
     std::cout << std::endl;
 }
 
-
-bool dfs(int current_node,
-         std::vector<std::vector<int>>& graph,
-         std::vector<int> &path,
-         std::vector<std::vector<int>> &retval)
+void backtrack(int current_node,
+               std::vector<std::vector<int>>& graph,
+               std::vector<int> &path,
+               std::vector<std::vector<int>> &all_paths)
 {
-    if( current_node == graph.size() - 1 )
+    int destination = graph.size()-1;
+    if( current_node == destination )
     {
-        retval.push_back( std::vector<int>( path ));
+        all_paths.push_back(path);
         return true;
     }
-    for(auto neighbour : graph[current_node] )
+
+    for(const auto next_node : graph[current_node] )
     {
-        path.push_back( neighbour );
-        dfs(neighbour,graph,path,retval);
+        path.push_back(next_node);
+        backtrack(next_node,graph,path,all_paths);
         path.pop_back();
     }
-    return true;
 }
 
 std::vector<std::vector<int>> allPathsSourceTarget(std::vector<std::vector<int>>& graph)
 {
-    std::vector<std::vector<int>> retval;
+    std::vector<std::vector<int>> all_paths;
     std::vector<int> path;
     path.push_back(0);
-    dfs(0, graph, path, retval);
-    return retval;
+    backtrack(0, graph, path, all_paths);
+    return all_paths;
 }
 
 int main(int argc, char **argv)
