@@ -16,7 +16,7 @@
 #include <limits.h>
 
 
-std::string customSortString(const std::string order, const std::string s)
+std::string customSortString(const std::string &order, const std::string &s)
 {
     std::unordered_map<char,int> counts;
     for(const auto &curr : s )
@@ -30,23 +30,13 @@ std::string customSortString(const std::string order, const std::string s)
         if( citer != counts.end() )
         {
             int count = citer->second;
-            while(count > 0 )
-            {
-                builder.push_back(curr);
-                count--;
-            }
+            builder.append(count,curr);
             counts.erase(curr);
         }
     }
-    for(const auto &curr : counts )
+    for(const auto & [letter,count] : counts )
     {
-        char letter = curr.first;
-        int count  = curr.second;
-        while( count > 0 )
-        {
-            builder.push_back(letter);
-            count--;
-        }
+        builder.append(count,letter);
     }
     return builder;
 }
