@@ -10,3 +10,9 @@ Test case : 2 : Pass
 
 Test case : 3 : Pass
  (expected 0, got 0)
+
+Test case : 4 : Pass
+ (expected 0, got 0)
+
+Test case : 5 : Pass
+ (expected 3, got 3)

@@ -16,30 +16,62 @@
 #include <stack>
 #include <limits.h>
 
-
 int longestMountain(std::vector<int>& arr)
 {
-    int max_width = 0;
-    for(int index=1;index<arr.size()-1;index++)
+    int max_hill = 0;
+    int uphill = 0;
+    int downhill = 0;
+    bool going_down = false;
+    for(int index = 1; index < arr.size(); index++)
     {
-        if(( arr[index-1] < arr[index]) && (arr[index] > arr[index+1]))
+        if( arr[index] > arr[index-1] )
         {
-            int left = index-1;
-            int right = index+1;
-            while(( (left-1) >= 0 ) && ( arr[left-1] < arr[left] ))
+            if( going_down == true )
             {
-                left--;
+                // we were going downhill, so lets end the current
+                // hill.
+                going_down = false;
+                if( ( uphill != 0 ) && ( downhill != 0 ))
+                {
+                    max_hill = std::max((uphill + downhill + 1), max_hill);
+                }
+                downhill = 0;
+                uphill = 0;
             }
-            while(((right+1) < arr.size() ) && ( arr[right+1] < arr[right] ))
+            uphill++;
+        }
+        else if( arr[index] < arr[index-1] )
+        {
+            // we can't have a down without an up before it
+            if( uphill > 0 )
             {
-                right++;
+                going_down = true;
+                downhill++;
             }
-            int width = right - left + 1;
-            max_width = std::max( max_width, width );
-        }       
+        }
+        else
+        {
+            // we are on a plateau so whatever hill we were on (if
+            // any) just ended
+            if( ( uphill != 0 ) && ( downhill != 0 ))
+            {
+                max_hill = std::max((uphill + downhill + 1), max_hill);
+            }
+            uphill = 0;
+            downhill = 0;
+        }
     }
-    return max_width;
+    // because the loop may have anded on a downhill.
+    if( ( uphill != 0 ) && ( downhill != 0 ))
+    {
+        max_hill = std::max(( uphill + downhill + 1 ),max_hill);
+    }
+    return max_hill;
 }
+
+
+
+
 
 int main(int argc, char **argv)
 {
@@ -64,6 +96,22 @@ int main(int argc, char **argv)
     {
         std::vector<int> nums  = {2,2,2};
         int expected = 0;
+        int result = longestMountain(nums);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        std::vector<int> nums  = {7,4,8};
+        int expected = 0;
+        int result = longestMountain(nums);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+    }
+    {
+        std::vector<int> nums  = {0,2,0,2,1,2,3,4,4,1};
+        int expected = 3;
         int result = longestMountain(nums);
         std::cout << std::endl;
         std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
