@@ -55,70 +55,48 @@ void dumpList(Node *list)
 
 Node* insert(Node* head, int insertVal)
 {
-    Node *savedhead = head;
+    Node *provided = head;
+    Node *inserted = new Node(insertVal);
     if( head == nullptr )
     {
-        Node *newhead = new Node(insertVal);
-        newhead->next = newhead;
-        return newhead;
+        inserted->next = inserted;
+        return inserted;
     }
-
-    if( head->next == nullptr )
+    if( head->next == head )
     {
-        Node *newnode = new Node(insertVal);
-        head->next = newnode;
-        newnode->next = head;
-        return head;
+        head->next = inserted;
+        inserted->next = head;
+        return provided;
     }
-
-    Node *prev = head;
-    Node *curr = head->next;
     Node *transition = nullptr;
-    bool did_insert = false;
-    bool did_loop = false;
-    while(! did_insert )
+    Node *current = head;
+    for(;;)
     {
-        // store the transition from high to low for later.
-        if( prev->val > curr->val )
-            transition = prev;
-        
-        if((( prev->val <= insertVal ) && ( curr->val >= insertVal )))
+        // handle perfact case where inserted value is between
+        // the current and next
+        if(( current->val <= insertVal ) && ( current->next->val >= insertVal ))
         {
-            Node *newnode = new Node(insertVal);
-            newnode->next = curr;
-            prev->next = newnode;
-            did_insert = true;
-            continue;
+            inserted->next = current->next;
+            current->next  = inserted;
+            return provided;
         }
-        if( did_loop == true )
+        // we hit the transition.  we can tell if the next value is lower, or if the next
+        // value is the same one that was passed in (if the list only has one value in it)
+        if(( current->next->val < current->val )
+           || ( current->next == provided ))
         {
-            if( transition != nullptr )
+            // inserted is going to ebe either bigger than the last node
+            // or less than the new lowest
+            if(( insertVal >= current->val ) || ( insertVal <= current->next->val ))
             {
-                // it couldn't insert, the new node is either higher
-                // than the highest or lower than the lowest.
-                Node *newnode = new Node(insertVal);
-                newnode->next = transition->next;
-                transition->next = newnode;
-                did_insert = true;
-                continue;
+                // either way, put it in after the current and before the first
+                inserted->next = current->next;
+                current->next  = inserted;
+                return provided;
             }
-            else
-            {
-                // Or the list is all one value repeated, stick it anywhere
-                Node *newnode = new Node(insertVal);
-                newnode->next = curr;
-                prev->next = newnode;
-                did_insert = true;
-                continue;
-            }
-            
         }
-        curr = curr->next;
-        prev = prev->next;
-        if( curr == savedhead )
-            did_loop = true;
+        current = current->next;
     }
-    return savedhead;
 }
 
 
@@ -174,6 +152,23 @@ int main(int argc, char **argv)
         dumpList(thr);
         insert(thr,5);
         dumpList(thr);
+        int expected = 0;
+        int result = 0;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+    }
+    {
+        Node *a3 = new Node(3);
+        Node *b3 = new Node(3);
+        Node *c3 = new Node(3);
+
+        a3->next = b3;
+        b3->next = c3;
+        c3->next = a3;
+
+        dumpList(a3);
+        insert(a3,0);
+        dumpList(a3);
         int expected = 0;
         int result = 0;
         std::cout << std::endl;
