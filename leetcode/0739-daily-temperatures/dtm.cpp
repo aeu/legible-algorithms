@@ -17,22 +17,26 @@
 
 std::vector<int> dailyTemperatures(std::vector<int>& temperatures)
 {
-    std::vector<int> retval(temperatures.size(),0);
+    std::vector<int> answer(temperatures.size(),0);
     std::stack<int> mstack;
-    
+    int previous_warmer_index;
+
+    // loop through all the daily temperatures
     for(int index=0;index<temperatures.size();index++)
     {
-        int current = temperatures[index];
-        while(( ! mstack.empty() ) &&
-              ( current > temperatures[mstack.top()] ))
+        // the stack is temperatures that are colder than today, and
+        // for each of them, today is the next warmer day
+        while( ! mstack.empty() && temperatures[ index ] > temperatures[mstack.top()])
         {
-            int previous_index = mstack.top();
+            previous_warmer_index = mstack.top();
             mstack.pop();
-            retval[previous_index] = index - previous_index;
+            answer[previous_warmer_index] = index - previous_warmer_index;
         }
+        // push the current day on to the stack where it will wait for a
+        // future warmer day
         mstack.push(index);
     }
-    return retval;
+    return answer;
 }
 
 int main(int argc, char **argv)
