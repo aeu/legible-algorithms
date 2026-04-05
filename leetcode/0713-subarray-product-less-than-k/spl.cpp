@@ -16,33 +16,29 @@
 #include <stack>
 #include <limits.h>
 
-
 int numSubarrayProductLessThanK(std::vector<int>& nums, int k) 
 {
-    int left = 0;
-    int right = 0;
     int subarray_count = 0;
-    int product = nums[left];
-    while( left < nums.size())
+
+    for(int left=0;left<nums.size();left++)
     {
-        if( product < k )
+        int product = 1;
+        int right = left;
+        while( right < nums.size())
         {
-            subarray_count++;
-            if( right < nums.size())
+            product *= nums[right];
+            if( product < k )
+                subarray_count++;
+            else
             {
-                product *= nums[right];
-                right++;
+                break;
             }
-        }
-        else
-        {
-            product /= nums[left];
-            left++;
+            right++;
         }
     }
-
     return subarray_count;
 }
+
 
 int main(int argc, char **argv)
 {
@@ -51,6 +47,17 @@ int main(int argc, char **argv)
     {
         std::vector<int> nums  = {10,5,2,6};
         int k = 100;
+        int expected = 8;
+        int result = numSubarrayProductLessThanK(nums,k);
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
+        std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << std::endl;
+        std::cout << std::endl;
+    }
+    {
+        std::vector<int> nums  = {1,2,3};
+        int k = 0;
         int expected = 8;
         int result = numSubarrayProductLessThanK(nums,k);
         std::cout << std::endl;
