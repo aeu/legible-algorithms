@@ -19,21 +19,27 @@ std::vector<int> dailyTemperatures(std::vector<int>& temperatures)
 {
     std::vector<int> answer(temperatures.size(),0);
     std::stack<int> mstack;
-    int previous_warmer_index;
+    int colder_day_index;
 
     // loop through all the daily temperatures
     for(int index=0;index<temperatures.size();index++)
     {
-        // the stack is temperatures that are colder than today, and
-        // for each of them, today is the next warmer day
-        while( ! mstack.empty() && temperatures[ index ] > temperatures[mstack.top()])
+        // the stack is indexes to temperatures that haven't found a
+        // warmer future day yet (else they would have been popped
+        // off) for each of them, chech to see if today is their next
+        // warmer day
+        auto todays_temperature = temperatures[ index ];
+        while( ! mstack.empty() && todays_temperature  > temperatures[mstack.top()])
         {
-            previous_warmer_index = mstack.top();
+            colder_day_index = mstack.top();
             mstack.pop();
-            answer[previous_warmer_index] = index - previous_warmer_index;
+            // here we store the number of days between today
+            // and the index of the day that was colder, which is
+            // how many days you have to wait for the next warmer day
+            answer[colder_day_index] = index - colder_day_index;
         }
-        // push the current day on to the stack where it will wait for a
-        // future warmer day
+        // push the current day on to the stack, to be tested against
+        // on future days
         mstack.push(index);
     }
     return answer;
