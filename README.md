@@ -439,7 +439,7 @@ As of right now I am in the top 1.7% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0684-redundant-connection">Leetcode &numero; 684 (Medium) &mdash; Redundant Connection (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0695-max-area-of-island">Leetcode &numero; 695 (Medium) &mdash; Max Area of Island (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0708-insert-into-a-sorted-circular-linked-list">Leetcode &numero; 708 (Medium) &mdash; Insert into a sorted circular linked list (C++)</a>  
-<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0713-subarray-product-less-than-k">Leetcode &numero; 713 (Medium) &mdash; Subarray Product Less Thank K (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0713-subarray-product-less-than-k">Leetcode &numero; 713 (Medium) &mdash; Subarray Product Less Than K (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0721-accounts-merge">Leetcode &numero; 721 (Medium) &mdash; Accounts Merge (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0735-asteroid-collision">Leetcode &numero; 735 (Medium) &mdash; Asteroid Collision (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0739-daily-temperatures">Leetcode &numero; 739 (Medium) &mdash; Daily Temperature (C++)</a>  
