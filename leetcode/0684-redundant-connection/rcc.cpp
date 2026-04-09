@@ -18,6 +18,9 @@
 bool pathExists(std::unordered_map<int,std::vector<int>> &graph,
                 std::vector<int> candidate)
 {
+    // do the actual checking to see if there is a path already in the
+    // adjacency list that connecting the two nodes in question,
+    // returning true if there already is one.
     std::unordered_set<int> seen;
     std::queue<int> bfs_queue;
     bfs_queue.push(candidate[0]);
@@ -45,6 +48,12 @@ bool pathExists(std::unordered_map<int,std::vector<int>> &graph,
 
 std::vector<int> findRedundantConnection(std::vector<std::vector<int>>& edges)
 {
+    // the key insight here is that we are walking through
+    // the connection list and adding the new connections
+    // as we go, with the caveat being that before we add
+    // any new connection, we first make sure that the
+    // connection isn't there already.  If it is, then
+    // its the redundant node.
     std::vector<int> retval;
     std::unordered_map<int,std::vector<int>> graph;
     for(auto current : edges )
