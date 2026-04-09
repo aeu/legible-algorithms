@@ -19,11 +19,16 @@ int maximumSwap(int num)
 {
     std::map<char,int> last_seen;
     std::string snum = std::to_string(num);
+    // first we walk through all the digits in the number and record
+    // the last index that every number was seen at.
     for(int index=0;index<snum.length();index++)
     {
         auto curr = snum[index];
         last_seen[curr] = index;
     }
+    // then we walk through the chars and for each one we check to see
+    // if theres a later occurrence of a higher number.  If there is,
+    // then swap them.
     std::string candidates = "987654321";
     for(int index=0;index<snum.length();index++)
     {

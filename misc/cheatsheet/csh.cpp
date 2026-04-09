@@ -110,9 +110,9 @@ ListNode* reverseList(ListNode* head)
     while( curr != nullptr )
     {
         ListNode *ntemp = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = ntemp;
+        curr->next      = prev;
+        prev            = curr;
+        curr            = ntemp;
     }
     return prev;
 }
