@@ -16,34 +16,42 @@
 #include <stack>
 #include <limits.h>
 
-int dfs(std::unordered_map<int, std::unordered_map<int,int>> &memo,
-        std::vector<int>& nums,
-        int target,
-        int total,
-        int index)
+int backtrack(std::map<std::pair<int,int>,int> &memo,
+              std::vector<int>& nums,
+              int target,
+              int running_total,
+              int index)
 {
+    // first check to see if we have used every number in the input array.
     if( index == nums.size() )
     {
-        if( total == target )
+        // and then check to see if the running total is the goal
+        if( running_total == target )
+            // it was, return 1 (as this is one path to that goal)
             return 1;
+        // return 0
         return 0;
     }
 
-    if( memo.count(index) && memo[index].count(total) )
-        return memo[index][total];
-
+    auto miter = memo.find({ index,running_total} );
+    if( miter != memo.end() )
+        return miter->second;
     
-    int plus  = dfs(memo,nums,target,total+nums[index],index+1);
-    int minus = dfs(memo,nums,target,total-nums[index],index+1);
+    // grab the next number in the sequence.  since we can either add or subtract it
+    // for the next step, do both.
+    int next_number = nums[index];
+    int plus  = backtrack(memo, nums, target, running_total + next_number, index+1);
+    int minus = backtrack(memo, nums, target, running_total - next_number, index+1);
     int num_ways = plus + minus;
-    memo[index][total] = num_ways;
+    // store our current result in the memo table
+    memo[{index,running_total}] = num_ways;
     return num_ways;
 }
 
 int findTargetSumWays(std::vector<int>& nums, int target)
 {
-    std::unordered_map<int, std::unordered_map<int,int>> memo;
-    int count = dfs(memo,nums,target,0,0);
+    std::map<std::pair<int,int>,int> memo;
+    int count = backtrack(memo,nums,target,0,0);
     return count;
 }
 
