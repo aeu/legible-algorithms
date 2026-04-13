@@ -20,9 +20,18 @@
 bool checkSubarraySum(std::vector<int> &nums, int k )
 {
     std::unordered_map<int,int> prefix_sums;
+    prefix_sums[0] = -1;
     int running_sum = 0;
     for(int index = 0; index < nums.size(); index++)
     {
+        // check for the edge case that k = 0, which will be
+        // satisfied by any two consecutive 0s.
+        if( k == 0 && index > 0 )
+        {
+            if( ( nums[index] == 0 ) && ( nums[index-1] == 0 ))
+                return true;
+        }
+
         // calculate the running sum as we process each number.  each
         // step of the way we calculate the mod with k, and then
         // search in the prefix sums to see if that is in there
@@ -75,7 +84,7 @@ int main(int argc, char **argv)
         std::cout << std::endl;
     }
     {
-        std::vector<int> nums  = {23,2,4,6,7};
+        std::vector<int> nums  = {23,2,6,4,7};
         int k = 13;
         bool expected = false;
         bool result = checkSubarraySum(nums,k);
