@@ -18,63 +18,38 @@
 
 class MyCircularQueue {
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode *prev;
-    ListNode() : val(0), next(nullptr),prev(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr),prev(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next),prev(nullptr) {}
-};
-
-
-
 public:
-    int capacity;
-    int current;
-    ListNode *front;
-    ListNode *rear;
+    std::vector<int> data;
+    int head;
+    int tail;
+    int size;
+
     MyCircularQueue(int k)
     {
-        capacity = k;
-        current = 0;
-        front = nullptr;
-        rear = nullptr;
+        data.resize(k);
+        head = 0;
+        tail = 0;
+        size = 0;
     }
     
     bool enQueue(int value)
     {
-        if( current >= capacity )
-            return false;
-        ListNode *newval = new ListNode(value);
-        if( current == 0 )
+        if( size < data.size() )
         {
-            rear = newval;
-            front = newval;
+            data[tail] = value;
+            tail = ( tail + 1 ) % data.size();
+            size++;
+            return true;
         }
-        else
-        {
-            rear->prev = newval;
-            newval->next = rear;
-            rear = newval;
-        }
-        current++;
-        return true;
+        return false;
     }
     
     bool deQueue()
     {
-        if( current > 1 )
+        if( size > 0 )
         {
-            front = front->prev;
-            current--;
-            return true;
-        }
-        else if( current == 1 )
-        {
-            front = nullptr;
-            rear = nullptr;
-            current--;
+            head = ( head + 1 ) % data.size();
+            size--;
             return true;
         }
         return false;
@@ -82,23 +57,28 @@ public:
     
     int Front()
     {
-        if( current > 0 )
-            return front->val;
-        return -1;
+        if( size == 0 )
+            return -1;
+        return data[head];
     }
     
     int Rear() {
-        if( current > 0 )
-            return rear->val;
-        return -1;
+        if( size == 0 )
+            return -1;
+        int rear_index =  ( tail - 1 + data.size() ) % data.size(); 
+        return data[rear_index];
     }
     
     bool isEmpty() {
-        return (current == 0);
+        if( size == 0 )
+            return true;
+        return false;
     }
     
     bool isFull() {
-        return ( current == capacity );
+        if( size == data.size() )
+            return true;
+        return false;
     }
 };
 
