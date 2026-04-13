@@ -35,13 +35,14 @@ int findMaxLength(std::vector<int>& nums)
         if( psiter == prefix_sums.end() )
             prefix_sums[running_sum] = index;
 
-        // what prefix sum would need to exist to allow the current
-        // sum to be 0 ?  (equal # of 1s and 0s )
-        // see if its already been found
+        // Now we look for a prefix sum that is the same as the
+        // current sum.  The reason we are doing that is because if
+        // the prefix sum is the same as the current sum, then
+        // everything in between would add up to 0.
         psiter = prefix_sums.find(running_sum);
         if( psiter != prefix_sums.end() )
         {
-            // which means our current subarray size is...
+            // update the max as needed
             int current_size = index - psiter->second;
             max_size = std::max(current_size, max_size);
         }

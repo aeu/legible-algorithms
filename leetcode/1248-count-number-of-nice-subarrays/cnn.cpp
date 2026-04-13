@@ -15,6 +15,10 @@
 #include <stack>
 #include <limits.h>
 
+// here we have converted it to a prefix sum problem.  Odd numbers
+// become 1 and even numbers become 0.  Therefore any array with (for
+// example) 3 odd numbers in it would have a sum of 3.
+
 int numberOfSubarrays(std::vector<int>& nums, int k)
 {
     std::unordered_map<int,int> psums;
