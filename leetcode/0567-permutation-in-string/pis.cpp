@@ -21,7 +21,9 @@ bool checkInclusion(std::string s1, std::string s2)
 {
     std::vector<int> s1_dist(26,0);
     std::vector<int> s2_dist(26,0);
-    
+
+    // first get the character distribution of s1
+
     for(const char curr : s1 )
     {
         int index = curr - 'a';
@@ -32,11 +34,16 @@ bool checkInclusion(std::string s1, std::string s2)
     int tail = 0;
     while( head < s2.length() )
     {
+        // now do a sliding window.  advance the head and keep track
+        // of the distribution of the sliding window.  if they match,
+        // then return true
         char curr = s2[head];
         int index = curr - 'a';
         s2_dist[index]++;
         if(( head - tail + 1) > s1len )
         {
+            // sliding window is too large, so remove the tail char
+            // from the sliding window
             char tchar = s2[tail];
             int index = tchar - 'a';
             s2_dist[index]--;
