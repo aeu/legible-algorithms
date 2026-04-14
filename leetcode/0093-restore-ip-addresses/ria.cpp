@@ -1,3 +1,25 @@
+// -*- Mode: c++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; -*-
+//
+//  red82 // software
+//
+//  This software may not be used or reproduced, in whole or in part,
+//  without the express written permission of red82
+
+
+
+#include <iomanip>
+#include <iostream>
+#include <limits.h>
+#include <map>
+#include <optional>
+#include <queue>
+#include <stack>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
+
+
 bool isValidIp(const std::string candidate)
 {
     if( candidate.length() <= 0 )
@@ -49,14 +71,18 @@ void backtrace(int start_index,
         }
     }
 
-    for(int index=start_index;index<s.length();index++)
-    {
-        std::string curr = s.substr(start_index,index-start_index+1);
 
-        if(isValidIp(curr ))
+    for (int len = 1; len <= 3; len++)
+    {
+        if (start_index + len > s.length())
+            break;
+        
+        std::string curr = s.substr(start_index, len);
+        
+        if (isValidIp(curr))
         {
             solution.push_back(curr);
-            backtrace(index+1,s,solution,retval);
+            backtrace(start_index + len, s, solution, retval);
             solution.pop_back();
         }
     }
