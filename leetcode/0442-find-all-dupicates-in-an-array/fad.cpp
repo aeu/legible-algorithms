@@ -17,7 +17,8 @@
 #include <limits.h>
 
 // the clue here is that you have to use constant space, which means
-// you have to use the input data itself to store data in as you go.
+// you have to use the input data itself to store data in as you go,
+// and also the values are from 1 to N and there's also N elements.
 // the "at most twice" means that there's two stages for every
 // inteteger.  seen once, and then seen a second time.  this means you
 // can use the sign to store progress.
@@ -27,14 +28,20 @@ std::vector<int> findDuplicates(std::vector<int>& nums)
     std::vector<int> retval;
     for(auto curr : nums )
     {
+        // get the absolute value of the current value (because it may be
+        // negative as we are using it to count
         int val = abs(curr);
+        // use it to calculate an index into the arrary
         int index = val - 1;
         if( nums[index] < 0 )
         {
+            // if the value at that index is negative, then we already saw this
+            // number once, so push it back on to the list
             retval.push_back( val );
         }
         else
         {
+            // make it negative (first time seeing it) and keep going
             nums[index] *= -1;
         }
     }
