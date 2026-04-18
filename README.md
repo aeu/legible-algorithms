@@ -470,6 +470,7 @@ As of right now I am in the top 1.7% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0994-rotting-oranges">Leetcode &numero; 994 (Medium) &mdash; Rotting Oranges (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1004-max-consecutive-ones-iii">Leetcode &numero; 1004 (Medium) &mdash; Max Consecutive Ones III (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1011-capacity-to-ship-packages-within-d-days">Leetcode &numero; 1011 (Medium) &mdash; Capacity to Ship Packages Within D Days (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1019-next-greater-node-in-linked-list">Leetcode &numero; 1019 (Medium) &mdash; Next Greater Node in Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1060-missing-element-in-sorted-array">Leetcode &numero; 1060 (Medium) &mdash; Missing Element in Sorted Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1081-smallest-subsequence-of-distinct-characters">Leetcode &numero; 1081 (Medium) &mdash; Smallest Subsequence of Distinct Characters (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1091-shortest-path-in-binary-matrix">Leetcode &numero; 1091 (Medium) &mdash; Shortest Path in Binary Matrix (C++)</a>  
