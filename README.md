@@ -504,6 +504,7 @@ As of right now I am in the top 1.7% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2130-maximum-twin-sum-of-a-linked-list">Leetcode &numero; 2130 (Medium) &mdash; Maximum Twin Sum of a Linked List (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2192-all-ancestors-of-a-node-in-a-directed-acyclic-graph">Leetcode &numero; 2192 (Medium) &mdash; All ancestors of a node in a directed acyclic graph (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2265-count-nodes-equal-to-average-of-subtree">Leetcode &numero; 2265 (Medium) &mdash; Count Nodes Equal to Average of Subtree (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2865-beautiful-towers-i">Leetcode &numero; 2865 (Medium) &mdash; Beautiful Towers I (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2300-successful-pairs-of-spells-and-potions">Leetcode &numero; 2300 (Medium) &mdash; Successful Pairs of Spells and Potions (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2336-smallest-number-in-infinite-set">Leetcode &numero; 2336 (Medium) &mdash; Smallets Number in an Infinite Set (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/2352-equal-row-and-column-pairs">Leetcode &numero; 2352 (Medium) &mdash; Equal Row and Column Pairs (C++)</a>  
