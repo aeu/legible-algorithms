@@ -82,12 +82,18 @@ std::vector<int> rightSideView(TreeNode *tree)
     std::queue<BfsInfo> bqueue;
     std::map<int,int> view;
     bqueue.push( { 0, tree } );
-    // int last_at_depth = tree->value();
-    // int current_depth = 0;
+    // setup a bfs traversal of the tree.  Our info struct has the
+    // current depth as well as the node.
     while( ! bqueue.empty() )
     {
         BfsInfo curr = bqueue.front();
         bqueue.pop();
+        // every node we process, we set it's current value into the
+        // map that is indexed by depth.  Since we are traversing left
+        // to right what this means is that we will alwys replace what
+        // is currently there with the next node on the right, meanign
+        // when we are done we are goign to have the right side of the
+        // tree.
         view[ curr.depth ] = curr.node->val ;
         if( curr.node->left != nullptr )
         {
