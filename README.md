@@ -399,6 +399,7 @@ As of right now I am in the top 1.7% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0347-top-k-frequent-elements">Leetcode &numero; 347 (Medium) &mdash; Top K Frequent Elements (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0348-design-tic-tac-toe">Leetcode &numero; 348 (Medium) &mdash; Design Tic-Tac-Toe (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0356-line-reflection">Leetcode &numero; 356 (Medium) &mdash; Line Reflection (Swift)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0360-sort-transformed-array">Leetcode &numero; 360 (Medium) &mdash; Sort Transformed Array (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0362-design-hit-counter">Leetcode &numero; 362 (Medium) &mdash; Design Hit Counter (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0380-insert-delete-getrandom">Leetcode &numero; 380 (Medium) &mdash; Insert Delete GetRandom O(1) (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0394-decode-string">Leetcode &numero; 394 (Medium) &mdash; Decode String (C++)</a>  
