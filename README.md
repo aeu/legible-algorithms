@@ -405,6 +405,7 @@ As of right now I am in the top 1.7% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0394-decode-string">Leetcode &numero; 394 (Medium) &mdash; Decode String (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0398-random-pick-index">Leetcode &numero; 398 (Medium) &mdash; Random Pick Index (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0399-evaluate-division">Leetcode &numero; 399 (Medium) &mdash; Evaluate Division (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0402-remove-k-digits">Leetcode &numero; 402 (Medium) &mdash; Remove K Digits (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0406-queue-reconstruction-by-height">Leetcode &numero; 406 (Medium) &mdash; Queue Reconstruction by Height (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0417-pacific-island-water-flow">Leetcode &numero; 417 (Medium) &mdash; Pacific Island Water Flow (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0424-longest-repeating-character-replacement">Leetcode &numero; 424 (Medium) &mdash; Longest Repeating Character Replacement (C++)</a>  
