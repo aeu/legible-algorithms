@@ -463,6 +463,7 @@ As of right now I am in the top 1.7% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0934-shortest-bridge">Leetcode &numero; 934 (Medium) &mdash; Shortest Bridge (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0946-validate-stack-sequences">Leetcode &numero; 946 (Medium) &mdash; Validate Stack Sequences (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0958-check-completeness-of-a-binary-tree">Leetcode &numero; 958 (Medium) &mdash; Check completeness of a Binary Tree (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0962-maximum-width-ramp">Leetcode &numero; 962 (Medium) &mdash; Maximum Width Ramp (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0973-k-closest-points-to-origin">Leetcode &numero; 973 (Medium) &mdash; K closest points to origin (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0974-subarray-sums-divisible-by-k">Leetcode &numero; 974 (Medium) &mdash; Subarray Sums Divisible by K (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/0981-time-based-key-value-store">Leetcode &numero; 981 (Medium) &mdash; Time Based Key Value Store (C++)</a>  
