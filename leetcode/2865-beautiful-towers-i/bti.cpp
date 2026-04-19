@@ -17,31 +17,29 @@
 #include <stack>
 #include <limits.h>
 
-
 long long maximumSumOfHeights(std::vector<int>& heights)
 {
     long long max_total = 0;
     for(int index=0;index<heights.size();index++)
     {
-        int max_index = index;
-        std::vector<int> inner_heights = heights;
-        long long total = 0;
-        int left = max_index - 1;
-        int right = max_index + 1;
+        long long total = heights[index];
+        int cap         = heights[index];
+        int left        = index - 1;
+        int right       = index + 1;
+
         while( left >= 0 )
         {
-            if( inner_heights[left] > inner_heights[left+1] )
-                inner_heights[left] = inner_heights[left+1];
+            cap = std::min(cap,heights[left]);
+            total += cap;
             left--;
         }
-        while( right < inner_heights.size())
+        cap         = heights[index];
+        while( right < heights.size())
         {
-            if( inner_heights[right] > inner_heights[right-1] )
-                inner_heights[right] = inner_heights[right-1];
+            cap = std::min(cap,heights[right]);
+            total += cap;
             right++;
         }
-        for( const auto curr : inner_heights )
-            total += curr;
         max_total = std::max(total, max_total);
     }
     return max_total;
