@@ -4,7 +4,7 @@
 # alfonso@red82.com
 #
 CC=g++
-CPPFLAGS=-g -Wall -std=c++17 -I.
+CPPFLAGS=-g -Wall -std=c++20 -I.
 
 OBJS = msm.o
 #	other.o
