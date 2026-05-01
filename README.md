@@ -498,6 +498,7 @@ As of right now I am in the top 1.7% of Leetcode global rankings!
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1657-determine-if-two-strings-are-close">Leetcode &numero; 1657 (Medium) &mdash; Determine if two strings are close (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1679-max-number-of-k-sum-pairs">Leetcode &numero; 1679 (Medium) &mdash; Max Numbef of K-Sum Pairs(C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1762-buildings-with-an-ocean-view">Leetcode &numero; 1762 (Medium) &mdash; Buildings with an Ocean View (C++)</a>  
+<a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1856-maximum-subarray-min-product">Leetcode &numero; 1856 (Medium) &mdash; Maximum Subarray Min Product (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1868-product-of-two-run-length-encoded-arrays">Leetcode &numero; 1868 (Medium) &mdash; Product of Two Run Length Encoded Arrays (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1891-cutting-ribbons">Leetcode &numero; 1891 (Medium) &mdash; Cutting Ribbons (C++)</a>  
 <a href="https://github.com/aeu/legible-algorithms/tree/master/leetcode/1926-nearest-exit-from-entrance-in-maze">Leetcode &numero; 1926 (Medium) &mdash; Nearest Exit From Entrance In Maze (C++)</a>  

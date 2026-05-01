@@ -52,10 +52,8 @@ void dumpSpan(std::span<int> &values)
 int maxSumMinProduct(std::vector<int> &nums )
 {
     std::vector<int> lessers_left(nums.size(),-1);
-    std::vector<int> lessers_right(nums.size(),-1);
+    std::vector<int> lessers_right(nums.size(),nums.size());
 
-    dumpValues(nums);
-    
     std::stack<int> monostack;
     for(int index=0;index<nums.size();index++)
     {
@@ -65,7 +63,6 @@ int maxSumMinProduct(std::vector<int> &nums )
         lessers_left[index] = monostack.empty() ? -1 : monostack.top();
         monostack.push(index);
     }
-    dumpValues(lessers_left);
 
     while( ! monostack.empty() )
         monostack.pop();
@@ -74,35 +71,30 @@ int maxSumMinProduct(std::vector<int> &nums )
     {
         while(( ! monostack.empty()) && ( nums[monostack.top()] >= nums[index]  ))
             monostack.pop();
-        lessers_right[index] = monostack.empty() ? -1 : monostack.top();
+        lessers_right[index] = monostack.empty() ? nums.size() : monostack.top();
         monostack.push(index);
     }
-    dumpValues(lessers_right);
+
+    std::vector<long long> prefix_sums(nums.size()+1,0);
+    for(int index=0;index<nums.size();index++)
+        prefix_sums[index+1] = nums[index] + prefix_sums[index];
 
     int start;
     int end;
+    long long max = INT_MIN;
     for(int index=0;index<nums.size();index++)
     {
-        std::cout << nums[index] << std::endl;
         if( lessers_left[index] == -1 )
             start = 0;
         else
             start = lessers_left[index] + 1;
 
-        // if( start > index )
-        //     start = index;
-
-        if( lessers_right[index] == -1 )
-            end = nums.size();
-        else
-            end = lessers_right[index];
-
-        std::span<int> span( nums.begin()+start, nums.begin()+end);
-        std::cout << "\tis the lowest in the subarray : " ;
-        dumpSpan(span);
+        end = lessers_right[index];
+        long long sum = prefix_sums[end] - prefix_sums[start];
+        long long curmax = nums[index] * sum;
+        max = std::max(max,curmax);
     }
-
-    return 14;
+    return max % 1000000007;
 
 }
 
@@ -120,7 +112,6 @@ int main(int argc, char **argv)
         std::cout << std::endl;
         std::cout << std::endl;
     }
-    return 0;
     {
         std::vector<int> nums  = {2,3,3,1,2};
         int expected = 18;
