@@ -25,11 +25,6 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-ListNode *removeNodes(ListNode *head)
-{
-    
-}
-
 void dumpVector(std::vector<int> nums)
 {
     std::cout << "[" ;
@@ -53,28 +48,137 @@ void testRemoveNodes(std::vector<int> nums)
     std::stack<int> gstack;
     for(int index=nums.size()-1;index>=0;index--)
     {
-        while(( ! gstack.empty() ) && ( nums[gstack.top()] > nums[index]))
+        while(( ! gstack.empty() ) && ( nums[gstack.top()] <= nums[index]))
         {
-            greaters[index] = gstack.top();
             gstack.pop();
         }
+
+        if( ! gstack.empty() )
+            greaters[index] = gstack.top();
+
         gstack.push(index);
     }
     dumpVector(greaters);
 }
+
+
+void dumpList(ListNode *list)
+{
+    ListNode *curr = list;
+    ListNode *original = list;
+    ListNode *slow = list;
+    int flipper = 0;
+    
+    while(curr != nullptr )
+    {
+        std::cout << curr->val;
+        if( curr->next != nullptr )
+            std::cout << " -> ";
+        curr = curr->next;
+        if( flipper % 2 )
+        {
+            slow = slow->next;
+        }
+        if( curr == slow )
+        {
+            std::cout << "endless loop, breaking" << std::endl;
+            break;
+        }
+        flipper++;
+    }
+    std::cout << std::endl;
+}
+
+
+ListNode *removeNodes(ListNode *head)
+{
+    std::vector<int> nums;
+    ListNode *curr = head;
+    while( curr )
+    {
+        nums.push_back(curr->val);
+        curr = curr->next;
+    }
+    std::vector<int> greaters( nums.size(), -1 );
+    std::stack<int> gstack;
+    for(int index=nums.size()-1;index>=0;index--)
+    {
+        while(( ! gstack.empty() ) && ( nums[gstack.top()] <= nums[index]))
+        {
+            gstack.pop();
+        }
+
+        if( ! gstack.empty() )
+            greaters[index] = gstack.top();
+
+        gstack.push(index);
+    }
+
+    ListNode *nroot = new ListNode(0,head);
+    ListNode *prev = nroot;
+    curr = head;
+    for(int index=0;index<greaters.size();index++)
+    {
+        // there's a greater node subsequent to what we are currently at.
+        if( greaters[index] != -1 )
+        {
+            // skip us
+            prev->next = curr->next;
+        }
+        else
+        {
+            prev = prev->next;
+        }
+        curr = curr->next;
+    }
+    return nroot->next;
+}
+
+
 
 int main(int argc, char **argv)
 {
     std::cout << std::endl << "2487-remove-nodes-from-linked-list" << std::endl << std::endl;
     int test_case = 1;
     {
-        std::vector<int> nums  = {5,2,13,3,8};
-        testRemoveNodes(nums);
+        ListNode *five = new ListNode(5);
+        ListNode *two = new ListNode(2);
+        ListNode *thir = new ListNode(13);
+        ListNode *thr = new ListNode(3);
+        ListNode *eigh = new ListNode(8);
+
+        five->next = two;
+        two->next = thir;
+        thir->next = thr;
+        thr->next = eigh;
+
         int expected = 0;
         int result = 0;
         std::cout << std::endl;
-        std::cout << "Test case : " << test_case++ << " : " << (expected == result ? "Pass" : "Fail")  << std::endl;
-        std::cout << " (expected " << expected << ", got " << result << ")\n";
+        std::cout << "Test case : " << test_case++ << std::endl;
+        dumpList(five);
+        ListNode *newlist = removeNodes(five);
+        dumpList(newlist);
+        std::cout << std::endl;
+        std::cout << std::endl;
+    }
+    {
+        ListNode *five = new ListNode(1);
+        ListNode *two = new ListNode(1);
+        ListNode *thir = new ListNode(1);
+        ListNode *thr = new ListNode(1);
+
+        five->next = two;
+        two->next = thir;
+        thir->next = thr;
+
+        int expected = 0;
+        int result = 0;
+        std::cout << std::endl;
+        std::cout << "Test case : " << test_case++ << std::endl;
+        dumpList(five);
+        ListNode *newlist = removeNodes(five);
+        dumpList(newlist);
         std::cout << std::endl;
         std::cout << std::endl;
     }
